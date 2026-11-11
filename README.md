@@ -136,6 +136,34 @@ run's live log on GitHub (search for `PROGRESS`).
 
 `raw/`, `data/` and `.env` are git-ignored: the key and the database never leave this machine.
 
+### Charities and registered societies
+
+Some schemes' employers aren't on Companies House at all: charitable incorporated organisations, trusts, church
+bodies, colleges, co-ops, friendly and building societies, housing associations. `run.py charities-download` fetches
+three free registers into `raw/charities/`:
+
+- the Charity Commission's full register extract (England and Wales), with Part B of the annual return;
+- the Scottish Charity Regulator's register download;
+- the FCA Mutuals Public Register society list.
+
+`run.py charities` matches every scheme without a Companies House sponsor to them by name. A match is accepted when
+the name is unique (two words or more), the scheme postcode agrees, or one body of that name is the only active one
+or has 10× the income of the others. Accepted matches fill `schemes.charity_source`, `charity_number`,
+`charity_name`, `charity_match_confidence` and `charity_active`. They never replace a Companies House sponsor.
+Everything found, accepted or not, is in `charity_matches`; doubtful ones go to `data/charity_review.csv`.
+
+For larger charities in England and Wales, Part B of the annual return includes the net defined benefit pension
+balance; it's copied to `charity_db_pension` (negative = deficit) with `charity_fy_end`. It's the net figure only,
+not obligation and assets.
+
+`run.py charity-accounts` reads the latest accounts of every active matched body without that figure (charities with
+income of £1m or more, Scottish charities, registered societies): from Companies House when the charity is also a
+company, otherwise the PDF from the Charity Commission register page, OSCR's published accounts or the FCA Mutuals
+register's "Annual Returns and Accounts" documents. One request a second; text is cached in `raw/charities/accounts/`.
+Results are in `charity_accounts`; figures go to `charity_db_obligation`, `charity_db_assets` and
+`charity_db_pension` (assets minus obligation), checked like sponsors' figures (`charity_db_check`), with
+`charity_db_source` = `annual_return` or `accounts`.
+
 ### From parent companies (group level)
 
 Many named sponsors are dormant, small or exempt subsidiaries, or take part in a group scheme and report it as DC,

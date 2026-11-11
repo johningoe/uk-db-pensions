@@ -35,6 +35,12 @@ def write(con):
     high = q("SELECT count(*) FROM schemes WHERE match_confidence >= 0.85 AND needs_review = 0")
     review = q("SELECT count(*) FROM schemes WHERE needs_review = 1")
     sponsors = q("SELECT count(*) FROM sponsors")
+    has_charity = "charity_number" in {r[1] for r in con.execute("PRAGMA table_info(schemes)")}
+    charity_n = q("SELECT count(*) FROM schemes WHERE charity_number IS NOT NULL") if has_charity else 0
+    charity_db = q("SELECT count(*) FROM schemes WHERE charity_db_source = 'annual_return'") if has_charity else 0
+    has_acc = "charity_db_source" in {r[1] for r in con.execute("PRAGMA table_info(schemes)")}
+    charity_acc = q("""SELECT count(*) FROM schemes WHERE charity_db_source = 'accounts'
+                       AND coalesce(charity_db_check, 'ok') NOT LIKE 'flag%'""") if has_acc else 0
     with_db = q("SELECT count(*) FROM sponsors WHERE db_period_end IS NOT NULL")
     schemes_db = q("""SELECT count(*) FROM schemes s JOIN sponsors sp ON sp.company_number = s.sponsor_company_number
                       WHERE sp.db_period_end IS NOT NULL""")
@@ -64,6 +70,9 @@ def write(con):
         f"{_pct(q("""SELECT count(*) FROM schemes s JOIN sponsors sp ON sp.company_number = s.sponsor_company_number
                      WHERE sp.db_period_end IS NOT NULL OR sp.group_db_company_number IS NOT NULL"""), total)} |",
         f"| Schemes in `v_live_db_hybrid` (likely live, not DC-named) | {live_view:,} |",
+        f"| Schemes without a CH sponsor matched to a charity or registered society | {charity_n:,} |",
+        f"| ...of which with a DB pension figure from the Charity Commission annual return | {charity_db:,} |",
+        f"| ...of which with DB figures read from their accounts | {charity_acc:,} |",
         "", f"Accounts archives processed: {len(months)} ({n_filings:,} sponsor filings parsed)", "",
         "## Match methods", "", "| Method | Schemes | Avg confidence | Needs review |", "|---|---|---|---|",
     ]

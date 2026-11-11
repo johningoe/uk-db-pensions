@@ -145,9 +145,10 @@ def _ocr_vision(page):
                      for ln in lines if ln)
 
 
-def page_texts(num, item, data, kind="pdf", max_pages=MAX_PAGES):
+def page_texts(num, item, data, kind="pdf", max_pages=MAX_PAGES, cache_dir=None):
     """[(page_no, text)], text source. Cached as one file per filing with form feeds between pages."""
-    cache = PDF_DIR / f"{num}_{item['date']}.txt"
+    cache_dir = cache_dir or PDF_DIR
+    cache = cache_dir / f"{num}_{item['date']}.txt"
     if cache.exists():
         raw = cache.read_text()
         src, _, body = raw.partition("\n")
@@ -173,7 +174,7 @@ def page_texts(num, item, data, kind="pdf", max_pages=MAX_PAGES):
         texts, src = [_ocr_page(doc[i]) for i in range(n)], "ocr"
     cache.write_text(src + "\n" + "\f".join(texts))
     if KEEP_PDFS is False:
-        (PDF_DIR / f"{num}_{item['date']}.pdf").unlink(missing_ok=True)   # the text is all we use; saves ~4 MB each
+        (cache_dir / f"{num}_{item['date']}.pdf").unlink(missing_ok=True)   # the text is all we use; saves ~4 MB each
     return list(enumerate(texts)), src
 
 
@@ -242,7 +243,9 @@ def _first_amount(s):
                 continue                        # a note reference before the real (comma-grouped) amounts
         after = s[m.end():m.end() + 2].lower()
         unit = ("1" if groups >= 2 else "m" if after.startswith(("m", " m")) or ("." in bare and not groups)
-                else "000" if after.startswith(("k", " k")) else None)
+                else "000" if after.startswith(("k", " k"))
+                else "1" if groups and re.search(r"[£€]\s?$", s[max(0, m.start() - 2):m.start()]) else None)
+                # "£60,400" in narrative is pounds; table columns carry the unit in their heading instead
         plain = not groups and "." not in bare and x >= 1000      # "2397": in a £m table, likely 239.7 misread
         return (-x if tok.startswith(("(", "-")) else x), unit, plain
     return None, None, False
