@@ -161,7 +161,9 @@ def progress(sha=None):
     import subprocess
     repo = subprocess.run(["gh", "repo", "view", "--json", "nameWithOwner", "-q", ".nameWithOwner"],
                           capture_output=True, text=True, check=True).stdout.strip()
-    sha = sha or subprocess.run(["git", "rev-parse", "HEAD"], capture_output=True, text=True, check=True).stdout.strip()
+    if not sha:                                 # the commit the latest workflow run is using, not this checkout's HEAD
+        sha = subprocess.run(["gh", "run", "list", "-R", repo, "-w", "pdf-accounts.yml", "-L", "1", "--json", "headSha",
+                              "-q", ".[0].headSha"], capture_output=True, text=True, check=True).stdout.strip()
     data = json.loads(subprocess.run(["gh", "api", f"repos/{repo}/commits/{sha}/status?per_page=100"],
                                      capture_output=True, text=True, check=True).stdout)
     rows = sorted((s["context"], s["state"], s["description"]) for s in data.get("statuses", [])
