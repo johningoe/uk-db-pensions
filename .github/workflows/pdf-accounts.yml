@@ -42,13 +42,20 @@ jobs:
         with:
           python-version: "3.14"
           cache: pip
-      - name: Install Tesseract
+      - name: Install Tesseract (conda-forge; Ubuntu's package mirrors were unreachable from the runners)
+        uses: mamba-org/setup-micromamba@v2
+        with:
+          environment-name: ocr
+          create-args: tesseract
+          condarc: |
+            channels:
+              - conda-forge
+          cache-environment: true
+      - name: Point the reader at Tesseract
         run: |
-          for i in 1 2 3 4 5; do
-            sudo apt-get update -qq && sudo apt-get install -y -qq --fix-missing tesseract-ocr tesseract-ocr-eng && break
-            echo "apt attempt $i failed; retrying in 30s"; sleep 30
-          done
-          tesseract --version
+          echo "TESSERACT_CMD=$MAMBA_ROOT_PREFIX/envs/ocr/bin/tesseract" >> "$GITHUB_ENV"
+          echo "TESSDATA_PREFIX=$MAMBA_ROOT_PREFIX/envs/ocr/share/tessdata" >> "$GITHUB_ENV"
+          "$MAMBA_ROOT_PREFIX/envs/ocr/bin/tesseract" --version
       - name: Install Python packages
         run: pip install -q -r requirements.txt
       - name: Read accounts
