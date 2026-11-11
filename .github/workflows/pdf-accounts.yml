@@ -26,7 +26,7 @@ jobs:
 
   read:
     needs: plan
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04             # pinned: the new 26.04 image's package mirrors failed on first use
     timeout-minutes: 350
     strategy:
       fail-fast: false
@@ -37,18 +37,23 @@ jobs:
       PENSIONDB_OCR: tesseract
       OMP_THREAD_LIMIT: "1"            # one core per Tesseract call; the worker runs one process per core
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.14"
           cache: pip
       - name: Install Tesseract
-        run: sudo apt-get update -qq && sudo apt-get install -y -qq tesseract-ocr tesseract-ocr-eng
+        run: |
+          for i in 1 2 3 4 5; do
+            sudo apt-get update -qq && sudo apt-get install -y -qq --fix-missing tesseract-ocr tesseract-ocr-eng && break
+            echo "apt attempt $i failed; retrying in 30s"; sleep 30
+          done
+          tesseract --version
       - name: Install Python packages
         run: pip install -q -r requirements.txt
       - name: Read accounts
         run: python -m pensiondb.cloud work --shard ${{ matrix.shard }}/${{ inputs.jobs }} --procs "$(nproc)" --minutes ${{ inputs.minutes }} --out out
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v5
         if: always()
         with:
           name: results-${{ matrix.shard }}
