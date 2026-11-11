@@ -130,6 +130,10 @@ with Tesseract instead. On a 30-company test it matched macOS Vision on 25 of 30
    `run.py cloud-import` and `run.py status`.
 5. Export again for the next level of parents. Each round is smaller.
 
+While a run is going, `run.py cloud-progress` shows each runner's latest line (documents done, with figures,
+errors, minutes), posted every 5 minutes as a commit status on the commit being run. The same lines appear in the
+run's live log on GitHub (search for `PROGRESS`).
+
 `raw/`, `data/` and `.env` are git-ignored: the key and the database never leave this machine.
 
 ### From parent companies (group level)

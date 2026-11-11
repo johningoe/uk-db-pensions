@@ -12,8 +12,13 @@ Parents are read nearest first, so after an import a new export picks up the nex
 
 Worker (what the workflow runs):
     python -m pensiondb.cloud work --shard 3/8 --procs 4 --minutes 300
+
+Progress: every PROGRESS_EVERY seconds each worker prints a line and, on GitHub Actions, posts it as a commit status
+("progress/shard-3") on the commit being run, so progress can be read while the run is going:
+    python run.py cloud-progress
 """
 import argparse
+import collections
 import json
 import multiprocessing as mp
 import os
@@ -27,6 +32,7 @@ from . import config as C
 CLOUD = C.ROOT / "cloud"
 TODO = CLOUD / "todo.json"
 RESULTS = CLOUD / "results"
+PROGRESS_EVERY = 300
 COLS = ["filing_date", "description", "paper_filed", "pages", "text_source", "status", "obligation", "assets",
         "net", "unit", "page", "evidence"]
 
@@ -101,8 +107,16 @@ def work(shard, procs, minutes, out_dir):
         p = mp.Process(target=_worker, args=(part, out_dir / f"results_{i}_{k}.jsonl", deadline))
         p.start()
         ps.append(p)
+    share = sum(len(todo[i * procs + k::total]) for k in range(procs))
+    started = last = time.time()
+    while any(p.is_alive() for p in ps):
+        time.sleep(5)
+        if time.time() - last >= PROGRESS_EVERY:
+            _report(i, n, out_dir, share, started)
+            last = time.time()
     for p in ps:
         p.join()
+    _report(i, n, out_dir, share, started, final=True)
     # hand back the extracted text and the API responses, so later steps here need no network
     for sub, src, pattern in (("pdf_accounts", pdfaccounts.PDF_DIR, ("*.txt", "*.xhtml", "*.zip")),
                               ("api_cache", C.CH_API_CACHE, ("*.json",))):
@@ -110,6 +124,51 @@ def work(shard, procs, minutes, out_dir):
         for pat in pattern:
             for f in src.glob(pat):
                 shutil.copy2(f, out_dir / sub / f.name)
+
+
+def _counts(out_dir):
+    c = collections.Counter()
+    for f in Path(out_dir).glob("results_*.jsonl"):
+        for line in f.read_text().splitlines():
+            if line.strip():
+                c[json.loads(line).get("status")] += 1
+    return c
+
+
+def _report(i, n, out_dir, share, started, final=False):
+    """Print a progress line and, on GitHub Actions, post it as a commit status (readable mid-run)."""
+    c = _counts(out_dir)
+    done = sum(c.values())
+    line = (f"{done}/{share} done, {c['figures']} with figures, {c['error']} errors, "
+            f"{(time.time() - started) / 60:.0f} min")
+    print(f"PROGRESS shard {i}/{n}: {line}", flush=True)
+    token, repo, sha = (os.environ.get(k) for k in ("GITHUB_TOKEN", "GITHUB_REPOSITORY", "GITHUB_SHA"))
+    if not (token and repo and sha):
+        return
+    import requests
+    run = f"{os.environ.get('GITHUB_SERVER_URL', 'https://github.com')}/{repo}/actions/runs/{os.environ.get('GITHUB_RUN_ID')}"
+    try:
+        requests.post(f"https://api.github.com/repos/{repo}/statuses/{sha}", timeout=20,
+                      headers={"Authorization": f"Bearer {token}", "Accept": "application/vnd.github+json"},
+                      json={"state": "success" if final else "pending", "context": f"progress/shard-{i}",
+                            "description": line[:140], "target_url": run})
+    except requests.RequestException:
+        pass                                    # progress is a nicety; never stop the run for it
+
+
+def progress(sha=None):
+    """Here: show the latest progress line each cloud worker posted (needs the gh CLI, signed in)."""
+    import subprocess
+    repo = subprocess.run(["gh", "repo", "view", "--json", "nameWithOwner", "-q", ".nameWithOwner"],
+                          capture_output=True, text=True, check=True).stdout.strip()
+    sha = sha or subprocess.run(["git", "rev-parse", "HEAD"], capture_output=True, text=True, check=True).stdout.strip()
+    data = json.loads(subprocess.run(["gh", "api", f"repos/{repo}/commits/{sha}/status?per_page=100"],
+                                     capture_output=True, text=True, check=True).stdout)
+    rows = sorted((s["context"], s["state"], s["description"]) for s in data.get("statuses", [])
+                  if s["context"].startswith("progress/"))
+    for ctx, state, desc in rows:
+        print(f"{ctx:20} {state:8} {desc}")
+    return rows
 
 
 if __name__ == "__main__":

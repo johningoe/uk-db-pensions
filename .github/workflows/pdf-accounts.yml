@@ -14,6 +14,7 @@ on:
 
 permissions:
   contents: read
+  statuses: write                     # workers post progress as commit statuses (run.py cloud-progress)
 
 jobs:
   plan:
@@ -35,6 +36,7 @@ jobs:
     env:
       COMPANIES_HOUSE_API_KEY: ${{ secrets.COMPANIES_HOUSE_API_KEY }}
       PENSIONDB_OCR: tesseract
+      GITHUB_TOKEN: ${{ github.token }}
       OMP_THREAD_LIMIT: "1"            # one core per Tesseract call; the worker runs one process per core
     steps:
       - uses: actions/checkout@v5
