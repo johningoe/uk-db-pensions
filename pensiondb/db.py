@@ -105,7 +105,7 @@ VIEW = """
 DROP VIEW IF EXISTS v_live_db_hybrid;
 CREATE VIEW v_live_db_hybrid AS
 SELECT s.*, sp.company_name AS sponsor_name, sp.company_status AS sponsor_status,
-       sp.db_obligation, sp.db_plan_assets, sp.db_surplus_deficit, sp.db_period_end,
+       sp.db_obligation, sp.db_plan_assets, sp.db_surplus_deficit, sp.db_period_end, sp.db_check,
        sp.group_db_company_name, sp.group_db_levels, sp.group_db_obligation, sp.group_db_plan_assets,
        sp.group_db_surplus_deficit, sp.group_db_period_end, sp.parent_top_name, sp.parent_top_country
 FROM schemes s LEFT JOIN sponsors sp ON sp.company_number = s.sponsor_company_number
@@ -121,8 +121,10 @@ def connect(path=OUT_DB):
 
 
 def init(con):
+    from . import checks
     from .parents import ensure_columns
     con.executescript(SCHEMA)
     ensure_columns(con)
+    checks.ensure_columns(con)
     con.executescript(VIEW)
     con.commit()

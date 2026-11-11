@@ -18,7 +18,7 @@ import time
 
 from rapidfuzz import fuzz
 
-from . import pdfaccounts
+from . import checks, pdfaccounts
 from .chapi import _get
 from .names import norm
 
@@ -164,11 +164,13 @@ def lookup(con, companies=None):
 def _known_figures(con, num):
     """Figures we already hold for a company: as a sponsor (iXBRL/PDF) or from an earlier accounts read.
     Returns a dict, False (read, no figures) or None (not read yet)."""
-    sp = con.execute("""SELECT db_period_end, db_obligation, db_plan_assets, db_surplus_deficit, db_taxonomy
+    sp = con.execute("""SELECT db_period_end, db_obligation, db_plan_assets, db_surplus_deficit, db_taxonomy, db_check
                         FROM sponsors WHERE company_number=? AND db_period_end IS NOT NULL""", (num,)).fetchone()
     if sp:
+        if (sp[5] or "").startswith("flag"):
+            return False                        # implausible figures: don't pass them down the group
         return dict(period=sp[0], obligation=sp[1], assets=sp[2], net=sp[3], source=sp[4])
-    p = con.execute("SELECT status, obligation, assets, net, text_source, filing_date FROM pdf_accounts "
+    p = con.execute("SELECT status, obligation, assets, net, text_source, filing_date, page, unit FROM pdf_accounts "
                     "WHERE company_number=?", (num,)).fetchone()
     if not p:
         return None
@@ -176,7 +178,10 @@ def _known_figures(con, num):
         return None if p[0] == "error" else False
     item = pdfaccounts.latest_accounts(num) or {}
     period = item.get("action_date") or (item.get("description_values") or {}).get("made_up_date") or p[5]
-    ob, assets, net = p[1], p[2], p[3]
+    ob, assets, check, _ = checks.judge(p[1], p[2], checks._page_text(num, p[6]), p[7])
+    if check.startswith("flag"):
+        return False
+    net = p[3]
     if ob is not None and assets is not None:
         net = assets - ob
     return dict(period=period, obligation=ob, assets=assets, net=net, source=f"pdf_{p[4]}")

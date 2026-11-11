@@ -97,11 +97,17 @@ def write(con):
               "", "## DB figures (sponsors)", "", "| Net basis | Sponsors |", "|---|---|"]
     for b, n in con.execute("SELECT db_net_basis, count(*) FROM sponsors WHERE db_period_end IS NOT NULL GROUP BY 1"):
         lines.append(f"| {b} | {n:,} |")
-    lines += ["", "Largest DB obligations found:", "", "| Sponsor | Period end | Obligation £m | Assets £m | Surplus/(deficit) £m |",
+    lines += ["", "Figure check (`db_check`): `fixed_unit` = obligation and assets read in different units, corrected; "
+              "`flag:` = implausible, kept but not trusted.", "", "| Check | Sponsors |", "|---|---|"]
+    for c, n in con.execute("""SELECT coalesce(db_check, 'not checked'), count(*) FROM sponsors
+                               WHERE db_period_end IS NOT NULL GROUP BY 1 ORDER BY 2 DESC"""):
+        lines.append(f"| {c} | {n:,} |")
+    lines += ["", "Largest DB obligations found (flagged figures left out):", "", "| Sponsor | Period end | Obligation £m | Assets £m | Surplus/(deficit) £m |",
               "|---|---|---|---|---|"]
     fm = lambda v: "" if v is None else f"{v / 1e6:,.1f}"  # noqa: E731
     for n, p, o, a, s in con.execute("""SELECT company_name, db_period_end, db_obligation, db_plan_assets, db_surplus_deficit
-                                       FROM sponsors WHERE db_obligation IS NOT NULL ORDER BY db_obligation DESC LIMIT 10"""):
+                                       FROM sponsors WHERE db_obligation IS NOT NULL AND coalesce(db_check, '') NOT LIKE 'flag%'
+                                       ORDER BY db_obligation DESC LIMIT 10"""):
         lines.append(f"| {n} | {p} | {fm(o)} | {fm(a)} | {fm(s)} |")
 
     lines += ["", "## Ownership chain of sponsors without their own DB figures", "",

@@ -187,8 +187,19 @@ NOT_AMOUNT_BEFORE = re.compile(r"(?:FRS|IAS|IFRS|note|notes|section|page|para(?:
 MONTH = r"(?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*"
 DAY_AFTER = re.compile(r"^(?:st|nd|rd|th)?\s*" + MONTH, re.I)        # "31 December", "1st January"
 DAY_BEFORE = re.compile(r"\b(?:at|on|to|as at)\s*$", re.I)              # "... as at 31" (month on the next line)
-PAGE_M = re.compile(r"[£€Ef]\s?'?m\b|£\s?million|\bmillions?\b|\bEm\b")
-PAGE_K = re.compile(r"[£€Ef]\s?'?0{3}\b|£k\b|'000\b|\b000s?\b")
+# Column-heading unit tokens. A bare "million" is left out: narrative ("£21.9 million") is not a heading.
+UNIT_M = re.compile(r"(?<![\d.,])[£€Ef$]\s?['’]?m\b|£\s?millions?\b|\bin millions\b|\bEm\b")
+UNIT_K = re.compile(r"[£€Ef$]\s?['’‘]?0{3}\b|£\s?k\b|['’‘]000\b|(?<![\d,.:;])000s?\b|\bthousands\b")
+
+
+def _unit_at(lines, i):
+    """Unit of line i: the nearest column heading on or above it; failing that, the page's commoner heading."""
+    for ln in reversed(lines[max(0, i - 60):i + 1]):
+        k, m = UNIT_K.search(ln), UNIT_M.search(ln)
+        if k or m:
+            return "000" if k and (not m or k.start() < m.start()) else "m"
+    text = "\n".join(lines)
+    return "m" if len(UNIT_M.findall(text)) > len(UNIT_K.findall(text)) else "000"
 
 
 # OCR letter-for-digit slips inside amounts: Vision reads 5 as S, Tesseract as §; O for 0; l or I for 1
@@ -230,9 +241,11 @@ def _first_amount(s):
             if x < 100 and any(re.search(r"[,:;]\d{3}", t.group(0)) for t in toks[i + 1:]):
                 continue                        # a note reference before the real (comma-grouped) amounts
         after = s[m.end():m.end() + 2].lower()
-        unit = ("1" if groups >= 2 else "m" if after.startswith(("m", " m")) or ("." in bare and not groups) else None)
-        return (-x if tok.startswith(("(", "-")) else x), unit
-    return None, None
+        unit = ("1" if groups >= 2 else "m" if after.startswith(("m", " m")) or ("." in bare and not groups)
+                else "000" if after.startswith(("k", " k")) else None)
+        plain = not groups and "." not in bare and x >= 1000      # "2397": in a £m table, likely 239.7 misread
+        return (-x if tok.startswith(("(", "-")) else x), unit, plain
+    return None, None, False
 
 
 def extract(pages):
@@ -241,10 +254,10 @@ def extract(pages):
     for no, text in pages:
         if not DB_MENTION.search(text):
             continue
-        page_unit = "m" if PAGE_M.search(text) else "000"
         dollars = DOLLAR_PAGE.search(text)
         found, ev = {}, []
-        for line in text.splitlines():
+        lines = text.splitlines()
+        for li, line in enumerate(lines):
             if not dollars:                     # Tesseract reads a leading 5 as $: "$46,270" for 546,270
                 line = DOLLAR5.sub("5", line)
             if NOT_BALANCE.search(line):
@@ -254,14 +267,15 @@ def extract(pages):
             for key in keys:
                 rx = LINES[key]
                 if key not in found and rx.search(line):
-                    v, unit = _first_amount(rx.split(line, 1)[-1])
+                    v, unit, plain = _first_amount(rx.split(line, 1)[-1])
                     if v is not None and abs(v) >= 1:
-                        found[key] = (v, unit or page_unit)
+                        unit = unit or _unit_at(lines, li)
+                        found[key] = (v, "m?" if unit == "m" and plain else unit)
                         ev.append(line.strip()[:160])
         if found and (best is None or len(found) > len(best["found"])):
             best = {"found": found, "page": no, "evidence": " | ".join(ev)}
     if best and "obligation" in best["found"] and "assets" in best["found"]:
-        mult = {"m": 1e6, "000": 1e3, "1": 1}
+        mult = {"m": 1e6, "m?": 1e6, "000": 1e3, "1": 1}
         o, a = (abs(best["found"][k][0]) * mult[best["found"][k][1]] for k in ("obligation", "assets"))
         if max(o, a) > 20 * min(o, a):          # one of the pair is a stray number; keep the larger
             del best["found"]["obligation" if o < a else "assets"]
@@ -295,7 +309,7 @@ def assess(num, max_pages=MAX_PAGES):
     if tagged and not (hit and {"obligation", "assets"} & set(hit["found"])):
         return tagged                           # listed groups often tag only the net balance-sheet line
     if hit:
-        mult = {"m": 1e6, "000": 1e3, "1": 1}
+        mult = {"m": 1e6, "m?": 1e6, "000": 1e3, "1": 1}
         f = {k: v * mult[u] for k, (v, u) in hit["found"].items()}
         return dict(base, status="figures", page=hit["page"], evidence=hit["evidence"],
                     unit=",".join(sorted({u for _, u in hit["found"].values()})),
@@ -356,10 +370,10 @@ def reextract(con):
     Use after changing the extraction rules."""
     cols = ["filing_date", "description", "paper_filed", "pages", "text_source", "status", "obligation", "assets",
             "net", "unit", "page", "evidence"]
-    rows = con.execute("SELECT company_number, status, obligation, assets, net FROM pdf_accounts "
+    rows = con.execute("SELECT company_number, status, obligation, assets, net, unit FROM pdf_accounts "
                        "WHERE status NOT IN ('error', 'no_filing')").fetchall()
     changed = 0
-    for num, st, ob, assets, net in rows:
+    for num, st, ob, assets, net, unit in rows:
         item = latest_accounts(num)
         if not item or not (PDF_DIR / f"{num}_{item['date']}.txt").exists():
             continue
@@ -367,7 +381,7 @@ def reextract(con):
             r = assess(num)
         except Exception:                       # noqa: BLE001 - keep the old result
             continue
-        if (r["status"], r.get("obligation"), r.get("assets"), r.get("net")) != (st, ob, assets, net):
+        if (r["status"], r.get("obligation"), r.get("assets"), r.get("net"), r.get("unit")) != (st, ob, assets, net, unit):
             changed += 1
             con.execute(f"UPDATE pdf_accounts SET {', '.join(c + '=?' for c in cols)} WHERE company_number=?",
                         [*[r.get(c) for c in cols], num])
@@ -385,6 +399,10 @@ def merge(con):
         con.execute("ALTER TABLE sponsors ADD COLUMN db_pdf_status TEXT")   # figures / mentioned_no_figures / dc_only ...
     con.execute("UPDATE sponsors SET db_pdf_status = (SELECT status FROM pdf_accounts p "
                 "WHERE p.company_number = sponsors.company_number)")
+    # clear earlier PDF-derived figures so a re-read (pdf-reextract) replaces them; iXBRL figures are untouched
+    con.execute("""UPDATE sponsors SET db_period_end=NULL, db_obligation=NULL, db_plan_assets=NULL,
+                       db_surplus_deficit=NULL, db_net_basis=NULL, db_taxonomy=NULL, db_source_file=NULL
+                   WHERE db_taxonomy LIKE 'pdf_%'""")
     n = 0
     for num, ob, assets, net, src, fdate, page in con.execute(
             """SELECT p.company_number, p.obligation, p.assets, p.net, p.text_source, p.filing_date, p.page

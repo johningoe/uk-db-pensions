@@ -148,4 +148,26 @@ so their own accounts have no figures.
 Group figures cover the whole group, often several schemes and subsidiaries. Several sponsors can share a parent,
 so don't add `group_db_*` up across sponsors. They are kept apart from the sponsor's own `db_*` columns.
 
+### Figure check
+
+`run.py status` (or `run.py check` on its own) sets `sponsors.db_check` for every sponsor with figures:
+
+- `ok`: nothing odd.
+- `fixed_unit`: obligation and assets were about 1,000× apart (one read in £m, the other in £'000). The larger
+  is divided by 1,000; the values as read are in `db_check_note`.
+- `flag:<reasons>`: kept as read but not trusted. Flagged figures are left out of the summary's largest-figures
+  table, and a flagged parent's figures are not passed down as group figures. Reasons:
+  - `too_large`: over £50bn, more than any UK scheme.
+  - `too_small`: under £20k, so a unit was probably missed.
+  - `assets_vs_obligation`: one is more than 3× the other, usually a stray number on one line.
+  - `foreign_currency`: the source page is mostly in dollars, euros or another currency.
+  - `decimal_lost`: a £m figure of 1,000 or more printed without a comma (OCR read "239.7" as "2397").
+
+The PDF reader takes each figure's unit from the nearest column heading above it ("£'000", "£m"), not from
+anywhere on the page, and reads "k" after an amount as thousands. After changing extraction rules, run
+`run.py pdf-reextract` then `run.py status`.
+
+The check catches gross errors only. A figure misread within the right order of magnitude (a wrong digit, a
+prior-year column) passes, so spot-check figures that matter against the filed accounts.
+
 Not used: the gov.uk Pension Tracing Service.
