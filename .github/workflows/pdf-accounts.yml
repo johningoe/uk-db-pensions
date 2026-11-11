@@ -1,0 +1,56 @@
+# Reads the companies in cloud/todo.json (written by `python run.py cloud-export`) on parallel Linux runners.
+# Each runner OCRs its share with Tesseract and uploads one artifact; `python run.py cloud-import` loads them.
+name: PDF accounts
+
+on:
+  workflow_dispatch:
+    inputs:
+      jobs:
+        description: "Parallel runners (each uses all its CPU cores)"
+        default: "8"
+      minutes:
+        description: "Stop starting new documents after this many minutes (max ~330)"
+        default: "300"
+
+permissions:
+  contents: read
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    outputs:
+      shards: ${{ steps.s.outputs.shards }}
+    steps:
+      - id: s
+        run: echo "shards=$(python3 -c 'import json; print(json.dumps(list(range(int("${{ inputs.jobs }}")))))')" >> "$GITHUB_OUTPUT"
+
+  read:
+    needs: plan
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: ${{ fromJSON(needs.plan.outputs.shards) }}
+    env:
+      COMPANIES_HOUSE_API_KEY: ${{ secrets.COMPANIES_HOUSE_API_KEY }}
+      PENSIONDB_OCR: tesseract
+      OMP_THREAD_LIMIT: "1"            # one core per Tesseract call; the worker runs one process per core
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.14"
+          cache: pip
+      - name: Install Tesseract
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq tesseract-ocr tesseract-ocr-eng
+      - name: Install Python packages
+        run: pip install -q -r requirements.txt
+      - name: Read accounts
+        run: python -m pensiondb.cloud work --shard ${{ matrix.shard }}/${{ inputs.jobs }} --procs "$(nproc)" --minutes ${{ inputs.minutes }} --out out
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: results-${{ matrix.shard }}
+          path: out/
+          retention-days: 7

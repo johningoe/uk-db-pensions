@@ -1,0 +1,12 @@
+beautifulsoup4==4.15.0
+lxml==6.1.3
+openpyxl==3.1.5
+pandas==3.1.0
+pdfplumber==0.11.10
+RapidFuzz==3.14.6
+requests==2.34.2
+pypdfium2==5.14.0
+pillow==13.0.0
+pytesseract==0.3.13                                          # OCR off macOS (needs: apt install tesseract-ocr)
+pyobjc-framework-Vision==13.0; sys_platform == "darwin"      # OCR on macOS
+pyobjc-framework-Quartz==13.0; sys_platform == "darwin"

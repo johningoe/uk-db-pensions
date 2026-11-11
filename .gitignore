@@ -1,0 +1,12 @@
+# secrets
+.env
+# local environment and outputs
+.venv/
+__pycache__/
+*.prof
+-c.prof
+# downloads and the database stay local (raw/ is hundreds of MB; data/ is rebuilt by run.py)
+raw/
+data/
+# results downloaded from GitHub Actions
+cloud/results/
