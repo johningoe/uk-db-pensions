@@ -107,3 +107,117 @@ def run(con):
     con.commit()
     print(f"Accounts-text match: {dict(counts)}")
     return counts
+
+
+# ---------------------------------------------------------------- confirming existing matches
+
+# words dropped on both sides before comparing, so "The XYZ Limited Pension Scheme" matches "XYZ Pension Scheme"
+STRIP = set("THE LIMITED PLC COMPANY CO AND OF INCORPORATED LLP".split())
+PLURAL = {"PENSIONS": "PENSION", "SCHEMES": "SCHEME", "PLANS": "PLAN", "FUNDS": "FUND"}
+PENSION_WORDS = set("PENSION RETIREMENT SUPERANNUATION STAFF EXECUTIVE WORKS SENIOR LIFE EMPLOYEES SALARIED "
+                    "DEFINED FINAL".split())
+
+
+def _clean(s):
+    return " ".join(PLURAL.get(t, t) for t in s.split() if t not in STRIP)
+
+
+def _scheme_keys(name):
+    """(full key, core key or None): the cleaned scheme name, and the words before its pension wording."""
+    toks = _clean(norm(re.sub(r"\s*\b[A-Z]{0,3}\d{4,}[A-Za-z]?\b\s*$", "", name))).split()
+    full = " ".join(toks) if len(toks) >= 2 and any(t not in GENERIC for t in toks) else None
+    core = []
+    for t in toks:
+        if t in PENSION_WORDS or t in ("PLAN", "SCHEME", "FUND"):
+            break
+        core.append(t)
+    core = core if core and any(t not in GENERIC and not t.isdigit() and len(t) > 2 for t in core) else None
+    return full, (" ".join(core) if core else None)
+
+
+def _norm_text(paths):
+    t = " ".join(open(p, errors="ignore").read() for p in paths)
+    if any(p.endswith((".html", ".htm")) for p in paths):
+        t = html.unescape(re.sub(r"<[^>]+>", " ", t))
+    return " " + _clean(norm(t)) + " "
+
+
+def confirm(con):
+    """For each matched live scheme, does the sponsor's saved accounts text (or its parent's) name the scheme?
+    schemes.sponsor_named_in_accounts:
+      named                 the full scheme name is in the sponsor's accounts
+      named_in_parent       ... in a parent company's accounts (sponsor's own accounts don't name it)
+      core_named            the scheme's distinctive words appear just before 'pension', 'retirement' or
+                            'superannuation' in the sponsor's (or parent's: core_named_in_parent) accounts
+      db_unnamed            the sponsor's accounts show a DB scheme but don't name it ("the defined benefit
+                            pension scheme"), usual for a company with one scheme: consistent, not proof
+      not_named             the accounts text exists but neither names the scheme nor shows a DB scheme
+      no_text               no accounts text saved for the sponsor or its parents
+    schemes.named_by_other: when not named by the sponsor, other companies whose accounts name the scheme in full."""
+    for col in ("sponsor_named_in_accounts", "named_by_other"):
+        if col not in {r[1] for r in con.execute("PRAGMA table_info(schemes)")}:
+            con.execute(f"ALTER TABLE schemes ADD COLUMN {col} TEXT")
+    con.execute("UPDATE schemes SET sponsor_named_in_accounts = NULL, named_by_other = NULL")
+    rows = con.execute("""SELECT psr, scheme_name, sponsor_company_number FROM schemes
+        WHERE sponsor_company_number IS NOT NULL AND likely_live = 1 AND name_type <> 'DC_likely'""").fetchall()
+    parents = dict(con.execute("SELECT company_number, parent_number FROM company_parents WHERE parent_number IS NOT NULL"))
+    group = dict(con.execute("SELECT company_number, group_db_company_number FROM sponsors "
+                             "WHERE group_db_company_number IS NOT NULL"))
+    # sponsors whose own accounts show a DB scheme (figures, or a DB note without readable figures)
+    has_db = {r[0] for r in con.execute("""SELECT company_number FROM sponsors WHERE db_period_end IS NOT NULL
+        OR db_pdf_status IN ('figures', 'mentioned_no_figures') OR db_check = 'flag:misread'""")}
+    files = _texts()
+    cache = {}
+
+    def text(num):
+        if num not in cache:
+            cache[num] = _norm_text(files[num]) if files.get(num) else None
+        return cache[num]
+
+    def chain(num):
+        out, seen = [], {num}
+        for nxt in (group.get(num), parents.get(num)):
+            p = nxt
+            while p and p not in seen and len(out) < 6:
+                out.append(p)
+                seen.add(p)
+                p = parents.get(p)
+        return out
+
+    def core_hit(core, t):
+        return re.search(rf" {re.escape(core)}(?: [A-Z0-9]+){{0,4}} (?:PENSION|RETIREMENT|SUPERANNUATION) ", t)
+
+    result, unconfirmed = {}, {}
+    for psr, name, num in rows:
+        full, core = _scheme_keys(name)
+        own, up = text(num), [t for t in (text(p) for p in chain(num)) if t]
+        if own is None and not up:
+            result[psr] = "no_text"
+        elif full and own and f" {full} " in own:
+            result[psr] = "named"
+        elif full and any(f" {full} " in t for t in up):
+            result[psr] = "named_in_parent"
+        elif core and own and core_hit(core, own):
+            result[psr] = "core_named"
+        elif core and any(core_hit(core, t) for t in up):
+            result[psr] = "core_named_in_parent"
+        elif num in has_db:
+            result[psr] = "db_unnamed"
+        else:
+            result[psr] = "not_named"
+        if result[psr] in ("not_named", "db_unnamed", "core_named", "core_named_in_parent") and full:
+            unconfirmed[psr] = (full, num)
+    # who else names the unconfirmed schemes? one pass over every saved text
+    others = collections.defaultdict(set)
+    rare = {psr: max(full.split(), key=len) for psr, (full, _) in unconfirmed.items()}
+    for cn in files:
+        t = text(cn) if cn in cache else _norm_text(files[cn])
+        toks = set(t.split())
+        for psr, (full, num) in unconfirmed.items():
+            if cn != num and rare[psr] in toks and f" {full} " in t:
+                others[psr].add(cn)
+    for psr, status in result.items():
+        con.execute("UPDATE schemes SET sponsor_named_in_accounts = ?, named_by_other = ? WHERE psr = ?",
+                    (status, ",".join(sorted(others[psr]))[:200] or None if psr in others else None, psr))
+    con.commit()
+    return collections.Counter(result.values()), len(others)

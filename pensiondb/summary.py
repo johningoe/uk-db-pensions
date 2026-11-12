@@ -90,6 +90,15 @@ def write(con):
                                              sum(decision='accept'), sum(decision='switch'), sum(decision='reject')
                                          FROM review_decisions GROUP BY 1 ORDER BY 1"""):
             lines.append(f"| {m} | {a:,} | {s_:,} | {r:,} |")
+    if "sponsor_named_in_accounts" in {r[1] for r in con.execute("PRAGMA table_info(schemes)")}:
+        lines += ["", "## Sponsor confirmed by its accounts (live, not DC-named schemes)", "",
+                  "Does the matched sponsor's saved accounts text (or a parent's) name the scheme? "
+                  "`run.py confirm-sponsors`.", "", "| Result | Schemes |", "|---|---|"]
+        for r, n in con.execute("""SELECT coalesce(sponsor_named_in_accounts, 'no sponsor'), count(*) FROM schemes
+                                   WHERE likely_live = 1 AND name_type <> 'DC_likely' GROUP BY 1 ORDER BY 2 DESC"""):
+            lines.append(f"| {r} | {n:,} |")
+        lines.append(f"| ...not named by the sponsor but named in another company's accounts (`named_by_other`) | "
+                     f"{q("SELECT count(*) FROM schemes WHERE named_by_other IS NOT NULL"):,} |")
     lines += ["", "## Scheme type hints (from scheme name only)", "", "| name_type | Schemes |", "|---|---|"]
     for t, n in con.execute("SELECT name_type, count(*) FROM schemes GROUP BY 1 ORDER BY 2 DESC"):
         lines.append(f"| {t} | {n:,} |")

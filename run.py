@@ -15,6 +15,7 @@
     python run.py api-second-pass             # dissolved / former names / same-postcode search for unmatched
     python run.py api-third-pass              # unmatched + reviewer-rejected: better name cleaning, same-postcode subset
     python run.py accounts-text-match         # unmatched schemes named in a company's saved accounts
+    python run.py confirm-sponsors            # does each matched sponsor's saved accounts name its scheme?
     python run.py long-reports                # read pages past 200 of long annual reports
     python run.py charities-download          # Charity Commission, OSCR and FCA mutuals registers
     python run.py charities                   # match sponsor-less schemes to charities / registered societies
@@ -33,7 +34,7 @@ def main():
     ap.add_argument("step", choices=["all", "seed", "flags", "match", "api", "postcode", "review", "accounts", "reparse", "status", "summary",
                                      "sip-pilot", "pdf-pilot", "pdf-accounts", "parents", "parent-accounts", "pdf-reextract", "cloud-export", "cloud-import", "cloud-progress", "check",
                                      "charities-download", "charities", "charity-accounts", "api-second-pass", "full-filers",
-                                     "api-third-pass", "accounts-text-match", "long-reports"])
+                                     "api-third-pass", "accounts-text-match", "long-reports", "confirm-sponsors"])
     ap.add_argument("--month", action="append", help="accounts month, e.g. September2026 (repeatable)")
     ap.add_argument("--all-months", action="store_true")
     ap.add_argument("--shard", help="i/n: this worker's share of the pdf-accounts run")
@@ -103,6 +104,9 @@ def main():
         elif step == "accounts-text-match":
             from pensiondb import textmatch
             textmatch.run(con)
+        elif step == "confirm-sponsors":
+            from pensiondb import textmatch
+            print(textmatch.confirm(con))
         elif step == "charities-download":
             charities.download()
         elif step == "charities":

@@ -123,6 +123,26 @@ reruns. Sources, strongest first:
 Rejected schemes get `match_method = 'rejected'`. Insurers' AVC and personal products and master trusts are
 classed `DC_likely` by name.
 
+A decision can also name an unmatched scheme (`reviewed_company` NULL). Decisions with source **claude** were made
+while checking the largest sponsors and the accounts check below.
+
+### Sponsor confirmed by its accounts
+
+No public source names each scheme's employer, so every match is inferred. `run.py confirm-sponsors` checks the
+evidence in the saved accounts text (PDF/OCR text and the latest iXBRL filing) of the sponsor and its parents,
+ignoring "The", "Limited", "plc" and plurals, and sets `schemes.sponsor_named_in_accounts`:
+
+- `named` / `named_in_parent`: the full scheme name appears.
+- `core_named` / `core_named_in_parent`: the scheme's distinctive words appear just before "pension",
+  "retirement" or "superannuation".
+- `db_unnamed`: the accounts show a DB scheme without naming it ("the defined benefit pension scheme"), which is
+  usual for a company with one scheme. Consistent, not proof.
+- `not_named`: accounts text exists but shows neither. `no_text`: nothing saved.
+
+When the sponsor doesn't name the scheme, every saved text is searched, and other companies whose accounts name it
+in full go in `named_by_other`. These are usually the real sponsor after a takeover; the clear cases were switched
+(`review_decisions`, source `claude`). Insurers that name a scheme (a buy-in) and group siblings were left alone.
+
 ## DB figures
 
 From FRS 102 (FRC `core`) and IFRS tags: `LiabilitiesDefinedBenefitPlanPresentValue` /
