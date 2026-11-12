@@ -317,6 +317,61 @@ def flag_ppf_fas(con):
     print(f"PPF matched to {len(ppf)} EIOPA schemes; FAS matched to {len(fas)}")
 
 
+MIN_TEXT = 3000          # characters: shorter saved accounts text is a failed read, not proof of no pension note
+DB_HINT = re.compile(r"actuar|IAS\s?19|section 28|FRS\s?17\b|final pensionable|pensionable (?:salary|pay)|career average"
+                     r"|pension (?:scheme )?(?:deficit|surplus)|(?:scheme|plan) (?:assets|liabilities)|multi[- ]employer",
+                     re.I)        # DB wording the reader's "defined benefit" test misses: not proof of no DB
+
+
+def _live_doubt(con):
+    """live_doubt: why an on-register scheme is probably no longer a live DB scheme of its matched sponsor.
+    Only set when nothing else points to DB (PPF/FAS listing, DB figures or a DB mention in the sponsor's or a
+    parent's accounts, charity DB figures) and the match isn't a low-confidence one awaiting review.
+      sponsor_dormant      the sponsor files dormant accounts: it employs no one and can't be running a DB scheme
+      sponsor_no_accounts  the sponsor is over two years old and has never filed accounts
+    Only ordinary companies and LLPs formed before 2016 are judged, and never trustee or nominee companies.
+      accounts_no_db       the sponsor's latest full accounts were read and never mention defined benefit; a DB
+                           sponsor must disclose its scheme, so it has most likely been merged, bought out or wound
+                           up, or sits with another group company"""
+    from . import pdfaccounts
+    have = {r[1] for r in con.execute("PRAGMA table_info(schemes)")}
+    if "live_doubt" not in have:
+        con.execute("ALTER TABLE schemes ADD COLUMN live_doubt TEXT")
+    con.execute("DROP TABLE IF EXISTS temp.short_text")      # texts too short or too DB-ish to rule DB out
+    con.execute("CREATE TEMP TABLE short_text (company_number TEXT PRIMARY KEY)")
+    for (num,) in con.execute("SELECT company_number FROM pdf_accounts WHERE status IN ('dc_only', 'no_pension_note')"
+                              ).fetchall():
+        item = pdfaccounts.latest_accounts(num)
+        f = item and pdfaccounts.PDF_DIR / f"{num}_{item['date']}.txt"
+        if not f or not f.exists() or f.stat().st_size < MIN_TEXT or DB_HINT.search(f.read_text()):
+            con.execute("INSERT OR IGNORE INTO short_text VALUES (?)", (num,))
+    has_charity = "charity_db_source" in have
+    con.execute(f"""UPDATE schemes SET live_doubt = (
+        SELECT CASE
+            WHEN upper(sp.accounts_category) = 'DORMANT' THEN 'sponsor_dormant'
+            WHEN upper(sp.accounts_category) = 'NO ACCOUNTS FILED'
+                 AND substr(sp.incorporation_date, 7, 4) || '-' || substr(sp.incorporation_date, 4, 2) || '-'
+                     || substr(sp.incorporation_date, 1, 2) < date('now', '-2 years') THEN 'sponsor_no_accounts'
+            WHEN sp.db_pdf_status IN ('dc_only', 'no_pension_note')
+                 AND sp.company_number NOT IN (SELECT company_number FROM temp.short_text) THEN 'accounts_no_db'
+            END
+        FROM sponsors sp WHERE sp.company_number = schemes.sponsor_company_number
+          AND lower(sp.company_status) = 'active'
+          -- ordinary UK companies and LLPs only: Royal Charter bodies, societies, assurance and overseas
+          -- companies don't file (their own) accounts at Companies House
+          AND (sp.company_number GLOB '[0-9]*' OR substr(sp.company_number, 1, 2) IN ('SC', 'NI', 'OC', 'SO', 'NC', 'R0'))
+          -- trustee and nominee companies are normally dormant
+          AND NOT (upper(sp.company_name) GLOB '*TRUSTEE*' OR upper(sp.company_name) GLOB '*NOMINEE*'
+                   OR upper(sp.company_name) GLOB '*PENSION*')
+          -- a company formed since 2016 is more likely a namesake (a matching question, not a liveness one)
+          AND substr(sp.incorporation_date, 7, 4) < '2016')""")
+    con.execute(f"""UPDATE schemes SET live_doubt = NULL WHERE live_doubt IS NOT NULL AND (
+        coalesce(db_evidence, '') GLOB '*ppf*' OR coalesce(db_evidence, '') GLOB '*fas*'
+        OR coalesce(db_evidence, '') GLOB '*accounts*'
+        OR (needs_review = 1 AND coalesce(match_confidence, 0) < 0.7)
+        {"OR charity_db_source IS NOT NULL" if has_charity else ""})""")
+
+
 def flag_status(con):
     """Sponsor dissolved / insolvency flags, DB evidence, and the likely_live flag."""
     from .parents import ensure_columns
@@ -340,8 +395,10 @@ def flag_status(con):
             (CASE WHEN EXISTS (SELECT 1 FROM sponsors sp WHERE sp.company_number = schemes.sponsor_company_number
                                AND sp.group_db_company_number IS NOT NULL) THEN 'parent_accounts,' ELSE '' END),
             ','), '')""")
+    _live_doubt(con)
     con.execute("""UPDATE schemes SET likely_live = CASE
             WHEN ppf_status = 'Transferred' OR fas_status LIKE '%Transferred%' THEN 0
+            WHEN live_doubt IS NOT NULL THEN 0
             -- a low-confidence match still awaiting review doesn't decide liveness (it may be the wrong namesake)
             WHEN sponsor_dissolved = 1 AND NOT (needs_review = 1 AND coalesce(match_confidence, 0) < 0.7) THEN 0
             ELSE 1 END""")

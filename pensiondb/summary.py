@@ -70,6 +70,10 @@ def write(con):
         f"{_pct(q("""SELECT count(*) FROM schemes s JOIN sponsors sp ON sp.company_number = s.sponsor_company_number
                      WHERE sp.db_period_end IS NOT NULL OR sp.group_db_company_number IS NOT NULL"""), total)} |",
         f"| Schemes in `v_live_db_hybrid` (likely live, not DC-named) | {live_view:,} |",
+        *([f"| ...set not live because the sponsor's records point away from DB (`live_doubt`): {why} | {n:,} |"
+           for why, n in con.execute("""SELECT live_doubt, count(*) FROM schemes WHERE live_doubt IS NOT NULL
+                                        AND name_type <> 'DC_likely' GROUP BY 1 ORDER BY 2 DESC""")]
+          if "live_doubt" in {r[1] for r in con.execute("PRAGMA table_info(schemes)")} else []),
         f"| Schemes without a CH sponsor matched to a charity or registered society | {charity_n:,} |",
         f"| ...of which with a DB pension figure from the Charity Commission annual return | {charity_db:,} |",
         f"| ...of which with DB figures read from their accounts | {charity_acc:,} |",
@@ -135,7 +139,7 @@ def write(con):
               "- **The EIOPA file doesn't say DB or DC.** `name_type` is a guess from the scheme name. Most schemes come out "
               "`unknown`. DB is confirmed only by a PPF or FAS listing, or by DB tags in the sponsor's accounts (`db_evidence`).",
               "- **The register is a March 2020 snapshot.** Schemes set up later are missing. Schemes wound up or bought out "
-              "since then show as live unless the PPF list, FAS list or sponsor status says otherwise.",
+              "since then show as live unless the PPF list, FAS list, sponsor status or `live_doubt` says otherwise.",
               f"- **Dissolved sponsors are invisible without the API.** The bulk snapshot lists live companies only. "
               f"{'API status checks ran for ' + format(api, ',') + ' sponsors.' if api else 'No API key was set, so no dissolved-company search or status refresh ran. Many unmatched schemes probably have dissolved sponsors.'}",
               f"- **DB figures depend on machine-readable (iXBRL) filings.** Across {len(months)} archives, "

@@ -46,7 +46,7 @@ present, is used instead.
 
 - **schemes**: one row per UK scheme (PSR number). Columns: name, address, derived sponsor, `sponsor_company_number`,
   `match_method`, `match_confidence`, `needs_review`, PPF/FAS status and dates, `sponsor_dissolved`,
-  `sponsor_insolvency`, `name_type`, `db_evidence` and `likely_live`.
+  `sponsor_insolvency`, `name_type`, `db_evidence`, `live_doubt` and `likely_live`.
 - **sponsors**: one row per matched company. Columns: CH status and DB figures (`db_obligation`, `db_plan_assets`,
   `db_surplus_deficit`, `db_period_end`, `db_net_basis`, `db_taxonomy`, `db_source_file`).
 - **match_log**: every match attempt, accepted or not, with candidate, method, score, confidence and notes.
@@ -80,6 +80,18 @@ Police, teachers, councils, universities and similar bodies are marked `non_comp
 
 A dissolved sponsor sets `likely_live = 0`, except when the match is low confidence (under 0.7) and still needs
 review: a wrong company with the same name shouldn't close a live scheme.
+
+`live_doubt` also sets `likely_live = 0` when an active sponsor's own records point away from DB:
+- `accounts_no_db`: its latest full accounts were read and never mention defined benefit or other DB wording
+  (actuarial, IAS 19, scheme liabilities, pensionable salary and so on). A DB sponsor has to disclose its scheme,
+  so the scheme has most likely been merged, bought out or wound up, or sits with another group company.
+- `sponsor_dormant`: it files dormant accounts.
+- `sponsor_no_accounts`: it is over two years old and has never filed accounts.
+
+Only ordinary companies and LLPs formed before 2016 are judged. Trustee and nominee companies, Royal Charter bodies,
+societies and overseas companies are left alone. So is any scheme with other DB evidence (PPF or FAS listing, DB
+figures or a DB mention in the sponsor's or a parent's accounts, charity DB figures) or a low-confidence match
+awaiting review. Texts under 3,000 characters count as failed reads, not as proof.
 
 ## Reviewing flagged matches
 
