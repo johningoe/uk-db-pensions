@@ -342,6 +342,7 @@ def flag_status(con):
             ','), '')""")
     con.execute("""UPDATE schemes SET likely_live = CASE
             WHEN ppf_status = 'Transferred' OR fas_status LIKE '%Transferred%' THEN 0
-            WHEN sponsor_dissolved = 1 THEN 0
+            -- a low-confidence match still awaiting review doesn't decide liveness (it may be the wrong namesake)
+            WHEN sponsor_dissolved = 1 AND NOT (needs_review = 1 AND coalesce(match_confidence, 0) < 0.7) THEN 0
             ELSE 1 END""")
     con.commit()

@@ -29,6 +29,7 @@ export COMPANIES_HOUSE_API_KEY=...      # optional but recommended, free from de
 .venv/bin/python run.py accounts --month August2026 --month July2026
 .venv/bin/python run.py accounts --all-months   # all ~194 archives (2008 on), ~30 min; finished archives are skipped
 .venv/bin/python run.py pdf-accounts --limit 100   # DB figures from PDF accounts, in batches
+.venv/bin/python run.py full-filers                  # full/group/medium sponsors whose iXBRL had no DB tags
 .venv/bin/python run.py parents                      # ownership chains for sponsors still without figures
 .venv/bin/python run.py parent-accounts --limit 50   # parents' group accounts
 .venv/bin/python run.py status && .venv/bin/python run.py summary
@@ -63,6 +64,11 @@ These are tried in order. The first hit wins.
 4. **fuzzy**: RapidFuzz token-sort score of at least 92 within a first-word block, multi-word names only, and each word
    must match a word in the company name. Always flagged for review.
 5. **api_exact**: an exact normalised hit from the CH search API. This finds dissolved companies and only runs with a key.
+   **Second pass** (`run.py api-second-pass`, also part of `run.py api`): for schemes still unmatched, or held back as
+   too new, it also searches CH's dissolved-company index by name and by previous name. `api_exact_pc` is an exact
+   name at the scheme's postcode (0.97). `api_exact_any` is an exact name elsewhere (0.9 if unique with 2+ words,
+   otherwise 0.6 and flagged for review). `api_postcode` is a near-identical name at the scheme's postcode (0.85).
+   Companies a reviewer has rejected for that scheme are skipped.
 6. **postcode**: last resort. A live company registered at the scheme's own postcode whose name contains the sponsor's
    leading distinctive word (and at least two of its words when it has two or more). Postcodes shared by 3+ schemes
    (administrators) or 26+ companies (formation agents) are skipped. Trustee and pension-vehicle companies are logged
@@ -71,6 +77,9 @@ These are tried in order. The first hit wins.
 Confidence goes down for multiple candidate companies and single-word sponsors. It goes up when the scheme postcode
 equals the company's registered-office postcode. A PPF-listed scheme's company name is tried first as the sponsor.
 Police, teachers, councils, universities and similar bodies are marked `non_company` and not fuzzy-matched.
+
+A dissolved sponsor sets `likely_live = 0`, except when the match is low confidence (under 0.7) and still needs
+review: a wrong company with the same name shouldn't close a live scheme.
 
 ## Reviewing flagged matches
 
@@ -113,7 +122,8 @@ status (`figures`, `mentioned_no_figures`, `dc_only`, `no_pension_note`, `no_fil
 lines it came from. Only the extracted text is kept, under `raw/companies_house/pdf_accounts/`.
 
 OCR is CPU-heavy. Run it in batches (`--limit 100`, `--pause 15`) or as up to 3 workers (`--shard 0/3`, `1/3`, `2/3`).
-It resumes where it stopped. `run.py status` copies the figures onto sponsors that have no iXBRL figures, with
+`run.py full-filers` runs the same reader over active full/group/medium sponsors of live schemes whose iXBRL
+filings had no DB tags (the note is often untagged text). It resumes where it stopped. `run.py status` copies the figures onto sponsors that have no iXBRL figures, with
 `db_taxonomy` set to `pdf_ocr`, `pdf_native`, `pdf_xhtml` or `pdf_ixbrl`.
 
 ### Reading accounts on GitHub Actions

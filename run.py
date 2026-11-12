@@ -11,6 +11,8 @@
     python run.py pdf-reextract               # redo figure extraction from saved text after a rules change
     python run.py cloud-export | cloud-import # read PDF accounts on GitHub Actions (see pensiondb/cloud.py)
     python run.py cloud-progress              # each cloud worker's latest progress line, mid-run
+    python run.py full-filers                 # read untagged DB notes of full/group/medium iXBRL filers
+    python run.py api-second-pass             # dissolved / former names / same-postcode search for unmatched
     python run.py charities-download          # Charity Commission, OSCR and FCA mutuals registers
     python run.py charities                   # match sponsor-less schemes to charities / registered societies
     python run.py charity-accounts            # read matched bodies' latest accounts (CC, OSCR, FCA or CH)
@@ -27,7 +29,7 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("step", choices=["all", "seed", "flags", "match", "api", "postcode", "review", "accounts", "reparse", "status", "summary",
                                      "sip-pilot", "pdf-pilot", "pdf-accounts", "parents", "parent-accounts", "pdf-reextract", "cloud-export", "cloud-import", "cloud-progress", "check",
-                                     "charities-download", "charities", "charity-accounts"])
+                                     "charities-download", "charities", "charity-accounts", "api-second-pass", "full-filers"])
     ap.add_argument("--month", action="append", help="accounts month, e.g. September2026 (repeatable)")
     ap.add_argument("--all-months", action="store_true")
     ap.add_argument("--shard", help="i/n: this worker's share of the pdf-accounts run")
@@ -53,6 +55,7 @@ def main():
         elif step == "api":
             if chapi.api_key():
                 chapi.search_unmatched(con)
+                chapi.search_dissolved(con)
                 chapi.refresh_sponsor_status(con)
             else:
                 print("COMPANIES_HOUSE_API_KEY not set - skipping (dissolved sponsors stay unmatched)")
@@ -84,6 +87,10 @@ def main():
             cloud.import_(con)
         elif step == "cloud-progress":
             cloud.progress()
+        elif step == "full-filers":
+            pdfaccounts.run(con, pdfaccounts.unread_full_filers(con), None, a.limit, a.pause)
+        elif step == "api-second-pass":
+            chapi.search_dissolved(con, a.limit)
         elif step == "charities-download":
             charities.download()
         elif step == "charities":

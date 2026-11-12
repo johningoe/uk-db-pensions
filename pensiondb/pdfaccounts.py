@@ -340,6 +340,18 @@ def pilot_sample(con, n=100, seed=7):
     return rows[:n] if n else rows
 
 
+def unread_full_filers(con):
+    """Active full/group/medium sponsors of likely-live non-DC schemes whose machine-readable filings had no DB tags
+    and whose latest accounts haven't been read as a document. Their DB note is often untagged text."""
+    return [r[0] for r in con.execute("""
+        SELECT DISTINCT sp.company_number FROM sponsors sp JOIN schemes s ON s.sponsor_company_number = sp.company_number
+        WHERE lower(sp.company_status) = 'active' AND s.likely_live = 1 AND s.name_type <> 'DC_likely'
+          AND sp.db_period_end IS NULL AND sp.group_db_company_number IS NULL
+          AND upper(replace(sp.accounts_category, '-', ' ')) IN ('FULL', 'GROUP', 'MEDIUM')
+          AND sp.company_number NOT IN (SELECT company_number FROM pdf_accounts)
+        ORDER BY sp.company_number""")]
+
+
 def run(con, companies, shard=None, limit=None, pause=0):
     """shard = (i, n): this worker takes every n-th company, so n workers can OCR side by side.
     limit: stop after this many companies (run in batches). pause: seconds to rest between documents."""
