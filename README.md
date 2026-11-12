@@ -69,10 +69,20 @@ These are tried in order. The first hit wins.
    name at the scheme's postcode (0.97). `api_exact_any` is an exact name elsewhere (0.9 if unique with 2+ words,
    otherwise 0.6 and flagged for review). `api_postcode` is a near-identical name at the scheme's postcode (0.85).
    Companies a reviewer has rejected for that scheme are skipped.
+   **Third pass** (`run.py api-third-pass`): likely-live schemes still unmatched, including those whose earlier
+   candidate a reviewer rejected. It tries up to three name candidates, with names cleaned of CH's "LIMITED(THE)"
+   and with "CO-OPERATIVE" kept whole. `api_pc_subset` (0.8) is a company at the scheme's exact postcode whose name
+   is a shorter or longer form of the sponsor's, starting with the same distinctive word ("FEEDWATER LIMITED" for
+   "Feedwater Treatment Services Ltd"). Trustee companies and companies created from 2020 on are skipped.
 6. **postcode**: last resort. A live company registered at the scheme's own postcode whose name contains the sponsor's
    leading distinctive word (and at least two of its words when it has two or more). Postcodes shared by 3+ schemes
    (administrators) or 26+ companies (formation agents) are skipped. Trustee and pension-vehicle companies are logged
    as leads only. Always flagged for review.
+7. **accounts_text** (`run.py accounts-text-match`): an unmatched scheme whose full name appears in exactly one
+   company's saved accounts text is matched to that company (0.85). This often finds schemes that passed to a new
+   owner: Babtie Group's scheme in Jacobs UK's accounts, Ulster Television's in ITV's. If 2–3 companies name it,
+   the one sharing the scheme's distinctive word is taken (0.8). If 4 or more do, it's an industry-wide scheme
+   (Merchant Navy, Pilots, Mineworkers) and gets `match_method = 'multi_employer'` with no sponsor.
 
 Confidence goes down for multiple candidate companies and single-word sponsors. It goes up when the scheme postcode
 equals the company's registered-office postcode. A PPF-listed scheme's company name is tried first as the sponsor.

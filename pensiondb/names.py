@@ -21,6 +21,8 @@ def norm(name):
         return ""
     s = _ascii(str(name)).upper()
     s = s.replace("&", " AND ").replace("+", " AND ")
+    s = re.sub(r"\bCO[\s-]?OPERATIVE", "COOPERATIVE", s)      # not "COMPANY OPERATIVE"
+    s = re.sub(r"\bCO[\s-]OP\b", "COOP", s)
     s = re.sub(r"['’`]", "", s)
     s = re.sub(r"[^A-Z0-9 ]", " ", s)
     s = re.sub(r"\bPUBLIC LIMITED COMPANY\b", "PLC", s)
@@ -45,7 +47,7 @@ def norm(name):
 def core(normed):
     """Normalised name with trailing legal suffixes removed (for suffix-insensitive matching)."""
     toks = normed.split()
-    while toks and toks[-1] in LEGAL_SUFFIXES:
+    while toks and (toks[-1] in LEGAL_SUFFIXES or toks[-1] == "THE"):     # CH writes "... LIMITED(THE)"
         toks.pop()
     return " ".join(toks)
 

@@ -135,7 +135,7 @@ def _search_items(cand):
         snippet = it.get("address_snippet") or ""
         pc = ((it.get("address") or {}).get("postal_code")) or snippet.rsplit(",", 1)[-1]
         out[it["company_number"]] = (it["company_number"], [it.get("title") or ""], _pc(pc),
-                                     it.get("company_status"), it.get("date_of_cessation"))
+                                     it.get("company_status"), it.get("date_of_cessation"), it.get("date_of_creation"))
     for st in ("best-match", "previous-name-dissolved"):
         try:
             res = _get("/dissolved-search/companies", {"q": cand, "search_type": st, "size": 20}) or {}
@@ -147,7 +147,8 @@ def _search_items(cand):
             prev = out.get(it["company_number"])
             out[it["company_number"]] = (it["company_number"], sorted(set(names + (prev[1] if prev else [])))
                                          , _pc(pc) or (prev[2] if prev else ""), it.get("company_status") or "dissolved",
-                                         it.get("date_of_cessation"))
+                                         it.get("date_of_cessation"),
+                                         it.get("date_of_creation") or (prev[5] if prev else None))
     return list(out.values())
 
 
@@ -186,6 +187,81 @@ def _judge(cand, items, scheme_pc):
             if k and fuzz.token_sort_ratio(want, k) >= 90 and _words_agree(want, k):
                 return it, nm, "api_postcode", 0.85, 0
     return None
+
+
+GENERIC_FIRST = {"UK", "BRITISH", "NATIONAL", "GENERAL", "INTERNATIONAL", "UNITED", "ROYAL", "NORTHERN", "SOUTHERN",
+                 "EASTERN", "WESTERN", "NORTH", "SOUTH", "EAST", "WEST", "CENTRAL", "GREAT", "NEW", "FIRST", "GLOBAL",
+                 "EUROPEAN", "AMERICAN", "LONDON", "SCOTTISH", "WELSH", "ENGLISH", "STANDARD", "UNIVERSAL", "MODERN",
+                 "ASSOCIATED", "ALLIED", "CONSOLIDATED", "INDUSTRIAL", "GROUP", "STAFF", "COMPANY", "TRUST"}
+
+
+def _judge_subset(cand, items, scheme_pc):
+    """A company at the scheme's exact postcode whose name is a shorter or longer form of the candidate, starting
+    with the same distinctive word: "FEEDWATER LIMITED" for "Feedwater Treatment Services Ltd"."""
+    from .names import core
+    want = core(norm(cand)).split()
+    if not scheme_pc or not want or want[0] in GENERIC_FIRST or len(want[0]) < 4:
+        return None
+    hits = []
+    for it in items:
+        if it[2] != scheme_pc or (len(it) > 5 and (it[5] or "") >= "2020"):
+            continue                            # created after the register date: a namesake, not the employer
+        for nm in it[1]:
+            have = core(norm(nm)).split()
+            if {"PENSION", "PENSIONS", "TRUSTEE", "TRUSTEES", "NOMINEES"} & set(have):
+                continue                        # the scheme's trustee company, not the employer
+            if have and have[0] == want[0] and (set(have) <= set(want) or set(want) <= set(have)):
+                hits.append((it, nm))
+                break
+    if len({h[0][0] for h in hits}) == 1:
+        return (*hits[0], "api_pc_subset", 0.8, 0)
+    return None
+
+
+def third_pass(con, limit=None):
+    """Third pass over likely-live schemes still without a sponsor, including those whose earlier candidate a
+    reviewer rejected: up to three sponsor-name candidates against live, dissolved and former names, with the
+    current name cleaning ("LIMITED(THE)", "CO-OPERATIVE"), then the same-postcode name-subset rule. Companies a
+    reviewer rejected for that scheme, and companies created after the register (2020 on), are skipped."""
+    rows = con.execute("""SELECT s.psr, s.scheme_name, s.post_code FROM schemes s
+                          WHERE s.sponsor_company_number IS NULL AND s.charity_number IS NULL
+                            AND s.match_method IN ('unmatched', 'rejected') AND s.likely_live = 1
+                            AND s.name_type <> 'DC_likely'""").fetchall()
+    rejected = {}
+    for psr, co in con.execute("SELECT psr, reviewed_company FROM review_decisions WHERE decision = 'reject'"):
+        rejected.setdefault(psr, set()).add(co)
+    rows = rows[:limit] if limit else rows
+    found, live = 0, 0
+    for i, (psr, name, pc) in enumerate(rows, 1):
+        spc = _pc(pc)
+        hit = None
+        for cand in sponsor_candidates(name)[:3]:
+            items = [it for it in _search_items(cand) if it[0] not in rejected.get(psr, set())
+                     and not (len(it) > 5 and (it[5] or "") >= "2020")]
+            hit = _judge(cand, items, spc) or _judge_subset(cand, items, spc)
+            if hit:
+                break
+        if hit:
+            it, nm, method, conf, review = hit
+            p = _get(f"/company/{it[0]}")
+            if p:
+                upsert_sponsor(con, _profile_row(p), source="api")
+                note = f"third pass: matched name {nm!r}; status {p.get('company_status')}"
+                con.execute("""INSERT INTO match_log (psr, scheme_name, candidate_sponsor, method, company_number,
+                                   company_name, score, confidence, accepted, needs_review, notes)
+                               VALUES (?,?,?,?,?,?,?,?,1,?,?)""",
+                            (psr, name, cand, method, it[0], p.get("company_name"), 100, conf, review, note))
+                con.execute("""UPDATE schemes SET sponsor_name_derived=?, sponsor_company_number=?, match_method=?,
+                                   match_confidence=?, needs_review=? WHERE psr=?""",
+                            (cand, it[0], method, conf, review, psr))
+                found += 1
+                live += p.get("company_status") == "active"
+        if i % 100 == 0:
+            con.commit()
+            print(f"  third pass {i:,}/{len(rows):,}: {found} matched ({live} active)", flush=True)
+    con.commit()
+    print(f"API third pass: matched {found:,} of {len(rows):,} schemes ({live:,} to active companies)")
+    return found
 
 
 def search_dissolved(con, limit=None):
