@@ -15,6 +15,7 @@
     python run.py api-second-pass             # dissolved / former names / same-postcode search for unmatched
     python run.py api-third-pass              # unmatched + reviewer-rejected: better name cleaning, same-postcode subset
     python run.py accounts-text-match         # unmatched schemes named in a company's saved accounts
+    python run.py sponsor-names               # clean unmatched schemes' derived sponsor names; queue re-match candidates
     python run.py district-match              # unmatched schemes: same-district company sharing the scheme's distinctive words
     python run.py confirm-sponsors            # does each matched sponsor's saved accounts name its scheme?
     python run.py long-reports                # read pages past 200 of long annual reports
@@ -35,7 +36,7 @@ def main():
     ap.add_argument("step", choices=["all", "seed", "flags", "match", "api", "postcode", "review", "accounts", "reparse", "status", "summary",
                                      "sip-pilot", "pdf-pilot", "pdf-accounts", "parents", "parent-accounts", "pdf-reextract", "cloud-export", "cloud-import", "cloud-progress", "check",
                                      "charities-download", "charities", "charity-accounts", "api-second-pass", "full-filers",
-                                     "api-third-pass", "accounts-text-match", "long-reports", "confirm-sponsors", "district-match"])
+                                     "api-third-pass", "accounts-text-match", "long-reports", "confirm-sponsors", "district-match", "sponsor-names"])
     ap.add_argument("--month", action="append", help="accounts month, e.g. September2026 (repeatable)")
     ap.add_argument("--all-months", action="store_true")
     ap.add_argument("--shard", help="i/n: this worker's share of the pdf-accounts run")
@@ -105,6 +106,10 @@ def main():
         elif step == "accounts-text-match":
             from pensiondb import textmatch
             textmatch.run(con)
+        elif step == "sponsor-names":
+            from pensiondb import sponsornames
+            print(f"Sponsor names: {sponsornames.apply(con)}")
+            print(f"Re-match candidates for review: {sponsornames.rematch(con):,} (data/sponsor_rematch_queue.csv)")
         elif step == "district-match":
             print(match.district_pass(con))
         elif step == "confirm-sponsors":

@@ -126,6 +126,23 @@ classed `DC_likely` by name.
 A decision can also name an unmatched scheme (`reviewed_company` NULL). Decisions with source **claude** were made
 while checking the largest sponsors and the accounts check below.
 
+### Second look at unmatched sponsor names
+
+`run.py sponsor-names` revisits the sponsor name derived from each live scheme still without a sponsor. Scheme
+wording is often left in ("Direct Line Group Hybrid", "Network Rail CARE", "Ford Salaried Contributory"), along
+with policy references, office tags ("Lazard London") or no name at all ("Pension And Life Assurance Plan Of
+Furmanite International Limited"). `sponsornames.clean` trims these; `pensiondb/sponsor_name_review.csv` holds hand
+verdicts by PSR, either the right name (HarperCollins, J Walter Thompson, Prysmian Cables & Systems for Pirelli
+General) or why there is no company sponsor to find: `product` (a personal or insurer product), `public_sector`,
+`non_company_body` (union, livery company, church, chartered, statutory or mutual body, foreign government),
+`multi_employer` or `no_usable_name`. The result goes in `schemes.sponsor_name_review`, a corrected name in
+`sponsor_name_derived` and the original in `sponsor_name_original`.
+
+The step then looks the corrected names up and writes candidates to `data/sponsor_rematch_queue.csv` for review,
+without accepting any: a brand alone often hits a dormant or new namesake ("Ford" finds FORD LIMITED, dormant, not
+Ford Motor Company). The first review (source `claude` in `review_decisions`, match method `corrected_name`) gave
+132 schemes a sponsor, 22 of them moved from a namesake to the operating company.
+
 ### Same-district pass
 
 `run.py district-match` takes unmatched schemes named after a business the name passes could not find, often

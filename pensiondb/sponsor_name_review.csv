@@ -1,0 +1,443 @@
+psr,scheme_name,verdict,sponsor_name
+10000034,U A P (Hardy & Collins) Pension Scheme,name,Hardy & Collins
+10000076,The Goldsmiths Company Staff Pension Scheme,non_company_body,
+10000125,Community Staff Pension Fund,non_company_body,
+10000149,M U Pension Scheme,non_company_body,
+10000153,Dow Jones United Kingdom Pension Scheme,name,Dow Jones
+10000168,The Pilots' National Pension Fund,multi_employer,
+10000210,United Norwest Co-operatives Employees' Pension Fund,non_company_body,
+10000406,Vauxhall And Associated Companies Pension Fund,name,Vauxhall
+10000529,Teachers Assurance Group Pension Scheme,non_company_body,
+10000658,The 1987 Vetco Gray Hughes Pension Plan,name,Vetco Gray
+10000686,COHSE 1974 Pension And Assurance Scheme,non_company_body,
+10000710,Kellogg's (Great Britain) Pension Fund,name,Kellogg's
+10000725,The Health And Personal Social Services Superannuation Scheme Northern Ireland.,public_sector,
+10000796,Ofcom (Former Itc) Staff Pension Plan,public_sector,
+10000843,The Assay Office Retirement Benefits Scheme,non_company_body,
+10001361,W J B Pension Scheme,no_usable_name,
+10001566,The Leathersellers' Company (1973) Pension Fund,non_company_body,
+10001574,The Professional Footballers Pension Scheme,multi_employer,
+10001621,The TUTMAN B&CE Contracted Out Pension Scheme,multi_employer,
+10002012,The Y M U K Pension Plan,no_usable_name,
+10002441,L W D Prec Eng Co Ltd Retirement Savings Scheme,name,L W D Precision Engineering Co Ltd
+10002913,The Nottinghamshire & District Miners Pension Scheme 1939,multi_employer,
+10004847,Ancient Order Of Foresters 1978 Retirement And Death Benefit Scheme,non_company_body,
+10005372,One Northeast Retirement Benefits Scheme,public_sector,
+10005498,Mid-Counties Co-operative Pension Scheme,non_company_body,
+10005932,Scottish Teachers' Sup Scheme,public_sector,
+10006576,Leopard Pension Scheme,no_usable_name,
+10006956,The Former RTC Retirement Benefits Scheme,no_usable_name,
+10007154,Harwich Haven Authority Pension Fund,non_company_body,
+10007422,Dart Harbour And Navigation Authority Retirement Benefits Scheme,public_sector,
+10007573,The Pirelli General Executive Pension & Life Assurance Fund,name,Prysmian Cables & Systems
+10007574,The Pirelli General Pension & Life Assurance Fund,name,Prysmian Cables & Systems
+10007683,T A P UK Retirement Benefits Scheme,no_usable_name,
+10007844,The Russell Pension Plan,no_usable_name,
+10007854,The Kuwait Investment Office Retirement Benefits Scheme,non_company_body,
+10007933,The Clothworkers' Company Pension Scheme,non_company_body,
+10008173,Ecolab Pest Pension Plan,name,Ecolab
+10008262,Metal Improvement Company Hourly Paid Staff Pension Scheme,name,Metal Improvement Company
+10008289,Canterbury Life Personal Contracted Out Pension Scheme,product,
+10008524,The Pension And Assurance Scheme Of The Land Securities Group Of Companies,name,Land Securities
+10008757,Metal Improvement Company Salaried Staff Pension Scheme,name,Metal Improvement Company
+10009002,Gospel Standard Bethesda Fund Retirement Benefits Scheme,non_company_body,
+10011250,British Shops And Stores Assoc Limited Pension And Life Assurance Scheme,name,British Shops And Stores Association Limited
+10011339,The Haberdashers Company Pension Scheme,non_company_body,
+10011732,House Of Commons Staff Pension Scheme,public_sector,
+10011734,Legal Aid (Scotland) Pension Scheme 1988,public_sector,
+10012502,G E Pension Plan,name,GE
+10013735,N B K UK Employees Pension Plan,name,NBK
+10014258,Pension And Life Assurance Plan Of C M Lemos And Company Limited (3593),name,C M Lemos And Company Limited
+10014701,RGS Support Staff Pension Plan,no_usable_name,
+10015227,The Trustees And Guardians Of Shakespeare's Birthplace Retirement Benefit Scheme,non_company_body,
+10018097,The Nissan (Executives) Pension Plan,name,Nissan
+10018274,The IMarEST Retirement Benefits Scheme,non_company_body,
+10019585,B W Plan,no_usable_name,
+10019777,Pension Scheme For Administration And Technical Staff In The Arts,multi_employer,
+10020100,Universities Superannuation Scheme.,multi_employer,
+10022302,Pension And Life Assurance Plan Of Allott And Lomax,name,Allott And Lomax
+10023241,The Equitable Life Pension Scheme For The Ben Of Ees Of Score (Europe) Ltd,name,Score (Europe) Ltd
+10023401,A B C - O U K Pension And Assurance Scheme,no_usable_name,
+10023548,The Salvation Army Employees Pension Fund,non_company_body,
+10024511,STMicroelectronics (Bristol) Retirement Benefit Scheme,name,STMicroelectronics
+10025345,TGM GROUP (MOOR- DALE ) PENSION SCHEME,name,TGM Group
+10025523,Timex Corporation UK Employee Non-Contributory Pension And Investment Plan,name,Timex Corporation
+10026031,The Pension And Life Assurance Plan Of Furmanite International Limited,name,Furmanite International Limited
+10026198,Moundsmere Farming Company 1986 Pension Scheme (30276AA),name,Moundsmere Farming Company
+10027610,Port Of Tyne Authority Superannuation Scheme,non_company_body,
+10027961,Cameron Iron Works retirement Benefits plan (1974),name,Cameron Iron Works
+10029514,Methodist Ministers Pension Scheme,non_company_body,
+10029563,Fishmongers' Company Staff Pension And Assurance Scheme,non_company_body,
+10030851,Kings Lynn Conservancy Board Pension Fund,non_company_body,
+10030967,Norbord UK (Sterling) Pension Scheme,name,Norbord
+10031871,Keele Superannuation Scheme,non_company_body,
+10031898,The Pension And Life Assurance Plan Of Pengilly And Ridge,name,Pengilly And Ridge
+10033082,The King's Fund Staff Pension And Life Assurance Plan,non_company_body,
+10033119,Pension And Life Assurance Plan Of Paul E Schweder Miller & Co,name,Paul E Schweder Miller & Co
+10037382,Videcom And Associated Companies Group Pension Scheme,name,Videcom
+10037444,MGM Assurance Staff Pension Plan,name,MGM Assurance
+10037603,The British Rubber Industry Pension Scheme And Assurance,multi_employer,
+10037754,United States Air Force Pension and Life Assurance Scheme UK,non_company_body,
+10038473,Reliance Mutual Independent Pension Scheme,product,
+10038476,Reliance Mutual Voluntary Pension Plan,product,
+10038489,The National Health Service Superannuation Scheme For Scotland,public_sector,
+10039698,David Patton & Sons (N1) Ltd Retirement Benefits Scheme,name,David Patton & Sons (NI) Ltd
+10040076,RNLI1983 Contributory Pension Scheme,non_company_body,
+10040120,TCZB UK Pension Fund,no_usable_name,
+10040311,The Castle Pension Scheme,no_usable_name,
+10040987,The UK O O A 1990 Pension Scheme,name,UKOOA
+10041071,The Multichoice Voluntary Pension Plan,product,
+10042921,Zantec Catering Group Money Puchase Plan 708079,name,Zantec Catering Group
+10045531,Plus Plan (UK) Ltd Executive Pension Plan 763016/21 763016,name,Plus Plan (UK) Ltd
+10047189,Scottish And Grampian Television Retirement Benefits Scheme,name,STV
+10047966,PA Pension Scheme,name,PA Consulting
+10048604,The Rainbowplus Voluntary Pension Plan,product,
+10049596,Dresser - Rand Pension Plan,name,Dresser-Rand
+10050939,The Drapers Company Pension Arrangement,non_company_body,
+10052149,Thomson Pension Fund,no_usable_name,
+10054212,B R (1974) Pension Fund,public_sector,
+10054554,G C G Pension Scheme,no_usable_name,
+10055273,I H T Pension Scheme,no_usable_name,
+10056895,Kab Pension Scheme,no_usable_name,
+10058004,The Jiffy and Ambassador Pension Scheme - 2196,name,Jiffy Packaging
+10058024,Ernest Green & Partners Pens & Life Ass Plan (Sel-07900B),name,Ernest Green & Partners
+10058283,Liverpool D B F Pension Scheme,non_company_body,
+10058294,F H S Pension Scheme,no_usable_name,
+10059976,Siemens Fire Safety And Security (PFP) Pension Scheme,name,Siemens
+10060068,Milford Haven Port Authority Retirement Benefit Scheme,non_company_body,
+10060126,Design For Retirement Executive Plan,product,
+10060127,Design For Retirement Pension Plan,product,
+10061436,Twefs Retirement Benefits Scheme,no_usable_name,
+10075261,UCB British Pension Scheme,name,UCB
+10077195,Db (UK) Senior Group Pension Scheme,name,Deutsche Bank
+10077353,I C M Computer Group Pension And Assurance Scheme,name,ICM Computer Group
+10078769,The Israeli Government Tourist Office Retirement Plan,non_company_body,
+10078820,B U T Retirement Benefits Scheme,no_usable_name,
+10079004,Provident Mutual P P S,product,
+10079020,The Liberty Pension Addplan,product,
+10079047,Canada Life Term Assurance Scheme,product,
+10079053,Cornhill Pension Extra Account Scheme,product,
+10079077,Pension Scheme For Officers Of The Supreme Court,public_sector,
+10079078,Pension Scheme For District Judges,public_sector,
+10079080,Pension Scheme For Circuit Judges,public_sector,
+10079081,Pension Scheme For The Higher Judiciary England & Northern Ireland,public_sector,
+10079085,Lower Judiciary In Scotland Pension Scheme (Sheriff),public_sector,
+10079174,Army Careers Officers Pension Scheme,non_company_body,
+10080036,K G M Pension & Life Assurance Scheme,no_usable_name,
+10080699,Port Of London Authority (Upper Division Staff) Widows' Widowers' & Orphans' Pension Fund,non_company_body,
+10080923,Conoco Phillips Pension Plan,name,ConocoPhillips
+10084982,ITF Retirement Benefits Scheme,non_company_body,
+10085080,J H Rawley And Associated Companies Staff And Works Pension And Life Assurance Scheme,name,J H Rawley
+10085760,National Health Service Pension Scheme,public_sector,
+10086168,Atos (Sema) Pension Scheme,name,Atos
+10086397,S E H Europe Retirement Benefits Plan,name,SEH Europe
+10086954,Pension And Life Assurance Plan For The Non-Teaching Staff Of Haberdashers,non_company_body,
+10087164,T I E (UK) Limited Retirement Fund,name,TIE (UK) Limited
+10087474,I P P F Central Office Pension Fund,non_company_body,
+10088160,Dover Harbour Board Pension And Life Assurance Scheme (1973),non_company_body,
+10088300,F C B Advertising Pension Scheme,name,FCB Advertising
+10088578,Greaves Group Workmens Retirement Benefits Scheme 13739/0,name,Greaves Group
+10088714,Ulsterbus/Citybus Retirement & Death Benefits Plan (1997),public_sector,
+10089007,C B Hillier Parker Pension Scheme,name,Hillier Parker
+10089221,The Pension And Assurance Scheme For Hourly Paid Employees Of Elders Glass Limited,name,Elders Glass Limited
+10089224,The Pension And Life Assurance Plan Of Wilson UK Limited,name,Wilson UK Limited
+10090486,Sappi U.K.Pension Scheme,name,Sappi
+10090731,Brambles United Kingdom Pension Plan,name,Brambles
+10090801,The Pension Plan Of Posford Haskoning Limited,name,Posford Haskoning Limited
+10090936,Lloyds Pension Scheme,non_company_body,
+10092203,C F A O UK Staff Pension Fund,name,CFAO
+10092261,The Pension And Life Assurance Plan Of Carlson Filtration Limited,name,Carlson Filtration Limited
+10092524,The L P M Retirement Benefits Scheme,no_usable_name,
+10092574,I F F (GB) Pension And Life Assurance Plan,name,IFF
+10092670,1977 D E (J B W UK) Ltd) Retirement Plan 935-237026000w,no_usable_name,
+10093193,The Chapter Of Gloucester Life Assurance And Death Benefits Schem 702200,non_company_body,
+10093433,St Edmundsbury & Ipswich DBf 801000,non_company_body,
+10093933,T C I Pension Scheme,no_usable_name,
+10093940,Rochester Diocesan Board Of Finance Group Endowment Scheme For Clergy,non_company_body,
+10093942,Rochester Diocesan Staff Retirement Scheme 700200,non_company_body,
+10094536,Lincoln Staff Benefits Plan,no_usable_name,
+10094815,Helaba (London) Pension And Life Assurance Scheme,name,Helaba
+10094924,JCDecaux (United Communications Group) Pension Scheme,name,JCDecaux
+10095234,The Pension and Life Assurance Scheme of Sumitomo Corporation Plc,name,Sumitomo Corporation
+10095426,London Regional Transport Supplementary Pension Scheme For Senior Staff (1989),public_sector,
+10096390,PKF (Manchester) Pension Fund,name,PKF
+10096505,Pension And Life Assurance Plan Of H Burden Limited,name,H Burden Limited
+10096581,Norcros Security Plan,name,Norcros
+10096664,Smith Kline Beecham Senior Executive Pension Plan,name,SmithKline Beecham
+10097896,Halse Of Honiton Sterling Group Plan,name,Halse Of Honiton
+10099219,The N F U Staff Pension Scheme,non_company_body,
+10099580,The Kingswood House (J I B) Staff Pension Scheme,multi_employer,
+10099606,Northern Ireland Public Service Alliance Retirement and Death Benefits Plan,non_company_body,
+10099635,The Faculty Of Advocates Retirement & Death Benefits Plan,non_company_body,
+10099689,Reliance Pension Scheme,no_usable_name,
+10100172,The Kuehne + Nagel RH Scheme,name,Kuehne + Nagel
+10100332,Commonwealth Secretariat Pension And Life Assurance Scheme (1979),non_company_body,
+10100482,The Commonwealth Telecommunications Bureau Pension And Life Assurance Scheme (1974),non_company_body,
+10100837,R W L Pension Scheme,no_usable_name,
+10101689,R R Donnelley United Kingdom Pension Scheme,name,RR Donnelley
+10103619,The NMR Pension Fund,no_usable_name,
+10104363,The Rdjwa Pension Scheme,no_usable_name,
+10105053,Personal Term Assurance,product,
+10105248,L T & R Vowles Multipension Group Plan,name,L T & R Vowles
+10105492,The C I B Pension Scheme 00256,no_usable_name,
+10105573,Chatsworth Settlement Estate Pension Scheme,non_company_body,
+10106118,Construction Industry Research And Information Assn Pension Scheme 1976,name,Construction Industry Research And Information Association
+10107350,BALPA 1973 Pension Scheme,non_company_body,
+10107761,The Privy Purse Private Estates Pension Scheme,non_company_body,
+10111162,Win Pension Fund,no_usable_name,
+10112492,Jones Day (London) Pension Scheme,name,Jones Day
+10112513,Grant Pension Scheme,no_usable_name,
+10112705,Staff Pension Scheme Of John Spencer Signs Limited,name,John Spencer Signs Limited
+10113758,R V S I Europe North Ltd Executive Pension Plan 21244,name,RVSI Europe North Ltd
+10113854,Liberal Hq (1975) Retirement Fund,non_company_body,
+10114360,Pension And Life Assurance Plan Of Veryards Limited,name,Veryards Limited
+10115793,Peugeot Advanced Pension Plan,name,Peugeot
+10115967,Security Archives Vip Plus Scheme RC01023,name,Security Archives
+10116577,Plumbing & Mechanical Services (UK) Industry Pension Scheme,multi_employer,
+10116994,The Evergreen Pension Plan,no_usable_name,
+10117545,Siemens Diagnostics Pension Plan,name,Siemens
+10117966,Bristol Diocesan Group Scheme For Clergy,non_company_body,
+10118874,BBA Income and Protection Plan,product,
+10119133,F&C Asset Management Pension Plan,name,F&C Asset Management
+10120503,Gloucester DBf Clergy Group Endowment Scheme,non_company_body,
+10120678,Uk Commitee For Unicef Retirement Benefits Scheme,name,UK Committee For Unicef
+10122036,Ernst & Whinney Comp Scheme,name,Ernst & Whinney
+10122210,N A H T Staff Benefits Plan,non_company_body,
+10122987,The Thermal Insulation Contracting Industry Pension Scheme,multi_employer,
+10122995,The Reliance Mutual Company Pension Scheme,non_company_body,
+10123011,The Criterion Portable Retirement Builder,product,
+10123433,L M S (1973) Pension Scheme,no_usable_name,
+10124931,P S T Pension Plan,no_usable_name,
+10124970,Nord Anglia Joint Pension Scheme,name,Nord Anglia
+10124981,Xerox FundXtra Scheme,name,Xerox
+10126029,Army & Air Force Exchange Service United Kingdom Area Exchange Managed Pension Plan,non_company_body,
+10126311,A G F Pension And Life Assurance Scheme,no_usable_name,
+10126669,T M Pension Plan,no_usable_name,
+10126739,Hirsch Watch Bracelets Hirsch Pension Plan 249321000y,name,Hirsch Watch Bracelets
+10127155,Ward & Cole Group Retirement Benefits Scheme,name,Ward & Cole
+10127941,Sun Life Assurance Company Of Canada British Division Agents' Retirement Plan,name,Sun Life Assurance Company Of Canada
+10127969,Duchy Of Cornwall Staff Pension Scheme 1978,non_company_body,
+10128292,The Firemans S Pension Scheme,public_sector,
+10128894,The J W T Directors Scheme,name,J Walter Thompson
+10129521,Portree Building And Contracting Services Company Retirement Scheme WR0050300,name,Portree Building And Contracting Services Company
+10129756,Architects Registration Board,non_company_body,
+10130400,Entrelec (UK) Ltd Ret & Death Ben Sch,name,Entrelec (UK) Ltd
+10130427,U S P G Overseas Staff Pension Scheme,non_company_body,
+10130957,S C A Hygiene Paper Pension And Life Assurance Scheme (UK),name,SCA Hygiene Paper
+10130959,Gallaher A Pension Scheme,name,Gallaher
+10130960,Gallaher M Pension Scheme,name,Gallaher
+10131476,The MeadWestvaco (Yate) Retirement Plan,name,MeadWestvaco
+10133535,Ford Hourly Paid Contributory Pension Fund,name,Ford
+10133536,Ford Salaried Contributory Pension Fund,name,Ford
+10133971,People's Dispensary For Sick Animals Retirement Benefits Plan (1978),non_company_body,
+10134028,Richard Ellis St Quintin Retirement Fund,name,Richard Ellis
+10135151,The British Red Cross Pension Fund,non_company_body,
+10135464,The Sony United Kingdom Pension Scheme,name,Sony
+10135900,Bombardier Aerospace Shorts Executive Benefit Scheme,name,Short Brothers
+10136838,Clark Brownscombe (Omni) Retirement Benefits Scheme 159 EP396,name,Clark Brownscombe
+10137269,JWT Pension & Life Assurance Scheme,name,J Walter Thompson
+10137914,GlobalSantaFe North Sea Final Salary Pension Plan,name,GlobalSantaFe
+10138659,Usdaw Staff Superannuation Fund,non_company_body,
+10138943,FDA Staff Retirement Benefits Scheme,non_company_body,
+10139322,ASLEF Officers And Staff Superannuation Fund,non_company_body,
+10139920,Medical Money Management Retirement & Death Benefits Scheme,name,Medical Money Management
+10141058,The British Land Property Staff Scheme,name,British Land
+10141168,CPL 1972 Pension Plan,no_usable_name,
+10141568,Elim Ministers Pension Fund,non_company_body,
+10142935,The Dean and Canons Of Windsor Staff Retirement Benefit Scheme,non_company_body,
+10143731,Smith And Williamson Securities Discretionary Pension Scheme (E),name,Smith & Williamson
+10145378,3 M Pension And Life Assurance Scheme,name,3M
+10146727,The U C B Group Retirement Benefits Scheme,name,UCB Group
+10149485,BBC Pension Scheme,non_company_body,
+10149654,The Pension Scheme for BHSF Group Limited,name,BHSF Group Limited
+10149936,Westgate Pension Plan,no_usable_name,
+10150749,The Greater Manchester Chamber of Commerce and Chamberlink Staff Pension Scheme,name,Greater Manchester Chamber of Commerce
+10151690,TNT Airways UK Pilots' Pension Scheme,name,TNT Airways
+10152239,The RNIB Retirement Benefits Scheme,non_company_body,
+10157991,Trustees of the Kodak Graphic Communications Pension Plan,name,Kodak Graphic Communications
+10158656,THE NICKERSON GROUP WEEKLEY PAID EMPLOYEES ADDITIONAL PENSION SCHEME,name,Nickerson Group
+10159341,The Cereal Partners U K Pension Fund,name,Cereal Partners UK
+10159349,The Scottish Legal Life Pension Scheme,non_company_body,
+10160129,American Embassy Private Pension Scheme,non_company_body,
+10161703,Akzo Nobel (CPS) Pension Scheme,name,Akzo Nobel
+10162365,The Waterloo Contracted Out Pension Scheme,no_usable_name,
+10162803,The T I M P Staff Pension Scheme,no_usable_name,
+10162999,Springer-Verlag UK Group Pension Scheme,name,Springer-Verlag
+10164179,Harper Collins Executive Pension And Life Assurance Scheme,name,HarperCollins
+10164536,Scott Executive Pension Plan,no_usable_name,
+10164685,NN Pension Scheme,no_usable_name,
+10166267,The Conservative Agents' Superannuation Fund,non_company_body,
+10166742,Mckinsey And Company Incorporated UK Support Staff Pension Scheme,name,McKinsey & Company
+10166785,Harper Collins Pension And Life Assurance Scheme,name,HarperCollins
+10167062,Family Assurance APP (FREEWAY PENSION),product,
+10167664,Windsor Life Directors Investment Programme,product,
+10167869,Canada Life UK Division Staff Pension Fund,name,Canada Life
+10169800,The ITB Pension Funds,public_sector,
+10170258,Former Registered Dock Workers Pension Fund,multi_employer,
+10170269,Sun Life Assurance Company Of Canada Employer Sponsored Plan.,name,Sun Life Assurance Company Of Canada
+10170425,Directors and Executives Retirement Plan,no_usable_name,
+10170469,Federated Flexiplan No 1,multi_employer,
+10170667,Northern Ireland Teachers Superannuation Scheme,public_sector,
+10171606,G R Booth Life & Pension Scheme,name,G R Booth
+10173902,M J Maillis FS 1 Scheme,name,M J Maillis
+10174059,N H B C Pension Scheme,name,NHBC
+10174405,A V Taylor (Staff) Rdbs,name,A V Taylor
+10175751,C L C Group Plc Retirement And Death Benefit Scheme,name,CLC Group Plc
+10177691,The Trinity House Corporate Pension Scheme,non_company_body,
+10179537,Carpenters Company Pension and Assurance Scheme,non_company_body,
+10179689,Johnsons Group (Senior Staff) Retirement Benefits Scheme,name,Johnsons Group
+10179859,MGN Past Service Pension Scheme,name,MGN
+10180022,JPMC UK Retirement Plan,name,JPMorgan Chase
+10180533,Archaelogical Organisations Pension Scheme,multi_employer,
+10180929,Scottish Building Pension Scheme,multi_employer,
+10182655,The Lloyds Konecranes Pension Scheme,name,Konecranes
+10183446,The Hull Trinity House Charities Retirement Benefits Scheme (4),non_company_body,
+10183590,The CHL Pension Fund,no_usable_name,
+10185769,U T A Ex-Employees Pension Scheme,public_sector,
+10188851,Edinburgh Merchant Company Retirement Benefits Scheme,non_company_body,
+10189025,The Cheese Company Pension Scheme,name,The Cheese Company
+10189160,Belfast Corporation Transport Department Ex Employees Pension Scheme,public_sector,
+10189400,The Page Final Salary Scheme,no_usable_name,
+10190058,Seaton Valley And Allendale Co-Operative Societies Pension Plan,non_company_body,
+10191929,Water Companies Pension Scheme,multi_employer,
+10191931,The Overseas Service (Allocation Of Pension) (Amendment) Scheme 1991,public_sector,
+10191932,The Colonial Service Officers Pensions Addition For War Service (UK) Scheme 1989,public_sector,
+10191962,The Overseas Service Pensions Scheme 1985,public_sector,
+10192362,Rockspring Property Investment Managers Pension Scheme,name,Rockspring Property Investment Managers
+10192674,Unison Staff Pension Scheme,non_company_body,
+10193421,Thursfields Vip Scheme 2165y,name,Thursfields
+10193535,The Sodexo Justice Services Pension Scheme,name,Sodexo
+10196633,Sita (GB) National Staff Scheme,name,SITA UK
+10197436,The LIS Pension Scheme,no_usable_name,
+10199962,The Dell UK Employee Financial Security Pension Plan,name,Dell
+10200449,LV= Employee Pension Scheme,non_company_body,
+10202901,Charitable Organisations And Voluntary Employers Retirement Plan,multi_employer,
+10205384,Atos CS Pension Scheme,name,Atos
+10207703,The Duchy Of Lancaster Staff Pension Scheme,non_company_body,
+10209468,Quintiles Scotland Pension Plan,name,Quintiles
+10209533,Non Regular Permanent Staff Pension Scheme,public_sector,
+10211058,The Century Life H Additional Pension Plan,product,
+10211491,The Christian Brothers Employee Benefits Scheme,non_company_body,
+10213086,Hempsons Broadly Comparable Pension Scheme,name,Hempsons
+10214385,ITOCHU Corporate Pension Scheme,name,ITOCHU
+10215723,Warrenpoint Harbour Authority 1995 Retirement & Death Benefit Scheme,non_company_body,
+10217867,General Motors Retirees Pension Plan,name,General Motors
+10221683,Wisdom Pension Scheme,no_usable_name,
+10222762,The TFM Pension Scheme,no_usable_name,
+10224477,The B E C T U Staff Retirement Scheme,non_company_body,
+10224582,Sheffield Assay Office (1996) Pension Plan,non_company_body,
+10225287,The Amey OS Pension Scheme,name,Amey
+10226358,The EBS SAPPP,no_usable_name,
+10228380,Era 122020410 Barclays Executive Retirement Investment Plan,product,
+10228921,The Port Of Tyne Authority Docks Pension Scheme,non_company_body,
+10228927,The 140 Pension Scheme,no_usable_name,
+10230157,The Bath Private Pension Plan,product,
+10230447,The PTC Pension Scheme,no_usable_name,
+10230588,A J Bell Private Pension Scheme,product,
+10232157,City Private Pension,product,
+10232705,UCB Bridgwater Pension Scheme,name,UCB
+10232712,Lws Pension Scheme,no_usable_name,
+10233306,One Ecolab Pension Plan,name,Ecolab
+10234338,T D Y - Sheffield Pension Plan,no_usable_name,
+10234541,Port Of Shoreham Retirement And Death Benefit Scheme,non_company_body,
+10236669,The PTS/TW Pension Scheme 67111,no_usable_name,
+10237094,UCB Dumfries Pension Scheme,name,UCB
+10237503,Charles Barrett Interiors ( London ) Limited 1997 Retirement And Death Benefit Scheme,name,Charles Barrett Interiors (London) Limited
+10239932,The HPG Pension Scheme,no_usable_name,
+10244010,MeadWestvaco UK Specialty Paper Pension Plan,name,MeadWestvaco
+10244054,AEEU Group Pension Scheme,non_company_body,
+10245186,ADP Chessington Pension Scheme,name,ADP
+10246288,Youngs Bluecrest Pension Scheme,name,Youngs Bluecrest
+10247375,The M T A Retirement Security Plan,no_usable_name,
+10247702,McDonalds Franchisees Pension Scheme,multi_employer,
+10248568,The Cotswold 1999 Pension Scheme,no_usable_name,
+10248778,Westerby Private Pension,product,
+10248985,SVG2000 Pension And Assurance Scheme,no_usable_name,
+10249599,The Additional Pension Scheme,no_usable_name,
+10249696,Private Pension,product,
+10249697,The MC Trustees Private Pension,product,
+10250048,The Optima 2 Pension Scheme,no_usable_name,
+10250483,Zurich (No 2A) Plan,name,Zurich
+10250801,AMEC Focus Pension Plan.,name,AMEC
+10250881,AkzoNobel Benefit Builder,product,
+10252118,Berkeley Burke Private Pension Plan,product,
+10252749,Sml Executive Retirement Benefits Scheme EP4 112524289,no_usable_name,
+10253369,UCW Pensions 2001,non_company_body,
+10253670,Cynllun Pensiwn Y Lolfa Cyf,name,Y Lolfa Cyf
+10253825,T R P UK Retirement Plan,no_usable_name,
+10254196,Prudential Flexible Retirement Income Account,product,
+10254788,SCI UK (Camberley) Pension Scheme,name,SCI UK
+10257146,DCWW Pension Scheme,name,Dwr Cymru
+10257474,Whitwood Care Ltd (2001)retirement Benefit Scheme Hrsb/Jb/72614,name,Whitwood Care Ltd
+10257529,Laurel Pub Pension Scheme,name,Laurel Pub
+10257627,Issac H Grainger & Son Ltd cimp,name,Isaac H Grainger & Son Ltd
+10257829,George S Hall Bbc Staff Retirement Benefit Scheme,name,George S Hall
+10258190,The Michael J Field Sipps,product,
+10258192,The Sippdeal ESipp,product,
+10258672,The Chatsworth Settlement Pension Scheme 2001,non_company_body,
+10260112,D.E UK Pension Plan,name,Douwe Egberts
+10260686,Ricoh Document Managment Retirement Benefits Scheme,name,Ricoh
+10260716,P C H A 2001 Pension Scheme,no_usable_name,
+10262660,F R P S 2001 Retirement Benefits Scheme,no_usable_name,
+10263031,Westerby Discretionary Pension Portfolio,product,
+10265802,In Health Retirment & Death Benefit Scheme 90838,name,In Health
+10265905,Turner Estate Solutions DB Pension Scheme,name,Turner Estate Solutions
+10266207,em Pension Scheme,no_usable_name,
+10266309,The Commonwealth Telecommunications Organisation 2002PEnsion Scheme 74474001,non_company_body,
+10266751,Pilkington Sealed Units Retirement Benefits Plan,name,Pilkington
+10267529,Yorsipp,product,
+10268816,Weatheralls North Final Salary Pension Scheme,name,Weatheralls
+10269488,MC Trustees Protected Rights Pension Scheme,product,
+10270419,VWRI UK Pension Scheme,no_usable_name,
+10270674,P D M T Retirement Benefits Scheme,no_usable_name,
+10272311,The Freedom Protected Rights Pension,product,
+10272688,R W L Volac Pension Scheme,name,Volac
+10274629,RR Donnelley Passport Pension Scheme,name,RR Donnelley
+10274709,The TCS UK-Diligenta Pension Plan,name,Diligenta
+10274940,DS Smith Saver Plus Scheme,name,DS Smith
+10275544,FSS Pension Scheme,no_usable_name,
+10275683,Combined Nuclear Pension Plan,multi_employer,
+10275951,CBBH Retirements Benefits Scheme,no_usable_name,
+10276171,Finmeccanica FuturePlanner,name,Finmeccanica
+10276400,Swissport (Legacy) Pension Scheme,name,Swissport
+12000569,The Europa Pension Plan,no_usable_name,
+12000600,E.ON (Cross-Border) Pension Scheme,name,E.ON
+12001026,The Vivendi 2008 Deferred Members' Scheme,name,Vivendi
+12002367,Hewlett-Packard Investment Scheme,name,Hewlett-Packard
+12002675,The Canada Life Guaranteed Retirement Scheme,product,
+12002827,The BH-F Pension Scheme,no_usable_name,
+12002928,Pauls Malt 2 Pension and Life Assurance Scheme,name,Pauls Malt
+12002975,Lancaster Pension Scheme,no_usable_name,
+12003660,AJC 2 Pension Scheme,no_usable_name,
+12004257,Veolia ES Municipal Division (VUKPP),name,Veolia ES
+12004368,INTELLIGENTPENSION,product,
+12004457,Legal & General Worksave Pension Scheme,product,
+12005741,The Grand Lodge of Scotland Pension Plan,non_company_body,
+12005819,HSBC Globetrotter Retirement Benefits Plan,name,HSBC
+12005937,The Green Retirement Pension Plan,product,
+12006045,The SHG Pension Scheme,no_usable_name,
+12006300,DM1 Retirement Pension Plan,no_usable_name,
+12006301,FP1 Retirement Plan,no_usable_name,
+12006459,Southern RBS,no_usable_name,
+12006487,Capita Oak Pension Scheme,name,Capita
+12006769,The Green Retirment Plan Series 2,product,
+12006826,The Henley Retirement Benefit Scheme,no_usable_name,
+12007027,M.A.G (STAL) Pension Scheme,name,Stansted Airport
+12007150,Villa 1982 RBS,no_usable_name,
+12007762,The Talisman Retirement Plan,no_usable_name,
+12007828,BWFS Occupational Pension Scheme,no_usable_name,
+12008057,Tyson Sanford R.B.S.,name,Tyson Sanford
+12008246,TRUE POTENTIAL PENSION,product,
+12008344,The Carey Pension Scheme,product,
+12008541,The Carey Pension Scheme 2,product,
+12009432,C Gillmore t/a Accord Appointments Retirement Benefit Scheme,name,Accord Appointments
+12009926,EH Williams Auto Enrolment Pension Scheme,name,EH Williams
+12010123,Exchange DBv12 Go-Live Scheme for SR&A,no_usable_name,
+19002242,Carillion Rail (GTRM) Secton,name,Carillion Rail
+19002724,DCCS Division (VUKPP),name,Vodafone
+19002725,Veolia ES Municipal Division (VUKPP),name,Veolia ES
+19004205,Scottish Voluntary Sector Pension Scheme,multi_employer,
+19004239,The Ethical Fund,product,
+19008101,The I T B Pension Funds (Open Fund),public_sector,
+19008102,The I T B Pension Funds (Closed Fund),public_sector,
+19012403,London and North Western Railway,non_company_body,
