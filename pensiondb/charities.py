@@ -332,7 +332,7 @@ def _read_body(source, number, company):
     base = dict(filing_date=when, text_source=src if full.strip() else "none", doc=url)
     hit = P.extract(pages)
     if hit:
-        mult = {"m": 1e6, "m?": 1e6, "000": 1e3, "1": 1}
+        mult = P.MULT
         f = {k: v * mult[u] for k, (v, u) in hit["found"].items()}
         return dict(base, status="figures", page=hit["page"], evidence=hit["evidence"],
                     unit=",".join(sorted({u for _, u in hit["found"].values()})),

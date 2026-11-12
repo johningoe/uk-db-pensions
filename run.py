@@ -15,6 +15,7 @@
     python run.py api-second-pass             # dissolved / former names / same-postcode search for unmatched
     python run.py api-third-pass              # unmatched + reviewer-rejected: better name cleaning, same-postcode subset
     python run.py accounts-text-match         # unmatched schemes named in a company's saved accounts
+    python run.py long-reports                # read pages past 200 of long annual reports
     python run.py charities-download          # Charity Commission, OSCR and FCA mutuals registers
     python run.py charities                   # match sponsor-less schemes to charities / registered societies
     python run.py charity-accounts            # read matched bodies' latest accounts (CC, OSCR, FCA or CH)
@@ -24,7 +25,7 @@
 """
 import argparse
 
-from pensiondb import accounts, charities, chapi, checks, cloud, db, match, parents, pdfaccounts, review, sips, sources, summary
+from pensiondb import accounts, charities, chapi, checks, cloud, db, handcheck, match, parents, pdfaccounts, review, sips, sources, summary
 
 
 def main():
@@ -32,7 +33,7 @@ def main():
     ap.add_argument("step", choices=["all", "seed", "flags", "match", "api", "postcode", "review", "accounts", "reparse", "status", "summary",
                                      "sip-pilot", "pdf-pilot", "pdf-accounts", "parents", "parent-accounts", "pdf-reextract", "cloud-export", "cloud-import", "cloud-progress", "check",
                                      "charities-download", "charities", "charity-accounts", "api-second-pass", "full-filers",
-                                     "api-third-pass", "accounts-text-match"])
+                                     "api-third-pass", "accounts-text-match", "long-reports"])
     ap.add_argument("--month", action="append", help="accounts month, e.g. September2026 (repeatable)")
     ap.add_argument("--all-months", action="store_true")
     ap.add_argument("--shard", help="i/n: this worker's share of the pdf-accounts run")
@@ -73,6 +74,7 @@ def main():
         elif step == "status":
             print(f"PDF accounts: {pdfaccounts.merge(con):,} sponsors given DB figures")
             print(f"Figure check: {checks.run(con)}")
+            print(f"Hand-checked: {handcheck.apply(con):,} sponsors")
             print(f"Parents: {parents.merge(con):,} sponsors given group DB figures")
             match.flag_status(con)
         elif step == "summary":
@@ -94,6 +96,8 @@ def main():
             pdfaccounts.run(con, pdfaccounts.unread_full_filers(con), None, a.limit, a.pause)
         elif step == "api-second-pass":
             chapi.search_dissolved(con, a.limit)
+        elif step == "long-reports":
+            pdfaccounts.extend_long(con, limit=a.limit)
         elif step == "api-third-pass":
             chapi.third_pass(con, a.limit)
         elif step == "accounts-text-match":
@@ -108,6 +112,7 @@ def main():
             charities.read_accounts(con, a.limit)
         elif step == "check":
             print(f"Figure check: {checks.run(con)}")
+            print(f"Hand-checked: {handcheck.apply(con):,} sponsors")
         elif step == "pdf-reextract":
             pdfaccounts.reextract(con)
         elif step == "parents":

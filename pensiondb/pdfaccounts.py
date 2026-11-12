@@ -59,7 +59,12 @@ def _schema(con):
 def latest_accounts(num):
     fh = _get(f"/company/{num}/filing-history", {"category": "accounts", "items_per_page": 10}) or {}
     for it in fh.get("items", []):
-        if it.get("type", "").startswith("AA") and (it.get("links") or {}).get("document_metadata"):
+        # only real accounts: not a change of accounting reference date (type AA01, description
+        # "change-account-reference-date-..."), and not interim or initial accounts (filed to justify a
+        # dividend), none of which have a pension note
+        desc = it.get("description", "")
+        if it.get("type", "").startswith("AA") and (it.get("links") or {}).get("document_metadata") \
+                and desc.startswith("accounts") and not re.search(r"interim|initial", desc):
             return it
     return None
 
@@ -125,14 +130,20 @@ def _ocr_tesseract(page):
     return pytesseract.image_to_string(img, lang="eng", config=f"--psm {TESSERACT_PSM}")
 
 
-def _ocr_vision(page):
+def _ocr_vision(page, fast=False):
+    import objc
+    with objc.autorelease_pool():               # Vision objects pile up otherwise: long runs run out of memory
+        return _ocr_vision_inner(page, fast)
+
+
+def _ocr_vision_inner(page, fast=False):
     import Vision
     from Foundation import NSData
     buf = io.BytesIO()
     page.render(scale=2.5).to_pil().save(buf, "PNG")
     png = buf.getvalue()
     req = Vision.VNRecognizeTextRequest.alloc().init()
-    req.setRecognitionLevel_(0)                 # accurate; "fast" misses most of a pension note
+    req.setRecognitionLevel_(1 if fast else 0)  # accurate; "fast" misses most of a pension note (fine for spotting one)
     h = Vision.VNImageRequestHandler.alloc().initWithData_options_(NSData.dataWithBytes_length_(png, len(png)), None)
     h.performRequests_error_([req], None)
     # Rebuild printed lines: group fragments by height, then read each line left to right
@@ -200,12 +211,17 @@ UNIT_M = re.compile(r"(?<![\d.,])[£€Ef$]\s?['’]?m\b|£\s?millions?\b|\bin m
 UNIT_K = re.compile(r"[£€Ef$]\s?['’‘]?0{3}\b|£\s?k\b|['’‘]000\b|(?<![\d,.:;])000s?\b|\bthousands\b")
 
 
+UNIT_BN = re.compile(r"(?<![\d.,])[£€Ef$]\s?['’]?bn\b|£\s?billions?\b|\bin billions\b|\bEbn\b")
+MULT = {"bn": 1e9, "m": 1e6, "m?": 1e6, "000": 1e3, "1": 1}
+
+
 def _unit_at(lines, i):
     """Unit of line i: the nearest column heading on or above it; failing that, the page's commoner heading."""
     for ln in reversed(lines[max(0, i - 60):i + 1]):
-        k, m = UNIT_K.search(ln), UNIT_M.search(ln)
-        if k or m:
-            return "000" if k and (not m or k.start() < m.start()) else "m"
+        k, m, b = UNIT_K.search(ln), UNIT_M.search(ln), UNIT_BN.search(ln)
+        if k or m or b:
+            first = min((x.start(), u) for x, u in ((k, "000"), (m, "m"), (b, "bn")) if x)
+            return first[1]
     text = "\n".join(lines)
     return "m" if len(UNIT_M.findall(text)) > len(UNIT_K.findall(text)) else "000"
 
@@ -224,8 +240,9 @@ def fix_digits(s):
     return _L1.sub("1", _O0.sub("0", _S5.sub("5", s)))
 
 
-def _first_amount(s):
-    """(value, unit) of the first amount in s; unit inferred from the token where it can be."""
+def _first_amount(s, totals=True):
+    """(value, unit) of the first amount in s; unit inferred from the token where it can be. With totals, a row
+    whose first figures add up to a later one (a multi-scheme table) gives that total."""
     s = fix_digits(s)
     toks = list(NUM.finditer(s))
     for i, m in enumerate(toks):
@@ -249,11 +266,25 @@ def _first_amount(s):
             if x < 100 and any(re.search(r"[,:;]\d{3}", t.group(0)) for t in toks[i + 1:]):
                 continue                        # a note reference before the real (comma-grouped) amounts
         after = s[m.end():m.end() + 2].lower()
-        unit = ("1" if groups >= 2 else "m" if after.startswith(("m", " m")) or ("." in bare and not groups)
+        unit = ("1" if groups >= 2 else "bn" if after.startswith(("bn", " bn", "b ", " billion"))
+                else "m" if after.startswith(("m", " m"))
+                else "m~" if "." in bare and not groups           # a decimal: £m unless the heading says £bn
                 else "000" if after.startswith(("k", " k"))
                 else "1" if groups and re.search(r"[£€]\s?$", s[max(0, m.start() - 2):m.start()]) else None)
                 # "£60,400" in narrative is pounds; table columns carry the unit in their heading instead
         plain = not groups and "." not in bare and x >= 1000      # "2397": in a £m table, likely 239.7 misread
+        # multi-scheme tables: "4,598  5,449  10,047" = scheme A, scheme B, total -> take the total
+        vals = []
+        for t in toks[i:i + 6]:
+            b = t.group(0).strip("()-")
+            try:
+                vals.append(float(re.sub(r"[,:;]", "", b)))
+            except ValueError:
+                break
+        for k in (range(2, len(vals)) if totals else ()):
+            if all(v > 0 for v in vals[:k + 1]) and abs(sum(vals[:k]) - vals[k]) <= 0.002 * vals[k] + 1:
+                x = vals[k]
+                break
         return (-x if tok.startswith(("(", "-")) else x), unit, plain
     return None, None, False
 
@@ -269,7 +300,7 @@ def extract(pages):
             continue
         prev_db = here
         dollars = DOLLAR_PAGE.search(text)
-        found, ev, prose = {}, [], {}
+        found, ev, prose, rests = {}, [], {}, {}
         lines = text.splitlines()
         for li, line in enumerate(lines):
             if not dollars:                     # Tesseract reads a leading 5 as $: "$46,270" for 546,270
@@ -284,10 +315,13 @@ def extract(pages):
                     rest = rx.split(line, 1)[-1]
                     v, unit, plain = _first_amount(rest)
                     if v is not None and abs(v) >= 1 and not (key == "assets" and abs(v) == 100):  # 100%
+                        if unit == "m~":
+                            unit = "bn" if _unit_at(lines, li) == "bn" else "m"
                         unit = unit or _unit_at(lines, li)
                         hit = ((v, "m?" if unit == "m" and plain else unit), line.strip()[:160])
                         if TABULAR.match(rest):
                             found[key] = hit[0]
+                            rests[key] = (rest, li)
                             ev.append(hit[1])
                         else:                   # a sentence: used only if no table line gives this figure
                             prose.setdefault(key, hit)
@@ -295,12 +329,23 @@ def extract(pages):
             if key not in found:
                 found[key] = val
                 ev.append(line)
+        # a total for one of the pair but not the other would compare a group total with one scheme: use first columns
+        if {"obligation", "assets"} <= set(rests):
+            first = {k: _first_amount(rests[k][0], totals=False)[0] for k in ("obligation", "assets")}
+            is_total = {k: first[k] is not None and abs(first[k]) != abs(found[k][0]) for k in first}
+            plain_row = [k for k in first if not is_total[k]]
+            multi_col = plain_row and len([t for t in NUM.finditer(rests[plain_row[0]][0])
+                                           if re.search(r"\d[,.:;]?\d", t.group(0))]) >= 2
+            if is_total["obligation"] != is_total["assets"] and multi_col:    # a one-figure row is already a total
+                for k in first:
+                    if first[k] is not None:
+                        found[k] = (first[k], found[k][1])
         # a page with both beats one with net only; on a tie, a page that itself says "defined benefit"
         rank = ({"obligation", "assets"} <= set(found), len(found), here)
         if found and (best is None or rank > best["rank"]):
             best = {"found": found, "page": no, "evidence": " | ".join(ev), "rank": rank}
     if best and "obligation" in best["found"] and "assets" in best["found"]:
-        mult = {"m": 1e6, "m?": 1e6, "000": 1e3, "1": 1}
+        mult = MULT
         o, a = (abs(best["found"][k][0]) * mult[best["found"][k][1]] for k in ("obligation", "assets"))
         if max(o, a) > 20 * min(o, a):          # one of the pair is a stray number; keep the larger
             del best["found"]["obligation" if o < a else "assets"]
@@ -334,7 +379,7 @@ def assess(num, max_pages=MAX_PAGES):
     if tagged and not (hit and {"obligation", "assets"} & set(hit["found"])):
         return tagged                           # listed groups often tag only the net balance-sheet line
     if hit:
-        mult = {"m": 1e6, "m?": 1e6, "000": 1e3, "1": 1}
+        mult = MULT
         f = {k: v * mult[u] for k, (v, u) in hit["found"].items()}
         return dict(base, status="figures", page=hit["page"], evidence=hit["evidence"],
                     unit=",".join(sorted({u for _, u in hit["found"].values()})),
@@ -345,6 +390,75 @@ def assess(num, max_pages=MAX_PAGES):
         m = DB_MENTION.search(full)
         return dict(base, status="mentioned_no_figures", evidence=full[max(0, m.start() - 120): m.end() + 200])
     return dict(base, status="dc_only" if DC_ONLY.search(full) else "no_pension_note")
+
+
+LONG_MAX_BYTES = 200_000_000
+LONG_PAGES = 600
+LONG_HINT = re.compile(r"pen[s5]i[o0]n|defined benefit|benefit ob|plan [a@]ss|scheme [a@]ss|actuar|retirement benefit",
+                       re.I)            # loose on purpose: fast OCR reads "Pensions" as "Penslons" and the like
+
+
+def extend_long(con, companies=None, limit=None):
+    """Read the pages beyond MAX_PAGES of long annual reports (big groups' pension notes often sit after page 200).
+    Each extra page gets a fast OCR pass; pages that mention pensions, and the page after each, are then read
+    accurately. The text is appended to the saved file, so page numbers stay right, and the figures re-extracted."""
+    global MAX_BYTES
+    rows = con.execute("""SELECT company_number, pages FROM pdf_accounts WHERE pages > ? AND pages <= ?
+                          AND text_source IN ('ocr', 'native')
+                          AND substr(company_number, 1, 2) NOT IN ('FC', 'SF', 'NF', 'BR')     -- overseas parents' reports
+                          AND company_number IN (SELECT sponsor_company_number FROM schemes WHERE likely_live = 1 OR live_doubt IS NOT NULL
+                                                 UNION SELECT group_db_company_number FROM sponsors
+                                                 UNION SELECT parent_number FROM company_parents)
+                          ORDER BY pages""", (MAX_PAGES, LONG_PAGES)).fetchall()
+    if companies is not None:
+        rows = [r for r in rows if r[0] in set(companies)]
+    rows = rows[:limit] if limit else rows
+    cols = ["filing_date", "description", "paper_filed", "pages", "text_source", "status", "obligation", "assets",
+            "net", "unit", "page", "evidence"]
+    for k, (num, pages) in enumerate(rows, 1):
+        item = latest_accounts(num)
+        cache = item and PDF_DIR / f"{num}_{item['date']}.txt"
+        if not cache or not cache.exists():
+            continue
+        src, _, body = cache.read_text().partition("\n")
+        have = body.split("\f")
+        if len(have) >= pages:
+            continue
+        t0 = time.time()
+        old_max, MAX_BYTES = MAX_BYTES, LONG_MAX_BYTES
+        try:
+            data, kind = fetch_doc(num, item)
+        except Exception as e:                  # noqa: BLE001
+            print(f"[{k}/{len(rows)}] {num} download failed: {e}", flush=True)
+            continue
+        finally:
+            MAX_BYTES = old_max
+        doc = pdfium.PdfDocument(data)
+        del data
+        extra, scanned, hits = {}, set(), set()
+        for i in range(len(have), len(doc)):     # pass 1: native text, or a fast OCR to spot the pension pages
+            native = doc[i].get_textpage().get_text_range()
+            if len(native.strip()) > 200:
+                extra[i] = native
+                continue
+            extra[i] = _ocr_vision(doc[i], fast=True) if OCR_ENGINE == "vision" else _ocr_page(doc[i])
+            scanned.add(i)
+            if LONG_HINT.search(extra[i]):
+                hits.add(i)
+        # pass 2: accurate OCR of the pension pages and their neighbours (notes run over; fast OCR garbles headings)
+        for i in sorted({j for h in hits for j in range(h - 1, h + 3)} & scanned):
+            if OCR_ENGINE == "vision":
+                extra[i] = _ocr_vision(doc[i])
+        extra = [extra[i] for i in sorted(extra)]
+        doc.close()
+        cache.write_text(src + "\n" + "\f".join(have + extra))
+        (PDF_DIR / f"{num}_{item['date']}.pdf").unlink(missing_ok=True)
+        r = assess(num)
+        con.execute(f"UPDATE pdf_accounts SET {', '.join(c + '=?' for c in cols)} WHERE company_number=?",
+                    [*[r.get(c) for c in cols], num])
+        con.commit()
+        print(f"[{k}/{len(rows)}] {num} +{len(extra)} pages -> {r['status']} "
+              f"{r.get('obligation') or ''} {r.get('assets') or ''} ({time.time() - t0:.0f}s)", flush=True)
 
 
 # ---------------------------------------------------------------- pilot
@@ -439,7 +553,7 @@ def merge(con):
     # clear earlier PDF-derived figures so a re-read (pdf-reextract) replaces them; iXBRL figures are untouched
     con.execute("""UPDATE sponsors SET db_period_end=NULL, db_obligation=NULL, db_plan_assets=NULL,
                        db_surplus_deficit=NULL, db_net_basis=NULL, db_taxonomy=NULL, db_source_file=NULL
-                   WHERE db_taxonomy LIKE 'pdf_%'""")
+                   WHERE db_taxonomy LIKE 'pdf_%' OR db_taxonomy = 'hand_checked'""")
     n = 0
     for num, ob, assets, net, src, fdate, page in con.execute(
             """SELECT p.company_number, p.obligation, p.assets, p.net, p.text_source, p.filing_date, p.page

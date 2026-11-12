@@ -138,7 +138,8 @@ From FRS 102 (FRC `core`) and IFRS tags: `LiabilitiesDefinedBenefitPlanPresentVa
 ### From PDF accounts
 
 Most large sponsors never file iXBRL. `run.py pdf-accounts` takes active full/group/medium-accounts sponsors with
-no figures, fetches their latest accounts through the CH document API (PDF, XHTML or ESEF zip), and reads the
+no figures, fetches their latest annual accounts (skipping interim and initial accounts filed for a dividend, and
+change-of-accounting-date notices, none of which has a pension note) through the CH document API (PDF, XHTML or ESEF zip), and reads the
 pension note. Scanned PDFs are read with macOS Vision text recognition. Each result goes in `pdf_accounts` with a
 status (`figures`, `mentioned_no_figures`, `dc_only`, `no_pension_note`, `no_filing`, `error`), the page and the
 lines it came from. Only the extracted text is kept, under `raw/companies_house/pdf_accounts/`.
@@ -149,6 +150,14 @@ value of scheme or plan assets, and total defined benefit asset or liability. A 
 in a sentence, and lines about returns, interest, movements, experience adjustments, durations, percentages and
 funding valuations are skipped. The page with both obligation and assets wins. After changing these rules, run
 `run.py pdf-reextract`. It re-reads every saved text without downloading anything.
+
+Amounts in £bn are read as such (BAE Systems reports its schemes in £bn). In a multi-scheme table, a row whose
+first figures add up to a later one ("4,598  5,449  10,047") gives the total, but only when the obligation and assets
+rows both do. Otherwise a group total would be set against one scheme's figure.
+
+Reports longer than 200 pages are cut off on the first read, and big groups' pension notes often come after
+that. `run.py long-reports` reads the rest: a fast OCR pass over each extra page finds the pension pages, and
+those pages, plus one before and two after each, are then read accurately. The text is appended to the saved file.
 
 OCR is CPU-heavy. Run it in batches (`--limit 100`, `--pause 15`) or as up to 3 workers (`--shard 0/3`, `1/3`, `2/3`).
 `run.py full-filers` runs the same reader over active full/group/medium sponsors of live schemes whose iXBRL
@@ -240,5 +249,17 @@ anywhere on the page, and reads "k" after an amount as thousands. After changing
 
 The check catches gross errors only. A figure misread within the right order of magnitude (a wrong digit, a
 prior-year column) passes, so spot-check figures that matter against the filed accounts.
+
+### Hand-checked figures (largest sponsors)
+
+The reader does worst on the biggest groups: long reports, several schemes or countries in one table, figures in
+dollars or euros. `pensiondb/hand_checked.csv` holds figures for the largest sponsors read by eye from their
+filed annual reports, each with the filing date, PDF page and a note, so anyone can verify them. `run.py status`
+applies them after the figure check, overriding what the reader found: `db_taxonomy = 'hand_checked'`,
+`db_check = 'ok:hand_checked'`, and the source in `db_source_file`. `basis` says what the figures cover:
+`uk_plans` (the UK column of a multi-country table), `main_scheme`, or `group` (all plans in the accounts, which
+for Unilever and Rio Tinto includes overseas plans). Dollar and euro figures are converted at the period-end
+rate in `handcheck.FX`. A `misread` row clears a figure that is wrong when no reliable one could be read
+(`db_check = 'flag:misread'`). To add a company, add a row and run `run.py status`.
 
 Not used: the gov.uk Pension Tracing Service.

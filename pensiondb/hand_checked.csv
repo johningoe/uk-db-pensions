@@ -1,0 +1,36 @@
+company_number,company_name,period_end,currency,obligation_m,assets_m,basis,filing_date,page,note
+00445790,TESCO PLC,2026-02-28,GBP,11936,12217,group,2026-07-25,115,UK and ROI plans; plan liabilities and plan assets as stated in the auditor's report
+00102498,BP P.L.C.,2025-12-31,USD,18020,24589,uk_plans,2026-05-20,210,UK column of the group pension table
+09928412,HSBC UK BANK PLC,2025-12-31,GBP,13397,18659,main_scheme,2026-05-14,71,HSBC Bank (UK) Pension Scheme; also page 94
+01026167,BARCLAYS BANK PLC,2025-12-31,GBP,18475,21558,group,2026-06-02,385,Barclays Bank Group column; UK Retirement Fund is 96% of it
+02468686,AVIVA PLC,2025-12-31,GBP,9442,9629,group,2026-05-18,262,IAS 19 main staff schemes after eliminating non-transferable Group insurance policies; poor OCR
+03888792,GSK PLC,2025-12-31,GBP,8130,8819,uk_plans,2026-04-26,229,UK pensions column
+00041424,UNILEVER PLC,2025-12-31,EUR,13934,18050,group,2026-04-26,146,worldwide pension plans (UK column not legible); converted from euros
+02723534,ASTRAZENECA PLC,2025-12-31,USD,4767,4597,uk_plans,2026-04-25,122,UK obligation from page 122; UK assets 2618+1979 from page 167
+00023307,DIAGEO PLC,2025-06-30,USD,5083,5640,uk_plans,2025-11-15,179,United Kingdom row (Diageo Pension Scheme); converted at £1 = $1.3735 (30 June 2025)
+00719885,RIO TINTO PLC,2025-12-31,USD,10485,10572,group,2026-04-16,217,worldwide pension plans (UK is the largest); assets before the asset ceiling
+04967001,ITV PLC,2025-12-31,GBP,1990,2164,group,2026-05-21,161,ITV Pension Scheme; assets from page 123
+00928555,BOOTS UK LIMITED,2025-08-31,GBP,3723,3721,main_scheme,2026-06-06,49,Boots Pension Scheme (largely insured)
+04190816,BT GROUP PLC,2026-03-31,GBP,35113,30951,main_scheme,2026-07-30,181,BT Pension Scheme (BTPS)
+01800000,BRITISH TELECOMMUNICATIONS PUBLIC LIMITED COMPANY,2026-03-31,GBP,35113,30951,main_scheme,2026-07-30,181,BTPS figures from BT Group plc's report (BT plc is the principal employer)
+04138203,ROYAL MAIL GROUP LIMITED,2025-03-30,GBP,3849,6029,main_scheme,2025-12-22,66,RMPP and RMSEPP; surplus before withholding tax
+02452909,THYSSENKRUPP UK PLC,2024-09-30,GBP,353.3,427.5,group,2025-06-09,31,sum of three schemes on pages 31-33 (reported in £'000); the reader had taken a deferred-tax figure
+02366970,E.ON UK LIMITED,2025-12-31,GBP,2952,3079,group,2026-07-11,74,funded 2927 plus unfunded 25; assets page 71
+02280000,TATA STEEL UK LIMITED,2026-03-31,GBP,6,8,group,2026-08-28,69,British Steel Pension Scheme bought out with insurers (settlement £5.2bn) in the year; £8m of assets left before wind-up
+02342138,BABCOCK INTERNATIONAL GROUP PLC,2026-03-31,GBP,2838.4,2804.4,group,2026-08-17,260,principal scheme plus Railways and other schemes
+SC036219,JOHN WOOD GROUP LIMITED,2025-12-31,USD,2454.0,2763.4,group,2026-07-07,141,UK scheme reported in US dollars
+01664812,KINGFISHER PLC,2026-01-31,GBP,1679,1860,uk_plans,2026-07-01,1,UK column (iXBRL document has one page)
+01950509,MOTHERCARE PLC.,,GBP,239.7,219.6,group,2026-09-08,18,OCR dropped the decimal points (read as 2397 and 2196); deficit £20.1m
+00124855,MPAC GROUP PLC,2025-12-31,GBP,235.9,242.1,group,2026-07-25,62,figures from the auditor's report
+02442580,KELLER GROUP PLC,,,,,misread,2026-05-31,176,reader took an unrelated figure; group retirement benefit liability is only £15.4m and the scheme totals are not legible
+00214436,MARKS AND SPENCER P.L.C.,2026-03-28,GBP,5178.7,5142.9,group,2026-09-23,67,M&S Pension Scheme and smaller plans
+00077536,RELX PLC,2025-12-31,GBP,2691,2748,uk_plans,2026-06-23,156,UK column; group total obligation 3308
+02366616,UNITED UTILITIES PLC,2026-03-31,GBP,1977.6,2288.5,group,2026-07-25,117,Group column
+SC016288,SCOTTISH & NEWCASTLE LIMITED,2025-12-31,GBP,2069,1917,group,2026-10-16,79,Heineken UK schemes
+00111876,LOOKERS LIMITED,2025-12-31,GBP,177.4,191.3,group,2026-07-06,69,OCR dropped the decimal points
+08700698,SANTANDER UK GROUP HOLDINGS PLC,2025-12-31,GBP,7127,7629,group,2026-04-17,200,Santander (UK) Group Pension Scheme
+00395826,BALFOUR BEATTY PLC,2025-12-31,GBP,2533,2485,group,2026-06-08,295,two funded schemes (2222/2213 and 279/272) plus £32m unfunded; reader took only the main scheme's figures
+07290590,UK POWER NETWORKS HOLDINGS LIMITED,,GBP,2622,3060,group,,92,total column (two schemes); the reader took the first scheme only
+01377658,DS SMITH LIMITED,,GBP,674,740,main_scheme,2025-12-29,109,whole scheme (funded 669 plus unfunded 5) before allocation to other participating employers
+00015454,THE PRUDENTIAL ASSURANCE COMPANY LIMITED,,GBP,4077,4458,group,2026-05-10,58,underlying scheme liabilities 4077 and surplus 381 (Prudential Staff Pension Scheme and smaller schemes)
+00033774,JOHNSON MATTHEY PLC,2026-03-31,GBP,1325,1529,group,2026-08-07,181,total column; the reader took the first column

@@ -166,7 +166,7 @@ def apply_decisions(con):
     m = Matcher()
     rows = con.execute("""SELECT d.psr, d.decision, d.new_company_number, d.method, d.reason
                           FROM review_decisions d JOIN schemes s ON s.psr = d.psr
-                          WHERE s.sponsor_company_number = d.reviewed_company""").fetchall()
+                          WHERE s.sponsor_company_number IS d.reviewed_company""").fetchall()
     n = {"accept": 0, "switch": 0, "reject": 0}
     for psr, decision, new, method, reason in rows:
         if decision == "accept":
