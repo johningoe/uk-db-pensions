@@ -126,6 +126,17 @@ classed `DC_likely` by name.
 A decision can also name an unmatched scheme (`reviewed_company` NULL). Decisions with source **claude** were made
 while checking the largest sponsors and the accounts check below.
 
+### Same-district pass
+
+`run.py district-match` takes unmatched schemes named after a business the name passes could not find, often
+because the scheme name adds a word ("Innovia British Pension Scheme") or the company was renamed. Candidates are
+active companies registered in the scheme's postcode district whose current or previous name starts with one of
+the scheme name's distinctive words; a scheme name with two or more such words needs two of them in the company
+name. Trustee and nominee companies, companies formed after March 2020 and public-sector scheme names are skipped.
+Shared place names make it noisy ("LGPS - South Yorkshire" against South Yorkshire Drilling), so every candidate
+is flagged for review. The first run's 177 candidates were reviewed (`review_decisions`, source `claude`): 83
+kept, 7 switched to a better candidate, 87 rejected.
+
 ### Sponsor confirmed by its accounts
 
 No public source names each scheme's employer, so every match is inferred. `run.py confirm-sponsors` checks the
@@ -170,6 +181,9 @@ value of scheme or plan assets, and total defined benefit asset or liability. A 
 in a sentence, and lines about returns, interest, movements, experience adjustments, durations, percentages and
 funding valuations are skipped. The page with both obligation and assets wins. After changing these rules, run
 `run.py pdf-reextract`. It re-reads every saved text without downloading anything.
+
+Between pages that both give an obligation and assets from table lines, within 3× of each other, the bigger
+obligation wins: a company's main scheme over a small overseas one (Innovia Films' UK scheme over its German one).
 
 Amounts in £bn are read as such (BAE Systems reports its schemes in £bn). In a multi-scheme table, a row whose
 first figures add up to a later one ("4,598  5,449  10,047") gives the total, but only when the obligation and assets

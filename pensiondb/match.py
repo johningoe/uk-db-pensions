@@ -403,3 +403,87 @@ def flag_status(con):
             WHEN sponsor_dissolved = 1 AND NOT (needs_review = 1 AND coalesce(match_confidence, 0) < 0.7) THEN 0
             ELSE 1 END""")
     con.commit()
+
+
+# ---------------------------------------------------------------- same-district pass
+
+# words that say nothing about which company it is
+DISTRICT_SKIP = set("THE AND OF FOR STAFF PENSION PENSIONS SCHEME PLAN FUND RETIREMENT BENEFITS BENEFIT LIFE ASSURANCE "
+                    "DEATH SUPERANNUATION GROUP SECTION EMPLOYEES EXECUTIVE WORKS COMPANY LIMITED PLC LLP UK TRUST "
+                    "SALARIED OFFICERS DEFINED CONTRIBUTION FINAL SALARY SAVINGS SENIOR MANAGEMENT HOLDINGS "
+                    "INTERNATIONAL BRITISH ENGLAND SCOTLAND WALES LONDON NATIONAL GENERAL UNITED SONS CO EUROPE "
+                    "EUROPEAN SERVICES SYSTEMS INDUSTRIES".split())
+NOT_SPONSOR = re.compile(r"\b(PENSION|PENSIONS|TRUSTEE|TRUSTEES|NOMINEE|NOMINEES)\b")
+PUBLIC = re.compile(r"\bLGPS\b|pension fund$|fire (and|&) rescue|fire authority|fire service|police|county council|"
+                    r"assembly members|members contributory|scottish enterprise|passenger transport", re.I)
+
+
+def _district(pc):
+    pc = _pc(pc)
+    return pc[:-3] if len(pc) >= 5 else None
+
+
+def _dist_words(name):
+    return [t for t in core(norm(name)).split() if t not in DISTRICT_SKIP and len(t) >= 3 and not t.isdigit()]
+
+
+def district_pass(con):
+    """Unmatched schemes named after a company that the name passes could not find, e.g. "Innovia British Pension
+    Scheme" (Innovia Films Limited, same Wigton district). Candidates: active companies registered in the scheme's
+    postcode district whose name (current or previous) starts with one of the scheme name's distinctive words.
+      - a scheme name with 2+ distinctive words needs 2 of them in the company name; one such company -> accepted
+        (district_word, 0.8); several -> flagged for review
+      - a single distinctive word (5+ letters) -> flagged for review (district_word, 0.6)
+    Pension trustee and nominee companies, companies formed after the March 2020 register date and dormant companies
+    (unless the only candidate) are not sponsors. Companies already rejected for the scheme are skipped, and so are
+    public-sector scheme names (LGPS, fire, police...).
+    Shared place names make this noisy (LGPS - South Yorkshire -> South Yorkshire Drilling), so every candidate goes
+    to review (needs_review = 1); `review_decisions` records the verdicts, source 'claude' for the first run."""
+    m = Matcher()
+    rows = con.execute("""SELECT psr, scheme_name, sponsor_name_derived, post_code FROM schemes
+        WHERE likely_live = 1 AND name_type <> 'DC_likely' AND sponsor_company_number IS NULL
+          AND charity_number IS NULL AND match_method IN ('unmatched', 'rejected')""").fetchall()
+    rejected = {(p, c) for p, c in con.execute(
+        "SELECT psr, reviewed_company FROM review_decisions WHERE decision = 'reject' AND reviewed_company IS NOT NULL")}
+    counts = {"accepted": 0, "review": 0}
+    for psr, name, derived, pc in rows:
+        d, words = _district(pc), _dist_words(derived or name)
+        if not d or not words or PUBLIC.search(name):
+            continue
+        cands = {}
+        for w in dict.fromkeys(words):
+            for num, cname, prev, status, cpc, inc, acc in m.ch.execute(
+                    """SELECT n.company_number, n.name, n.is_previous, c.company_status, c.reg_post_code,
+                              c.incorporation_date, c.accounts_category
+                       FROM names n JOIN companies c USING (company_number) WHERE n.first_tok = ?""", (w,)):
+                if _district(cpc) != d or not (status or "").startswith("Active") or NOT_SPONSOR.search(cname or "") \
+                        or (psr, num) in rejected or (inc or "")[-4:] >= "2020":
+                    continue
+                overlap = len(set(words) & set(core(norm(cname)).split()))
+                if overlap > cands.get(num, (0,))[0]:
+                    cands[num] = (overlap, cname, prev, (acc or "").upper() == "DORMANT")
+        if not cands:
+            continue
+        need = 2 if len(words) >= 2 else 1
+        good = {n: c for n, c in cands.items() if c[0] >= need}
+        if not good or (need == 1 and len(words[0]) < 5):
+            continue
+        trading = {n: c for n, c in good.items() if not c[3]} or good
+        best = max(trading.values(), key=lambda c: c[0])[0]
+        top = {n: c for n, c in trading.items() if c[0] == best}
+        sure = False        # always reviewed: see docstring
+        num = sorted(top)[0]
+        co = m.company(num)
+        upsert_sponsor(con, co)
+        note = (f"same postcode district {d}; {best} of {len(words)} distinctive words; "
+                f"{len(top)} candidate(s): " + "; ".join(f"{n} {c[1]}" for n, c in sorted(top.items()))[:300])
+        con.execute("""INSERT INTO match_log (psr, scheme_name, candidate_sponsor, method, company_number, company_name,
+                           score, confidence, accepted, needs_review, notes) VALUES (?,?,?,?,?,?,?,?,1,?,?)""",
+                    (psr, name, " ".join(words), "district_word", num, co["company_name"], best,
+                     0.8 if sure else 0.6, 0 if sure else 1, note))
+        con.execute("""UPDATE schemes SET sponsor_company_number = ?, match_method = 'district_word',
+                           match_confidence = ?, needs_review = ? WHERE psr = ?""",
+                    (num, 0.8 if sure else 0.6, 0 if sure else 1, psr))
+        counts["accepted" if sure else "review"] += 1
+    con.commit()
+    return counts

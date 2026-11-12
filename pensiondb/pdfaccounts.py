@@ -200,7 +200,7 @@ def page_texts(num, item, data, kind="pdf", max_pages=MAX_PAGES, cache_dir=None)
 NOT_BALANCE = re.compile(r"beginning|start of|opening|brought forward|\bat 1(?:st)? [a-z]|return|interest|remeasure"
                          r"|expected|movement|change|cost|income|gain|loss|measured in accordance|hierarchy|discount"
                          r"|sensitiv|assumption|increase|decrease|expense|paid|contribution|transfer"
-                         r"|duration|\byears\b|valuation|funding level|experience|adjustment|percent|%|derecogni", re.I)
+                         r"|duration|\byears\b|valuation|funding level|experience|adjustment|percent|%|derecogni|arising on", re.I)
 TABULAR = re.compile(r"^[\s.:;,|‘'’)\-–—]{0,6}(?:[£€E]\s?)?\(?-?\d")    # the amount follows the label directly
 NOT_AMOUNT_BEFORE = re.compile(r"(?:FRS|IAS|IFRS|note|notes|section|page|para(?:graph)?)\s*$", re.I)
 MONTH = r"(?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*"
@@ -312,7 +312,7 @@ def extract(pages):
             for key in keys:
                 rx = LINES[key]
                 if key not in found and rx.search(line):
-                    rest = rx.split(line, 1)[-1]
+                    rest = re.sub(r"^[A-Za-z]+", "", rx.split(line, 1)[-1])   # rest of a word cut short: "liabilit|ies"
                     v, unit, plain = _first_amount(rest)
                     if v is not None and abs(v) >= 1 and not (key == "assets" and abs(v) == 100):  # 100%
                         if unit == "m~":
@@ -340,8 +340,16 @@ def extract(pages):
                 for k in first:
                     if first[k] is not None:
                         found[k] = (first[k], found[k][1])
-        # a page with both beats one with net only; on a tie, a page that itself says "defined benefit"
-        rank = ({"obligation", "assets"} <= set(found), len(found), here)
+        # a page with both beats one with net only. Between pages that both give obligation and assets (often
+        # separate schemes, e.g. a UK scheme and a small German one), the bigger obligation wins; otherwise a page
+        # that itself says "defined benefit"
+        both = {"obligation", "assets"} <= set(found)
+        size = 0
+        if both and {"obligation", "assets"} <= set(rests):            # both from table lines, not sentences
+            o, a = (abs(found[k][0]) * MULT[found[k][1] or "1"] for k in ("obligation", "assets"))
+            if o and a and max(o, a) <= 3 * min(o, a):                  # a consistent pair, not a stray number
+                size = o
+        rank = (both, len(found), size, here)
         if found and (best is None or rank > best["rank"]):
             best = {"found": found, "page": no, "evidence": " | ".join(ev), "rank": rank}
     if best and "obligation" in best["found"] and "assets" in best["found"]:
