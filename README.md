@@ -121,6 +121,13 @@ pension note. Scanned PDFs are read with macOS Vision text recognition. Each res
 status (`figures`, `mentioned_no_figures`, `dc_only`, `no_pension_note`, `no_filing`, `error`), the page and the
 lines it came from. Only the extracted text is kept, under `raw/companies_house/pdf_accounts/`.
 
+The reader looks at pages that mention defined benefit, plus the page after each (tables often run over). It
+knows the common line labels: present value of obligations or liabilities, actuarial liability, fair or market
+value of scheme or plan assets, and total defined benefit asset or liability. A figure on a table line beats one
+in a sentence, and lines about returns, interest, movements, experience adjustments, durations, percentages and
+funding valuations are skipped. The page with both obligation and assets wins. After changing these rules, run
+`run.py pdf-reextract`. It re-reads every saved text without downloading anything.
+
 OCR is CPU-heavy. Run it in batches (`--limit 100`, `--pause 15`) or as up to 3 workers (`--shard 0/3`, `1/3`, `2/3`).
 `run.py full-filers` runs the same reader over active full/group/medium sponsors of live schemes whose iXBRL
 filings had no DB tags (the note is often untagged text). It resumes where it stopped. `run.py status` copies the figures onto sponsors that have no iXBRL figures, with

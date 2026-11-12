@@ -30,11 +30,16 @@ TESSERACT_CMD = os.environ.get("TESSERACT_CMD") or shutil.which("tesseract") or 
 TESSERACT_PSM = os.environ.get("TESSERACT_PSM", "6")       # 6 = one block of text: keeps table rows on one line
 
 DB_MENTION = re.compile(r"defined benefit|final salary|retirement benefit (?:obligation|scheme)", re.I)
+PENSION_WORD = re.compile(r"pension|retirement benefit|(?:scheme|plan) (?:assets|liabilities)", re.I)
 DC_ONLY = re.compile(r"defined contribution|money purchase", re.I)
 LINES = {
     "obligation": re.compile(r"present value of (?:the )?(?:defined benefit |funded |scheme |plan )?(?:obligations?|liabilit)"
-                             r"|defined benefit obligations?\b(?! at)|scheme liabilities|liabilities of the scheme", re.I),
-    "assets": re.compile(r"fair value of (?:the )?(?:plan |scheme )?assets|scheme assets\b|plan assets\b", re.I),
+                             r"|defined benefit obligations?\b(?! at)|(?:scheme|plan)['’]?s? liabilities|liabilities of the"
+                             r" (?:scheme|plan)|actuarial liabilit(?:y|ies)\b|total defined benefit (?:liability|obligation)",
+                             re.I),
+    "assets": re.compile(r"fair value of (?:the )?(?:plan |scheme )?assets|(?:scheme|plan)['’]?s? assets\b"
+                         r"|market value of (?:the )?(?:pension )?(?:(?:scheme|plan)['’]?s? )?assets"
+                         r"|total defined benefit assets?\b", re.I),
     "net": re.compile(r"net (?:pension|defined benefit|retirement benefit)s? (?:liability|asset|deficit|surplus|obligation)"
                       r"|(?:deficit|surplus) in the (?:scheme|plan)|net (?:deficit|surplus)\b", re.I),
 }
@@ -183,7 +188,9 @@ def page_texts(num, item, data, kind="pdf", max_pages=MAX_PAGES, cache_dir=None)
 # Movement-table and narrative lines that mention the same words but are not the balance-sheet figure
 NOT_BALANCE = re.compile(r"beginning|start of|opening|brought forward|\bat 1(?:st)? [a-z]|return|interest|remeasure"
                          r"|expected|movement|change|cost|income|gain|loss|measured in accordance|hierarchy|discount"
-                         r"|sensitiv|assumption|increase|decrease|expense|paid|contribution|transfer", re.I)
+                         r"|sensitiv|assumption|increase|decrease|expense|paid|contribution|transfer"
+                         r"|duration|\byears\b|valuation|funding level|experience|adjustment|percent|%|derecogni", re.I)
+TABULAR = re.compile(r"^[\s.:;,|‘'’)\-–—]{0,6}(?:[£€E]\s?)?\(?-?\d")    # the amount follows the label directly
 NOT_AMOUNT_BEFORE = re.compile(r"(?:FRS|IAS|IFRS|note|notes|section|page|para(?:graph)?)\s*$", re.I)
 MONTH = r"(?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*"
 DAY_AFTER = re.compile(r"^(?:st|nd|rd|th)?\s*" + MONTH, re.I)        # "31 December", "1st January"
@@ -227,8 +234,8 @@ def _first_amount(s):
             continue
         bare = tok.strip("()-")
         v = re.sub(r"[,:;]", "", bare)
-        if re.fullmatch(r"(19|20)\d\d", v):
-            continue                            # years
+        if re.fullmatch(r"(19|20)\d\d", bare):
+            continue                            # years ("2,012" is an amount, "2012" a year)
         try:
             x = float(v)
         except ValueError:
@@ -253,12 +260,16 @@ def _first_amount(s):
 
 def extract(pages):
     """Best page = the one with the most balance-sheet DB lines. Amounts are GBP; the scans read £ as E or €."""
-    best = None
+    best, prev_db = None, False
     for no, text in pages:
-        if not DB_MENTION.search(text):
+        here = bool(DB_MENTION.search(text))
+        # a note's table often runs onto the next page, which may not repeat "defined benefit"
+        if not (here or (prev_db and PENSION_WORD.search(text))):
+            prev_db = here
             continue
+        prev_db = here
         dollars = DOLLAR_PAGE.search(text)
-        found, ev = {}, []
+        found, ev, prose = {}, [], {}
         lines = text.splitlines()
         for li, line in enumerate(lines):
             if not dollars:                     # Tesseract reads a leading 5 as $: "$46,270" for 546,270
@@ -270,13 +281,24 @@ def extract(pages):
             for key in keys:
                 rx = LINES[key]
                 if key not in found and rx.search(line):
-                    v, unit, plain = _first_amount(rx.split(line, 1)[-1])
-                    if v is not None and abs(v) >= 1:
+                    rest = rx.split(line, 1)[-1]
+                    v, unit, plain = _first_amount(rest)
+                    if v is not None and abs(v) >= 1 and not (key == "assets" and abs(v) == 100):  # 100%
                         unit = unit or _unit_at(lines, li)
-                        found[key] = (v, "m?" if unit == "m" and plain else unit)
-                        ev.append(line.strip()[:160])
-        if found and (best is None or len(found) > len(best["found"])):
-            best = {"found": found, "page": no, "evidence": " | ".join(ev)}
+                        hit = ((v, "m?" if unit == "m" and plain else unit), line.strip()[:160])
+                        if TABULAR.match(rest):
+                            found[key] = hit[0]
+                            ev.append(hit[1])
+                        else:                   # a sentence: used only if no table line gives this figure
+                            prose.setdefault(key, hit)
+        for key, (val, line) in prose.items():
+            if key not in found:
+                found[key] = val
+                ev.append(line)
+        # a page with both beats one with net only; on a tie, a page that itself says "defined benefit"
+        rank = ({"obligation", "assets"} <= set(found), len(found), here)
+        if found and (best is None or rank > best["rank"]):
+            best = {"found": found, "page": no, "evidence": " | ".join(ev), "rank": rank}
     if best and "obligation" in best["found"] and "assets" in best["found"]:
         mult = {"m": 1e6, "m?": 1e6, "000": 1e3, "1": 1}
         o, a = (abs(best["found"][k][0]) * mult[best["found"][k][1]] for k in ("obligation", "assets"))
