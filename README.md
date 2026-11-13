@@ -126,6 +126,14 @@ classed `DC_likely` by name.
 A decision can also name an unmatched scheme (`reviewed_company` NULL). Decisions with source **claude** were made
 while checking the largest sponsors and the accounts check below.
 
+### Scan of every company's accounts for scheme names
+
+`run.py bulk-scan --limit 12` streams the last 12 Companies House monthly accounts archives (every iXBRL filing,
+about 380,000 a month) and looks for the full names of live schemes still without a sponsor, ignoring "The",
+"Limited", "plc" and plurals. Twelve months cover every iXBRL filer's latest accounts; large groups file PDFs and
+are not in the archives. One archive at a time is downloaded, scanned on all cores and deleted; the companies naming
+each scheme are saved per archive in `data/bulkscan/` so a stopped run resumes. About 8 minutes an archive.
+
 ### Second look at unmatched sponsor names
 
 `run.py sponsor-names` revisits the sponsor name derived from each live scheme still without a sponsor. Scheme
@@ -250,6 +258,14 @@ the name is unique (two words or more), the scheme postcode agrees, or one body 
 or has 10× the income of the others. Accepted matches fill `schemes.charity_source`, `charity_number`,
 `charity_name`, `charity_match_confidence` and `charity_active`. They never replace a Companies House sponsor.
 Everything found, accepted or not, is in `charity_matches`; doubtful ones go to `data/charity_review.csv`.
+The corrected sponsor name from `run.py sponsor-names` is tried last, so it only adds matches ("RNIB",
+"Royal College of Midwives"). Reviewed candidates go in `pensiondb/charity_decisions.csv` (psr, register, number,
+accept/reject); an accept can name a different entry than the one found (Corpus Christi College Cambridge rather
+than Oxford, YMCA England and Wales rather than a local YMCA).
+
+Bodies that are neither companies nor registered charities publish elsewhere: universities on their own websites
+(they are exempt charities), trade unions in their annual returns to the Certification Officer, trust ports and
+other statutory bodies on their own websites, the Duchies in their annual reports. None of these is read yet.
 
 For larger charities in England and Wales, Part B of the annual return includes the net defined benefit pension
 balance; it's copied to `charity_db_pension` (negative = deficit) with `charity_fy_end`. It's the net figure only,
@@ -295,7 +311,8 @@ so don't add `group_db_*` up across sponsors. They are kept apart from the spons
   - `decimal_lost`: a £m figure of 1,000 or more printed without a comma (OCR read "239.7" as "2397").
 
 The PDF reader takes each figure's unit from the nearest column heading above it ("£'000", "£m"), not from
-anywhere on the page, and reads "k" after an amount as thousands. After changing extraction rules, run
+anywhere on the page, and reads "k" after an amount as thousands. A page with no heading takes £'000, unless the whole document has no £'000 or £m
+heading, when amounts are whole pounds (small companies: "Defined benefit obligation 855,000"). After changing extraction rules, run
 `run.py pdf-reextract` then `run.py status`.
 
 The check catches gross errors only. A figure misread within the right order of magnitude (a wrong digit, a

@@ -200,14 +200,14 @@ def page_texts(num, item, data, kind="pdf", max_pages=MAX_PAGES, cache_dir=None)
 NOT_BALANCE = re.compile(r"beginning|start of|opening|brought forward|\bat 1(?:st)? [a-z]|return|interest|remeasure"
                          r"|expected|movement|change|cost|income|gain|loss|measured in accordance|hierarchy|discount"
                          r"|sensitiv|assumption|increase|decrease|expense|paid|contribution|transfer"
-                         r"|duration|\byears\b|valuation|funding level|experience|adjustment|percent|%|derecogni|arising on", re.I)
+                         r"|duration|\byears\b|valuation|funding level|experience|adjustment|percent|%|derecogni|arising on|restriction", re.I)
 TABULAR = re.compile(r"^[\s.:;,|‘'’)\-–—]{0,6}(?:[£€E]\s?)?\(?-?\d")    # the amount follows the label directly
 NOT_AMOUNT_BEFORE = re.compile(r"(?:FRS|IAS|IFRS|note|notes|section|page|para(?:graph)?)\s*$", re.I)
 MONTH = r"(?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*"
 DAY_AFTER = re.compile(r"^(?:st|nd|rd|th)?\s*" + MONTH, re.I)        # "31 December", "1st January"
 DAY_BEFORE = re.compile(r"\b(?:at|on|to|as at)\s*$", re.I)              # "... as at 31" (month on the next line)
 # Column-heading unit tokens. A bare "million" is left out: narrative ("£21.9 million") is not a heading.
-UNIT_M = re.compile(r"(?<![\d.,])[£€Ef$]\s?['’]?m\b|£\s?millions?\b|\bin millions\b|\bEm\b")
+UNIT_M = re.compile(r"(?<![\d.,])[£€Ef$]\s?['’]?m\b|£\s?['’]?millions?\b|\bin millions\b|\bEm\b")
 UNIT_K = re.compile(r"[£€Ef$]\s?['’‘]?0{3}\b|£\s?k\b|['’‘]000\b|(?<![\d,.:;])000s?\b|\bthousands\b")
 
 
@@ -223,7 +223,22 @@ def _unit_at(lines, i):
             first = min((x.start(), u) for x, u in ((k, "000"), (m, "m"), (b, "bn")) if x)
             return first[1]
     text = "\n".join(lines)
-    return "m" if len(UNIT_M.findall(text)) > len(UNIT_K.findall(text)) else "000"
+    m, k = len(UNIT_M.findall(text)), len(UNIT_K.findall(text))
+    if m or k:
+        return "m" if m > k else "000"
+    return _doc_unit            # no heading on the page: the document's, or whole pounds if it has none
+
+
+_doc_unit = "000"
+
+
+def _set_doc_unit(pages):
+    """Unit for pages with no heading of their own: £'000 as before, but whole pounds ("1") when the document has
+    no £'000 or £m heading anywhere (small companies' accounts: "Defined benefit obligation 855,000")."""
+    global _doc_unit
+    text = "\n".join(t for _, t in pages)
+    m, k = len(UNIT_M.findall(text)), len(UNIT_K.findall(text))
+    _doc_unit = "000" if (m or k) else "1"     # the document's commoner heading proved unreliable (prose "£m")
 
 
 # OCR letter-for-digit slips inside amounts: Vision reads 5 as S, Tesseract as §; O for 0; l or I for 1
@@ -292,6 +307,8 @@ def _first_amount(s, totals=True):
 def extract(pages):
     """Best page = the one with the most balance-sheet DB lines. Amounts are GBP; the scans read £ as E or €."""
     best, prev_db = None, False
+    pages = list(pages)
+    _set_doc_unit(pages)
     for no, text in pages:
         here = bool(DB_MENTION.search(text))
         # a note's table often runs onto the next page, which may not repeat "defined benefit"

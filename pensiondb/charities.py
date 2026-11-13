@@ -17,6 +17,7 @@ overwrite the Companies House sponsor. A charity that is also a company gives it
     python run.py charities             # load, match, write charity_* columns
 """
 import csv
+from pathlib import Path
 import io
 import re
 import zipfile
@@ -172,6 +173,18 @@ def _dominant(rows, pick):
     return pick[5] and all(not r[5] or (pick[10] or 0) > 10 * (r[10] or 0) for r in others)
 
 
+DECISIONS = Path(__file__).with_name("charity_decisions.csv")
+
+
+def _decisions():
+    """Reviewed register candidates (psr, source, number, decision accept/reject), kept with the code so they
+    survive a rebuild. Fill `reviewer_decision` in data/charity_review.csv and copy the rows here."""
+    if not DECISIONS.exists():
+        return {}
+    with open(DECISIONS, newline="") as f:
+        return {r["psr"]: r for r in csv.DictReader(f)}
+
+
 def match(con):
     """Match every scheme without a Companies House sponsor to the registers."""
     con.execute("DELETE FROM charity_matches")
@@ -182,13 +195,16 @@ def match(con):
     for rows in blocks.values():
         for r in rows:
             exact.setdefault(r[3], []).append(r)
-    schemes = con.execute("""SELECT psr, scheme_name, post_code FROM schemes
+    schemes = con.execute("""SELECT psr, scheme_name, post_code, sponsor_name_derived FROM schemes
                              WHERE sponsor_company_number IS NULL""").fetchall()
+    decided = _decisions()
     out = []
-    for psr, sname, spc in schemes:
+    for psr, sname, spc, derived in schemes:
         spc = _pc(spc)
         best = None
-        for cand in sponsor_candidates(sname):
+        # the corrected sponsor name (sponsornames) last, so it only adds matches: "RNIB Retirement Benefits Scheme"
+        cands = list(dict.fromkeys([*sponsor_candidates(sname), *([derived] if derived else [])]))
+        for cand in cands:
             for key in sorted(_keys(cand), key=len, reverse=True):
                 if len(key) < 4 or key in ("SCHEME", "FUND", "STAFF"):
                     continue
@@ -215,6 +231,13 @@ def match(con):
                 break
         if best:
             cand, row, method, score, pch, n, ok, conf = best
+            d = decided.get(psr)
+            if d and d["decision"] == "accept":          # a reviewer's verdict, possibly naming another entry
+                alt = con.execute("SELECT * FROM charity_register WHERE source=? AND number=? LIMIT 1",
+                                  (d["source"], d["number"])).fetchone()
+                row, ok, conf, method = alt or row, True, 0.9, method if not alt or alt[1] == row[1] else "reviewed"
+            elif d and (d["source"], d["number"]) == (row[0], row[1]):
+                ok = False
             out.append((psr, cand, row[0], row[1], row[2], method, score, int(pch), n, int(ok), row[9], conf, row[5]))
     con.executemany("INSERT INTO charity_matches VALUES (?,?,?,?,?,?,?,?,?,?,?)", [o[:11] for o in out])
     con.execute("""UPDATE schemes SET charity_source=NULL, charity_number=NULL, charity_name=NULL,
