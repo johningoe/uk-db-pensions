@@ -200,7 +200,7 @@ def page_texts(num, item, data, kind="pdf", max_pages=MAX_PAGES, cache_dir=None)
 NOT_BALANCE = re.compile(r"beginning|start of|opening|brought forward|\bat 1(?:st)? [a-z]|return|interest|remeasure"
                          r"|expected|movement|change|cost|income|gain|loss|measured in accordance|hierarchy|discount"
                          r"|sensitiv|assumption|increase|decrease|expense|paid|contribution|transfer"
-                         r"|duration|\byears\b|valuation|funding level|experience|adjustment|percent|%|derecogni|arising on|restriction", re.I)
+                         r"|duration|\byears\b|valuation|funding level|experience|adjustment|percent|%|derecogni|arising on|restriction|operations", re.I)
 TABULAR = re.compile(r"^[\s.:;,|‘'’)\-–—]{0,6}(?:[£€E]\s?)?\(?-?\d")    # the amount follows the label directly
 NOT_AMOUNT_BEFORE = re.compile(r"(?:FRS|IAS|IFRS|note|notes|section|page|para(?:graph)?)\s*$", re.I)
 MONTH = r"(?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*"

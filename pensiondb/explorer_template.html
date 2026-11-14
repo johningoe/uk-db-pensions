@@ -1,0 +1,489 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>UK DB Scheme Explorer</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Condensed:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: a register ledger. Sticky header with view tabs; overview of coverage, then a dense table with a detail
+   panel that slides over from the right. Bottle-green accent on a faintly green-grey paper. */
+:root {
+  --bg: #f5f7f5; --surface: #ffffff; --sunk: #edf1ee; --fg: #16201b; --muted: #5a6760; --line: #d8dfda;
+  --accent: #1d5c4f; --accent-fg: #ffffff; --accent-soft: #dcebe6;
+  --good: #2c7a4b; --good-soft: #dff0e5; --warn: #a86a12; --warn-soft: #f7ead3; --bad: #a83a3a; --bad-soft: #f6e0df;
+  --dim: #7b8580; --dim-soft: #e7eae8; --dc: #4c6a8a; --dc-soft: #e1e8f0;
+  --f-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-head: "IBM Plex Sans Condensed", "Arial Narrow", system-ui, sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --shadow: 0 10px 30px rgb(10 30 20 / 0.12);
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #0f1412; --surface: #161d1a; --sunk: #1c2521; --fg: #e3eae6; --muted: #9aa8a1; --line: #2a3531;
+  --accent: #6fbea8; --accent-fg: #0c1310; --accent-soft: #1e3a33;
+  --good: #6cc18f; --good-soft: #1b3326; --warn: #e0a64a; --warn-soft: #3a2d17; --bad: #e07c78; --bad-soft: #3c2221;
+  --dim: #8d9792; --dim-soft: #232c28; --dc: #8fb0d4; --dc-soft: #1f2b38; --shadow: 0 10px 30px rgb(0 0 0 / 0.5);
+  color-scheme: dark; } }
+:root[data-theme="dark"] {
+  --bg: #0f1412; --surface: #161d1a; --sunk: #1c2521; --fg: #e3eae6; --muted: #9aa8a1; --line: #2a3531;
+  --accent: #6fbea8; --accent-fg: #0c1310; --accent-soft: #1e3a33;
+  --good: #6cc18f; --good-soft: #1b3326; --warn: #e0a64a; --warn-soft: #3a2d17; --bad: #e07c78; --bad-soft: #3c2221;
+  --dim: #8d9792; --dim-soft: #232c28; --dc: #8fb0d4; --dc-soft: #1f2b38; --shadow: 0 10px 30px rgb(0 0 0 / 0.5);
+  color-scheme: dark; }
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--fg); font: 14px/1.5 var(--f-body); }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 30; background: var(--surface); }
+.wrap { max-width: 1280px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: var(--surface); border-bottom: 1px solid var(--line); }
+header.top .wrap { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 24px; padding-block: 10px; }
+h1 { font: 600 20px/1.2 var(--f-head); margin: 0; letter-spacing: 0.01em; }
+h1 small { display: block; font: 400 12px/1.4 var(--f-body); color: var(--muted); letter-spacing: 0; }
+nav.tabs { display: flex; gap: 4px; margin-left: auto; }
+nav.tabs a { font: 500 14px var(--f-head); color: var(--muted); text-decoration: none; padding: 6px 12px; border-radius: 6px; }
+nav.tabs a:hover { background: var(--sunk); color: var(--fg); }
+nav.tabs a[aria-current="page"] { background: var(--accent-soft); color: var(--accent); }
+main { padding-block: 20px 48px; }
+h2 { font: 600 17px/1.3 var(--f-head); margin: 0 0 10px; text-wrap: balance; }
+h3 { font: 600 13px/1.3 var(--f-head); margin: 0 0 8px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+.mono { font-family: var(--f-mono); font-size: 12.5px; }
+.num { font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; }
+.muted { color: var(--muted); }
+a { color: var(--accent); }
+button, select, input { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* overview */
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 16px; min-width: 0; }
+.lede { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; margin-bottom: 16px; }
+.stat { padding: 12px 14px; border-left: 3px solid var(--line); background: var(--surface); border-radius: 0 6px 6px 0; }
+.stat b { display: block; font: 600 24px/1.15 var(--f-head); font-variant-numeric: tabular-nums; }
+.stat span { font-size: 12.5px; color: var(--muted); }
+.stat.g { border-color: var(--good); } .stat.w { border-color: var(--warn); } .stat.b { border-color: var(--bad); } .stat.a { border-color: var(--accent); }
+.bar { display: flex; height: 34px; border-radius: 6px; overflow: hidden; margin: 6px 0 4px; }
+.bar button { border: 0; padding: 0 8px; cursor: pointer; color: var(--fg); font: 500 12.5px var(--f-head); text-align: left; white-space: nowrap; overflow: hidden; min-width: 0; }
+.bar button:hover { filter: brightness(0.96); }
+.legend-note { font-size: 12.5px; color: var(--muted); margin: 0 0 16px; }
+.cols3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; margin-bottom: 16px; }
+.reasons { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
+.reasons li button { width: 100%; display: grid; grid-template-columns: 1fr auto; gap: 2px 10px; align-items: baseline; background: none; border: 0; padding: 6px 6px; border-radius: 5px; cursor: pointer; text-align: left; }
+.reasons li button:hover { background: var(--sunk); }
+.reasons .r-bar { grid-column: 1 / -1; height: 4px; border-radius: 2px; background: var(--sunk); overflow: hidden; }
+.reasons .r-bar i { display: block; height: 100%; }
+.g-with_figures { background: var(--good-soft); } .g-no_figures { background: var(--warn-soft); } .g-not_identified { background: var(--bad-soft); }
+.g-dc { background: var(--dc-soft); } .g-not_live { background: var(--dim-soft); }
+.i-with_figures { background: var(--good); } .i-no_figures { background: var(--warn); } .i-not_identified { background: var(--bad); } .i-dc { background: var(--dc); } .i-not_live { background: var(--dim); }
+.cols2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 16px; }
+svg text { fill: var(--muted); font: 11px var(--f-body); }
+svg .axis { stroke: var(--line); }
+svg .col { fill: var(--accent); }
+svg .col.under { fill: var(--warn); }
+
+/* table views */
+.filters { display: flex; flex-wrap: wrap; gap: 8px; align-items: end; margin-bottom: 12px; }
+.filters label { max-width: 100%; display: grid; grid-template-columns: minmax(0, 1fr); gap: 3px; font-size: 11.5px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; min-width: 0; }
+.filters input[type=search], .filters select { height: 34px; border: 1px solid var(--line); background: var(--surface); border-radius: 6px; padding: 0 10px; text-transform: none; letter-spacing: 0; font-size: 13.5px; color: var(--fg); max-width: 100%; }
+.filters label.grow { flex: 1 1 260px; max-width: 420px; }
+.filters input[type=search] { width: 100%; }
+.filters .check { display: flex; align-items: center; gap: 6px; height: 34px; text-transform: none; letter-spacing: 0; font-size: 13.5px; color: var(--fg); }
+.btn { height: 34px; border: 1px solid var(--line); background: var(--surface); border-radius: 6px; padding: 0 12px; cursor: pointer; font-size: 13.5px; }
+.btn:hover { background: var(--sunk); }
+.btn.primary { background: var(--accent); color: var(--accent-fg); border-color: var(--accent); }
+.resultline { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; align-items: center; font-size: 13px; color: var(--muted); margin-bottom: 8px; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { display: inline-flex; align-items: center; gap: 4px; background: var(--accent-soft); color: var(--accent); border: 0; border-radius: 99px; padding: 2px 10px; font-size: 12.5px; cursor: pointer; }
+.tablebox { overflow-x: auto; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; }
+table { border-collapse: collapse; width: 100%; font-size: 13px; }
+th { position: sticky; top: 0; background: var(--sunk); text-align: left; font: 600 12px var(--f-head); text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); padding: 8px 10px; white-space: nowrap; border-bottom: 1px solid var(--line); }
+th.sortable { cursor: pointer; user-select: none; }
+th.sortable:hover { color: var(--fg); }
+th[aria-sort] { color: var(--accent); }
+th[aria-sort="ascending"]::after { content: " ▲"; font-size: 9px; } th[aria-sort="descending"]::after { content: " ▼"; font-size: 9px; }
+td { padding: 7px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+tbody tr { cursor: pointer; }
+tbody tr:hover td { background: var(--sunk); }
+tbody tr.sel td { background: var(--accent-soft); }
+td .sub { display: block; color: var(--muted); font-size: 12px; }
+td.name { min-width: 220px; max-width: 380px; }
+.pill { display: inline-block; border-radius: 4px; padding: 1px 7px; font: 500 12px/1.6 var(--f-head); white-space: nowrap; }
+.pill.with_figures { background: var(--good-soft); color: var(--good); } .pill.no_figures { background: var(--warn-soft); color: var(--warn); }
+.pill.not_identified { background: var(--bad-soft); color: var(--bad); } .pill.dc { background: var(--dc-soft); color: var(--dc); } .pill.not_live { background: var(--dim-soft); color: var(--dim); }
+.fund { display: inline-flex; align-items: center; gap: 6px; justify-content: flex-end; }
+.fund i { display: inline-block; width: 40px; height: 6px; border-radius: 3px; background: var(--sunk); position: relative; overflow: hidden; }
+.fund i b { position: absolute; inset: 0 auto 0 0; background: var(--good); }
+.fund i b.under { background: var(--warn); }
+.pager { display: flex; gap: 8px; align-items: center; justify-content: flex-end; margin-top: 10px; font-size: 13px; color: var(--muted); }
+.empty { padding: 40px 16px; text-align: center; color: var(--muted); }
+
+/* detail drawer */
+.drawer { position: fixed; top: 0; right: 0; bottom: 0; width: min(520px, 100%); background: var(--surface); border-left: 1px solid var(--line); box-shadow: var(--shadow); z-index: 40; overflow-y: auto; padding: calc(16px + env(safe-area-inset-top, 0px)) calc(20px + env(safe-area-inset-right, 0px)) calc(24px + env(safe-area-inset-bottom, 0px)) 20px; transform: translateX(0); transition: transform 0.18s ease; }
+.drawer[hidden] { display: block !important; transform: translateX(105%); visibility: hidden; }
+.drawer .close { position: sticky; top: 0; float: right; }
+.drawer h2 { font-size: 19px; margin-right: 40px; }
+.drawer section { border-top: 1px solid var(--line); padding-top: 12px; margin-top: 14px; }
+dl.kv { display: grid; grid-template-columns: minmax(120px, 38%) 1fr; gap: 5px 12px; margin: 0; font-size: 13px; }
+dl.kv dt { color: var(--muted); }
+dl.kv dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
+.figs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 4px 0 10px; }
+.figs div { background: var(--sunk); border-radius: 6px; padding: 8px 10px; }
+.figs b { display: block; font: 600 18px/1.2 var(--f-head); font-variant-numeric: tabular-nums; }
+.figs span { font-size: 11.5px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+.note { font-size: 12.5px; color: var(--muted); background: var(--sunk); border-radius: 6px; padding: 8px 10px; margin-top: 10px; }
+.scrim { position: fixed; inset: 0; background: rgb(0 0 0 / 0.25); z-index: 35; }
+.toast { position: fixed; left: 50%; bottom: calc(20px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); background: var(--fg); color: var(--bg); padding: 8px 14px; border-radius: 6px; font-size: 13px; z-index: 50; }
+textarea.copybox { width: 100%; height: 120px; font: 12px var(--f-mono); margin-top: 8px; }
+@media (max-width: 640px) { nav.tabs { margin-left: 0; } .bar .lbl { display: none; } .figs { grid-template-columns: 1fr 1fr; } td.name { min-width: 180px; } }
+@media (prefers-reduced-motion: reduce) { .drawer { transition: none; } }
+</style>
+
+<header class="top"><div class="wrap">
+  <h1>UK DB Scheme Explorer<small id="built"></small></h1>
+  <nav class="tabs" aria-label="Views">
+    <a href="#overview" data-view="overview">Overview</a>
+    <a href="#schemes" data-view="schemes">Schemes</a>
+    <a href="#sponsors" data-view="sponsors">Sponsors</a>
+  </nav>
+</div></header>
+
+<main class="wrap">
+  <section id="v-overview" data-v="overview">
+    <div class="lede" id="lede"></div>
+    <div class="panel" style="margin-bottom:16px">
+      <h2>Live DB and hybrid schemes by status</h2>
+      <div class="bar" id="statusbar" role="group" aria-label="Schemes by status"></div>
+      <p class="legend-note" id="statusnote"></p>
+      <div class="cols3" id="reasoncols"></div>
+    </div>
+    <div class="cols2">
+      <div class="panel"><h2>Funding level of sponsors with figures</h2><p class="legend-note">Assets as a share of the DB obligation, one count per set of figures (a sponsor with several schemes counts once).</p><div id="hist"></div></div>
+      <div class="panel"><h2>Largest DB obligations</h2><div class="tablebox" style="border:0"><table id="topten"></table></div></div>
+    </div>
+  </section>
+
+  <section id="v-schemes" data-v="schemes" hidden>
+    <div class="filters">
+      <label class="grow">Search<input type="search" id="q" placeholder="Scheme, PSR, postcode, sponsor or company number" autocomplete="off"></label>
+      <label>Scope<select id="f-scope">
+        <option value="live">Live DB and hybrid</option><option value="all">All schemes</option>
+        <option value="dc">DC schemes</option><option value="not_live">Not live</option></select></label>
+      <label>Status<select id="f-group"></select></label>
+      <label>Reason<select id="f-reason"></select></label>
+      <label>Figures from<select id="f-source">
+        <option value="">Any</option><option value="own">Sponsor's own accounts</option><option value="group">Parent group</option>
+        <option value="register">Charity, union or mutual</option><option value="none">No figures</option></select></label>
+      <label>Type<select id="f-type">
+        <option value="">Any</option><option value="DB_likely">Name says DB</option><option value="hybrid_likely">Name says hybrid</option>
+        <option value="unknown">Name doesn't say</option><option value="DC_likely">Name says DC</option></select></label>
+      <label class="check"><input type="checkbox" id="f-ppf"> PPF or FAS involvement</label>
+      <label class="check"><input type="checkbox" id="f-review"> Sponsor match needs review</label>
+      <button class="btn" id="reset">Clear filters</button>
+    </div>
+    <div class="resultline"><span id="count"></span><span class="chips" id="chips"></span><button class="btn" id="copycsv">Copy as CSV</button></div>
+    <div class="tablebox"><table id="schemetable"></table></div>
+    <div class="pager" id="pager"></div>
+    <div id="copyfallback"></div>
+  </section>
+
+  <section id="v-sponsors" data-v="sponsors" hidden>
+    <div class="filters">
+      <label class="grow">Search<input type="search" id="sq" placeholder="Sponsor name or company number" autocomplete="off"></label>
+      <label>Show<select id="s-has">
+        <option value="fig">Sponsors with figures</option><option value="nofig">Identified, no figures</option><option value="all">All identified sponsors</option></select></label>
+    </div>
+    <div class="resultline"><span id="scount"></span></div>
+    <div class="tablebox"><table id="sponsortable"></table></div>
+    <div class="pager" id="spager"></div>
+  </section>
+</main>
+
+<div class="scrim" id="scrim" hidden></div>
+<aside class="drawer" id="drawer" hidden aria-label="Scheme details"></aside>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+const D = /*__DATA__*/null;
+const C = Object.fromEntries(D.cols.map((c, i) => [c, i]));
+const S = D.rows.map(r => Object.fromEntries(D.cols.map((c, i) => [c, r[i]])));
+const LIVE = ["with_figures", "no_figures", "not_identified"];
+const GROUP_ORDER = ["with_figures", "no_figures", "not_identified", "dc", "not_live"];
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"}[c]));
+const fmtN = n => n.toLocaleString("en-GB");
+function money(v) {
+  if (v == null || isNaN(v)) return "–";
+  const a = Math.abs(v);
+  if (a >= 1e9) return "£" + (v / 1e9).toFixed(1) + "bn";
+  if (a >= 1e6) return "£" + (v / 1e6).toFixed(a >= 1e8 ? 0 : 1) + "m";
+  if (a >= 1e3) return "£" + Math.round(v / 1e3) + "k";
+  return "£" + Math.round(v);
+}
+const fundRatio = s => (s.obligation > 0 && s.assets != null) ? s.assets / s.obligation : null;
+const pct = r => r == null ? "–" : Math.round(r * 100) + "%";
+const TYPE = {DB_likely: "Name says DB", hybrid_likely: "Name says hybrid", unknown: "Name doesn't say", DC_likely: "Name says DC"};
+const SOURCE = {own: "Sponsor's own accounts", group: "Parent group's accounts", register: "Charity, union or mutual accounts"};
+const REG = {ccew: "Charity Commission", oscr: "Scottish Charity Regulator", fca: "FCA Mutuals Register", co: "Certification Officer"};
+function regLink(reg, no) {
+  if (!no) return "";
+  if (reg === "ccew") return `https://register-of-charities.charitycommission.gov.uk/charity-search/-/charity-details/${encodeURIComponent(no)}`;
+  if (reg === "oscr") return `https://www.oscr.org.uk/about-charities/search-the-register/charity-details?number=${encodeURIComponent(no)}`;
+  if (reg === "co") return `https://www.gov.uk/government/collections/${encodeURIComponent(no)}`;
+  if (reg === "fca") return `https://mutuals.fca.org.uk/Search/Search?SearchTerm=${encodeURIComponent(no)}`;
+  return "";
+}
+const chLink = no => `https://find-and-update.company-information.service.gov.uk/company/${encodeURIComponent(no)}`;
+const isCo = no => no && /^([A-Z]{2}\d{6}|\d{8})$/.test(no);
+const bodyLink = (s) => s.source === "register" ? regLink(s.reg, s.fig_body_no) : (isCo(s.fig_body_no) ? chLink(s.fig_body_no) : "");
+const searchText = s => [s.name, s.psr, s.postcode, s.city, s.co, s.co_name, s.reg_name, s.reg_number, s.fig_body, s.derived].filter(Boolean).join(" ").toLowerCase();
+S.forEach(s => { s._t = searchText(s); s._fr = fundRatio(s); });
+
+// schemes that share a set of figures: the same obligation and assets, whichever company reports them (a company's
+// own figures and its subsidiaries' group figures; a subsidiary reporting its parent's scheme)
+const figKey = s => !s.source ? null : (s.obligation != null || s.assets != null) ? `${s.obligation}|${s.assets}` : `${s.source}|${s.fig_body_no}`;
+const shared = {};
+S.forEach(s => { const k = figKey(s); if (k && s.group === "with_figures") shared[k] = (shared[k] || 0) + 1; });
+
+$("#built").textContent = `Built ${D.built} from EIOPA, Companies House, the PPF and FAS, charity and mutual registers and the Certification Officer`;
+
+/* ---------- overview ---------- */
+function overview() {
+  const live = S.filter(s => LIVE.includes(s.group));
+  const cnt = g => S.filter(s => s.group === g).length;
+  const figSets = new Map();
+  S.filter(s => s.group === "with_figures").forEach(s => { const k = figKey(s); if (!figSets.has(k)) figSets.set(k, s); });
+  const sets = [...figSets.values()];
+  const tot = (f) => sets.reduce((a, s) => a + (s[f] || 0), 0);
+  const ob = tot("obligation"), as = sets.filter(s => s.obligation).reduce((a, s) => a + (s.assets || 0), 0);
+  const obWithAssets = sets.filter(s => s.obligation && s.assets != null).reduce((a, s) => a + s.obligation, 0);
+  const asWithOb = sets.filter(s => s.obligation && s.assets != null).reduce((a, s) => a + s.assets, 0);
+  $("#lede").innerHTML = `
+    <div class="stat a"><b>${fmtN(live.length)}</b><span>live DB and hybrid schemes</span></div>
+    <div class="stat g"><b>${Math.round(cnt("with_figures") / live.length * 100)}%</b><span>${fmtN(cnt("with_figures"))} with employer and figures</span></div>
+    <div class="stat"><b>${money(ob)}</b><span>DB obligations covered, each set of figures once</span></div>
+    <div class="stat"><b>${pct(asWithOb / obWithAssets)}</b><span>assets / obligation where both are known</span></div>`;
+  const bar = $("#statusbar");
+  bar.innerHTML = LIVE.map(g => { const n = cnt(g); const w = n / live.length * 100;
+    return `<button class="g-${g}" style="flex:${n} 1 0" data-group="${g}" title="${esc(D.groups[g])}: ${fmtN(n)}">${w > 12 ? `<span class="lbl">${esc(D.groups[g])} · </span>` : ""}${fmtN(n)}</button>`; }).join("");
+  $("#statusnote").innerHTML = `Outside the live DB and hybrid set: <button class="chip" data-scope="dc">${fmtN(cnt("dc"))} DC schemes</button> <button class="chip" data-scope="not_live">${fmtN(cnt("not_live"))} not live</button>`;
+  $("#reasoncols").innerHTML = LIVE.map(g => {
+    const rs = {}; live.filter(s => s.group === g).forEach(s => rs[s.reason] = (rs[s.reason] || 0) + 1);
+    const items = Object.entries(rs).sort((a, b) => b[1] - a[1]); const max = items[0]?.[1] || 1;
+    return `<div><h3><span class="pill ${g}">${esc(D.groups[g])}</span></h3><ul class="reasons">${items.map(([r, n]) =>
+      `<li><button data-group="${g}" data-reason="${esc(r)}"><span>${esc(r)}</span><span class="num">${fmtN(n)}</span><span class="r-bar"><i class="i-${g}" style="width:${n / max * 100}%"></i></span></button></li>`).join("")}</ul></div>`;
+  }).join("");
+  // funding histogram
+  const bins = [0, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0, 1.1, 1.2, 1.3, 1.5, Infinity];
+  const counts = new Array(bins.length - 1).fill(0);
+  sets.forEach(s => { const r = s._fr; if (r == null) return; for (let i = 0; i < bins.length - 1; i++) if (r >= bins[i] && r < bins[i + 1]) { counts[i]++; break; } });
+  const labels = ["<50", "50", "60", "70", "80", "90", "100", "110", "120", "130", "150+"];
+  const W = 520, H = 210, pad = {l: 34, r: 8, t: 10, b: 34}, cw = (W - pad.l - pad.r) / counts.length, mx = Math.max(...counts);
+  const step = mx > 400 ? 200 : mx > 200 ? 100 : mx > 80 ? 50 : 20, top = Math.ceil(mx / step) * step;
+  const y = v => H - pad.b - v / top * (H - pad.t - pad.b);
+  let svg = `<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Histogram of funding levels">`;
+  for (let v = 0; v <= top; v += step) svg += `<line class="axis" x1="${pad.l}" x2="${W - pad.r}" y1="${y(v)}" y2="${y(v)}" stroke-dasharray="${v ? "2 3" : ""}"/><text x="${pad.l - 6}" y="${y(v) + 4}" text-anchor="end">${v}</text>`;
+  counts.forEach((c, i) => { const x = pad.l + i * cw + 3; svg += `<rect class="col${bins[i] < 1 ? " under" : ""}" x="${x}" y="${y(c)}" width="${cw - 6}" height="${y(0) - y(c)}"><title>${labels[i]}%: ${c}</title></rect><text x="${x + (cw - 6) / 2}" y="${H - pad.b + 14}" text-anchor="middle">${labels[i]}</text>`; });
+  svg += `<text x="${(W + pad.l) / 2}" y="${H - 4}" text-anchor="middle">Funding level, % (amber: below 100%)</text></svg>`;
+  $("#hist").innerHTML = svg;
+  const top10 = sets.filter(s => s.obligation).sort((a, b) => b.obligation - a.obligation).slice(0, 12);
+  $("#topten").innerHTML = `<thead><tr><th>Sponsor</th><th class="num">Obligation</th><th class="num">Funding</th></tr></thead><tbody>${top10.map(s =>
+    `<tr data-body="${esc(s.fig_body_no)}"><td>${esc(s.fig_body)}<span class="sub">${esc(SOURCE[s.source])}</span></td><td class="num">${money(s.obligation)}</td><td class="num">${pct(s._fr)}</td></tr>`).join("")}</tbody>`;
+}
+
+/* ---------- schemes ---------- */
+const st = {q: "", scope: "live", group: "", reason: "", source: "", type: "", ppf: false, review: false, body: "", sort: "obligation", dir: -1, page: 0};
+const PAGE = 50;
+function scopeRows() {
+  if (st.scope === "live") return S.filter(s => LIVE.includes(s.group));
+  if (st.scope === "dc") return S.filter(s => s.group === "dc");
+  if (st.scope === "not_live") return S.filter(s => s.group === "not_live");
+  return S;
+}
+function fillGroupReason() {
+  const rows = scopeRows();
+  const groups = GROUP_ORDER.filter(g => rows.some(s => s.group === g));
+  if (st.group && !groups.includes(st.group)) st.group = "";
+  $("#f-group").innerHTML = `<option value="">Any</option>` + groups.map(g => `<option value="${g}">${esc(D.groups[g])}</option>`).join("");
+  $("#f-group").value = st.group;
+  const rs = {}; rows.filter(s => !st.group || s.group === st.group).forEach(s => rs[s.reason] = (rs[s.reason] || 0) + 1);
+  const opts = Object.entries(rs).sort((a, b) => b[1] - a[1]);
+  if (st.reason && !rs[st.reason]) st.reason = "";
+  $("#f-reason").innerHTML = `<option value="">Any</option>` + opts.map(([r, n]) => `<option value="${esc(r)}">${esc(r)} (${fmtN(n)})</option>`).join("");
+  $("#f-reason").value = st.reason;
+}
+function filtered() {
+  const q = st.q.trim().toLowerCase().split(/\s+/).filter(Boolean);
+  let rows = scopeRows().filter(s =>
+    (!st.group || s.group === st.group) && (!st.reason || s.reason === st.reason) &&
+    (!st.source || (st.source === "none" ? !(s.group === "with_figures") : (s.source === st.source && s.group === "with_figures"))) &&
+    (!st.type || s.name_type === st.type) && (!st.ppf || s.ppf || s.fas) && (!st.review || s.needs_review) &&
+    (!st.body || st.body.split(" ").some(b => s.fig_body_no === b || s.co === b)) &&
+    q.every(w => s._t.includes(w)));
+  const k = st.sort, d = st.dir;
+  const FIG = ["obligation", "assets", "funding", "period_end"];
+  const val = s => FIG.includes(k) && s.group !== "with_figures" ? null : k === "funding" ? s._fr : k === "sponsor" ? (s.co_name || s.reg_name || "") : s[k];
+  rows.sort((a, b) => { const x = val(a), y = val(b);
+    if (x == null && y == null) return 0; if (x == null) return 1; if (y == null) return -1;
+    return (typeof x === "string" ? x.localeCompare(y) : x - y) * d; });
+  return rows;
+}
+const SCOLS = [["name", "Scheme"], ["group", "Status"], ["sponsor", "Sponsor"], ["obligation", "Obligation", 1], ["assets", "Assets", 1], ["funding", "Funding", 1], ["period_end", "Year end"]];
+function fundCell(r) {
+  if (r == null) return "–";
+  return `<span class="fund">${pct(r)}<i><b class="${r < 1 ? "under" : ""}" style="width:${Math.min(r, 1.5) / 1.5 * 100}%"></b></i></span>`;
+}
+let current = [], selected = null;
+function renderSchemes() {
+  current = filtered();
+  const n = current.length, pages = Math.max(1, Math.ceil(n / PAGE));
+  st.page = Math.min(st.page, pages - 1);
+  const slice = current.slice(st.page * PAGE, st.page * PAGE + PAGE);
+  $("#count").textContent = n ? `${fmtN(n)} scheme${n === 1 ? "" : "s"} · showing ${fmtN(st.page * PAGE + 1)}–${fmtN(st.page * PAGE + slice.length)}` : "No schemes";
+  const chips = [];
+  if (st.body) { const b0 = st.body.split(" ")[0]; const s = S.find(x => x.fig_body_no === b0 || x.co === b0); chips.push(`<button class="chip" data-clear="body">Sponsor: ${esc(s?.fig_body || s?.co_name || st.body)} ✕</button>`); }
+  $("#chips").innerHTML = chips.join("");
+  const head = `<thead><tr>${SCOLS.map(([k, l, num]) => `<th class="sortable${num ? " num" : ""}" data-sort="${k}"${st.sort === k ? ` aria-sort="${st.dir > 0 ? "ascending" : "descending"}"` : ""}>${l}</th>`).join("")}</tr></thead>`;
+  const body = slice.length ? slice.map(s => {
+    const fig = s.group === "with_figures";
+    const spon = s.co_name ? `${esc(s.co_name)}<span class="sub mono">${esc(s.co)}${s.needs_review ? " · needs review" : ""}</span>`
+      : s.reg_name ? `${esc(s.reg_name)}<span class="sub">${esc(REG[s.reg] || s.reg)}</span>`
+      : s.derived ? `<span class="muted">${esc(s.derived)}</span><span class="sub">name only, no match</span>` : `<span class="muted">–</span>`;
+    return `<tr data-psr="${esc(s.psr)}"${selected === s.psr ? ' class="sel"' : ""}><td class="name">${esc(s.name)}<span class="sub mono">${esc(s.psr)}${s.postcode ? " · " + esc(s.postcode) : ""}</span></td>
+      <td><span class="pill ${s.group}">${esc(D.groups[s.group])}</span><span class="sub">${esc(s.reason)}</span></td>
+      <td>${spon}</td><td class="num">${fig ? money(s.obligation) : "–"}</td><td class="num">${fig ? money(s.assets) : "–"}</td>
+      <td class="num">${fig ? fundCell(s._fr) : "–"}</td><td class="mono">${fig ? esc((s.period_end || "").slice(0, 10)) : ""}</td></tr>`; }).join("")
+    : `<tr><td colspan="7" class="empty">No schemes match these filters. Clear a filter or change the scope.</td></tr>`;
+  $("#schemetable").innerHTML = head + `<tbody>${body}</tbody>`;
+  $("#pager").innerHTML = pages > 1 ? `<button class="btn" data-page="-1" ${st.page ? "" : "disabled"}>Previous</button><span>Page ${st.page + 1} of ${fmtN(pages)}</span><button class="btn" data-page="1" ${st.page < pages - 1 ? "" : "disabled"}>Next</button>` : "";
+}
+
+/* ---------- detail ---------- */
+function kv(pairs) { return `<dl class="kv">${pairs.filter(p => p[1] != null && p[1] !== "").map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join("")}</dl>`; }
+const link = (href, text) => href ? `<a href="${esc(href)}" target="_blank" rel="noopener">${esc(text)}</a>` : esc(text);
+function openScheme(psr) {
+  const s = S.find(x => x.psr === psr); if (!s) return;
+  selected = psr;
+  const fig = s.source && (s.group === "with_figures" || (s.fig_check || "").startsWith("flag"));
+  const net = (s.obligation != null && s.assets != null) ? s.assets - s.obligation : null;
+  const nShared = shared[figKey(s)] || 0;
+  const where = s.fig_where && /^https?:/.test(s.fig_where.split(" ")[0]) ? link(s.fig_where.split(" ")[0], s.fig_where) : esc(s.fig_where);
+  $("#drawer").innerHTML = `<button class="btn close" id="dclose" aria-label="Close details">Close</button>
+    <h2>${esc(s.name)}</h2><span class="pill ${s.group}">${esc(D.groups[s.group])}</span> <span class="muted">${esc(s.reason)}</span>
+    <section><h3>Scheme</h3>${kv([
+      ["PSR", `<span class="mono">${esc(s.psr)}</span>`], ["Address", esc([s.city, s.postcode].filter(Boolean).join(", "))],
+      ["Type", esc(TYPE[s.name_type] || s.name_type) + (s.is_section ? " · section of a larger scheme" : "")],
+      ["PPF", esc(s.ppf)], ["FAS", esc(s.fas)], ["Doubt about liveness", esc({accounts_no_db: "Sponsor's accounts show no DB scheme", sponsor_dormant: "Sponsor dormant", sponsor_no_accounts: "Sponsor files no accounts"}[s.live_doubt] || s.live_doubt)]])}</section>
+    <section><h3>Employer</h3>${s.co || s.reg ? kv([
+      ["Company", s.co ? `${link(chLink(s.co), s.co_name || s.co)} <span class="mono muted">${esc(s.co)}</span>` : null],
+      ["Status", esc(s.co_status)], ["Accounts filed", esc(s.co_accounts)],
+      ["Matched by", s.co ? esc((s.match_method || "") + (s.match_conf != null ? ` (confidence ${Number(s.match_conf).toFixed(2)})` : "") + (s.needs_review ? " · needs review" : "")) : null],
+      ["Register", s.reg ? `${link(regLink(s.reg, s.reg_number), s.reg_name || s.reg_number)} <span class="muted">${esc(REG[s.reg] || s.reg)}</span>` : null],
+      ["Named in its accounts", esc(s.named_in_accounts)], ["Ultimate parent", esc([s.parent_top, s.parent_country].filter(Boolean).join(", "))],
+      ["Name in scheme title", esc(s.derived)]])
+      : kv([["Name in scheme title", esc(s.derived) || "<span class='muted'>none usable</span>"], ["Name verdict", esc(s.name_review)], ["Why no employer", esc(s.reason)]])}</section>
+    <section><h3>DB figures</h3>${fig ? `<div class="figs"><div><span>Obligation</span><b>${money(s.obligation)}</b></div><div><span>Assets</span><b>${money(s.assets)}</b></div><div><span>Funding</span><b>${pct(s._fr)}</b></div></div>` + kv([
+      ["From", esc(SOURCE[s.source])], ["Body", `${link(bodyLink(s), s.fig_body || s.fig_body_no)}`], ["Year end", esc((s.period_end || "").slice(0, 10))],
+      ["Surplus / deficit", net == null ? null : (net >= 0 ? "Surplus " : "Deficit ") + money(Math.abs(net))],
+      ["Check", esc(s.fig_check)], ["Where", where]])
+      + (nShared > 1 ? `<p class="note">${nShared} live schemes in this database share these figures (the body's DB schemes together, or a parent and subsidiary reporting the same scheme). Count them once when adding up.</p>` : "")
+      + (s.source === "group" ? `<p class="note">Group figures from a parent company's accounts. They include other group schemes, so they overstate this scheme alone.</p>` : "")
+      : `<p class="muted">${esc(s.group === "with_figures" ? "" : s.reason)}</p>`}</section>
+    ${s.co || s.fig_body_no ? `<section><button class="btn" id="bysponsor">Show all schemes of this sponsor</button></section>` : ""}`;
+  $("#drawer").hidden = false; $("#scrim").hidden = false;
+  $("#dclose").focus();
+  document.querySelectorAll("#schemetable tr.sel").forEach(r => r.classList.remove("sel"));
+  document.querySelector(`#schemetable tr[data-psr="${CSS.escape(psr)}"]`)?.classList.add("sel");
+  $("#bysponsor")?.addEventListener("click", () => { st.body = s.fig_body_no || s.co; st.scope = "all"; $("#f-scope").value = "all"; st.page = 0; closeDrawer(); go("schemes"); });
+}
+function closeDrawer() { $("#drawer").hidden = true; $("#scrim").hidden = true; selected = null; document.querySelectorAll("#schemetable tr.sel").forEach(r => r.classList.remove("sel")); }
+
+/* ---------- sponsors ---------- */
+const sst = {q: "", has: "fig", sort: "obligation", dir: -1, page: 0};
+function sponsorRows() {
+  const m = new Map();
+  // one row per set of figures (a parent's group figures and its subsidiary's own figures are one row)
+  S.filter(s => LIVE.includes(s.group) && (s.co || s.reg_number)).forEach(s => {
+    const withFig = s.group === "with_figures";
+    const key = withFig ? figKey(s) : "n|" + (s.co || s.reg_number);
+    let e = m.get(key);
+    if (!e) { e = {key, bodies: new Map(), source: withFig ? s.source : null, obligation: withFig ? s.obligation : null,
+      assets: withFig ? s.assets : null, n: 0, reasons: {}}; m.set(key, e); }
+    const no = withFig ? s.fig_body_no : (s.co || s.reg_number), nm = withFig ? s.fig_body : (s.co_name || s.reg_name);
+    const b = e.bodies.get(no) || {no, name: nm, own: 0, n: 0}; b.n++; if (!withFig || s.source !== "group") b.own++; e.bodies.set(no, b);
+    e.n++; if (!withFig) e.reasons[s.reason] = (e.reasons[s.reason] || 0) + 1;
+    if (withFig && s.source === "own") e.source = "own";
+  });
+  let rows = [...m.values()];
+  rows.forEach(e => { const bs = [...e.bodies.values()].sort((a, b) => (b.n - a.n) || (b.own - a.own));
+    e.no = bs[0].no; e.name = bs[0].name; e.also = bs.slice(1).map(b => b.name); e.nos = bs.map(b => b.no).join(" "); });
+  rows.forEach(e => e.funding = e.obligation > 0 && e.assets != null ? e.assets / e.obligation : null);
+  if (sst.has === "fig") rows = rows.filter(e => e.source); else if (sst.has === "nofig") rows = rows.filter(e => !e.source);
+  const q = sst.q.trim().toLowerCase();
+  if (q) rows = rows.filter(e => [e.name, ...e.also, e.nos].join(" ").toLowerCase().includes(q));
+  const k = sst.sort, d = sst.dir;
+  rows.sort((a, b) => { const x = a[k], y = b[k]; if (x == null && y == null) return 0; if (x == null) return 1; if (y == null) return -1;
+    return (typeof x === "string" ? x.localeCompare(y) : x - y) * d; });
+  return rows;
+}
+const SPCOLS = [["name", "Sponsor"], ["n", "Live schemes", 1], ["obligation", "Obligation", 1], ["assets", "Assets", 1], ["funding", "Funding", 1]];
+function renderSponsors() {
+  const rows = sponsorRows(), pages = Math.max(1, Math.ceil(rows.length / PAGE));
+  sst.page = Math.min(sst.page, pages - 1);
+  const slice = rows.slice(sst.page * PAGE, sst.page * PAGE + PAGE);
+  $("#scount").textContent = `${fmtN(rows.length)} sponsor${rows.length === 1 ? "" : "s"}`;
+  $("#sponsortable").innerHTML = `<thead><tr>${SPCOLS.map(([k, l, num]) => `<th class="sortable${num ? " num" : ""}" data-ssort="${k}"${sst.sort === k ? ` aria-sort="${sst.dir > 0 ? "ascending" : "descending"}"` : ""}>${l}</th>`).join("")}</tr></thead><tbody>${
+    slice.length ? slice.map(e => `<tr data-body="${esc(e.nos)}"><td>${esc(e.name)}<span class="sub"><span class="mono">${esc(e.no)}</span> · ${esc(e.source ? SOURCE[e.source] : Object.keys(e.reasons).join("; "))}${e.also.length ? " · also reported by " + esc(e.also.join(", ")) : ""}</span></td>
+      <td class="num">${fmtN(e.n)}</td><td class="num">${money(e.obligation)}</td><td class="num">${money(e.assets)}</td><td class="num">${e.source ? fundCell(e.funding) : "–"}</td></tr>`).join("")
+    : `<tr><td colspan="5" class="empty">No sponsors match.</td></tr>`}</tbody>`;
+  $("#spager").innerHTML = pages > 1 ? `<button class="btn" data-spage="-1" ${sst.page ? "" : "disabled"}>Previous</button><span>Page ${sst.page + 1} of ${fmtN(pages)}</span><button class="btn" data-spage="1" ${sst.page < pages - 1 ? "" : "disabled"}>Next</button>` : "";
+}
+
+/* ---------- csv ---------- */
+function toast(msg) { const t = $("#toast"); t.textContent = msg; t.hidden = false; clearTimeout(toast.t); toast.t = setTimeout(() => t.hidden = true, 2200); }
+function csv() {
+  const cols = ["psr", "name", "postcode", "name_type", "group", "reason", "co", "co_name", "reg", "reg_number", "reg_name", "source", "fig_body", "fig_body_no", "period_end", "obligation", "assets", "ppf", "fas"];
+  const q = v => v == null ? "" : /[",\n]/.test(String(v)) ? `"${String(v).replace(/"/g, '""')}"` : String(v);
+  return [cols.join(","), ...current.map(s => cols.map(c => q(c === "group" ? D.groups[s.group] : s[c])).join(","))].join("\n");
+}
+$("#copycsv").addEventListener("click", () => {
+  const text = csv();
+  const fallback = () => { $("#copyfallback").innerHTML = `<p class="muted">Copying isn't allowed here. Select the text below and copy it.</p><textarea class="copybox" id="copybox" readonly></textarea>`; const b = $("#copybox"); b.value = text; b.select(); };
+  try { navigator.clipboard.writeText(text).then(() => toast(`Copied ${fmtN(current.length)} rows as CSV`), fallback); } catch (e) { fallback(); }
+});
+
+/* ---------- wiring ---------- */
+function go(view) { if (location.hash !== "#" + view) location.hash = view; else route(); }
+function route() {
+  const v = (location.hash || "#overview").slice(1);
+  const view = ["overview", "schemes", "sponsors"].includes(v) ? v : "overview";
+  document.querySelectorAll("[data-v]").forEach(el => el.hidden = el.dataset.v !== view);
+  document.querySelectorAll("nav.tabs a").forEach(a => a.dataset.view === view ? a.setAttribute("aria-current", "page") : a.removeAttribute("aria-current"));
+  if (view === "schemes") { fillGroupReason(); renderSchemes(); }
+  if (view === "sponsors") renderSponsors();
+}
+window.addEventListener("hashchange", route);
+let timer;
+$("#q").addEventListener("input", e => { clearTimeout(timer); timer = setTimeout(() => { st.q = e.target.value; st.page = 0; renderSchemes(); }, 120); });
+$("#f-scope").addEventListener("change", e => { st.scope = e.target.value; st.page = 0; fillGroupReason(); renderSchemes(); });
+$("#f-group").addEventListener("change", e => { st.group = e.target.value; st.reason = ""; st.page = 0; fillGroupReason(); renderSchemes(); });
+[["#f-reason", "reason"], ["#f-source", "source"], ["#f-type", "type"]].forEach(([id, k]) => $(id).addEventListener("change", e => { st[k] = e.target.value; st.page = 0; renderSchemes(); }));
+$("#f-ppf").addEventListener("change", e => { st.ppf = e.target.checked; st.page = 0; renderSchemes(); });
+$("#f-review").addEventListener("change", e => { st.review = e.target.checked; st.page = 0; renderSchemes(); });
+$("#reset").addEventListener("click", () => { Object.assign(st, {q: "", scope: "live", group: "", reason: "", source: "", type: "", ppf: false, review: false, body: "", page: 0});
+  $("#q").value = ""; $("#f-scope").value = "live"; $("#f-source").value = ""; $("#f-type").value = ""; $("#f-ppf").checked = false; $("#f-review").checked = false; fillGroupReason(); renderSchemes(); });
+document.addEventListener("click", e => {
+  const t = e.target.closest("[data-sort],[data-ssort],[data-page],[data-spage],[data-psr],[data-group],[data-scope],[data-clear],tr[data-body]");
+  if (!t) return;
+  if (t.dataset.sort) { const k = t.dataset.sort; st.dir = st.sort === k ? -st.dir : (["name", "sponsor", "group"].includes(k) ? 1 : -1); st.sort = k; renderSchemes(); }
+  else if (t.dataset.ssort) { const k = t.dataset.ssort; sst.dir = sst.sort === k ? -sst.dir : (k === "name" ? 1 : -1); sst.sort = k; renderSponsors(); }
+  else if (t.dataset.page) { st.page += +t.dataset.page; renderSchemes(); $("#schemetable").scrollIntoView({block: "start"}); }
+  else if (t.dataset.spage) { sst.page += +t.dataset.spage; renderSponsors(); }
+  else if (t.dataset.psr) openScheme(t.dataset.psr);
+  else if (t.dataset.group) { Object.assign(st, {scope: "live", group: t.dataset.group, reason: t.dataset.reason || "", body: "", page: 0}); $("#f-scope").value = "live"; go("schemes"); }
+  else if (t.dataset.scope) { Object.assign(st, {scope: t.dataset.scope, group: "", reason: "", body: "", page: 0}); $("#f-scope").value = t.dataset.scope; go("schemes"); }
+  else if (t.dataset.clear) { st[t.dataset.clear] = ""; st.page = 0; renderSchemes(); }
+  else if (t.dataset.body) { Object.assign(st, {body: t.dataset.body, scope: "all", group: "", reason: "", page: 0}); $("#f-scope").value = "all"; go("schemes"); }
+});
+$("#sq").addEventListener("input", e => { sst.q = e.target.value; sst.page = 0; renderSponsors(); });
+$("#s-has").addEventListener("change", e => { sst.has = e.target.value; sst.page = 0; renderSponsors(); });
+$("#scrim").addEventListener("click", closeDrawer);
+document.addEventListener("click", e => { if (e.target.id === "dclose") closeDrawer(); });
+document.addEventListener("keydown", e => { if (e.key === "Escape" && !$("#drawer").hidden) closeDrawer(); });
+overview(); route();
+</script>

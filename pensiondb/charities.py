@@ -26,6 +26,7 @@ import requests
 from rapidfuzz import fuzz, process
 
 from . import config as C
+from . import unions
 from .match import _words_agree
 from .names import core, first_token, norm, sponsor_candidates
 
@@ -49,6 +50,7 @@ def download():
         r.raise_for_status()
         (DIR / name).write_bytes(r.content)
         print(f"{name}: {len(r.content) / 1e6:.1f} MB")
+    unions.download(_session)
 
 
 def _pc(s):
@@ -144,6 +146,8 @@ def load(con):
                 st = r["Society Status"]
                 add("fca", r["Full Registation Number"], r["Society Name"], st.startswith("Registered"), st,
                     r["Registered As"], _pc(r["Society Address"]), None, None, r["Deregistration Date"] or None)
+    for b in unions.bodies():                   # trade unions and employers' associations (Certification Officer)
+        add("co", b["slug"], b["name"], True, "Listed", "union_or_employers_association", "")
     con.executemany("INSERT INTO charity_register VALUES (?,?,?,?,?,?,?,?,?,?,?,?)", rows)
     con.execute("DELETE FROM charity_finance")
     con.executemany("INSERT OR REPLACE INTO charity_finance VALUES (?,?,?,?,?,?)", fin)
@@ -229,9 +233,15 @@ def match(con):
                 row, n, pch = _pick([r for r in rows if r[3] == res[0]], spc)
                 best = (cand, row, "fuzzy", res[1], pch, n, pch, 0.85 if pch else 0.6)   # fuzzy needs the postcode
                 break
+        d = decided.get(psr)
+        if not best and d and d["decision"] == "accept":
+            # a hand-picked entry the name rules can't reach ("Oundle School" -> CORPORATION OF OUNDLE SCHOOL)
+            alt = con.execute("SELECT * FROM charity_register WHERE source=? AND number=? LIMIT 1",
+                              (d["source"], d["number"])).fetchone()
+            if alt:
+                best = (derived or sname, alt, "reviewed", 0.0, bool(spc) and alt[8] == spc, 1, True, 0.9)
         if best:
             cand, row, method, score, pch, n, ok, conf = best
-            d = decided.get(psr)
             if d and d["decision"] == "accept":          # a reviewer's verdict, possibly naming another entry
                 alt = con.execute("SELECT * FROM charity_register WHERE source=? AND number=? LIMIT 1",
                                   (d["source"], d["number"])).fetchone()
@@ -340,7 +350,8 @@ def _read_body(source, number, company):
         r["doc"] = f"companies_house:{company}"
         if r.get("status") != "no_filing":
             return r
-    latest = {"ccew": _latest_ccew, "oscr": _latest_oscr, "fca": _latest_fca}[source](number)
+    latest = {"ccew": _latest_ccew, "oscr": _latest_oscr, "fca": _latest_fca,
+              "co": lambda n: unions.latest(n, _http)}[source](number)
     if not latest:
         return dict(status="no_filing", doc=None)
     when, url = latest
@@ -354,6 +365,16 @@ def _read_body(source, number, company):
     full = "\n".join(t for _, t in pages)
     base = dict(filing_date=when, text_source=src if full.strip() else "none", doc=url)
     hit = P.extract(pages)
+    if hit and not {"obligation", "assets"} <= hit["found"].keys():
+        # the note's two tables either side of a page break (Usdaw: obligation on one page, assets on the next):
+        # read the hit page joined to the next one
+        texts = dict(pages)
+        nxt = min((n for n in texts if n > hit["page"]), default=None)
+        if nxt is not None:
+            joined = [(n, t + "\n" + texts[nxt] if n == hit["page"] else t) for n, t in pages]
+            both = P.extract(joined)
+            if both and {"obligation", "assets"} <= both["found"].keys():
+                hit = both
     if hit:
         mult = P.MULT
         f = {k: v * mult[u] for k, (v, u) in hit["found"].items()}

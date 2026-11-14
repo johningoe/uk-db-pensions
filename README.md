@@ -42,6 +42,26 @@ requests: the step fetches the zip's directory, then only the filings for matche
 archive). Those filings are saved under `raw/companies_house/accounts/<archive>/`. A local copy of an archive, if
 present, is used instead.
 
+## Explorer
+
+`run.py web` writes `data/explorer.html`, a single page with the data embedded (about 3.5 MB) that opens in any
+browser. It has three views:
+
+- **Overview**: live DB and hybrid schemes split into employer identified with figures, identified without figures,
+  and not identified, each broken down by reason (click a reason to list its schemes); a histogram of funding levels;
+  the largest obligations.
+- **Schemes**: every scheme, searchable by name, PSR, postcode, sponsor name or company number, and filtered by
+  scope (live DB and hybrid, DC, not live, all), status, reason, where the figures come from, type, PPF or FAS
+  involvement and matches awaiting review. Click a scheme for its full record: the sponsor and how it was matched,
+  register entries, the figures with their source document and page, and links to Companies House or the register.
+  "Copy as CSV" copies the filtered rows.
+- **Sponsors**: one row per set of figures, so a parent's group figures and its subsidiary's own figures for the
+  same scheme appear once ("also reported by"), with the number of live schemes they cover.
+
+Totals count each obligation-and-assets pair once, as in the coverage summary. The status and reasons come from
+`pensiondb/gaps.py`: the reasons for unidentified schemes are rules on the scheme name plus the hand verdicts in
+`sponsor_name_review.csv`, so they size each gap rather than certify it.
+
 ## Tables
 
 - **schemes**: one row per UK scheme (PSR number). Columns: name, address, derived sponsor, `sponsor_company_number`,
@@ -261,11 +281,24 @@ Everything found, accepted or not, is in `charity_matches`; doubtful ones go to 
 The corrected sponsor name from `run.py sponsor-names` is tried last, so it only adds matches ("RNIB",
 "Royal College of Midwives"). Reviewed candidates go in `pensiondb/charity_decisions.csv` (psr, register, number,
 accept/reject); an accept can name a different entry than the one found (Corpus Christi College Cambridge rather
-than Oxford, YMCA England and Wales rather than a local YMCA).
+than Oxford, YMCA England and Wales rather than a local YMCA). A decision also applies when the name rules found
+no candidate at all: many charities register under a formal name the scheme never uses ("Oundle School" is THE
+CORPORATION OF OUNDLE SCHOOL, "Westminster School" is ST PETER'S COLLEGE, "Bradford Grammar School" is THE FREE
+GRAMMAR SCHOOL OF KING CHARLES II AT BRADFORD), or under a successor (Ipswich and Norwich Co-op is now East of
+England Co-operative; the Bradford diocese is now part of Leeds). These were picked by hand, using the scheme
+postcode where it agrees.
 
-Bodies that are neither companies nor registered charities publish elsewhere: universities on their own websites
-(they are exempt charities), trade unions in their annual returns to the Certification Officer, trust ports and
-other statutory bodies on their own websites, the Duchies in their annual reports. None of these is read yet.
+Trade unions and employers' associations file annual returns with the Certification Officer, published on gov.uk
+(form AR21 or AR27, usually with the full accounts attached). `run.py charities-download` also saves the list of
+listed bodies (`raw/charities/certification_officer.json`, from the gov.uk search API), and `run.py charities` adds
+them to `charity_register` with register `co` and the gov.uk collection name as the number, so decisions and the
+accounts reader treat them like charities. Staff schemes mostly keep an old union's name, so each is matched by hand
+to its successor (COHSE to UNISON, NATFHE to UCU, NUT to NEU, BECTU to Prospect, CPSA to PCS). Some returns attach
+only the form, not the accounts (UNISON); those give no figures.
+
+Bodies that are none of these publish elsewhere: universities on their own websites (they are exempt charities),
+trust ports and other statutory bodies on their own websites, the Duchies in their annual reports. None of these is
+read yet.
 
 For larger charities in England and Wales, Part B of the annual return includes the net defined benefit pension
 balance; it's copied to `charity_db_pension` (negative = deficit) with `charity_fy_end`. It's the net figure only,
@@ -274,7 +307,9 @@ not obligation and assets.
 `run.py charity-accounts` reads the latest accounts of every active matched body without that figure (charities with
 income of £1m or more, Scottish charities, registered societies): from Companies House when the charity is also a
 company, otherwise the PDF from the Charity Commission register page, OSCR's published accounts or the FCA Mutuals
-register's "Annual Returns and Accounts" documents. One request a second; text is cached in `raw/charities/accounts/`.
+register's "Annual Returns and Accounts" documents, or the latest annual return on gov.uk for unions. When the
+pension note's obligation and assets fall either side of a page break, the reader joins the two pages. One request
+a second; text is cached in `raw/charities/accounts/`.
 Results are in `charity_accounts`; figures go to `charity_db_obligation`, `charity_db_assets` and
 `charity_db_pension` (assets minus obligation), checked like sponsors' figures (`charity_db_check`), with
 `charity_db_source` = `annual_return` or `accounts`.

@@ -16,6 +16,7 @@
     python run.py api-third-pass              # unmatched + reviewer-rejected: better name cleaning, same-postcode subset
     python run.py accounts-text-match         # unmatched schemes named in a company's saved accounts
     python run.py bulk-scan --limit 12        # search 12 months of everyone's iXBRL accounts for unmatched scheme names
+    python run.py web                         # data/explorer.html: a page to search and filter the results
     python run.py sponsor-names               # clean unmatched schemes' derived sponsor names; queue re-match candidates
     python run.py district-match              # unmatched schemes: same-district company sharing the scheme's distinctive words
     python run.py confirm-sponsors            # does each matched sponsor's saved accounts name its scheme?
@@ -37,7 +38,7 @@ def main():
     ap.add_argument("step", choices=["all", "seed", "flags", "match", "api", "postcode", "review", "accounts", "reparse", "status", "summary",
                                      "sip-pilot", "pdf-pilot", "pdf-accounts", "parents", "parent-accounts", "pdf-reextract", "cloud-export", "cloud-import", "cloud-progress", "check",
                                      "charities-download", "charities", "charity-accounts", "api-second-pass", "full-filers",
-                                     "api-third-pass", "accounts-text-match", "long-reports", "confirm-sponsors", "district-match", "sponsor-names", "bulk-scan"])
+                                     "api-third-pass", "accounts-text-match", "long-reports", "confirm-sponsors", "district-match", "sponsor-names", "bulk-scan", "web"])
     ap.add_argument("--month", action="append", help="accounts month, e.g. September2026 (repeatable)")
     ap.add_argument("--all-months", action="store_true")
     ap.add_argument("--shard", help="i/n: this worker's share of the pdf-accounts run")
@@ -107,6 +108,9 @@ def main():
         elif step == "accounts-text-match":
             from pensiondb import textmatch
             textmatch.run(con)
+        elif step == "web":
+            from pensiondb import web
+            web.export(con)
         elif step == "bulk-scan":
             from pensiondb import bulkscan
             found = bulkscan.run(con, limit=a.limit or 12)
