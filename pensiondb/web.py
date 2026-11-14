@@ -10,6 +10,7 @@ from pathlib import Path
 
 from . import config as C
 from . import gaps
+from . import places
 
 TEMPLATE = Path(__file__).with_name("explorer_template.html")
 OUT = C.DATA / "explorer.html"
@@ -20,11 +21,26 @@ COLS = ["psr", "name", "postcode", "city", "name_type", "is_section", "group", "
         "derived", "name_review", "named_in_accounts",
         "reg", "reg_number", "reg_name",
         "source", "fig_body", "fig_body_no", "period_end", "obligation", "assets", "fig_check", "fig_where",
-        "ppf", "fas", "live_doubt", "parent_top", "parent_country"]
+        "ppf", "fas", "live_doubt", "parent_top", "parent_country", "sector", "sic", "region", "sponsor_postcode"]
+
+
+def _place(co, reg, sic, spc, rpc):
+    """[sector, SIC, region, postcode] of the identified sponsor: the company, else the register body."""
+    if co:
+        return [places.sector(sic), sic, places.region(spc), spc]
+    if reg:
+        return [places.REGISTER_SECTOR.get(reg), None, places.region(rpc) if rpc else None, rpc]
+    return [None, None, None, None]
 
 
 def _rows(con):
     status = gaps.classify(con)
+    # register bodies' postcodes, in one pass (charity_register has no index on the number)
+    matched = set(con.execute("SELECT DISTINCT charity_source, charity_number FROM schemes WHERE charity_number IS NOT NULL"))
+    reg_pc = {}
+    for src, num, pc in con.execute("SELECT source, number, postcode FROM charity_register WHERE postcode <> ''"):
+        if (src, num) in matched:
+            reg_pc.setdefault((src, num), pc)
     q = """
     SELECT s.psr, s.scheme_name, s.post_code, s.city, s.name_type, s.is_section,
            s.sponsor_company_number, sp.company_name, sp.company_status, sp.accounts_category,
@@ -38,14 +54,15 @@ def _rows(con):
            sp.group_db_plan_assets, sp.group_db_source,
            s.charity_db_source, s.charity_fy_end, s.charity_db_obligation, s.charity_db_assets, s.charity_db_pension,
            s.charity_db_check, a.doc, a.page,
-           s.ppf_status, s.fas_status, s.live_doubt, sp.parent_top_name, sp.parent_top_country
+           s.ppf_status, s.fas_status, s.live_doubt, sp.parent_top_name, sp.parent_top_country,
+           sp.sic_1, sp.reg_post_code
     FROM schemes s
     LEFT JOIN sponsors sp ON sp.company_number = s.sponsor_company_number
     LEFT JOIN charity_accounts a ON a.source = s.charity_source AND a.number = s.charity_number"""
     out = []
     for (psr, name, pc, city, nt, sec, co, co_name, co_st, co_acc, mm, mc, nr, derived, review, named,
          reg, reg_no, reg_name, own, pe, ob, assets, chk, src_file, tax, gco, gname, gpe, gob, gassets, gsrc,
-         csrc, cfy, cob, cassets, cnet, cchk, cdoc, cpage, ppf, fas, doubt, ptop, pctry) in con.execute(q):
+         csrc, cfy, cob, cassets, cnet, cchk, cdoc, cpage, ppf, fas, doubt, ptop, pctry, sic, spc) in con.execute(q):
         group, reason = status[psr]
         fig = [None] * 8
         if co and own:
@@ -63,7 +80,7 @@ def _rows(con):
         out.append([psr, name, pc, city, nt, sec, group, reason,
                     co, co_name, co_st, co_acc, mm, mc, nr,
                     derived, review, named,
-                    reg, reg_no, reg_name, *fig, ppf, fas, doubt, ptop, pctry])
+                    reg, reg_no, reg_name, *fig, ppf, fas, doubt, ptop, pctry, *_place(co, reg, sic, spc, reg_pc.get((reg, reg_no)))])
     return out
 
 

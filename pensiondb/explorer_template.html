@@ -172,6 +172,9 @@ textarea.copybox { width: 100%; height: 120px; font: 12px var(--f-mono); margin-
       <label>Type<select id="f-type">
         <option value="">Any</option><option value="DB_likely">Name says DB</option><option value="hybrid_likely">Name says hybrid</option>
         <option value="unknown">Name doesn't say</option><option value="DC_likely">Name says DC</option></select></label>
+      <label>Size (DB obligation)<select id="f-size"></select></label>
+      <label>Sponsor region<select id="f-region"></select></label>
+      <label>Sector<select id="f-sector"></select></label>
       <label class="check"><input type="checkbox" id="f-ppf"> PPF or FAS involvement</label>
       <label class="check"><input type="checkbox" id="f-review"> Sponsor match needs review</label>
       <button class="btn" id="reset">Clear filters</button>
@@ -232,7 +235,16 @@ const chLink = no => `https://find-and-update.company-information.service.gov.uk
 const isCo = no => no && /^([A-Z]{2}\d{6}|\d{8})$/.test(no);
 const bodyLink = (s) => s.source === "register" ? regLink(s.reg, s.fig_body_no) : (isCo(s.fig_body_no) ? chLink(s.fig_body_no) : "");
 const searchText = s => [s.name, s.psr, s.postcode, s.city, s.co, s.co_name, s.reg_name, s.reg_number, s.fig_body, s.derived].filter(Boolean).join(" ").toLowerCase();
-S.forEach(s => { s._t = searchText(s); s._fr = fundRatio(s); });
+const BANDS = [["Under £10m", 0, 1e7], ["£10m to £50m", 1e7, 5e7], ["£50m to £250m", 5e7, 2.5e8],
+  ["£250m to £1bn", 2.5e8, 1e9], ["£1bn to £5bn", 1e9, 5e9], ["Over £5bn", 5e9, Infinity]];
+const NO_FIG = "No figures", NO_SPONSOR = "No sponsor identified", NOT_KNOWN = "Not known";
+function band(s) {
+  const v = s.group === "with_figures" ? (s.obligation ?? s.assets) : null;
+  if (v == null) return NO_FIG;
+  return (BANDS.find(([, lo, hi]) => v >= lo && v < hi) || BANDS[0])[0];
+}
+S.forEach(s => { s._t = searchText(s); s._fr = fundRatio(s); s._band = band(s);
+  s._region = s.region || (s.co || s.reg ? NOT_KNOWN : NO_SPONSOR); s._sector = s.sector || (s.co || s.reg ? NOT_KNOWN : NO_SPONSOR); });
 
 // schemes that share a set of figures: the same obligation and assets, whichever company reports them (a company's
 // own figures and its subsidiaries' group figures; a subsidiary reporting its parent's scheme)
@@ -287,7 +299,7 @@ function overview() {
 }
 
 /* ---------- schemes ---------- */
-const st = {q: "", scope: "live", group: "", reason: "", source: "", type: "", ppf: false, review: false, body: "", sort: "obligation", dir: -1, page: 0};
+const st = {q: "", scope: "live", group: "", reason: "", source: "", type: "", size: "", region: "", sector: "", ppf: false, review: false, body: "", sort: "obligation", dir: -1, page: 0};
 const PAGE = 50;
 function scopeRows() {
   if (st.scope === "live") return S.filter(s => LIVE.includes(s.group));
@@ -306,6 +318,21 @@ function fillGroupReason() {
   if (st.reason && !rs[st.reason]) st.reason = "";
   $("#f-reason").innerHTML = `<option value="">Any</option>` + opts.map(([r, n]) => `<option value="${esc(r)}">${esc(r)} (${fmtN(n)})</option>`).join("");
   $("#f-reason").value = st.reason;
+  const base = rows.filter(s => (!st.group || s.group === st.group) && (!st.reason || s.reason === st.reason));
+  const fill = (id, key, order) => {
+    const c = {}; base.forEach(s => c[s[key]] = (c[s[key]] || 0) + 1);
+    let opts = Object.keys(c);
+    opts = order ? order.filter(o => c[o]) : opts.sort((a, b) => ([NOT_KNOWN, NO_SPONSOR].includes(a) - [NOT_KNOWN, NO_SPONSOR].includes(b)) || c[b] - c[a]);
+    const k = key.slice(1);
+    if (st[k] && !c[st[k]]) st[k] = "";
+    $(id).innerHTML = `<option value="">Any</option>` + opts.map(o => `<option value="${esc(o)}">${esc(o)} (${fmtN(c[o])})</option>`).join("");
+    $(id).value = st[k];
+  };
+  fill("#f-size", "_band", [...BANDS.map(b => b[0]), NO_FIG]);
+  fill("#f-region", "_region", ["London", "South East", "East of England", "South West", "West Midlands", "East Midlands",
+    "Yorkshire and the Humber", "North West", "North East", "Wales", "Scotland", "Northern Ireland",
+    "Channel Islands and Isle of Man", "Outside the UK or unknown", NOT_KNOWN, NO_SPONSOR]);
+  fill("#f-sector", "_sector");
 }
 function filtered() {
   const q = st.q.trim().toLowerCase().split(/\s+/).filter(Boolean);
@@ -313,6 +340,7 @@ function filtered() {
     (!st.group || s.group === st.group) && (!st.reason || s.reason === st.reason) &&
     (!st.source || (st.source === "none" ? !(s.group === "with_figures") : (s.source === st.source && s.group === "with_figures"))) &&
     (!st.type || s.name_type === st.type) && (!st.ppf || s.ppf || s.fas) && (!st.review || s.needs_review) &&
+    (!st.size || s._band === st.size) && (!st.region || s._region === st.region) && (!st.sector || s._sector === st.sector) &&
     (!st.body || st.body.split(" ").some(b => s.fig_body_no === b || s.co === b)) &&
     q.every(w => s._t.includes(w)));
   const k = st.sort, d = st.dir;
@@ -374,6 +402,8 @@ function openScheme(psr) {
       ["Status", esc(s.co_status)], ["Accounts filed", esc(s.co_accounts)],
       ["Matched by", s.co ? esc((s.match_method || "") + (s.match_conf != null ? ` (confidence ${Number(s.match_conf).toFixed(2)})` : "") + (s.needs_review ? " · needs review" : "")) : null],
       ["Register", s.reg ? `${link(regLink(s.reg, s.reg_number), s.reg_name || s.reg_number)} <span class="muted">${esc(REG[s.reg] || s.reg)}</span>` : null],
+      ["Sector", esc(s.sector) + (s.sic ? `<span class="sub muted">SIC ${esc(s.sic)}</span>` : "")],
+      ["Region", esc([s.region, s.sponsor_postcode].filter(Boolean).join(", "))],
       ["Named in its accounts", esc(s.named_in_accounts)], ["Ultimate parent", esc([s.parent_top, s.parent_country].filter(Boolean).join(", "))],
       ["Name in scheme title", esc(s.derived)]])
       : kv([["Name in scheme title", esc(s.derived) || "<span class='muted'>none usable</span>"], ["Name verdict", esc(s.name_review)], ["Why no employer", esc(s.reason)]])}</section>
@@ -437,9 +467,9 @@ function renderSponsors() {
 /* ---------- csv ---------- */
 function toast(msg) { const t = $("#toast"); t.textContent = msg; t.hidden = false; clearTimeout(toast.t); toast.t = setTimeout(() => t.hidden = true, 2200); }
 function csv() {
-  const cols = ["psr", "name", "postcode", "name_type", "group", "reason", "co", "co_name", "reg", "reg_number", "reg_name", "source", "fig_body", "fig_body_no", "period_end", "obligation", "assets", "ppf", "fas"];
+  const cols = ["psr", "name", "postcode", "name_type", "group", "reason", "co", "co_name", "reg", "reg_number", "reg_name", "source", "fig_body", "fig_body_no", "period_end", "obligation", "assets", "_band", "sector", "sic", "region", "sponsor_postcode", "ppf", "fas"];
   const q = v => v == null ? "" : /[",\n]/.test(String(v)) ? `"${String(v).replace(/"/g, '""')}"` : String(v);
-  return [cols.join(","), ...current.map(s => cols.map(c => q(c === "group" ? D.groups[s.group] : s[c])).join(","))].join("\n");
+  return [cols.map(c => c === "_band" ? "size_band" : c).join(","), ...current.map(s => cols.map(c => q(c === "group" ? D.groups[s.group] : s[c])).join(","))].join("\n");
 }
 $("#copycsv").addEventListener("click", () => {
   const text = csv();
@@ -462,10 +492,10 @@ let timer;
 $("#q").addEventListener("input", e => { clearTimeout(timer); timer = setTimeout(() => { st.q = e.target.value; st.page = 0; renderSchemes(); }, 120); });
 $("#f-scope").addEventListener("change", e => { st.scope = e.target.value; st.page = 0; fillGroupReason(); renderSchemes(); });
 $("#f-group").addEventListener("change", e => { st.group = e.target.value; st.reason = ""; st.page = 0; fillGroupReason(); renderSchemes(); });
-[["#f-reason", "reason"], ["#f-source", "source"], ["#f-type", "type"]].forEach(([id, k]) => $(id).addEventListener("change", e => { st[k] = e.target.value; st.page = 0; renderSchemes(); }));
+[["#f-reason", "reason"], ["#f-source", "source"], ["#f-type", "type"], ["#f-size", "size"], ["#f-region", "region"], ["#f-sector", "sector"]].forEach(([id, k]) => $(id).addEventListener("change", e => { st[k] = e.target.value; st.page = 0; if (k === "reason") fillGroupReason(); renderSchemes(); }));
 $("#f-ppf").addEventListener("change", e => { st.ppf = e.target.checked; st.page = 0; renderSchemes(); });
 $("#f-review").addEventListener("change", e => { st.review = e.target.checked; st.page = 0; renderSchemes(); });
-$("#reset").addEventListener("click", () => { Object.assign(st, {q: "", scope: "live", group: "", reason: "", source: "", type: "", ppf: false, review: false, body: "", page: 0});
+$("#reset").addEventListener("click", () => { Object.assign(st, {q: "", scope: "live", group: "", reason: "", source: "", type: "", size: "", region: "", sector: "", ppf: false, review: false, body: "", page: 0});
   $("#q").value = ""; $("#f-scope").value = "live"; $("#f-source").value = ""; $("#f-type").value = ""; $("#f-ppf").checked = false; $("#f-review").checked = false; fillGroupReason(); renderSchemes(); });
 document.addEventListener("click", e => {
   const t = e.target.closest("[data-sort],[data-ssort],[data-page],[data-spage],[data-psr],[data-group],[data-scope],[data-clear],tr[data-body]");

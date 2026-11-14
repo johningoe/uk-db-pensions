@@ -51,8 +51,12 @@ browser. It has three views:
   and not identified, each broken down by reason (click a reason to list its schemes); a histogram of funding levels;
   the largest obligations.
 - **Schemes**: every scheme, searchable by name, PSR, postcode, sponsor name or company number, and filtered by
-  scope (live DB and hybrid, DC, not live, all), status, reason, where the figures come from, type, PPF or FAS
-  involvement and matches awaiting review. Click a scheme for its full record: the sponsor and how it was matched,
+  scope (live DB and hybrid, DC, not live, all), status, reason, where the figures come from, type, size, sponsor
+  region, sector, PPF or FAS involvement and matches awaiting review. Size is the band of the DB obligation the
+  figures report, so for group figures it is the whole group's, not the scheme's. Region is the English region or
+  nation of the sponsor's registered-office postcode area (`pensiondb/places.py`; a few areas that straddle a
+  boundary go where most of them lie). Sector is the SIC 2007 section of the sponsor's first SIC code, with holding
+  companies and head offices shown separately; register bodies show as charity, mutual or union. Click a scheme for its full record: the sponsor and how it was matched,
   register entries, the figures with their source document and page, and links to Companies House or the register.
   "Copy as CSV" copies the filtered rows.
 - **Sponsors**: one row per set of figures, so a parent's group figures and its subsidiary's own figures for the
