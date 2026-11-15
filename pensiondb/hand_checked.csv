@@ -30,12 +30,12 @@ SC016288,SCOTTISH & NEWCASTLE LIMITED,2025-12-31,GBP,2069,1917,group,2026-10-16,
 00111876,LOOKERS LIMITED,2025-12-31,GBP,177.4,191.3,group,2026-07-06,69,OCR dropped the decimal points
 08700698,SANTANDER UK GROUP HOLDINGS PLC,2025-12-31,GBP,7127,7629,group,2026-04-17,200,Santander (UK) Group Pension Scheme
 00395826,BALFOUR BEATTY PLC,2025-12-31,GBP,2533,2485,group,2026-06-08,295,two funded schemes (2222/2213 and 279/272) plus £32m unfunded; reader took only the main scheme's figures
-07290590,UK POWER NETWORKS HOLDINGS LIMITED,,GBP,2622,3060,group,,92,total column (two schemes); the reader took the first scheme only
+07290590,UK POWER NETWORKS HOLDINGS LIMITED,,GBP,2622,3060,group,2026-08-07,92,total column (two schemes); the reader took the first scheme only
 01377658,DS SMITH LIMITED,,GBP,674,740,main_scheme,2025-12-29,109,whole scheme (funded 669 plus unfunded 5) before allocation to other participating employers
 00015454,THE PRUDENTIAL ASSURANCE COMPANY LIMITED,,GBP,4077,4458,group,2026-05-10,58,underlying scheme liabilities 4077 and surplus 381 (Prudential Staff Pension Scheme and smaller schemes)
 00033774,JOHNSON MATTHEY PLC,2026-03-31,GBP,1325,1529,group,2026-08-07,181,total column; the reader took the first column
 00296805,TAYLOR WIMPEY PLC,2025-12-31,GBP,1406.8,1513.8,main_scheme,2026-06-20,205,Taylor Wimpey Pension Scheme; £m (the OCR lost the heading and the reader took £'000)
-01860181,IMPERIAL TOBACCO LIMITED,2025-09-30,GBP,1951,2196,main_scheme,2026-04-19,42,Imperial Tobacco Pension Fund; heading "£'million"
+01860181,IMPERIAL TOBACCO LIMITED,2025-09-30,GBP,1951,2196,main_scheme,2026-04-19,42,"Imperial Tobacco Pension Fund; heading ""£'million"""
 02294747,SANTANDER UK PLC,2025-12-31,GBP,7127,7629,main_scheme,2026-03-25,173,Santander (UK) Group Pension Scheme (same scheme as Santander UK Group Holdings; assets on page 174)
 02366619,SEVERN TRENT PLC,2026-03-31,GBP,1754,1733,group,2026-08-03,198,"Net obligation £21m per strategic report (scan reads ""(211"")"
 05149111,AA LIMITED,2026-01-31,GBP,1479,1369,group,2026-06-05,89,AAUK and AA Ireland schemes
@@ -68,3 +68,46 @@ SC134741,FORTH PORTS LIMITED,2025-12-31,GBP,340.7,331.8,main_scheme,2026-06-30,5
 SC203873,STV GROUP PLC,2025-12-31,GBP,429.1,373.5,group,2026-06-20,140,Two schemes; obligations on page 142
 07111792,MARLOWE HOLDINGS LIMITED,,GBP,254.039,311.342,group,2026-09-30,46,
 03132438,HITACHI RAIL GTS UK LIMITED,2025-03-31,GBP,258.431,252.337,main_scheme,2025-08-19,50,
+03187394,CONNELLS LIMITED,2025-12-31,GBP,79.281,73.087,main_scheme,2026-08-21,58,Connells (2014) Group Pension Scheme; assets page 59. The reader had taken the Countrywide scheme's residual (page 61)
+04947152,COUNTRYWIDE GROUP LIMITED,2025-12-31,GBP,0.250,0.214,main_scheme,2026-08-21,61,"Countrywide scheme, from Connells Limited's accounts: fully bought out in 2025, residual to be settled in 2026"
+06930266,EDF ENERGY HOLDINGS LIMITED,2025-12-31,GBP,4906,5456,group,2026-07-21,117,£m table (reader had £'000)
+13919225,INFRAMOBILITY UK TOPCO LIMITED,2025-05-03,GBP,1062.7,1252.2,group,2026-01-20,110,Stagecoach schemes in total
+00942215,ERICSSON LIMITED,2025-12-31,GBP,607.179,654.813,main_scheme,2026-06-21,33,Assets page 34
+16080698,PACIOLI UK HOLDCO LIMITED,2025-12-31,GBP,271.3,269.8,group,2026-07-26,59,Assets page 60
+00016033,SIEMENS MOBILITY LIMITED,2025-09-30,GBP,210.122,222.939,main_scheme,2026-02-16,64,
+03056469,OCS GROUP UK LIMITED,2025-12-31,GBP,158.761,162.047,group,2026-10-27,84,
+10966583,RYDON GROUP HOLDINGS LIMITED,,GBP,21.292,22.934,group,2026-05-20,55,Two schemes; assets page 56
+00199712,SYKES & SON LIMITED,,GBP,5.292,6.732,main_scheme,2026-05-15,29,
+00735438,ME GROUP INTERNATIONAL PLC,,GBP,3.770,3.507,main_scheme,2026-04-28,173,
+01461516,EPSON (U.K.) LIMITED,2026-03-31,GBP,41.104,41.104,main_scheme,2025-09-22,51,Fully insured; the £35.6m figure was a sensitivity line
+02877315,REDROW LIMITED,2024-06-30,GBP,77,82,main_scheme,2025-01-04,178,"£m heading scanned as ""EM""; total assets column (quoted plus unquoted)"
+08004972,ABBVIE LTD,,GBP,301.363,373.191,main_scheme,2026-10-08,40,"Thousands printed with spaces (""301 363"") read as £301k"
+OC303675,DELOITTE LLP,,GBP,622,620,group,2026-10-13,82,Table without a unit heading; buy-out figures on page 83 confirm £m
+01094405,COLOPLAST LIMITED,2025-09-30,GBP,24.332,25.808,main_scheme,2026-07-20,37,Obligation = assets less £1.476m net asset; thousands printed with spaces
+00030177,WADWORTH AND COMPANY LIMITED,,GBP,12.172,14.390,main_scheme,2026-06-18,18,Assets = obligation plus £2.218m restricted surplus
+00178711,WARBURTONS LIMITED,2025-09-27,GBP,,213.8,group,2026-06-21,34,"Assets across all schemes ""£213:8 million""; obligation not on these pages"
+00241882,FULLER SMITH & TURNER PLC,,GBP,,,misread,2026-08-07,123,No pension figures on the page read
+00578327,ROTORK P.L.C.,,GBP,,,misread,2026-05-13,168,No pension figures on the page read
+05393279,RENTOKIL INITIAL PLC,,GBP,,,misread,2026-05-24,167,Group plans mostly in dollars; UK figure not identifiable
+01698498,MUFG SECURITIES EMEA PLC,,GBP,,,misread,2026-05-13,328,Japanese parent's disclosures
+NI000601,THE OLD BUSHMILLS DISTILLERY COMPANY LIMITED,,GBP,,,misread,2026-10-05,35,Figure was the return on assets; closing balances not legible
+00699993,TOYOTA MATERIAL HANDLING UK LIMITED,,GBP,,,misread,2026-09-09,39,Table too garbled to read
+01912705,GEODIS UNITED KINGDOM LIMITED,,GBP,,,misread,2021-02-17,34,Figures were sensitivity lines
+00344359,INNOSPEC LIMITED,,GBP,,,misread,2026-05-16,37,Scheme settled; figure was the prior year
+SC187402,J.W. HOLDINGS LIMITED,,GBP,,,misread,2026-10-07,37,Scheme settled; figure was a benefit payment
+FC009961,LYONDELL CHEMICAL EUROPE INC,,USD,,,misread,2026-04-20,9,US company's plan
+00239373,ASTLEY DYE AND CHEMICAL COMPANY LIMITED,,GBP,0.359405,0.431,main_scheme,2025-10-03,34,Small scheme in whole pounds (confirmed)
+10826803,BANK OF BARODA (UK) LIMITED,,GBP,0.702,0.758,main_scheme,2025-11-21,57,Small scheme in £'000 (confirmed)
+00137393,BARLOWORLD UK LIMITED,,GBP,0.500,0.610,main_scheme,2026-04-29,39,Small scheme in £'000 (confirmed)
+03943217,BUSHBOARD LIMITED,,GBP,0.369,0.910,main_scheme,2026-08-26,30,Small scheme in £'000 (confirmed)
+00288105,"GORDONSTOUN SCHOOLS,LIMITED",,GBP,0.131017,,main_scheme,2026-06-07,52,Small scheme in whole pounds (confirmed)
+SC081944,GRAHAM TISO LIMITED,,GBP,0.382,0.752,main_scheme,2025-11-04,23,Small scheme in £'000 (confirmed)
+03069887,HEXCEL COMPOSITES LIMITED,,GBP,0.626,,main_scheme,2026-09-21,44,Small unfunded liability in £'000 (confirmed)
+00490726,HORTONS' ESTATE LIMITED,,GBP,0.192,0.205,main_scheme,2026-04-19,31,Residual after a 2025 settlement (confirmed)
+00057374,INCORPORATED CATHOLIC TRUTH SOCIETY(THE),,GBP,0.252,0.718,main_scheme,2026-08-19,32,Small scheme in £'000 (confirmed)
+01792090,KOMORI U.K. LIMITED,,GBP,0.287,,main_scheme,2026-09-09,31,Small scheme in £'000 (confirmed)
+00463800,LENHAM STORAGE COMPANY LIMITED,,GBP,0.855,0.863,main_scheme,2026-05-08,38,Small scheme in whole pounds (confirmed)
+02020381,LONDON LUTON AIRPORT LIMITED,,GBP,0.974,,main_scheme,2025-12-19,39,Small scheme in £'000 (confirmed)
+02560474,THE FORWARD TRUST,,GBP,0.294,0.431,main_scheme,2026-02-04,58,Small scheme in £'000 (confirmed)
+00259021,THE ORATORY SCHOOLS ASSOCIATION,,GBP,0.129,0.129,main_scheme,2026-01-14,50,Small scheme in whole pounds; surplus restricted (confirmed)
+03946280,SEDBERGH SCHOOLS GROUP,,GBP,0.143,0.220,main_scheme,2026-04-22,53,Small scheme in £'000 (confirmed)

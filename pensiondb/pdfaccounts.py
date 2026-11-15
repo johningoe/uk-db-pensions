@@ -211,7 +211,7 @@ MONTH = r"(?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*"
 DAY_AFTER = re.compile(r"^(?:st|nd|rd|th)?\s*" + MONTH, re.I)        # "31 December", "1st January"
 DAY_BEFORE = re.compile(r"\b(?:at|on|to|as at)\s*$", re.I)              # "... as at 31" (month on the next line)
 # Column-heading unit tokens. A bare "million" is left out: narrative ("£21.9 million") is not a heading.
-UNIT_M = re.compile(r"(?<![\d.,])[£€Ef$]\s?['’]?m\b|£\s?['’]?millions?\b|\bin millions\b|\bEm\b")
+UNIT_M = re.compile(r"(?<![\d.,])[£€Ef$]\s?['’]?m\b|£\s?['’]?millions?\b|\bin millions\b|\bE[mM]\b|£M\b")
 UNIT_K = re.compile(r"[£€Ef$]\s?['’‘]?0{3}\b|£\s?k\b|['’‘]000\b|(?<![\d,.:;])000s?\b|\bthousands\b")
 
 
