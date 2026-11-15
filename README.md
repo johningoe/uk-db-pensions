@@ -175,6 +175,15 @@ without accepting any: a brand alone often hits a dormant or new namesake ("Ford
 Ford Motor Company). The first review (source `claude` in `review_decisions`, match method `corrected_name`) gave
 132 schemes a sponsor, 22 of them moved from a namesake to the operating company.
 
+### Sections matched by their label
+
+A section scheme ("Santander (UK) Group Pension Scheme - A&L Section") was sometimes matched on its label alone, to
+an unrelated or dissolved company: GROUP LTD, A & L LIMITED, STAFF LIMITED, ELEVATORS LTD. Section schemes whose
+sponsor shares no word with the main scheme's name were reviewed by hand. Real section employers stay (Marsh and
+Mercer in the MMC fund, Freemans and Grattan in Otto's); label matches move to the sponsor of the main scheme
+(Santander UK, ThyssenKrupp UK, Inchcape, Christie Group), and sections of public or union schemes lose their
+company match. The decisions are in `review_decisions` (method `claude`).
+
 ### Same-district pass
 
 `run.py district-match` takes unmatched schemes named after a business the name passes could not find, often
@@ -346,13 +355,28 @@ so don't add `group_db_*` up across sponsors. They are kept apart from the spons
   - `too_large`: over £50bn, more than any UK scheme.
   - `too_small`: under £20k, so a unit was probably missed.
   - `assets_vs_obligation`: one is more than 3× the other, usually a stray number on one line.
-  - `foreign_currency`: the source page is mostly in dollars, euros or another currency.
+  - `foreign_currency`: the source page is mostly in dollars, euros or another currency, or the figure's own line
+    is in dollars ("$  4,047", "$330 million": US parents' plans in a UK subsidiary's accounts). A "$" stuck to
+    letters ("FR$ 101") or right against a number ("$43.7") is a scanned S or 5, and "€" is often a scanned £, so
+    neither counts on its own.
   - `decimal_lost`: a £m figure of 1,000 or more printed without a comma (OCR read "239.7" as "2397").
 
 The PDF reader takes each figure's unit from the nearest column heading above it ("£'000", "£m"), not from
 anywhere on the page, and reads "k" after an amount as thousands. A page with no heading takes £'000, unless the whole document has no £'000 or £m
 heading, when amounts are whole pounds (small companies: "Defined benefit obligation 855,000"). After changing extraction rules, run
-`run.py pdf-reextract` then `run.py status`.
+`run.py pdf-reextract` then `run.py status`. The re-extract reads the saved text using the filing date stored with
+each result, so it needs no download or API call and takes a few minutes.
+
+Other reader rules:
+
+- A number glued to a word is not an amount: the scan of "obligation at the balance sheet date, less the fair
+  value" read "less" as "lc33", which gave Santander UK an obligation of £33,000. Numbers with a leading zero
+  ("F01235541") or seven or more digits without commas are scan noise or references.
+- When the best page gives only one of obligation and assets, the reader looks for a consistent pair (assets
+  between half and twice the obligation): the page joined to the next or previous one (the two reconciliations
+  often sit either side of a page break), then the same with less common wordings ("Projected benefit
+  obligation", "Actuarial value of liabilities", "Pension scheme obligation"). Those wordings are used only to
+  complete a pair, because "projected benefit obligation" is mostly US parents' plans.
 
 The check catches gross errors only. A figure misread within the right order of magnitude (a wrong digit, a
 prior-year column) passes, so spot-check figures that matter against the filed accounts.
@@ -367,6 +391,24 @@ applies them after the figure check, overriding what the reader found: `db_taxon
 `uk_plans` (the UK column of a multi-country table), `main_scheme`, or `group` (all plans in the accounts, which
 for Unilever and Rio Tinto includes overseas plans). Dollar and euro figures are converted at the period-end
 rate in `handcheck.FX`. A `misread` row clears a figure that is wrong when no reliable one could be read
-(`db_check = 'flag:misread'`). To add a company, add a row and run `run.py status`.
+(`db_check = 'flag:misread'`). Rows also apply to parent companies that are not sponsors themselves, so group
+figures passed down to subsidiaries are corrected too (a `misread` parent passes nothing down). To add a company,
+add a row and run `run.py status`. The list now covers the largest sponsors and the largest figures that the
+quality check below marked for checking.
+
+### How far to trust a figure
+
+`gaps.quality` labels every set of figures, and the explorer shows the label next to the obligation and as a
+filter:
+
+- **Checked by hand**: from `hand_checked.csv`.
+- **Tagged in the accounts**: iXBRL tags.
+- **Read from the accounts**: read from PDF or scanned text with nothing odd.
+- **Needs checking**, with the reasons: only one of obligation and assets found; a year end more than three years
+  before the build date; under £1m for a company that files full or group accounts (a £m table read as £'000 is
+  the usual cause); assets under half or over twice the obligation; or a charity's annual-return net figure only.
+
+Figures that fail the figure check above are left out altogether; "Needs checking" figures are counted but
+deserve a look before being relied on.
 
 Not used: the gov.uk Pension Tracing Service.

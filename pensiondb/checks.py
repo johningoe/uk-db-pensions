@@ -25,6 +25,10 @@ UNIT_RATIO = (500, 2000)                        # ~1,000x apart = a £m / £'000
 FOREIGN = re.compile(r"US\$|\bUSD\b|\$\s?['’]?(?:m|000|million|bn)\b|\bEUR\b|\beuros?\b|€\s?million|\bbaht\b"
                      r"|\bTHB\b|\bJPY\b|\byen\b|HK\$|\bCHF\b|\bSEK\b|\bDKK\b|\bNOK\b|\bINR\b|\brupees?\b", re.I)
 MIN_FOREIGN = 2
+# the figure's own line printed in dollars: "$  4,047", "$ 755.3", "$330 million", or two dollar amounts. A "$" stuck to
+# letters is a scanned S ("FR$ 101"); "$43.7" or a lone "$ 380" is a scanned 5; "€" is often a scanned £, so not used.
+FOREIGN_LINE = re.compile(r"(?<![A-Za-z])\$\s+(?:\d{1,3}(?:,\d{3})+|\d+\.\d)|(?<![A-Za-z])\$\s?\d[\d,.]*\s?(?:million|bn|billion)\b"
+                          r"|US\$|(?<![A-Za-z])\$\s*\d.*(?<![A-Za-z])\$\s*\d", re.I)
 STERLING = re.compile(r"£|\bGBP\b|sterling|\bpence\b")
 
 
@@ -35,19 +39,18 @@ def ensure_columns(con):
             con.execute(f"ALTER TABLE sponsors ADD COLUMN {col} TEXT")
 
 
-def _page_text(num, page):
+def _page_text(num, page, date):
     """The page the PDF figures came from, from the saved text (None if not available)."""
-    if page is None:
+    if page is None or not date:
         return None
-    item = pdfaccounts.latest_accounts(num)
-    f = item and pdfaccounts.PDF_DIR / f"{num}_{item['date']}.txt"
+    f = pdfaccounts.PDF_DIR / f"{num}_{date}.txt"
     if not f or not f.exists():
         return None
     pages = f.read_text().partition("\n")[2].split("\f")
     return pages[page] if page < len(pages) else None
 
 
-def judge(ob, assets, page_text=None, unit=None):
+def judge(ob, assets, page_text=None, unit=None, evidence=None):
     """(obligation, assets, check, note). Only the unit mix-up is corrected; everything else is flagged."""
     ob, assets = (abs(ob) if ob else ob), (abs(assets) if assets else assets)
     if ob and assets:
@@ -67,7 +70,7 @@ def judge(ob, assets, page_text=None, unit=None):
     if unit and "m?" in unit:
         why.append("decimal_lost")
     n_foreign = len(FOREIGN.findall(page_text or ""))
-    if n_foreign >= MIN_FOREIGN and n_foreign > len(STERLING.findall(page_text)):
+    if (n_foreign >= MIN_FOREIGN and n_foreign > len(STERLING.findall(page_text))) or FOREIGN_LINE.search(evidence or ""):
         why.append("foreign_currency")
     return ob, assets, ("flag:" + ",".join(why)) if why else "ok", None
 
@@ -77,12 +80,13 @@ def run(con):
     ensure_columns(con)
     con.execute("UPDATE sponsors SET db_check = NULL, db_check_note = NULL")
     counts = {}
-    for num, ob, assets, net, tax, page, unit in con.execute(
+    for num, ob, assets, net, tax, page, unit, date, ev in con.execute(
             """SELECT sp.company_number, sp.db_obligation, sp.db_plan_assets, sp.db_surplus_deficit, sp.db_taxonomy,
-                      p.page, p.unit FROM sponsors sp LEFT JOIN pdf_accounts p USING (company_number)
+                      p.page, p.unit, p.filing_date, p.evidence FROM sponsors sp LEFT JOIN pdf_accounts p USING (company_number)
                WHERE sp.db_period_end IS NOT NULL""").fetchall():
-        text = _page_text(num, page) if (tax or "").startswith("pdf_") else None
-        ob2, assets2, check, note = judge(ob, assets, text, unit if (tax or "").startswith("pdf_") else None)
+        pdf = (tax or "").startswith("pdf_")
+        text = _page_text(num, page, date) if pdf else None
+        ob2, assets2, check, note = judge(ob, assets, text, unit if pdf else None, ev if pdf else None)
         if check == "fixed_unit":
             net = assets2 - ob2
             con.execute("UPDATE sponsors SET db_obligation=?, db_plan_assets=?, db_surplus_deficit=? "

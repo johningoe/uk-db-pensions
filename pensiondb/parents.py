@@ -161,16 +161,44 @@ def lookup(con, companies=None):
 
 # ---------------------------------------------------------------- 2. read parents' accounts
 
+_HAND = None
+
+
+def _hand_checked():
+    """{company: figures} from hand_checked.csv, in the same shape as _known_figures ('misread' rows give False)."""
+    global _HAND
+    if _HAND is None:
+        from . import handcheck
+        _HAND = {}
+        for r in handcheck.load():
+            if r["basis"] == "misread":
+                _HAND[r["company_number"]] = False
+                continue
+            period = r["period_end"] or r["filing_date"]
+            rate = 1.0 if r["currency"] == "GBP" else handcheck.FX.get((r["currency"], period))
+            if not rate:
+                continue
+            ob = float(r["obligation_m"]) * 1e6 / rate if r["obligation_m"] else None
+            assets = float(r["assets_m"]) * 1e6 / rate if r["assets_m"] else None
+            _HAND[r["company_number"]] = dict(period=period, obligation=ob, assets=assets,
+                                              net=assets - ob if ob is not None and assets is not None else None,
+                                              source="hand_checked")
+    return _HAND
+
+
 def _known_figures(con, num):
     """Figures we already hold for a company: as a sponsor (iXBRL/PDF) or from an earlier accounts read.
-    Returns a dict, False (read, no figures) or None (not read yet)."""
+    Returns a dict, False (read, no figures) or None (not read yet). Hand-checked figures win, so a parent that is
+    not itself a sponsor can be corrected too."""
+    if num in _hand_checked():
+        return _hand_checked()[num]             # figures, or False for a misread one
     sp = con.execute("""SELECT db_period_end, db_obligation, db_plan_assets, db_surplus_deficit, db_taxonomy, db_check
                         FROM sponsors WHERE company_number=? AND db_period_end IS NOT NULL""", (num,)).fetchone()
     if sp:
         if (sp[5] or "").startswith("flag"):
             return False                        # implausible figures: don't pass them down the group
         return dict(period=sp[0], obligation=sp[1], assets=sp[2], net=sp[3], source=sp[4])
-    p = con.execute("SELECT status, obligation, assets, net, text_source, filing_date, page, unit FROM pdf_accounts "
+    p = con.execute("SELECT status, obligation, assets, net, text_source, filing_date, page, unit, evidence FROM pdf_accounts "
                     "WHERE company_number=?", (num,)).fetchone()
     if not p:
         return None
@@ -178,7 +206,7 @@ def _known_figures(con, num):
         return None if p[0] == "error" else False
     item = pdfaccounts.latest_accounts(num) or {}
     period = item.get("action_date") or (item.get("description_values") or {}).get("made_up_date") or p[5]
-    ob, assets, check, _ = checks.judge(p[1], p[2], checks._page_text(num, p[6]), p[7])
+    ob, assets, check, _ = checks.judge(p[1], p[2], checks._page_text(num, p[6], p[5]), p[7], p[8])
     if check.startswith("flag"):
         return False
     net = p[3]

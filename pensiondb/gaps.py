@@ -129,3 +129,47 @@ def classify(con):
         else:
             out[r["psr"]] = ("not_identified", kind(r["scheme_name"], r["review"]))
     return out
+
+
+# ---------------------------------------------------------------- how far to trust a figure
+
+QUALITY = {
+    "hand": "Checked by hand",
+    "tagged": "Tagged in the accounts",
+    "read": "Read from the accounts",
+    "check": "Needs checking",
+}
+TAGGED = {"frs102", "uk-gaap", "pdf_ixbrl", "pdf_xhtml"}
+
+
+def quality(source, how, obligation, assets, period_end, accounts_category=None, built=None):
+    """(label key, [reasons]) for a set of DB figures.
+
+    source             own / group / register
+    how                db_taxonomy (own), group_db_source (group), or charity_db_source (register: accounts or
+                       annual_return)
+    accounts_category  the reporting company's accounts type, to catch a £m report read as £'000
+
+    Hand-checked figures are trusted as they are. Others need checking when only one of obligation and assets was
+    found, the year end is more than three years before the build date, a company filing full or group accounts
+    reports under £1m (a £m table read as £'000 is the usual cause), or assets are under half or over twice the
+    obligation."""
+    from datetime import date
+    if how == "hand_checked":
+        return "hand", []
+    why = []
+    if how == "annual_return":
+        why.append("net figure only (charity annual return)")
+    elif obligation is None or assets is None:
+        why.append("only one of obligation and assets found")
+    built = built or date.today().isoformat()
+    if period_end and period_end[:10] < f"{int(built[:4]) - 3}{built[4:10]}":
+        why.append(f"old figures (year end {period_end[:10]})")
+    big = max(v for v in (obligation, assets, 0) if v is not None)
+    if source == "own" and (accounts_category or "").lower() in ("full", "group") and 0 < big < 1e6:
+        why.append("under £1m for a company filing full accounts: check the unit")
+    if obligation and assets and not 0.5 <= assets / obligation <= 2:
+        why.append(f"assets {assets / obligation:.0%} of the obligation")
+    if why:
+        return "check", why
+    return ("tagged" if how in TAGGED else "read"), []

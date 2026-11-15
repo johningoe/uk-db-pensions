@@ -89,6 +89,10 @@ svg .col.under { fill: var(--warn); }
 .btn.primary { background: var(--accent); color: var(--accent-fg); border-color: var(--accent); }
 .resultline { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; align-items: center; font-size: 13px; color: var(--muted); margin-bottom: 8px; }
 .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.activebar { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; background: var(--accent-soft); border-radius: 8px; padding: 8px 10px; margin-bottom: 10px; font-size: 13px; }
+.activebar strong { font: 600 13px var(--f-head); color: var(--accent); }
+.activebar .chip { background: var(--surface); }
+.activebar .linkbtn { margin-left: auto; background: none; border: 0; color: var(--accent); text-decoration: underline; cursor: pointer; font-size: 13px; }
 .chip { display: inline-flex; align-items: center; gap: 4px; background: var(--accent-soft); color: var(--accent); border: 0; border-radius: 99px; padding: 2px 10px; font-size: 12.5px; cursor: pointer; }
 .tablebox { overflow-x: auto; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; }
 table { border-collapse: collapse; width: 100%; font-size: 13px; }
@@ -106,6 +110,9 @@ td.name { min-width: 220px; max-width: 380px; }
 .pill { display: inline-block; border-radius: 4px; padding: 1px 7px; font: 500 12px/1.6 var(--f-head); white-space: nowrap; }
 .pill.with_figures { background: var(--good-soft); color: var(--good); } .pill.no_figures { background: var(--warn-soft); color: var(--warn); }
 .pill.not_identified { background: var(--bad-soft); color: var(--bad); } .pill.dc { background: var(--dc-soft); color: var(--dc); } .pill.not_live { background: var(--dim-soft); color: var(--dim); }
+.q { display: inline-block; font: 500 11px/1.5 var(--f-head); border-radius: 3px; padding: 0 5px; margin-top: 2px; white-space: nowrap; }
+.q.hand { background: var(--good-soft); color: var(--good); } .q.tagged, .q.read { background: var(--sunk); color: var(--muted); }
+.q.check { background: var(--warn-soft); color: var(--warn); }
 .fund { display: inline-flex; align-items: center; gap: 6px; justify-content: flex-end; }
 .fund i { display: inline-block; width: 40px; height: 6px; border-radius: 3px; background: var(--sunk); position: relative; overflow: hidden; }
 .fund i b { position: absolute; inset: 0 auto 0 0; background: var(--good); }
@@ -151,6 +158,7 @@ textarea.copybox { width: 100%; height: 120px; font: 12px var(--f-mono); margin-
       <div class="bar" id="statusbar" role="group" aria-label="Schemes by status"></div>
       <p class="legend-note" id="statusnote"></p>
       <div class="cols3" id="reasoncols"></div>
+      <p class="legend-note" id="qualitynote"></p>
     </div>
     <div class="cols2">
       <div class="panel"><h2>Funding level of sponsors with figures</h2><p class="legend-note">Assets as a share of the DB obligation, one count per set of figures (a sponsor with several schemes counts once).</p><div id="hist"></div></div>
@@ -172,6 +180,9 @@ textarea.copybox { width: 100%; height: 120px; font: 12px var(--f-mono); margin-
       <label>Type<select id="f-type">
         <option value="">Any</option><option value="DB_likely">Name says DB</option><option value="hybrid_likely">Name says hybrid</option>
         <option value="unknown">Name doesn't say</option><option value="DC_likely">Name says DC</option></select></label>
+      <label>Figure check<select id="f-quality">
+        <option value="">Any</option><option value="hand">Checked by hand</option><option value="tagged">Tagged in the accounts</option>
+        <option value="read">Read from the accounts</option><option value="check">Needs checking</option><option value="trusted">Checked, tagged or read cleanly</option></select></label>
       <label>Size (DB obligation)<select id="f-size"></select></label>
       <label>Sponsor region<select id="f-region"></select></label>
       <label>Sector<select id="f-sector"></select></label>
@@ -179,7 +190,8 @@ textarea.copybox { width: 100%; height: 120px; font: 12px var(--f-mono); margin-
       <label class="check"><input type="checkbox" id="f-review"> Sponsor match needs review</label>
       <button class="btn" id="reset">Clear filters</button>
     </div>
-    <div class="resultline"><span id="count"></span><span class="chips" id="chips"></span><button class="btn" id="copycsv">Copy as CSV</button></div>
+    <div class="activebar" id="activebar" hidden></div>
+    <div class="resultline"><span id="count"></span><button class="btn" id="copycsv">Copy as CSV</button></div>
     <div class="tablebox"><table id="schemetable"></table></div>
     <div class="pager" id="pager"></div>
     <div id="copyfallback"></div>
@@ -221,6 +233,7 @@ function money(v) {
 const fundRatio = s => (s.obligation > 0 && s.assets != null) ? s.assets / s.obligation : null;
 const pct = r => r == null ? "–" : Math.round(r * 100) + "%";
 const TYPE = {DB_likely: "Name says DB", hybrid_likely: "Name says hybrid", unknown: "Name doesn't say", DC_likely: "Name says DC"};
+const QSHORT = {hand: "checked", tagged: "tagged", read: "read", check: "needs check"};
 const SOURCE = {own: "Sponsor's own accounts", group: "Parent group's accounts", register: "Charity, union or mutual accounts"};
 const REG = {ccew: "Charity Commission", oscr: "Scottish Charity Regulator", fca: "FCA Mutuals Register", co: "Certification Officer"};
 function regLink(reg, no) {
@@ -280,6 +293,9 @@ function overview() {
     return `<div><h3><span class="pill ${g}">${esc(D.groups[g])}</span></h3><ul class="reasons">${items.map(([r, n]) =>
       `<li><button data-group="${g}" data-reason="${esc(r)}"><span>${esc(r)}</span><span class="num">${fmtN(n)}</span><span class="r-bar"><i class="i-${g}" style="width:${n / max * 100}%"></i></span></button></li>`).join("")}</ul></div>`;
   }).join("");
+  const qc = {}; live.filter(s => s.group === "with_figures").forEach(s => qc[s.quality] = (qc[s.quality] || 0) + 1);
+  $("#qualitynote").innerHTML = `How far to trust the figures: ` + ["hand", "tagged", "read", "check"].filter(k => qc[k]).map(k =>
+    `<button class="chip" data-quality="${k}">${fmtN(qc[k])} ${esc(D.quality[k].toLowerCase())}</button>`).join(" ");
   // funding histogram
   const bins = [0, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0, 1.1, 1.2, 1.3, 1.5, Infinity];
   const counts = new Array(bins.length - 1).fill(0);
@@ -294,12 +310,14 @@ function overview() {
   svg += `<text x="${(W + pad.l) / 2}" y="${H - 4}" text-anchor="middle">Funding level, % (amber: below 100%)</text></svg>`;
   $("#hist").innerHTML = svg;
   const top10 = sets.filter(s => s.obligation).sort((a, b) => b.obligation - a.obligation).slice(0, 12);
+  // every company reporting the same figures (BT Group and BT plc), so a click lists all their schemes
+  const bodiesOf = s => [...new Set(S.filter(x => x.group === "with_figures" && figKey(x) === figKey(s)).map(x => x.fig_body_no))].join(" ");
   $("#topten").innerHTML = `<thead><tr><th>Sponsor</th><th class="num">Obligation</th><th class="num">Funding</th></tr></thead><tbody>${top10.map(s =>
-    `<tr data-body="${esc(s.fig_body_no)}"><td>${esc(s.fig_body)}<span class="sub">${esc(SOURCE[s.source])}</span></td><td class="num">${money(s.obligation)}</td><td class="num">${pct(s._fr)}</td></tr>`).join("")}</tbody>`;
+    `<tr data-body="${esc(bodiesOf(s))}"><td>${esc(s.fig_body)}<span class="sub">${esc(SOURCE[s.source])}</span></td><td class="num">${money(s.obligation)}</td><td class="num">${pct(s._fr)}</td></tr>`).join("")}</tbody>`;
 }
 
 /* ---------- schemes ---------- */
-const st = {q: "", scope: "live", group: "", reason: "", source: "", type: "", size: "", region: "", sector: "", ppf: false, review: false, body: "", sort: "obligation", dir: -1, page: 0};
+const st = {q: "", scope: "live", group: "", reason: "", source: "", type: "", quality: "", size: "", region: "", sector: "", ppf: false, review: false, body: "", sort: "obligation", dir: -1, page: 0};
 const PAGE = 50;
 function scopeRows() {
   if (st.scope === "live") return S.filter(s => LIVE.includes(s.group));
@@ -319,20 +337,19 @@ function fillGroupReason() {
   $("#f-reason").innerHTML = `<option value="">Any</option>` + opts.map(([r, n]) => `<option value="${esc(r)}">${esc(r)} (${fmtN(n)})</option>`).join("");
   $("#f-reason").value = st.reason;
   const base = rows.filter(s => (!st.group || s.group === st.group) && (!st.reason || s.reason === st.reason));
-  const fill = (id, key, order) => {
+  const fill = (id, key, k, order) => {
     const c = {}; base.forEach(s => c[s[key]] = (c[s[key]] || 0) + 1);
     let opts = Object.keys(c);
     opts = order ? order.filter(o => c[o]) : opts.sort((a, b) => ([NOT_KNOWN, NO_SPONSOR].includes(a) - [NOT_KNOWN, NO_SPONSOR].includes(b)) || c[b] - c[a]);
-    const k = key.slice(1);
     if (st[k] && !c[st[k]]) st[k] = "";
     $(id).innerHTML = `<option value="">Any</option>` + opts.map(o => `<option value="${esc(o)}">${esc(o)} (${fmtN(c[o])})</option>`).join("");
     $(id).value = st[k];
   };
-  fill("#f-size", "_band", [...BANDS.map(b => b[0]), NO_FIG]);
-  fill("#f-region", "_region", ["London", "South East", "East of England", "South West", "West Midlands", "East Midlands",
+  fill("#f-size", "_band", "size", [...BANDS.map(b => b[0]), NO_FIG]);
+  fill("#f-region", "_region", "region", ["London", "South East", "East of England", "South West", "West Midlands", "East Midlands",
     "Yorkshire and the Humber", "North West", "North East", "Wales", "Scotland", "Northern Ireland",
     "Channel Islands and Isle of Man", "Outside the UK or unknown", NOT_KNOWN, NO_SPONSOR]);
-  fill("#f-sector", "_sector");
+  fill("#f-sector", "_sector", "sector");
 }
 function filtered() {
   const q = st.q.trim().toLowerCase().split(/\s+/).filter(Boolean);
@@ -340,6 +357,7 @@ function filtered() {
     (!st.group || s.group === st.group) && (!st.reason || s.reason === st.reason) &&
     (!st.source || (st.source === "none" ? !(s.group === "with_figures") : (s.source === st.source && s.group === "with_figures"))) &&
     (!st.type || s.name_type === st.type) && (!st.ppf || s.ppf || s.fas) && (!st.review || s.needs_review) &&
+    (!st.quality || (st.quality === "trusted" ? ["hand", "tagged", "read"].includes(s.quality) : s.quality === st.quality)) &&
     (!st.size || s._band === st.size) && (!st.region || s._region === st.region) && (!st.sector || s._sector === st.sector) &&
     (!st.body || st.body.split(" ").some(b => s.fig_body_no === b || s.co === b)) &&
     q.every(w => s._t.includes(w)));
@@ -357,15 +375,47 @@ function fundCell(r) {
   return `<span class="fund">${pct(r)}<i><b class="${r < 1 ? "under" : ""}" style="width:${Math.min(r, 1.5) / 1.5 * 100}%"></b></i></span>`;
 }
 let current = [], selected = null;
+const SCOPE_NAME = {live: "live DB and hybrid schemes", all: "schemes", dc: "DC schemes", not_live: "schemes that are not live"};
+const DEFAULTS = {q: "", scope: "live", group: "", reason: "", source: "", type: "", quality: "", size: "", region: "", sector: "", ppf: false, review: false, body: ""};
+const CONTROL = {q: "#q", scope: "#f-scope", source: "#f-source", type: "#f-type", quality: "#f-quality", ppf: "#f-ppf", review: "#f-review"};
+function activeFilters() {
+  const out = [], opt = (id, v) => $(id).querySelector(`option[value="${CSS.escape(v)}"]`)?.textContent.replace(/ \([\d,]+\)$/, "") || v;
+  if (st.body) { const b0 = st.body.split(" ")[0]; const s = S.find(x => x.fig_body_no === b0 || x.co === b0); out.push(["body", `Sponsor: ${s?.fig_body || s?.co_name || s?.reg_name || st.body}`]); }
+  if (st.q.trim()) out.push(["q", `Search: “${st.q.trim()}”`]);
+  if (st.scope !== "live") out.push(["scope", `Scope: ${opt("#f-scope", st.scope)}`]);
+  if (st.group) out.push(["group", D.groups[st.group]]);
+  if (st.reason) out.push(["reason", st.reason]);
+  if (st.source) out.push(["source", `Figures: ${opt("#f-source", st.source)}`]);
+  if (st.type) out.push(["type", opt("#f-type", st.type)]);
+  if (st.quality) out.push(["quality", `Figures: ${opt("#f-quality", st.quality)}`]);
+  if (st.size) out.push(["size", `Size: ${st.size}`]);
+  if (st.region) out.push(["region", `Region: ${st.region}`]);
+  if (st.sector) out.push(["sector", `Sector: ${st.sector}`]);
+  if (st.ppf) out.push(["ppf", "PPF or FAS involvement"]);
+  if (st.review) out.push(["review", "Match needs review"]);
+  return out;
+}
+function setFilters(changes) {
+  Object.assign(st, changes, {page: 0});
+  for (const [k, id] of Object.entries(CONTROL)) { const el = $(id); if (el.type === "checkbox") el.checked = st[k]; else el.value = st[k]; }
+  fillGroupReason(); renderSchemes();
+}
+// the browser can restore typed text and choices on reload without telling the page: start from what the controls show
+function syncFromControls() {
+  for (const [k, id] of Object.entries(CONTROL)) { const el = $(id); st[k] = el.type === "checkbox" ? el.checked : el.value; }
+  if (!SCOPE_NAME[st.scope]) st.scope = "live";
+}
 function renderSchemes() {
   current = filtered();
   const n = current.length, pages = Math.max(1, Math.ceil(n / PAGE));
   st.page = Math.min(st.page, pages - 1);
   const slice = current.slice(st.page * PAGE, st.page * PAGE + PAGE);
-  $("#count").textContent = n ? `${fmtN(n)} scheme${n === 1 ? "" : "s"} · showing ${fmtN(st.page * PAGE + 1)}–${fmtN(st.page * PAGE + slice.length)}` : "No schemes";
-  const chips = [];
-  if (st.body) { const b0 = st.body.split(" ")[0]; const s = S.find(x => x.fig_body_no === b0 || x.co === b0); chips.push(`<button class="chip" data-clear="body">Sponsor: ${esc(s?.fig_body || s?.co_name || st.body)} ✕</button>`); }
-  $("#chips").innerHTML = chips.join("");
+  const total = scopeRows().length, scopeName = SCOPE_NAME[st.scope];
+  $("#count").textContent = (n === total ? `${fmtN(n)} ${scopeName}` : `${fmtN(n)} of ${fmtN(total)} ${scopeName}`)
+    + (n ? ` · showing ${fmtN(st.page * PAGE + 1)}–${fmtN(st.page * PAGE + slice.length)}` : "");
+  const chips = activeFilters().map(([k, label]) => `<button class="chip" data-clear="${k}" aria-label="Remove filter ${esc(label)}">${esc(label)} ✕</button>`);
+  $("#activebar").hidden = !chips.length;
+  $("#activebar").innerHTML = chips.length ? `<strong>Filtered:</strong>${chips.join("")}<button class="linkbtn" id="clearall">Show all schemes</button>` : "";
   const head = `<thead><tr>${SCOLS.map(([k, l, num]) => `<th class="sortable${num ? " num" : ""}" data-sort="${k}"${st.sort === k ? ` aria-sort="${st.dir > 0 ? "ascending" : "descending"}"` : ""}>${l}</th>`).join("")}</tr></thead>`;
   const body = slice.length ? slice.map(s => {
     const fig = s.group === "with_figures";
@@ -374,7 +424,7 @@ function renderSchemes() {
       : s.derived ? `<span class="muted">${esc(s.derived)}</span><span class="sub">name only, no match</span>` : `<span class="muted">–</span>`;
     return `<tr data-psr="${esc(s.psr)}"${selected === s.psr ? ' class="sel"' : ""}><td class="name">${esc(s.name)}<span class="sub mono">${esc(s.psr)}${s.postcode ? " · " + esc(s.postcode) : ""}</span></td>
       <td><span class="pill ${s.group}">${esc(D.groups[s.group])}</span><span class="sub">${esc(s.reason)}</span></td>
-      <td>${spon}</td><td class="num">${fig ? money(s.obligation) : "–"}</td><td class="num">${fig ? money(s.assets) : "–"}</td>
+      <td>${spon}</td><td class="num">${fig ? money(s.obligation) : "–"}${fig && s.quality ? `<br><span class="q ${s.quality}" title="${esc(s.quality_why || D.quality[s.quality])}">${esc(QSHORT[s.quality])}</span>` : ""}</td><td class="num">${fig ? money(s.assets) : "–"}</td>
       <td class="num">${fig ? fundCell(s._fr) : "–"}</td><td class="mono">${fig ? esc((s.period_end || "").slice(0, 10)) : ""}</td></tr>`; }).join("")
     : `<tr><td colspan="7" class="empty">No schemes match these filters. Clear a filter or change the scope.</td></tr>`;
   $("#schemetable").innerHTML = head + `<tbody>${body}</tbody>`;
@@ -410,7 +460,8 @@ function openScheme(psr) {
     <section><h3>DB figures</h3>${fig ? `<div class="figs"><div><span>Obligation</span><b>${money(s.obligation)}</b></div><div><span>Assets</span><b>${money(s.assets)}</b></div><div><span>Funding</span><b>${pct(s._fr)}</b></div></div>` + kv([
       ["From", esc(SOURCE[s.source])], ["Body", `${link(bodyLink(s), s.fig_body || s.fig_body_no)}`], ["Year end", esc((s.period_end || "").slice(0, 10))],
       ["Surplus / deficit", net == null ? null : (net >= 0 ? "Surplus " : "Deficit ") + money(Math.abs(net))],
-      ["Check", esc(s.fig_check)], ["Where", where]])
+      ["Figure check", s.quality ? `<span class="q ${s.quality}">${esc(D.quality[s.quality])}</span>${s.quality_why ? `<span class="sub muted">${esc(s.quality_why)}</span>` : ""}` : esc(s.fig_check)],
+      ["Where", where]])
       + (nShared > 1 ? `<p class="note">${nShared} live schemes in this database share these figures (the body's DB schemes together, or a parent and subsidiary reporting the same scheme). Count them once when adding up.</p>` : "")
       + (s.source === "group" ? `<p class="note">Group figures from a parent company's accounts. They include other group schemes, so they overstate this scheme alone.</p>` : "")
       : `<p class="muted">${esc(s.group === "with_figures" ? "" : s.reason)}</p>`}</section>
@@ -467,7 +518,7 @@ function renderSponsors() {
 /* ---------- csv ---------- */
 function toast(msg) { const t = $("#toast"); t.textContent = msg; t.hidden = false; clearTimeout(toast.t); toast.t = setTimeout(() => t.hidden = true, 2200); }
 function csv() {
-  const cols = ["psr", "name", "postcode", "name_type", "group", "reason", "co", "co_name", "reg", "reg_number", "reg_name", "source", "fig_body", "fig_body_no", "period_end", "obligation", "assets", "_band", "sector", "sic", "region", "sponsor_postcode", "ppf", "fas"];
+  const cols = ["psr", "name", "postcode", "name_type", "group", "reason", "co", "co_name", "reg", "reg_number", "reg_name", "source", "fig_body", "fig_body_no", "period_end", "obligation", "assets", "quality", "quality_why", "_band", "sector", "sic", "region", "sponsor_postcode", "ppf", "fas"];
   const q = v => v == null ? "" : /[",\n]/.test(String(v)) ? `"${String(v).replace(/"/g, '""')}"` : String(v);
   return [cols.map(c => c === "_band" ? "size_band" : c).join(","), ...current.map(s => cols.map(c => q(c === "group" ? D.groups[s.group] : s[c])).join(","))].join("\n");
 }
@@ -492,13 +543,13 @@ let timer;
 $("#q").addEventListener("input", e => { clearTimeout(timer); timer = setTimeout(() => { st.q = e.target.value; st.page = 0; renderSchemes(); }, 120); });
 $("#f-scope").addEventListener("change", e => { st.scope = e.target.value; st.page = 0; fillGroupReason(); renderSchemes(); });
 $("#f-group").addEventListener("change", e => { st.group = e.target.value; st.reason = ""; st.page = 0; fillGroupReason(); renderSchemes(); });
-[["#f-reason", "reason"], ["#f-source", "source"], ["#f-type", "type"], ["#f-size", "size"], ["#f-region", "region"], ["#f-sector", "sector"]].forEach(([id, k]) => $(id).addEventListener("change", e => { st[k] = e.target.value; st.page = 0; if (k === "reason") fillGroupReason(); renderSchemes(); }));
+[["#f-reason", "reason"], ["#f-source", "source"], ["#f-type", "type"], ["#f-quality", "quality"], ["#f-size", "size"], ["#f-region", "region"], ["#f-sector", "sector"]].forEach(([id, k]) => $(id).addEventListener("change", e => { st[k] = e.target.value; st.page = 0; if (k === "reason") fillGroupReason(); renderSchemes(); }));
 $("#f-ppf").addEventListener("change", e => { st.ppf = e.target.checked; st.page = 0; renderSchemes(); });
 $("#f-review").addEventListener("change", e => { st.review = e.target.checked; st.page = 0; renderSchemes(); });
-$("#reset").addEventListener("click", () => { Object.assign(st, {q: "", scope: "live", group: "", reason: "", source: "", type: "", size: "", region: "", sector: "", ppf: false, review: false, body: "", page: 0});
-  $("#q").value = ""; $("#f-scope").value = "live"; $("#f-source").value = ""; $("#f-type").value = ""; $("#f-ppf").checked = false; $("#f-review").checked = false; fillGroupReason(); renderSchemes(); });
+$("#reset").addEventListener("click", () => setFilters({...DEFAULTS}));
+document.addEventListener("click", e => { if (e.target.id === "clearall") setFilters({...DEFAULTS}); });
 document.addEventListener("click", e => {
-  const t = e.target.closest("[data-sort],[data-ssort],[data-page],[data-spage],[data-psr],[data-group],[data-scope],[data-clear],tr[data-body]");
+  const t = e.target.closest("[data-sort],[data-ssort],[data-page],[data-spage],[data-psr],[data-group],[data-scope],[data-clear],[data-quality],tr[data-body]");
   if (!t) return;
   if (t.dataset.sort) { const k = t.dataset.sort; st.dir = st.sort === k ? -st.dir : (["name", "sponsor", "group"].includes(k) ? 1 : -1); st.sort = k; renderSchemes(); }
   else if (t.dataset.ssort) { const k = t.dataset.ssort; sst.dir = sst.sort === k ? -sst.dir : (k === "name" ? 1 : -1); sst.sort = k; renderSponsors(); }
@@ -507,7 +558,8 @@ document.addEventListener("click", e => {
   else if (t.dataset.psr) openScheme(t.dataset.psr);
   else if (t.dataset.group) { Object.assign(st, {scope: "live", group: t.dataset.group, reason: t.dataset.reason || "", body: "", page: 0}); $("#f-scope").value = "live"; go("schemes"); }
   else if (t.dataset.scope) { Object.assign(st, {scope: t.dataset.scope, group: "", reason: "", body: "", page: 0}); $("#f-scope").value = t.dataset.scope; go("schemes"); }
-  else if (t.dataset.clear) { st[t.dataset.clear] = ""; st.page = 0; renderSchemes(); }
+  else if (t.dataset.quality) { setFilters({...DEFAULTS, group: "with_figures", quality: t.dataset.quality}); go("schemes"); }
+  else if (t.dataset.clear) { const k = t.dataset.clear; setFilters(k === "group" ? {group: "", reason: ""} : {[k]: DEFAULTS[k]}); }
   else if (t.dataset.body) { Object.assign(st, {body: t.dataset.body, scope: "all", group: "", reason: "", page: 0}); $("#f-scope").value = "all"; go("schemes"); }
 });
 $("#sq").addEventListener("input", e => { sst.q = e.target.value; sst.page = 0; renderSponsors(); });
@@ -515,5 +567,5 @@ $("#s-has").addEventListener("change", e => { sst.has = e.target.value; sst.page
 $("#scrim").addEventListener("click", closeDrawer);
 document.addEventListener("click", e => { if (e.target.id === "dclose") closeDrawer(); });
 document.addEventListener("keydown", e => { if (e.key === "Escape" && !$("#drawer").hidden) closeDrawer(); });
-overview(); route();
+syncFromControls(); overview(); route();
 </script>

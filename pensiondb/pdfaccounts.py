@@ -43,6 +43,10 @@ LINES = {
     "net": re.compile(r"net (?:pension|defined benefit|retirement benefit)s? (?:liability|asset|deficit|surplus|obligation)"
                       r"|(?:deficit|surplus) in the (?:scheme|plan)|net (?:deficit|surplus)\b", re.I),
 }
+# wordings used only to complete a pair (see extract): "projected benefit obligation" is mostly US parents' plans
+LINES_MORE = dict(LINES, obligation=re.compile(
+    LINES["obligation"].pattern + r"|projected benefit obligations?\b(?! at)|actuarial value of (?:the )?liabilities"
+    r"|pension (?:scheme|plan) obligations?\b(?! at)", re.I))
 NUM = re.compile(r"\(?-?\d{1,3}(?:[,:;]\d{3})+\)?|\(?-?\d+(?:\.\d+)?\)?")     # OCR reads some commas as : or ;
 
 
@@ -268,6 +272,10 @@ def _first_amount(s, totals=True):
         v = re.sub(r"[,:;]", "", bare)
         if re.fullmatch(r"(19|20)\d\d", bare):
             continue                            # years ("2,012" is an amount, "2012" a year)
+        if re.fullmatch(r"0\d+", bare) or re.fullmatch(r"\d{7,}", bare):
+            continue                            # scan noise ("F01235541") or a reference number, not an amount
+        if m.start() and re.match(r"[A-DG-Za-eg-z]", s[m.start() - 1]):
+            continue                            # glued to a word: "less" scanned as "lc33" (E, F and f are £)
         try:
             x = float(v)
         except ValueError:
@@ -305,6 +313,36 @@ def _first_amount(s, totals=True):
 
 
 def extract(pages):
+    """Best page's figures (see _extract). When it gives only one of obligation and assets, look for a consistent pair
+    (assets between half and twice the obligation): the best page joined to the next or previous page (the obligation
+    and asset reconciliations either side of a page break), then the same with the less common wordings in
+    LINES_MORE ("Projected benefit obligation", "Actuarial value of liabilities", "Pension scheme obligation"). The
+    first consistent pair wins; otherwise the original result stands."""
+    pages = list(pages)
+    hit = _extract(pages)
+    if not hit or {"obligation", "assets"} <= hit["found"].keys():
+        return hit
+    nos = [n for n, _ in pages]
+    i = nos.index(hit["page"])
+    texts = dict(pages)
+
+    def variants():
+        for j, first in ((i + 1, True), (i - 1, False)):
+            if 0 <= j < len(nos):
+                other = texts[nos[j]]
+                yield [(n, (t + "\n" + other if first else other + "\n" + t) if n == hit["page"] else t) for n, t in pages]
+
+    for lines in (LINES, LINES_MORE):
+        for cand in ([] if lines is LINES else [pages]) + list(variants()):
+            both = _extract(cand, lines)
+            if both and {"obligation", "assets"} <= both["found"].keys():
+                o, a = (abs(both["found"][k][0]) * MULT[both["found"][k][1]] for k in ("obligation", "assets"))
+                if o and 0.5 <= a / o <= 2:
+                    return both
+    return hit
+
+
+def _extract(pages, lines_rx=None):
     """Best page = the one with the most balance-sheet DB lines. Amounts are GBP; the scans read £ as E or €."""
     best, prev_db = None, False
     pages = list(pages)
@@ -327,7 +365,7 @@ def extract(pages):
             # a "net ..." line is the net figure even when it also says "obligation" or "assets"
             keys = ["net"] if LINES["net"].search(line) else ["obligation", "assets"]
             for key in keys:
-                rx = LINES[key]
+                rx = (lines_rx or LINES)[key]
                 if key not in found and rx.search(line):
                     rest = re.sub(r"^[A-Za-z]+", "", rx.split(line, 1)[-1])   # rest of a word cut short: "liabilit|ies"
                     v, unit, plain = _first_amount(rest)
@@ -541,28 +579,47 @@ def run(con, companies, shard=None, limit=None, pause=0):
             time.sleep(pause)
 
 
+def _from_text(num, date):
+    """assess() for a document whose text is already saved: the same result, with no download or API call."""
+    pages, src = page_texts(num, {"date": date}, None, "pdf")
+    full = "\n".join(t for _, t in pages)
+    base = dict(text_source=src if full.strip() else "none")
+    hit = extract(pages)
+    if hit:
+        f = {k: v * MULT[u] for k, (v, u) in hit["found"].items()}
+        return dict(base, status="figures", page=hit["page"], evidence=hit["evidence"],
+                    unit=",".join(sorted({u for _, u in hit["found"].values()})),
+                    obligation=abs(f["obligation"]) if "obligation" in f else None,
+                    assets=abs(f["assets"]) if "assets" in f else None, net=f.get("net"))
+    if DB_MENTION.search(full):
+        m = DB_MENTION.search(full)
+        return dict(base, status="mentioned_no_figures", evidence=full[max(0, m.start() - 120): m.end() + 200])
+    return dict(base, status="dc_only" if DC_ONLY.search(full) else "no_pension_note")
+
+
 def reextract(con):
-    """Re-run figure extraction for every document already read, from its saved text (no download, no OCR).
-    Use after changing the extraction rules."""
-    cols = ["filing_date", "description", "paper_filed", "pages", "text_source", "status", "obligation", "assets",
-            "net", "unit", "page", "evidence"]
-    rows = con.execute("SELECT company_number, status, obligation, assets, net, unit FROM pdf_accounts "
-                       "WHERE status NOT IN ('error', 'no_filing')").fetchall()
-    changed = 0
-    for num, st, ob, assets, net, unit in rows:
-        item = latest_accounts(num)
-        if not item or not (PDF_DIR / f"{num}_{item['date']}.txt").exists():
+    """Re-run figure extraction for every document already read, from its saved text (no download, OCR or API
+    call; the filing date recorded with each result finds the text). Use after changing the extraction rules.
+    Results from iXBRL tags or tagged XHTML are left alone. Returns [(company, old, new)] for the documents whose figures changed."""
+    cols = ["text_source", "status", "obligation", "assets", "net", "unit", "page", "evidence"]
+    rows = con.execute("""SELECT company_number, filing_date, status, obligation, assets, net, unit FROM pdf_accounts
+                          WHERE status NOT IN ('error', 'no_filing') AND coalesce(text_source, '') NOT IN ('ixbrl', 'xhtml')""").fetchall()
+    changed = []
+    for num, date, st, ob, assets, net, unit in rows:
+        if not date or not (PDF_DIR / f"{num}_{date}.txt").exists():
             continue
         try:
-            r = assess(num)
+            r = _from_text(num, date)
         except Exception:                       # noqa: BLE001 - keep the old result
             continue
-        if (r["status"], r.get("obligation"), r.get("assets"), r.get("net"), r.get("unit")) != (st, ob, assets, net, unit):
-            changed += 1
+        old, new = (st, ob, assets, net, unit), (r["status"], r.get("obligation"), r.get("assets"), r.get("net"), r.get("unit"))
+        if old != new:
+            changed.append((num, old, new))
             con.execute(f"UPDATE pdf_accounts SET {', '.join(c + '=?' for c in cols)} WHERE company_number=?",
                         [*[r.get(c) for c in cols], num])
     con.commit()
-    print(f"Re-extracted {len(rows):,} documents: {changed:,} changed")
+    print(f"Re-extracted {len(rows):,} documents: {len(changed):,} changed")
+    return changed
 
 
 # ---------------------------------------------------------------- merge into sponsors

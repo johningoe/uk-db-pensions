@@ -21,7 +21,8 @@ COLS = ["psr", "name", "postcode", "city", "name_type", "is_section", "group", "
         "derived", "name_review", "named_in_accounts",
         "reg", "reg_number", "reg_name",
         "source", "fig_body", "fig_body_no", "period_end", "obligation", "assets", "fig_check", "fig_where",
-        "ppf", "fas", "live_doubt", "parent_top", "parent_country", "sector", "sic", "region", "sponsor_postcode"]
+        "ppf", "fas", "live_doubt", "parent_top", "parent_country", "sector", "sic", "region", "sponsor_postcode",
+        "quality", "quality_why"]
 
 
 def _place(co, reg, sic, spc, rpc):
@@ -77,16 +78,21 @@ def _rows(con):
             fig = ["register", reg_name, reg_no, cfy, cob, cassets, cchk or "ok", where]
         elif co and chk and chk.startswith("flag"):
             fig = ["own", co_name, co, pe, ob, assets, chk, f"{tax or ''}: {src_file or ''}".strip(": ")]
+        q = [None, None]
+        if group == "with_figures" and fig[0]:
+            how = {"own": tax, "group": gsrc, "register": csrc}[fig[0]]
+            key, why = gaps.quality(fig[0], how, fig[4], fig[5], fig[3], co_acc if fig[0] == "own" else None)
+            q = [key, "; ".join(why) or None]
         out.append([psr, name, pc, city, nt, sec, group, reason,
                     co, co_name, co_st, co_acc, mm, mc, nr,
                     derived, review, named,
-                    reg, reg_no, reg_name, *fig, ppf, fas, doubt, ptop, pctry, *_place(co, reg, sic, spc, reg_pc.get((reg, reg_no)))])
+                    reg, reg_no, reg_name, *fig, ppf, fas, doubt, ptop, pctry, *_place(co, reg, sic, spc, reg_pc.get((reg, reg_no))), *q])
     return out
 
 
 def export(con, out=OUT):
     rows = _rows(con)
-    payload = {"cols": COLS, "rows": rows, "groups": gaps.GROUPS, "built": date.today().isoformat()}
+    payload = {"cols": COLS, "rows": rows, "groups": gaps.GROUPS, "quality": gaps.QUALITY, "built": date.today().isoformat()}
     data = json.dumps(payload, separators=(",", ":"), default=str).replace("</", "<\\/")
     html = TEMPLATE.read_text().replace("/*__DATA__*/null", data)
     Path(out).write_text(html)
