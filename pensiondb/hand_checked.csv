@@ -610,7 +610,6 @@ NF001324,EASON & SON (N.I.) LIMITED,,GBP,5.917,7.389,group,2011-11-10,,"Figures 
 00990937,THE CO-OPERATIVE BANK P.L.C.,,GBP,1174.5,1196.9,group,2026-05-04,58,"Funded 1,169.4 + unfunded 5.1; assets 1,196.9 (£m)"
 01672070,JAGUAR LAND ROVER LIMITED,,GBP,4682,4875,group,2026-06-18,48,"Obligations 4,682 and assets 4,875 (£m); the reader missed the £m unit"
 01171948,MOOG CONTROLS LIMITED,,GBP,,,misread,2026-10-08,110,Moog Inc plan figures in US dollars; no UK figure
-01235639,KYOCERA AVX COMPONENTS LIMITED,,GBP,,,misread,2025-12-30,38,Pension note in US dollars
 01245534,ATOS IT SERVICES UK LIMITED,,GBP,1457.497,1389.217,group,2026-07-14,84,"Funded and unfunded obligations 1,457,497 and assets 1,389,217 (£'000)"
 00218019,IMPERIAL CHEMICAL INDUSTRIES LIMITED,,GBP,4205,4468,group,2026-11-03,68,"Obligation by member category 4,205 and plan assets 4,468 (£m); net asset 266 checks"
 OC301540,KPMG LLP,,GBP,546,500,group,2026-06-24,48,Two plans: TMcL 97/98 and pre-2000 fund 449/402 (£m)
@@ -774,3 +773,11 @@ SC003487,CELTIC PLC,,GBP,,,misread,,,Accounts show no DB scheme on the review pa
 03669260,THE BERKELEY HOTEL LIMITED,2025-12-31,GBP,26.992,32.305,group,,41,"Figures entered on the review page 2026-11-17: Read from the page image (page 41): Group scheme share: obligation 26,992 and assets 32,305 (£'000); OCR had read the 5,313 surplus as assets"
 00184915,CHAUCER SYNDICATES LIMITED,2025-12-31,GBP,60.62,65.76,group,,29,"Figures entered on the review page 2026-11-17: Read from the page image (page 29): Statement of financial position amounts: DBO 60,620 and assets 65,760 (£'000)"
 01000403,RATHBONES GROUP PLC,2025-12-31,GBP,88.6,89.2,group,2026-06-04,161,Figures entered on the review page 2026-11-17: Read from the page image (page 161): Laurence Keen and Rathbone 1987 schemes: obligation 88.6 and assets 89.2 (£m); the Investec W&I scheme is not yet in this note
+00505456,NORTHSTANDARD LIMITED,2026-02-20,USD,112.6,122.1,group,,52,"Read from the page image (page 52): North and SMI schemes together, US$m (schemes are sterling-based, reported in dollars); SMI scheme taken over via a flexible apportionment arrangement in 2018"
+02099146,CALOR GROUP LIMITED,2025-12-31,EUR,395.1,350.1,group,,87,"Read from the page image (page 87): EUR m; the Irish scheme was wound up in 2025, leaving the UK plan"
+01170825,GLENCORE UK LTD.,2025-12-31,USD,139.544,141.37,group,,41,Read from the page image (page 41): reconciliation at 31 December 2025 (US$'000)
+01235639,KYOCERA AVX COMPONENTS LIMITED,2025-03-31,USD,87.377,118.201,group,,38,"Read from the page image (page 38): US$'000, before a 13,336 equalisation liability adjustment"
+04684034,SMBC BANK INTERNATIONAL PLC,2026-03-31,USD,133.6,173.4,group,,99,Read from the page image (page 99): reconciliation at 31 March 2026 (US$m)
+02744892,VISA UK LIMITED,2025-09-30,USD,276,330,group,,102,"Read from the page image (page 102): Visa Inc. 10-K, non-US pension plans (mostly Visa Europe UK); obligation is the accumulated benefit obligation (US$m)"
+00861590,PENGUIN BOOKS LIMITED,2025-12-31,GBP,123.929,147.606,group,,55,Read from the page image (page 55): reconciliation at 31 December 2025 (£000)
+01213092,AFTON CHEMICAL LIMITED,2025-12-31,GBP,74.971,167.387,group,,41,Read from the page image (page 41): reconciliation at 31 December 2025 (£000)

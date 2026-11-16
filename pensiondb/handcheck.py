@@ -26,6 +26,10 @@ FX = {
     ("USD", "2025-12-31"): 1.3474,      # Rio Tinto plc annual report 2025 (year-end rate £1 = US$1.3474)
     ("USD", "2025-06-30"): 1.3735,      # market rate on 30 June 2025
     ("EUR", "2025-12-31"): 1 / 0.8726,  # ECB reference rate 31 Dec 2025: €1 = £0.8726
+    ("USD", "2026-02-20"): 1.3501,      # Bank of England spot rate 20 Feb 2026 (via poundsterlinglive.com)
+    ("USD", "2025-03-31"): 1.2910,      # Bank of England spot rate 31 Mar 2025 (via poundsterlinglive.com)
+    ("USD", "2025-09-30"): 1.3462,      # Bank of England spot rate 30 Sep 2025 (via poundsterlinglive.com)
+    ("USD", "2026-03-31"): 1.3188,      # Bank of England spot rate 31 Mar 2026 (via poundsterlinglive.com)
 }
 
 
