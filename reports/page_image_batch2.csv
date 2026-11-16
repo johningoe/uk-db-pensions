@@ -1,0 +1,51 @@
+co,outcome,period_end,obligation_m,assets_m,page,note,
+00258025,out,2025-12-31,,,59,Plan assets £11.8m (£'000 11,['847); a small scheme']
+03067227,skip,,,,28,Member of a group scheme accounted for by the parent; no figures here,
+NI001003,no_db,2025-12-31,,,26,Only a defined contribution scheme described,
+02442580,figures,2025-12-31,10.5,12.2,222,Company accounts: obligation 10.5 and assets 12.2 (£m),
+03897375,figures,2025-03-31,2.647,3.991,37,Xchanging DB Scheme: asset 3,"['991 and liability 2', ""647 (£'000)""]"
+02663988,figures,2025-12-31,36.004,37.109,24,Reconciliations at 31 December 2025 (£),
+01587537,figures,2025-04-30,173.122,170.405,51,Reconciliation at 30 April 2025 (£'000),
+OC343361,not_live:bought_out,2025-03-31,,,37,Buy-in with L&G 2022; buy-out completed in the year to March 2025 with a £1.52m surplus refund,
+00574728,not_live:wound_up,2024-12-31,,,17,Scheme wound up in 2024 (£69.8m transferred out); only a £0.9m unfunded promise left,
+00592720,not_live:bought_out,2024-12-31,,,56,Buy-out with L&G completed 21 April 2020; scheme being wound up with £93k cash left,
+01235639,in,2025-03-31,,,38,US$'000: obligation 87,"['377 and assets 118', '201 (about £90m)']"
+00354715,figures,2024-12-28,8.788,9.696,26,Reconciliations at 28 December 2024 (£000),
+00861590,in,2025-12-31,,,57,Plan assets £147.6m (£000 147,['606); surplus about £24m implied by deferred tax of £5.9m']
+04267912,skip,,,,101,Filing is the US parent's (GE Vernova) 10-K; UK scheme not separable,
+02364716,figures,2025-09-30,15.993,20.34,32,Reconciliations at 30 September 2025 (£'000),
+05196131,skip,,,,116,Filing is the Spanish parent's (Cemex España) accounts: plans worldwide €1192m/€888m; UK share not separable,
+02559444,figures,2025-10-31,6.194,3.741,25,Reconciliations at 31 October 2025 (£),
+00235481,figures,2026-03-31,40.7,70.7,142,Group: obligation 40.7 and assets 70.7 (£m) before an irrecoverable surplus of 24.2,
+01912705,figures,2018-12-29,18.591,12.581,33,Old (2018) accounts: obligation 18,"['591', '000 and assets 12', '581', '000']"
+00793558,figures,2025-03-31,62.986,41.483,106,Reconciliations at 31 March 2025 (£000),
+02347191,figures,2025-07-31,0.022,0.193,21,Obligation 22,"['000 and assets 193', '000 (£)']"
+00731261,figures,2025-03-31,20.597,23.116,30,Reconciliations at 31 March 2025 (£000),
+00300842,figures,2026-04-29,5.766,7.657,42,Reconciliations at 29 April 2026 (£),
+02572947,figures,2025-12-31,0.001,0.434,53,Obligation 1,"['000 and assets 434', '000 (£)']"
+08461555,figures,2025-12-31,7.189,6.986,47,Reconciliation at 31 December 2025 (£000),
+02387531,figures,2025-07-31,25.252,27.092,38,Origin UK scheme main section: reconciliation at 31 July 2025 (£'000),
+01213092,in,2025-12-31,,,43,Plan assets £167.4m (£000 167,['387); scheme open; surplus recognised']
+00107367,figures,2024-12-31,210.216,253.804,42,Two plans: 197,"['883/237', '054 and 12', '333/16', '750 (£000)']"
+00155621,skip,,,,43,Net retirement benefit asset £101.0m only; gross figures not disclosed,
+04684034,skip,,,,66,Pensions surplus US$39.8m; note 9 with gross figures not found on rendered pages,
+00604144,skip,,,,,Pension table page not found among the rendered pages (scrambled OCR text),
+00342798,skip,,,,,Pension table page not found among the rendered pages (scrambled OCR text),
+SC185956,skip,,,,,Pension table page not found among the rendered pages (scrambled OCR text),
+00172209,skip,,,,,Pension table page not found among the rendered pages (scrambled OCR text),
+06063543,skip,,,,,Pension table page not found among the rendered pages (scrambled OCR text),
+03690065,skip,,,,,Pension table page not found among the rendered pages (scrambled OCR text),
+01477257,skip,,,,,Pension table page not found among the rendered pages (scrambled OCR text),
+03015481,skip,,,,,Pension table page not found among the rendered pages (scrambled OCR text),
+00337663,skip,,,,,Pension table page not found among the rendered pages (scrambled OCR text),
+00616818,skip,,,,,Pension table page not found among the rendered pages (scrambled OCR text),
+01198336,skip,,,,,Pension table page not found among the rendered pages (scrambled OCR text),
+00368850,skip,,,,,Pension table page not found among the rendered pages (scrambled OCR text),
+02782737,skip,,,,,Pension table page not found among the rendered pages (scrambled OCR text),
+00500106,skip,,,,,Pension table page not found among the rendered pages (scrambled OCR text),
+01280133,skip,,,,,Pension table page not found among the rendered pages (scrambled OCR text),
+00726533,skip,,,,,Pension table page not found among the rendered pages (scrambled OCR text),
+00852809,skip,,,,,Pension table page not found among the rendered pages (scrambled OCR text),
+00870128,skip,,,,,Pension table page not found among the rendered pages (scrambled OCR text),
+01619615,skip,,,,,Pension table page not found among the rendered pages (scrambled OCR text),
+00755780,skip,,,,,Pension table page not found among the rendered pages (scrambled OCR text),

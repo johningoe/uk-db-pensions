@@ -582,6 +582,24 @@
   "note": "Checked against the balance table in the accounts"
  },
  {
+  "key": "fig:00107367",
+  "kind": "check",
+  "id": "00107367",
+  "name": "SKF (U.K.) LIMITED",
+  "schemes": [
+   "10099484",
+   "10099501"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 210.216,
+  "assets_m": 253.804,
+  "basis": "group",
+  "period_end": "2024-12-31",
+  "page": "42",
+  "note": "Read from the page image (page 42): Two plans: 197"
+ },
+ {
   "action": "confirm",
   "at": "2026-11-16T12:00:00Z",
   "id": "00111982",
@@ -1182,6 +1200,23 @@
   ]
  },
  {
+  "key": "fig:00235481",
+  "kind": "check",
+  "id": "00235481",
+  "name": "CALEDONIA INVESTMENTS PLC",
+  "schemes": [
+   "10275352"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 40.7,
+  "assets_m": 70.7,
+  "basis": "group",
+  "period_end": "2026-03-31",
+  "page": "142",
+  "note": "Read from the page image (page 142): Group: obligation 40.7 and assets 70.7 (£m) before an irrecoverable surplus of 24.2"
+ },
+ {
   "key": "fig:00236383",
   "kind": "verify",
   "id": "00236383",
@@ -1491,6 +1526,23 @@
   "at": "2026-11-17T12:00:00Z",
   "action": "confirm",
   "note": "Small scheme; figures checked against the note"
+ },
+ {
+  "key": "fig:00300842",
+  "kind": "check",
+  "id": "00300842",
+  "name": "GEO. HOULTON & SONS (HOLDINGS) LIMITED",
+  "schemes": [
+   "10174554"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 5.766,
+  "assets_m": 7.657,
+  "basis": "group",
+  "period_end": "2026-04-29",
+  "page": "42",
+  "note": "Read from the page image (page 42): Reconciliations at 29 April 2026 (£)"
  },
  {
   "key": "fig:00301393",
@@ -1835,6 +1887,23 @@
   "at": "2026-11-16T16:00:00Z",
   "action": "confirm",
   "note": "Checked against the balance table in the accounts"
+ },
+ {
+  "key": "fig:00354715",
+  "kind": "check",
+  "id": "00354715",
+  "name": "AGA RANGEMASTER GROUP LIMITED",
+  "schemes": [
+   "10136804"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 8.788,
+  "assets_m": 9.696,
+  "basis": "group",
+  "period_end": "2024-12-28",
+  "page": "26",
+  "note": "Read from the page image (page 26): Reconciliations at 28 December 2024 (£000)"
  },
  {
   "key": "fig:00355853",
@@ -2971,6 +3040,23 @@
   "note": "Bought out; surplus of £6.2m paid to the company in February 2026"
  },
  {
+  "key": "fig:00731261",
+  "kind": "check",
+  "id": "00731261",
+  "name": "ENERSYS LTD.",
+  "schemes": [
+   "10260134"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 20.597,
+  "assets_m": 23.116,
+  "basis": "group",
+  "period_end": "2025-03-31",
+  "page": "30",
+  "note": "Read from the page image (page 30): Reconciliations at 31 March 2025 (£000)"
+ },
+ {
   "key": "fig:00732459",
   "kind": "check",
   "id": "00732459",
@@ -3141,6 +3227,23 @@
   "period_end": null,
   "page": null,
   "note": "Liabilities 29,393 and assets 31,163 (£'000)"
+ },
+ {
+  "key": "fig:00793558",
+  "kind": "check",
+  "id": "00793558",
+  "name": "TURNING POINT",
+  "schemes": [
+   "10092011"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 62.986,
+  "assets_m": 41.483,
+  "basis": "group",
+  "period_end": "2025-03-31",
+  "page": "106",
+  "note": "Read from the page image (page 106): Reconciliations at 31 March 2025 (£000)"
  },
  {
   "key": "fig:00794221",
@@ -4591,6 +4694,23 @@
   "note": "Cross-checked: obligation, assets and the surplus/deficit line agree on the page"
  },
  {
+  "key": "fig:01587537",
+  "kind": "check",
+  "id": "01587537",
+  "name": "ZELLIS UK LIMITED",
+  "schemes": [
+   "10276656"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 173.122,
+  "assets_m": 170.405,
+  "basis": "group",
+  "period_end": "2025-04-30",
+  "page": "51",
+  "note": "Read from the page image (page 51): Reconciliation at 30 April 2025 (£'000)"
+ },
+ {
   "action": "confirm",
   "at": "2026-11-16T12:00:00Z",
   "id": "01611136",
@@ -4791,6 +4911,23 @@
   "action": "skip",
   "reason": "old",
   "note": "Only old accounts at Companies House; no newer filing to read"
+ },
+ {
+  "key": "fig:01912705",
+  "kind": "check",
+  "id": "01912705",
+  "name": "GEODIS UNITED KINGDOM LIMITED",
+  "schemes": [
+   "10019688"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 18.591,
+  "assets_m": 12.581,
+  "basis": "group",
+  "period_end": "2018-12-29",
+  "page": "33",
+  "note": "Read from the page image (page 33): Old (2018) accounts: obligation 18"
  },
  {
   "key": "fig:01923571",
@@ -5419,6 +5556,41 @@
   ]
  },
  {
+  "key": "fig:02347191",
+  "kind": "check",
+  "id": "02347191",
+  "name": "L.A.P. ELECTRICAL LIMITED",
+  "schemes": [
+   "10039652",
+   "10235938"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 0.022,
+  "assets_m": 0.193,
+  "basis": "group",
+  "period_end": "2025-07-31",
+  "page": "21",
+  "note": "Read from the page image (page 21): Obligation 22"
+ },
+ {
+  "key": "fig:02364716",
+  "kind": "check",
+  "id": "02364716",
+  "name": "QUARTZELEC LTD",
+  "schemes": [
+   "10270560"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 15.993,
+  "assets_m": 20.34,
+  "basis": "group",
+  "period_end": "2025-09-30",
+  "page": "32",
+  "note": "Read from the page image (page 32): Reconciliations at 30 September 2025 (£'000)"
+ },
+ {
   "key": "fig:02366623",
   "kind": "check",
   "id": "02366623",
@@ -5484,6 +5656,23 @@
   "note": "Checked against the balance table in the accounts"
  },
  {
+  "key": "fig:02387531",
+  "kind": "check",
+  "id": "02387531",
+  "name": "MASSTOCK ARABLE (UK) LIMITED",
+  "schemes": [
+   "10092606"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 25.252,
+  "assets_m": 27.092,
+  "basis": "group",
+  "period_end": "2025-07-31",
+  "page": "38",
+  "note": "Read from the page image (page 38): Origin UK scheme main section: reconciliation at 31 July 2025 (£'000)"
+ },
+ {
   "action": "confirm",
   "at": "2026-11-16T13:00:00Z",
   "id": "02440829",
@@ -5506,6 +5695,23 @@
   "at": "2026-11-16T14:00:00Z",
   "action": "confirm",
   "note": "Checked against the balance table in the accounts"
+ },
+ {
+  "key": "fig:02442580",
+  "kind": "check",
+  "id": "02442580",
+  "name": "KELLER GROUP PLC",
+  "schemes": [
+   "10139870"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 10.5,
+  "assets_m": 12.2,
+  "basis": "group",
+  "period_end": "2025-12-31",
+  "page": "222",
+  "note": "Read from the page image (page 222): Company accounts: obligation 10.5 and assets 12.2 (£m)"
  },
  {
   "key": "fig:02444277",
@@ -5714,9 +5920,13 @@
    "10033092"
   ],
   "at": "2026-11-17T12:00:00Z",
-  "action": "skip",
-  "reason": "notable",
-  "note": "No pension table found in the accounts"
+  "action": "figures",
+  "obligation_m": 6.194,
+  "assets_m": 3.741,
+  "basis": "group",
+  "period_end": "2025-10-31",
+  "page": "25",
+  "note": "Read from the page image (page 25): Reconciliations at 31 October 2025 (£)"
  },
  {
   "key": "fig:02560839",
@@ -5747,6 +5957,23 @@
   "period_end": "2025-12-31",
   "page": null,
   "note": "Obligation 26,353 and assets 26,190 at 31 December 2025"
+ },
+ {
+  "key": "fig:02572947",
+  "kind": "check",
+  "id": "02572947",
+  "name": "APCOA PARKING (UK) LIMITED",
+  "schemes": [
+   "10000437"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 0.001,
+  "assets_m": 0.434,
+  "basis": "group",
+  "period_end": "2025-12-31",
+  "page": "53",
+  "note": "Read from the page image (page 53): Obligation 1"
  },
  {
   "action": "confirm",
@@ -5854,6 +6081,23 @@
   "at": "2026-11-16T16:00:00Z",
   "action": "confirm",
   "note": "Cross-checked: obligation, assets and the surplus/deficit line agree on the page"
+ },
+ {
+  "key": "fig:02663988",
+  "kind": "check",
+  "id": "02663988",
+  "name": "THE ORION PUBLISHING GROUP LIMITED",
+  "schemes": [
+   "10087502"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 36.004,
+  "assets_m": 37.109,
+  "basis": "group",
+  "period_end": "2025-12-31",
+  "page": "24",
+  "note": "Read from the page image (page 24): Reconciliations at 31 December 2025 (£)"
  },
  {
   "key": "fig:02667012",
@@ -7056,6 +7300,23 @@
   "schemes": [
    "19002015"
   ]
+ },
+ {
+  "key": "fig:03897375",
+  "kind": "check",
+  "id": "03897375",
+  "name": "LPSO LIMITED",
+  "schemes": [
+   "19009501"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 2.647,
+  "assets_m": 3.991,
+  "basis": "group",
+  "period_end": "2025-03-31",
+  "page": "37",
+  "note": "Read from the page image (page 37): Xchanging DB Scheme: asset 3"
  },
  {
   "action": "confirm",
@@ -8361,6 +8622,23 @@
   "note": "Only the surplus (£307.1m) is legible; the table is lost in OCR"
  },
  {
+  "key": "fig:08461555",
+  "kind": "check",
+  "id": "08461555",
+  "name": "SEDDON GROUP LIMITED",
+  "schemes": [
+   "10024505"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 7.189,
+  "assets_m": 6.986,
+  "basis": "group",
+  "period_end": "2025-12-31",
+  "page": "47",
+  "note": "Read from the page image (page 47): Reconciliation at 31 December 2025 (£000)"
+ },
+ {
   "key": "fig:08804263",
   "kind": "verify",
   "id": "08804263",
@@ -8840,6 +9118,18 @@
   "period_end": "2025-12-31",
   "page": "35",
   "note": "Read from the page image (page 35): Reconciliations at 31 December 2025 (£'000)"
+ },
+ {
+  "key": "fig:NI001003",
+  "kind": "check",
+  "id": "NI001003",
+  "name": "MAXOL OIL LIMITED",
+  "schemes": [
+   "10023415"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "no_db",
+  "note": "Read from the page image (page 26): Only a defined contribution scheme described"
  },
  {
   "key": "fig:NI001169",
@@ -15306,6 +15596,32 @@
   "note": "Read from the page image (page 28): Scheme settled in the year to 30 September 2025 (obligation nil; £603k cash left)"
  },
  {
+  "key": "liveimg:00574728",
+  "kind": "live",
+  "id": "00574728",
+  "name": "HAMMERSON GROUP MANAGEMENT LIMITED",
+  "schemes": [
+   "10115017"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "not_live",
+  "reason": "wound_up",
+  "note": "Read from the page image (page 17): Scheme wound up in 2024 (£69.8m transferred out); only a £0.9m unfunded promise left"
+ },
+ {
+  "key": "liveimg:00592720",
+  "kind": "live",
+  "id": "00592720",
+  "name": "CENTRAX LIMITED",
+  "schemes": [
+   "10049612"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "not_live",
+  "reason": "bought_out",
+  "note": "Read from the page image (page 56): Buy-out with L&G completed 21 April 2020; scheme being wound up with £93k cash left"
+ },
+ {
   "key": "liveimg:01049338",
   "kind": "live",
   "id": "01049338",
@@ -15317,6 +15633,19 @@
   "action": "not_live",
   "reason": "bought_out",
   "note": "Read from the page image (page 38): Buy-in with L&G January 2022; scheme wound up from 19 December 2024; nil at 2025"
+ },
+ {
+  "key": "liveimg:OC343361",
+  "kind": "live",
+  "id": "OC343361",
+  "name": "HOLMAN FENWICK WILLAN LLP",
+  "schemes": [
+   "10112491"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "not_live",
+  "reason": "bought_out",
+  "note": "Read from the page image (page 37): Buy-in with L&G 2022; buy-out completed in the year to March 2025 with a £1.52m surplus refund"
  },
  {
   "key": "match:10000042",

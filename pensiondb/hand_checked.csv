@@ -22,7 +22,6 @@ SC036219,JOHN WOOD GROUP LIMITED,2025-12-31,USD,2454.0,2763.4,group,2026-07-07,1
 01664812,KINGFISHER PLC,2026-01-31,GBP,1679,1860,uk_plans,2026-07-01,1,UK column (iXBRL document has one page)
 01950509,MOTHERCARE PLC.,,GBP,239.7,219.6,group,2026-09-08,18,OCR dropped the decimal points (read as 2397 and 2196); deficit £20.1m
 00124855,MPAC GROUP PLC,2025-12-31,GBP,235.9,242.1,group,2026-07-25,62,figures from the auditor's report
-02442580,KELLER GROUP PLC,,,,,misread,2026-05-31,176,reader took an unrelated figure; group retirement benefit liability is only £15.4m and the scheme totals are not legible
 00214436,MARKS AND SPENCER P.L.C.,2026-03-28,GBP,5178.7,5142.9,group,2026-09-23,67,M&S Pension Scheme and smaller plans
 00077536,RELX PLC,2025-12-31,GBP,2691,2748,uk_plans,2026-06-23,156,UK column; group total obligation 3308
 02366616,UNITED UTILITIES PLC,2026-03-31,GBP,1977.6,2288.5,group,2026-07-25,117,Group column
@@ -54,7 +53,6 @@ SC002934,THE WEIR GROUP PLC,2025-12-31,GBP,473.9,502.7,group,2026-05-22,247,Obli
 00329102,ABBOTT LABORATORIES LIMITED,2025-12-31,GBP,444.4,1225.1,main_scheme,2026-08-04,62,Surplus £780.7m as printed
 03239951,HANSON OVERSEAS HOLDINGS LIMITED,,EUR,,,misread,2026-07-26,39,Heidelberg Materials (German parent) pension provisions in euros
 00001812,QUANTUM CLOTHING GROUP LIMITED,,LKR,,,misread,2025-09-12,44,Sri Lankan company: gratuity obligations in rupees
-02572947,APCOA PARKING (UK) LIMITED,,GBP,,,misread,2026-08-04,50,Assets 434000 against liabilities 1000: unit unclear
 00078439,CARLSBERG MARSTON'S BREWING COMPANY LIMITED,,GBP,335.507,375.685,main_scheme,2026-07-30,40,
 00653331,EXPERIAN LIMITED,2026-03-31,GBP,269,362,main_scheme,2026-10-26,53,Funded plan
 08286875,WPP JUBILEE LIMITED,2025-12-31,GBP,334,222,group,2026-08-26,54,Assets = liabilities less £112m deficit
@@ -91,7 +89,6 @@ OC303675,DELOITTE LLP,,GBP,622,620,group,2026-10-13,82,Table without a unit head
 05393279,RENTOKIL INITIAL PLC,,GBP,,,misread,2026-05-24,167,Group plans mostly in dollars; UK figure not identifiable
 01698498,MUFG SECURITIES EMEA PLC,,GBP,,,misread,2026-05-13,328,Japanese parent's disclosures
 00699993,TOYOTA MATERIAL HANDLING UK LIMITED,,GBP,,,misread,2026-09-09,39,Table too garbled to read
-01912705,GEODIS UNITED KINGDOM LIMITED,,GBP,,,misread,2021-02-17,34,Figures were sensitivity lines
 00344359,INNOSPEC LIMITED,,GBP,,,misread,2026-05-16,37,Scheme settled; figure was the prior year
 SC187402,J.W. HOLDINGS LIMITED,,GBP,,,misread,2026-10-07,37,Scheme settled; figure was a benefit payment
 FC009961,LYONDELL CHEMICAL EUROPE INC,,USD,,,misread,2026-04-20,9,US company's plan
@@ -746,3 +743,21 @@ FC008460,CROSS VETPHARM GROUP UK LIMITED,2024-12-31,GBP,0.549681,0.549681,group,
 04011200,LCO NON-MARINE AND AVIATION LIMITED,2025-03-31,GBP,1.431,1.914,group,,32,Figures entered on the review page 2026-11-17: Read from the page image (page 32): Xchanging DB Scheme: asset 1
 02201998,THE DOCTORS LABORATORY LIMITED,,GBP,,,misread,,,Accounts show no DB scheme on the review page 2026-11-17: Read from the page image (page 49): Pension note lists only defined contribution schemes
 NI000601,THE OLD BUSHMILLS DISTILLERY COMPANY LIMITED,2025-12-31,GBP,21.893,42.55,group,2026-10-05,35,Figures entered on the review page 2026-11-17: Read from the page image (page 35): Reconciliations at 31 December 2025 (£'000)
+NI001003,MAXOL OIL LIMITED,,GBP,,,misread,,,Accounts show no DB scheme on the review page 2026-11-17: Read from the page image (page 26): Only a defined contribution scheme described
+02442580,KELLER GROUP PLC,2025-12-31,GBP,10.5,12.2,group,2026-05-31,222,Figures entered on the review page 2026-11-17: Read from the page image (page 222): Company accounts: obligation 10.5 and assets 12.2 (£m)
+03897375,LPSO LIMITED,2025-03-31,GBP,2.647,3.991,group,,37,Figures entered on the review page 2026-11-17: Read from the page image (page 37): Xchanging DB Scheme: asset 3
+02663988,THE ORION PUBLISHING GROUP LIMITED,2025-12-31,GBP,36.004,37.109,group,,24,Figures entered on the review page 2026-11-17: Read from the page image (page 24): Reconciliations at 31 December 2025 (£)
+01587537,ZELLIS UK LIMITED,2025-04-30,GBP,173.122,170.405,group,,51,Figures entered on the review page 2026-11-17: Read from the page image (page 51): Reconciliation at 30 April 2025 (£'000)
+00354715,AGA RANGEMASTER GROUP LIMITED,2024-12-28,GBP,8.788,9.696,group,,26,Figures entered on the review page 2026-11-17: Read from the page image (page 26): Reconciliations at 28 December 2024 (£000)
+02364716,QUARTZELEC LTD,2025-09-30,GBP,15.993,20.34,group,,32,Figures entered on the review page 2026-11-17: Read from the page image (page 32): Reconciliations at 30 September 2025 (£'000)
+02559444,THE BIRD GROUP OF COMPANIES LIMITED,2025-10-31,GBP,6.194,3.741,group,2026-07-31,25,Figures entered on the review page 2026-11-17: Read from the page image (page 25): Reconciliations at 31 October 2025 (£)
+00235481,CALEDONIA INVESTMENTS PLC,2026-03-31,GBP,40.7,70.7,group,,142,Figures entered on the review page 2026-11-17: Read from the page image (page 142): Group: obligation 40.7 and assets 70.7 (£m) before an irrecoverable surplus of 24.2
+01912705,GEODIS UNITED KINGDOM LIMITED,2018-12-29,GBP,18.591,12.581,group,2021-02-17,33,Figures entered on the review page 2026-11-17: Read from the page image (page 33): Old (2018) accounts: obligation 18
+00793558,TURNING POINT,2025-03-31,GBP,62.986,41.483,group,,106,Figures entered on the review page 2026-11-17: Read from the page image (page 106): Reconciliations at 31 March 2025 (£000)
+02347191,L.A.P. ELECTRICAL LIMITED,2025-07-31,GBP,0.022,0.193,group,,21,Figures entered on the review page 2026-11-17: Read from the page image (page 21): Obligation 22
+00731261,ENERSYS LTD.,2025-03-31,GBP,20.597,23.116,group,,30,Figures entered on the review page 2026-11-17: Read from the page image (page 30): Reconciliations at 31 March 2025 (£000)
+00300842,GEO. HOULTON & SONS (HOLDINGS) LIMITED,2026-04-29,GBP,5.766,7.657,group,,42,Figures entered on the review page 2026-11-17: Read from the page image (page 42): Reconciliations at 29 April 2026 (£)
+02572947,APCOA PARKING (UK) LIMITED,2025-12-31,GBP,0.001,0.434,group,2026-08-04,53,Figures entered on the review page 2026-11-17: Read from the page image (page 53): Obligation 1
+08461555,SEDDON GROUP LIMITED,2025-12-31,GBP,7.189,6.986,group,,47,Figures entered on the review page 2026-11-17: Read from the page image (page 47): Reconciliation at 31 December 2025 (£000)
+02387531,MASSTOCK ARABLE (UK) LIMITED,2025-07-31,GBP,25.252,27.092,group,,38,Figures entered on the review page 2026-11-17: Read from the page image (page 38): Origin UK scheme main section: reconciliation at 31 July 2025 (£'000)
+00107367,SKF (U.K.) LIMITED,2024-12-31,GBP,210.216,253.804,group,,42,Figures entered on the review page 2026-11-17: Read from the page image (page 42): Two plans: 197
