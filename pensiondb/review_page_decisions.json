@@ -128,6 +128,23 @@
   "note": "Checked against the balance table in the accounts"
  },
  {
+  "key": "fig:00029301",
+  "kind": "check",
+  "id": "00029301",
+  "name": "BROTHER U.K. LIMITED",
+  "schemes": [
+   "10092259"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 25.926,
+  "assets_m": 25.903,
+  "basis": "group",
+  "period_end": "2025-03-31",
+  "page": "40",
+  "note": "Read from the page image (page 40): Reconciliation at 31 March 2025 (£'000)"
+ },
+ {
   "action": "figures",
   "assets_m": 1745.9,
   "at": "2026-11-16T12:00:00Z",
@@ -504,6 +521,23 @@
   "schemes": [
    "10053109"
   ]
+ },
+ {
+  "key": "fig:00103287",
+  "kind": "check",
+  "id": "00103287",
+  "name": "A & P FALMOUTH LIMITED",
+  "schemes": [
+   "12006331"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 37.526,
+  "assets_m": 38.555,
+  "basis": "group",
+  "period_end": "2025-03-31",
+  "page": "33",
+  "note": "Read from the page image (page 33): Section of the A&P Group scheme; reconciliation at 31 March 2025 (£'000)"
  },
  {
   "action": "confirm",
@@ -1876,6 +1910,23 @@
   "note": "US-dollar group plan table; no UK figure"
  },
  {
+  "key": "fig:00371167",
+  "kind": "check",
+  "id": "00371167",
+  "name": "HOWARD S. COOKE & CO. (HOLDINGS) LIMITED",
+  "schemes": [
+   "10026397"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 3.342,
+  "assets_m": 3.741,
+  "basis": "group",
+  "period_end": "2026-03-31",
+  "page": "36",
+  "note": "Read from the page image (page 36): Group: obligation 3"
+ },
+ {
   "key": "fig:00374485",
   "kind": "check",
   "id": "00374485",
@@ -3092,6 +3143,23 @@
   "note": "Liabilities 29,393 and assets 31,163 (£'000)"
  },
  {
+  "key": "fig:00794221",
+  "kind": "check",
+  "id": "00794221",
+  "name": "ELECTROSONIC LIMITED",
+  "schemes": [
+   "10011345"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 9.343,
+  "assets_m": 9.314,
+  "basis": "group",
+  "period_end": "2025-12-31",
+  "page": "31",
+  "note": "Read from the page image (page 31): Reconciliation at 31 December 2025 (£000)"
+ },
+ {
   "key": "fig:00805960",
   "kind": "check",
   "id": "00805960",
@@ -3345,6 +3413,23 @@
   "note": "Checked against the balance table in the accounts"
  },
  {
+  "key": "fig:00922947",
+  "kind": "check",
+  "id": "00922947",
+  "name": "CHURCHILL GROUP LIMITED",
+  "schemes": [
+   "10007840"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 27.262,
+  "assets_m": 30.713,
+  "basis": "group",
+  "period_end": "2025-12-31",
+  "page": "47",
+  "note": "Read from the page image (page 47): Assets 30"
+ },
+ {
   "key": "fig:00925463",
   "kind": "check",
   "id": "00925463",
@@ -3455,9 +3540,13 @@
    "10003932"
   ],
   "at": "2026-11-17T12:00:00Z",
-  "action": "skip",
-  "reason": "net",
-  "note": "Accounts give only the net surplus or deficit, with no gross obligation or assets"
+  "action": "figures",
+  "obligation_m": 212.436,
+  "assets_m": 284.201,
+  "basis": "group",
+  "period_end": "2025-12-31",
+  "page": "46",
+  "note": "Read from the page image (page 46): Assets 284"
  },
  {
   "key": "fig:00951778",
@@ -3778,6 +3867,23 @@
   "at": "2026-11-16T17:00:00Z",
   "action": "skip",
   "note": "Latest accounts on file are old; needs newer accounts"
+ },
+ {
+  "key": "fig:01040034",
+  "kind": "check",
+  "id": "01040034",
+  "name": "WERFEN LIMITED",
+  "schemes": [
+   "10142315"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 23.045,
+  "assets_m": 23.972,
+  "basis": "group",
+  "period_end": "2025-12-31",
+  "page": "35",
+  "note": "Read from the page image (page 35): Reconciliation at 31 December 2025 (£)"
  },
  {
   "key": "fig:01040616",
@@ -5117,6 +5223,18 @@
   "note": "Small-company accounts: net figure tagged, no pension table in the note"
  },
  {
+  "key": "fig:02201998",
+  "kind": "check",
+  "id": "02201998",
+  "name": "THE DOCTORS LABORATORY LIMITED",
+  "schemes": [
+   "10275972"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "no_db",
+  "note": "Read from the page image (page 49): Pension note lists only defined contribution schemes"
+ },
+ {
   "key": "fig:02213725",
   "kind": "check",
   "id": "02213725",
@@ -6131,6 +6249,23 @@
   "note": "Liability 5,546 plus net asset 2,280 gives assets 7,826"
  },
  {
+  "key": "fig:02993245",
+  "kind": "check",
+  "id": "02993245",
+  "name": "INVICA INDUSTRIES LIMITED",
+  "schemes": [
+   "10002187"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 80.775,
+  "assets_m": 91.234,
+  "basis": "group",
+  "period_end": "2025-03-31",
+  "page": "33",
+  "note": "Read from the page image (page 33): Reconciliation at 31 March 2025 (£'000)"
+ },
+ {
   "key": "fig:02994115",
   "kind": "check",
   "id": "02994115",
@@ -7023,6 +7158,23 @@
   "note": "Obligations 653,626 and assets 761,132 (£'000)"
  },
  {
+  "key": "fig:04011200",
+  "kind": "check",
+  "id": "04011200",
+  "name": "LCO NON-MARINE AND AVIATION LIMITED",
+  "schemes": [
+   "19009503"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 1.431,
+  "assets_m": 1.914,
+  "basis": "group",
+  "period_end": "2025-03-31",
+  "page": "32",
+  "note": "Read from the page image (page 32): Xchanging DB Scheme: asset 1"
+ },
+ {
   "action": "figures",
   "assets_m": 10441,
   "at": "2026-11-16T12:00:00Z",
@@ -7853,6 +8005,23 @@
   "note": "Checked against the balance table in the accounts"
  },
  {
+  "key": "fig:05832836",
+  "kind": "check",
+  "id": "05832836",
+  "name": "A&P GROUP LIMITED",
+  "schemes": [
+   "10008259"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 71.071,
+  "assets_m": 73.907,
+  "basis": "group",
+  "period_end": "2025-03-31",
+  "page": "42",
+  "note": "Read from the page image (page 42): Reconciliation at 31 March 2025 (£'000)"
+ },
+ {
   "key": "fig:05965116",
   "kind": "verify",
   "id": "05965116",
@@ -8603,6 +8772,23 @@
   "note": "Portuguese bank's euro pension note; no UK figure"
  },
  {
+  "key": "fig:FC008460",
+  "kind": "check",
+  "id": "FC008460",
+  "name": "CROSS VETPHARM GROUP UK LIMITED",
+  "schemes": [
+   "10031484"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 0.549681,
+  "assets_m": 0.549681,
+  "basis": "group",
+  "period_end": "2024-12-31",
+  "page": "27",
+  "note": "Read from the page image (page 27): Assets 549"
+ },
+ {
   "action": "misread",
   "at": "2026-11-16T12:00:00Z",
   "id": "FC012875",
@@ -8637,6 +8823,23 @@
   "schemes": [
    "10131275"
   ]
+ },
+ {
+  "key": "fig:NI000601",
+  "kind": "check",
+  "id": "NI000601",
+  "name": "THE OLD BUSHMILLS DISTILLERY COMPANY LIMITED",
+  "schemes": [
+   "10011323"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 21.893,
+  "assets_m": 42.55,
+  "basis": "group",
+  "period_end": "2025-12-31",
+  "page": "35",
+  "note": "Read from the page image (page 35): Reconciliations at 31 December 2025 (£'000)"
  },
  {
   "key": "fig:NI001169",
@@ -8681,6 +8884,24 @@
   "period_end": "2025-12-27",
   "page": null,
   "note": "First column of the balance table; surplus 15,221"
+ },
+ {
+  "key": "fig:NI009832",
+  "kind": "check",
+  "id": "NI009832",
+  "name": "KEMEK LTD",
+  "schemes": [
+   "10144247",
+   "10144246"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 1.373,
+  "assets_m": 1.773,
+  "basis": "group",
+  "period_end": "2025-12-31",
+  "page": "33",
+  "note": "Read from the page image (page 33): Reconciliation at 31 December 2025 (£'000)"
  },
  {
   "action": "confirm",
@@ -8946,6 +9167,23 @@
   "at": "2026-11-16T16:00:00Z",
   "action": "confirm",
   "note": "Cross-checked: obligation, assets and the surplus/deficit line agree on the page"
+ },
+ {
+  "key": "fig:SC026803",
+  "kind": "check",
+  "id": "SC026803",
+  "name": "GILLIES OF BROUGHTY FERRY LIMITED",
+  "schemes": [
+   "10107401"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 0.461,
+  "assets_m": 0.5,
+  "basis": "group",
+  "period_end": "2025-08-31",
+  "page": "26",
+  "note": "Read from the page image (page 26): Reconciliations: obligation 461 and assets 500 (£000s); summary table has typos"
  },
  {
   "key": "fig:SC027389",
@@ -15026,6 +15264,59 @@
   "action": "not_live",
   "reason": "bought_out",
   "note": "Accounts: buy-out of the scheme completed in the prior year"
+ },
+ {
+  "key": "liveimg:00030800",
+  "kind": "live",
+  "id": "00030800",
+  "name": "HEAVITREE BREWERY PLC(THE)",
+  "schemes": [
+   "10012568"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "not_live",
+  "reason": "wound_up",
+  "note": "Read from the page image (page 59): Wind-up began 17 January 2022; assets and liabilities now nil"
+ },
+ {
+  "key": "liveimg:00182469",
+  "kind": "live",
+  "id": "00182469",
+  "name": "LIGS LIMITED",
+  "schemes": [
+   "10137471",
+   "10180352"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "not_live",
+  "reason": "bought_out",
+  "note": "Read from the page image (page 33): Nelson Hurst Group Pension Scheme 4 bought out November 2024 and wound up 12 March 2025; only DC schemes now"
+ },
+ {
+  "key": "liveimg:00243794",
+  "kind": "live",
+  "id": "00243794",
+  "name": "TIMOTHY TAYLOR & CO.,LIMITED",
+  "schemes": [
+   "10094897"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "not_live",
+  "reason": "bought_out",
+  "note": "Read from the page image (page 28): Scheme settled in the year to 30 September 2025 (obligation nil; £603k cash left)"
+ },
+ {
+  "key": "liveimg:01049338",
+  "kind": "live",
+  "id": "01049338",
+  "name": "MANITOU UK LIMITED",
+  "schemes": [
+   "10168201"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "not_live",
+  "reason": "bought_out",
+  "note": "Read from the page image (page 38): Buy-in with L&G January 2022; scheme wound up from 19 December 2024; nil at 2025"
  },
  {
   "key": "match:10000042",

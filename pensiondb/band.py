@@ -15,7 +15,8 @@ build(con) writes, on every scheme row (each scheme carries its sponsor's band):
              that files full accounts, a figure that failed the checks, or a scheme with DB evidence whose sponsor
              is not yet found
   out        the sponsor's DB assets are outside the band, the parent group's total is under £50m, the sponsor
-             files small or micro accounts, or the scheme is not live, DC or shows no DB evidence
+             files small or micro accounts or is insolvent or dissolved, or the scheme is not live, DC or shows
+             no DB evidence
 
 Where assets are missing the obligation stands in for size, and the reason says so.
 
@@ -27,7 +28,13 @@ from pathlib import Path
 from . import gaps
 
 LOW, HIGH = 50e6, 500e6
+GONE = {"liquidation", "administration", "in administration", "dissolved", "closed", "converted-closed", "receivership",
+        "insolvency-proceedings", "voluntary-arrangement"}
 CSV = Path(__file__).with_name("scheme_figures.csv")
+CURRENCY_CSV = Path(__file__).with_name("sponsor_currency.csv")   # company_number, currency, note: for figures flagged foreign_currency
+# approximate currency units per £1 in 2025, for placing a sponsor in or out of the band only (figures are not converted)
+APPROX_RATE = {"USD": 1.35, "EUR": 1.17, "AUD": 2.05, "GBP": 1.0}
+BAND_REVIEW = Path(__file__).with_name("sponsor_band_review.csv")   # company_number, band (in/out), note: a verdict read from the accounts where no sterling figure could be entered
 LIVE_CHECKED = Path(__file__).with_name("live_checked.csv")   # psr, verdict (live), note: a liveness lead reviewed and set aside
 FIELDS = ["psr", "scheme_name", "period_end", "obligation_m", "assets_m", "source", "note"]
 LIVE = ("with_figures", "no_figures")
@@ -77,7 +84,8 @@ def build(con):
                sp.db_period_end IS NOT NULL AND coalesce(sp.db_check, 'ok') NOT LIKE 'flag%',
                sp.db_obligation, sp.db_plan_assets, sp.db_period_end, sp.db_check, sp.db_taxonomy, sp.db_source_file,
                sp.group_db_company_name, sp.group_db_obligation, sp.group_db_plan_assets,
-               s.charity_db_obligation, s.charity_db_assets, s.charity_fy_end, s.charity_db_source, s.charity_name
+               s.charity_db_obligation, s.charity_db_assets, s.charity_fy_end, s.charity_db_source, s.charity_name,
+               lower(coalesce(sp.company_status, ''))
         FROM schemes s LEFT JOIN sponsors sp ON sp.company_number = s.sponsor_company_number""").fetchall()
     # live DB schemes per employer and per register body: one scheme means the employer's figure is the scheme's
     per_co, per_reg = {}, {}
@@ -88,9 +96,17 @@ def build(con):
             elif r[3]:
                 per_reg[(r[2], r[3])] = per_reg.get((r[2], r[3]), 0) + 1
     hand = _hand()
+    rev = {}
+    if BAND_REVIEW.exists():
+        with open(BAND_REVIEW, newline="") as f:
+            rev = {r["company_number"]: r for r in csv.DictReader(f)}
+    cur = {}
+    if CURRENCY_CSV.exists():
+        with open(CURRENCY_CSV, newline="") as f:
+            cur = {r["company_number"]: r for r in csv.DictReader(f)}
     figs, bands = [], []
     for (psr, co, rsrc, rno, evidence, acc, co_name, own, ob, assets, pe, chk, tax, src, gname, gob, gassets,
-         cob, cassets, cfy, csrc, cname) in rows:
+         cob, cassets, cfy, csrc, cname, costatus) in rows:
         group, reason = status[psr]
         fig = None
         if psr in hand:
@@ -103,7 +119,7 @@ def build(con):
         if fig:
             figs.append((psr, *fig))
         bands.append((*_band(group, reason, fig, co, rno, evidence, acc, own, ob, assets, chk, gname, gob, gassets,
-                             cob, cassets, per_co.get(co) if co else per_reg.get((rsrc, rno))), psr))
+                             cob, cassets, per_co.get(co) if co else per_reg.get((rsrc, rno)), costatus, cur.get(co), rev.get(co)), psr))
     con.executemany("INSERT INTO scheme_figures VALUES (?,?,?,?,?,?,?)", figs)
     con.executemany("UPDATE schemes SET band=?, band_kind=?, band_reason=? WHERE psr=?", bands)
     con.commit()
@@ -158,11 +174,16 @@ def _live_check(con):
     return n
 
 
-def _band(group, reason, fig, co, rno, evidence, acc, own, ob, assets, chk, gname, gob, gassets, cob, cassets, n):
+def _band(group, reason, fig, co, rno, evidence, acc, own, ob, assets, chk, gname, gob, gassets, cob, cassets, n, costatus="", currency=None, review=None):
     if group == "not_live":
         return "out", "Not live", "Not live"
     if group == "dc":
         return "out", "DC scheme", "DC scheme"
+    if co and costatus in GONE:
+        return "out", "Sponsor insolvent or dissolved", f"Sponsor's status at Companies House: {costatus}"
+    if co and review and review["band"] in ("in", "out") and group != "not_identified":
+        kind = "Sponsor's DB assets £50m-£500m" if review["band"] == "in" else "Out of band on review of the accounts"
+        return review["band"], kind, f"Reviewed: {review['note']}"
     if group == "not_identified":
         if not evidence:
             return "out", "No employer found, no DB evidence", "No employer found and no DB evidence"
@@ -179,6 +200,17 @@ def _band(group, reason, fig, co, rno, evidence, acc, own, ob, assets, chk, gnam
             if size > HIGH:
                 return "out", "Sponsor's DB assets over £500m", f"Sponsor's DB assets {_m(size)}{how}{schemes}, over £500m"
             return "in", "Sponsor's DB assets £50m-£500m", f"Sponsor's DB assets {_m(size)}{how}{schemes}"
+    if co and currency and (chk or "").startswith("flag") and "foreign_currency" in chk and (ob is not None or assets is not None):
+        size, how = _size(ob, assets)
+        rate = APPROX_RATE.get(currency["currency"])
+        if rate and size / rate >= 10e6:          # smaller than £10m for a flagged figure: more likely a unit misread
+            size /= rate
+            conv = "" if currency["currency"] == "GBP" else f" (converted from {currency['currency']} at about {rate}/£)"
+            if size < LOW:
+                return "out", "Sponsor's DB assets under £50m", f"Sponsor's DB assets about {_m(size)}{how}{conv}, under £50m"
+            if size > HIGH:
+                return "out", "Sponsor's DB assets over £500m", f"Sponsor's DB assets about {_m(size)}{how}{conv}, over £500m"
+            return "in", "Sponsor's DB assets £50m-£500m", f"Sponsor's DB assets about {_m(size)}{how}{conv}; {currency['note']}"
     if co and (gob is not None or gassets is not None):
         size, how = _size(gob, gassets)
         if size < LOW:

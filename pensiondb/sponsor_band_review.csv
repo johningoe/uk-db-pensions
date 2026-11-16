@@ -1,0 +1,14 @@
+company_number,company_name,band,period_end,note
+00161147,DEWHURST DENT P.L.C.,out,,Read from the page image (page 39): No accounting figures; funding surplus £150k at April 2025 and £100k a year contributions: a small scheme
+00556556,MACDERMID CANNING LIMITED,out,,Read from the page image (page 108): Filing is the US parent's (Element Solutions) accounts; all its non-US plans total a $19.4m obligation
+00505456,NORTHSTANDARD LIMITED,in,2026-02-20,Read from the page image (page 52): Two schemes in US$m: obligation 112.6 and assets 122.1 (about £90m); figures kept in dollars
+05393279,RENTOKIL INITIAL PLC,out,2025-12-31,Read from the page image (page 167): Company's plan assets total US$47m (about £35m); the group's largest DB plan is now the Irish scheme
+01763297,CITIGROUP GLOBAL MARKETS LIMITED,out,2025-12-31,Read from the page image (page 57): US$m: obligation 875 and assets 1222 (about £905m); earlier figure was a unit misread
+OC369631,S&W PARTNERS LLP,out,2025-12-31,Read from the page image (page 32): Only a £63k liability for annuities to former members' spouses; no funded DB scheme here
+01123045,3M UNITED KINGDOM LIMITED,out,2025-12-31,Read from the page image (page 55): Scheme assets £1
+03874882,DSV ROAD LIMITED,out,2025-12-31,Read from the page image (page 56): DSV section assets £38.1m plus a share of the GIL section (about £6m from sensitivities): about £44m in total
+02744892,VISA UK LIMITED,in,2025-09-30,Read from the page image (page 102): Visa Inc. 10-K: non-US plans (mostly Visa Europe UK) assets US$330m and ABO US$276m (about £245m)
+02099146,CALOR GROUP LIMITED,in,2025-12-31,Read from the page image (page 87): In EUR m: obligation 395.1 and assets 350.1 (about £299m); the Irish scheme was wound up in 2025
+01388658,BAKER HUGHES LIMITED,out,2025-12-31,Read from the page image (page 54): Obligation £724.5m and assets £713.5m: over £500m; earlier figure was a unit misread
+01170825,GLENCORE UK LTD.,in,2025-12-31,Read from the page image (page 42): US$'000: obligation 139
+00251148,"H. MARCEL GUEST, LIMITED",out,,Read from the page image (page 41): Hybrid arrangement with no DB figures; about £300k a year contributions: a small scheme

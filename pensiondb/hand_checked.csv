@@ -90,7 +90,6 @@ OC303675,DELOITTE LLP,,GBP,622,620,group,2026-10-13,82,Table without a unit head
 00578327,ROTORK P.L.C.,,GBP,,,misread,2026-05-13,168,No pension figures on the page read
 05393279,RENTOKIL INITIAL PLC,,GBP,,,misread,2026-05-24,167,Group plans mostly in dollars; UK figure not identifiable
 01698498,MUFG SECURITIES EMEA PLC,,GBP,,,misread,2026-05-13,328,Japanese parent's disclosures
-NI000601,THE OLD BUSHMILLS DISTILLERY COMPANY LIMITED,,GBP,,,misread,2026-10-05,35,Figure was the return on assets; closing balances not legible
 00699993,TOYOTA MATERIAL HANDLING UK LIMITED,,GBP,,,misread,2026-09-09,39,Table too garbled to read
 01912705,GEODIS UNITED KINGDOM LIMITED,,GBP,,,misread,2021-02-17,34,Figures were sensitivity lines
 00344359,INNOSPEC LIMITED,,GBP,,,misread,2026-05-16,37,Scheme settled; figure was the prior year
@@ -732,3 +731,18 @@ reg:fca:434F,Transport Friendly Society Limited,2024-12-31,GBP,2.921,5.152,group
 00592844,HOVAL LIMITED,2026-03-31,GBP,10.4166,6.64,group,2026-06-24,13,"Figures entered on the review page 2026-11-17: Obligation 10,416,600, assets 6,640,000; deficit 3,776,600 checks"
 02677142,WALES AND THE BORDERS NEWS MEDIA LIMITED,2016-03-31,GBP,1.638,1.432,group,2025-12-12,,"Figures entered on the review page 2026-11-17: 2016 accounts: assets 1,432,000 plus deficit 206,000"
 02299747,Capita Business Services Ltd,2025-12-31,GBP,994.5,1024.6,group,2026-07-24,,"Figures entered on the review page 2026-11-17: Capita BS section: obligation 994.5, assets 1,024.6 (£m)"
+00029301,BROTHER U.K. LIMITED,2025-03-31,GBP,25.926,25.903,group,,40,Figures entered on the review page 2026-11-17: Read from the page image (page 40): Reconciliation at 31 March 2025 (£'000)
+00103287,A & P FALMOUTH LIMITED,2025-03-31,GBP,37.526,38.555,group,,33,Figures entered on the review page 2026-11-17: Read from the page image (page 33): Section of the A&P Group scheme; reconciliation at 31 March 2025 (£'000)
+05832836,A&P GROUP LIMITED,2025-03-31,GBP,71.071,73.907,group,,42,Figures entered on the review page 2026-11-17: Read from the page image (page 42): Reconciliation at 31 March 2025 (£'000)
+00371167,HOWARD S. COOKE & CO. (HOLDINGS) LIMITED,2026-03-31,GBP,3.342,3.741,group,,36,Figures entered on the review page 2026-11-17: Read from the page image (page 36): Group: obligation 3
+SC026803,GILLIES OF BROUGHTY FERRY LIMITED,2025-08-31,GBP,0.461,0.5,group,,26,Figures entered on the review page 2026-11-17: Read from the page image (page 26): Reconciliations: obligation 461 and assets 500 (£000s); summary table has typos
+00946942,MSD ANIMAL HEALTH UK LIMITED,2025-12-31,GBP,212.436,284.201,group,2026-09-23,46,Figures entered on the review page 2026-11-17: Read from the page image (page 46): Assets 284
+00922947,CHURCHILL GROUP LIMITED,2025-12-31,GBP,27.262,30.713,group,,47,Figures entered on the review page 2026-11-17: Read from the page image (page 47): Assets 30
+01040034,WERFEN LIMITED,2025-12-31,GBP,23.045,23.972,group,,35,Figures entered on the review page 2026-11-17: Read from the page image (page 35): Reconciliation at 31 December 2025 (£)
+02993245,INVICA INDUSTRIES LIMITED,2025-03-31,GBP,80.775,91.234,group,,33,Figures entered on the review page 2026-11-17: Read from the page image (page 33): Reconciliation at 31 March 2025 (£'000)
+NI009832,KEMEK LTD,2025-12-31,GBP,1.373,1.773,group,,33,Figures entered on the review page 2026-11-17: Read from the page image (page 33): Reconciliation at 31 December 2025 (£'000)
+00794221,ELECTROSONIC LIMITED,2025-12-31,GBP,9.343,9.314,group,,31,Figures entered on the review page 2026-11-17: Read from the page image (page 31): Reconciliation at 31 December 2025 (£000)
+FC008460,CROSS VETPHARM GROUP UK LIMITED,2024-12-31,GBP,0.549681,0.549681,group,,27,Figures entered on the review page 2026-11-17: Read from the page image (page 27): Assets 549
+04011200,LCO NON-MARINE AND AVIATION LIMITED,2025-03-31,GBP,1.431,1.914,group,,32,Figures entered on the review page 2026-11-17: Read from the page image (page 32): Xchanging DB Scheme: asset 1
+02201998,THE DOCTORS LABORATORY LIMITED,,GBP,,,misread,,,Accounts show no DB scheme on the review page 2026-11-17: Read from the page image (page 49): Pension note lists only defined contribution schemes
+NI000601,THE OLD BUSHMILLS DISTILLERY COMPANY LIMITED,2025-12-31,GBP,21.893,42.55,group,2026-10-05,35,Figures entered on the review page 2026-11-17: Read from the page image (page 35): Reconciliations at 31 December 2025 (£'000)

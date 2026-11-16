@@ -1,0 +1,46 @@
+co,outcome,period_end,obligation_m,assets_m,page,note
+00243794,not_live:bought_out,2025-09-30,,,28,Scheme settled in the year to 30 September 2025 (obligation nil; £603k cash left)
+00029301,figures,2025-03-31,25.926,25.903,40,Reconciliation at 31 March 2025 (£'000)
+00030800,not_live:wound_up,2025-10-31,,,59,Wind-up began 17 January 2022; assets and liabilities now nil
+00103287,figures,2025-03-31,37.526,38.555,33,Section of the A&P Group scheme; reconciliation at 31 March 2025 (£'000)
+00161147,out,,,,39,No accounting figures; funding surplus £150k at April 2025 and £100k a year contributions: a small scheme
+00182469,not_live:bought_out,2026-04-30,,,33,Nelson Hurst Group Pension Scheme 4 bought out November 2024 and wound up 12 March 2025; only DC schemes now
+05832836,figures,2025-03-31,71.071,73.907,42,Reconciliation at 31 March 2025 (£'000)
+00371167,figures,2026-03-31,3.342,3.741,36,Group: obligation 3,342,000 and assets 3,741,000
+01120330,skip,,,,32,Group plan accounted for by the sponsoring company Julius Baer Group Limited; no figures here
+SC026803,figures,2025-08-31,0.461,0.5,26,Reconciliations: obligation 461 and assets 500 (£000s); summary table has typos
+00556556,out,,,,108,Filing is the US parent's (Element Solutions) accounts; all its non-US plans total a $19.4m obligation
+00946942,figures,2025-12-31,212.436,284.201,46,Assets 284,201 less net asset 71,765 (£000)
+00922947,figures,2025-12-31,27.262,30.713,47,Assets 30,713 less recognised surplus 3,451 (£000)
+01040034,figures,2025-12-31,23.045,23.972,35,Reconciliation at 31 December 2025 (£)
+00505456,in,2026-02-20,,,52,Two schemes in US$m: obligation 112.6 and assets 122.1 (about £90m); figures kept in dollars
+02993245,figures,2025-03-31,80.775,91.234,33,Reconciliation at 31 March 2025 (£'000)
+NI009832,figures,2025-12-31,1.373,1.773,33,Reconciliation at 31 December 2025 (£'000)
+00794221,figures,2025-12-31,9.343,9.314,31,Reconciliation at 31 December 2025 (£000)
+FC008460,figures,2024-12-31,0.549681,0.549681,27,Assets 549,681 and liabilities shown equal after the asset ceiling (£)
+01049338,not_live:bought_out,2025-12-31,,,38,Buy-in with L&G January 2022; scheme wound up from 19 December 2024; nil at 2025
+05393279,out,2025-12-31,,,167,Company's plan assets total US$47m (about £35m); the group's largest DB plan is now the Irish scheme
+05100341,skip,,,,60,Filing is the Spanish parent's (Clece) accounts; no UK scheme figures
+00001812,skip,,,,60,Rendered pages are a Sri Lankan subsidiary's gratuity plan; UK note not found
+02009520,skip,,,,56,Group plan; principal employer was Credit Suisse International and is now UBS AG; no figures here
+04011200,figures,2025-03-31,1.431,1.914,32,Xchanging DB Scheme: asset 1,914 and liability 1,431 (£'000)
+01763297,out,2025-12-31,,,57,US$m: obligation 875 and assets 1222 (about £905m); earlier figure was a unit misread
+OC369631,out,2025-12-31,,,32,Only a £63k liability for annuities to former members' spouses; no funded DB scheme here
+02201998,no_db,2025-06-30,,,49,Pension note lists only defined contribution schemes
+NI000601,figures,2025-12-31,21.893,42.55,35,Reconciliations at 31 December 2025 (£'000)
+01123045,out,2025-12-31,,,55,Scheme assets £1,801.9m: over £500m
+02096505,skip,,,,44,Net surplus £38.2m across two schemes; note 24 with gross figures not on the rendered pages
+FC007312,skip,,,,170,Overseas company filing the Finnish parent's accounts in EUR; UK scheme not separable
+FC012875,skip,,,,79,Overseas company filing the US parent's 10-K; UK scheme not separable
+03874882,out,2025-12-31,,,56,DSV section assets £38.1m plus a share of the GIL section (about £6m from sensitivities): about £44m in total
+02744892,in,2025-09-30,,,102,Visa Inc. 10-K: non-US plans (mostly Visa Europe UK) assets US$330m and ABO US$276m (about £245m)
+02099146,in,2025-12-31,,,87,In EUR m: obligation 395.1 and assets 350.1 (about £299m); the Irish scheme was wound up in 2025
+01388658,out,2025-12-31,,,54,Obligation £724.5m and assets £713.5m: over £500m; earlier figure was a unit misread
+01170825,in,2025-12-31,,,42,US$'000: obligation 139,544 at 2025 (about £104m); assets 122,701 at 2024
+00251148,out,,,,41,Hybrid arrangement with no DB figures; about £300k a year contributions: a small scheme
+08657873,skip,,,,,No pension-table pages found in the saved text
+00999990,skip,,,,,No pension-table pages found in the saved text
+02456984,skip,,,,,No pension-table pages found in the saved text
+00087908,skip,,,,,No pension-table pages found in the saved text
+OC441646,skip,,,,,No pension-table pages found in the saved text
+00032743,skip,,,,,No pension-table pages found in the saved text

@@ -481,8 +481,16 @@ band:
   figure yet, and schemes with DB evidence whose sponsor isn't found (public-sector ones are listed apart, as their
   scope is still to be decided).
 - **Out of band**: the sponsor's DB assets are outside £50m-£500m, the parent group's total is under £50m, the
-  sponsor files small, micro or dormant accounts or none, its accounts show no DB scheme, it is a member of a
+  sponsor is insolvent or dissolved, files small, micro or dormant accounts or none, its accounts show no DB scheme, it is a member of a
   multi-employer scheme, there is no sponsor and no DB evidence, the scheme is DC, or it is not live.
+- **Figures in another currency**: a figure flagged `foreign_currency` is banded once its currency is recorded in
+  `sponsor_currency.csv` (`company_number, currency, note`), converted at an approximate 2025 rate (US$1.35,
+  €1.17, A$2.05 to £1). The conversion is only for the band; the figures themselves are not changed. A converted
+  figure under £10m is left as a candidate, as it is more likely a unit misread.
+- **Verdicts without a sterling figure**: `sponsor_band_review.csv` (`company_number, company_name, band, period_end,
+  note`) places a sponsor in or out of the band from its accounts where no figure can be entered as is: figures in
+  another currency, totals implied from a parent's 10-K, or a note with no accounting figures but clearly a small
+  scheme. It takes precedence over the other rules for that sponsor.
 - **scheme_figures** holds a scheme's own figures where they can be told apart: split by hand from the pension
   note (`scheme_figures.csv`: `psr, scheme_name, period_end, obligation_m, assets_m, source, note`; £m), or the
   sponsor's figures when it has only one live DB scheme. It isn't used for the band.
