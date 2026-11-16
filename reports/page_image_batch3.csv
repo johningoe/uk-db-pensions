@@ -1,0 +1,51 @@
+co,outcome,period_end,obligation_m,assets_m,page,note
+00001812,no_db,2025-03-31,,,29,UK company's pension note covers only a defined contribution scheme; other pages are a Sri Lankan subsidiary's gratuity plan
+04684034,in,2026-03-31,,,99,US$m: obligation 133.6 and assets 173.4 (about £129m)
+00604144,not_live:bought_out,2026-03-31,,,29,Buy-in with Aviva January 2022; individual buy-out policies March 2023; plan wound up
+00342798,figures,2026-03-31,62.719,62.719,35,Reconciliation at 31 March 2026 (£'000); assets after a £352k restriction
+00242246,figures,2025-12-31,828.0,837.6,43,SPLAS reconciliations at 31 December 2025 (£m)
+03690065,out,2025-12-31,,,42,BG Pension Scheme assets about £1.9bn (full buy-in 2025): over £500m
+01477257,no_db,2026-03-31,,,24,Only a defined contribution plan
+SC185956,skip,,,,27,Pension note gives contributions only; no DB figures
+00172209,skip,,,,19,Pension surplus refund received in 2024; pension note not among the candidate pages
+06063543,skip,,,,30,Participates in group schemes accounted for by the parent; no figures here
+03015481,skip,,,,,Section of the A&P Group scheme; figures are in A&P Group's accounts
+00337663,skip,,,,,Group plan accounted for by another Linde company; only a net asset is stated
+00616818,skip,,,,,Pension note beyond the pages on the contact sheet
+01198336,out,2025-12-31,,,37,Obligation and assets both about £14.5m-£15m
+00368850,skip,,,,,Contact sheet built but not reviewed yet
+02782737,skip,,,,,Contact sheet built but not reviewed yet
+00500106,skip,,,,,Contact sheet built but not reviewed yet
+01280133,skip,,,,,Contact sheet built but not reviewed yet
+00726533,skip,,,,,Contact sheet built but not reviewed yet
+00852809,skip,,,,,Contact sheet built but not reviewed yet
+00870128,skip,,,,,Contact sheet built but not reviewed yet
+01619615,skip,,,,,Contact sheet built but not reviewed yet
+00755780,skip,,,,,Contact sheet built but not reviewed yet
+02847982,skip,,,,24,DB scheme belongs to subsidiary Chaucer Syndicates Ltd; the holding company is a guarantor
+04053665,skip,,,,,Contact sheet built but not reviewed yet
+SC204765,skip,,,,,Contact sheet built but not reviewed yet
+05266811,skip,,,,,Contact sheet built but not reviewed yet
+00333313,skip,,,,,Contact sheet built but not reviewed yet
+00835066,skip,,,,,Contact sheet built but not reviewed yet
+03468967,skip,,,,17,Takes part in a group plan; no figures of its own
+02024289,skip,,,,,Contact sheet built but not reviewed yet
+04421171,skip,,,,22,"Participating employer in the Smith & Nephew UK Pension Fund, accounted for by another group company"
+00282503,skip,,,,,Contact sheet built but not reviewed yet
+OC427581,skip,,,,,Contact sheet built but not reviewed yet
+03094828,no_db,2026-01-31,,,44,UK pension note covers only a defined contribution scheme; the rest is the US parent's 10-K
+SC058445,skip,,,,,Contact sheet built but not reviewed yet
+00434982,skip,,,,,Contact sheet built but not reviewed yet
+01635854,skip,,,,,Contact sheet built but not reviewed yet
+OC308202,skip,,,,,Contact sheet built but not reviewed yet
+SC047482,skip,,,,,Contact sheet built but not reviewed yet
+02122340,skip,,,,20,Business and scheme transferred to Rathbones Group in 2025; no figures here
+OC307138,skip,,,,,Contact sheet built but not reviewed yet
+03153442,skip,,,,,Contact sheet built but not reviewed yet
+00061880,figures,2026-01-31,45.241,48.501,100,Reconciliations at 31 January 2026 (£000)
+00238721,out,2024-12-31,,,43,Obligation about £40.9m and assets about £44.6m (surplus £3.8m on the balance sheet)
+00737204,skip,,,,18,Holding company with no employees; scheme sits with an operating subsidiary
+08499108,skip,,,,,Contact sheet built but not reviewed yet
+SC003487,skip,,,,,Contact sheet built but not reviewed yet
+03236121,skip,,,,57,Filing appends the US parent's (BNY) 10-K; UK plan not separable
+03669284,skip,,,,46,Participating employer; scheme accounted for as DC here with figures held by The Berkeley Hotel Ltd

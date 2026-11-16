@@ -52,7 +52,6 @@ SC002934,THE WEIR GROUP PLC,2025-12-31,GBP,473.9,502.7,group,2026-05-22,247,Obli
 01243967,MOTT MACDONALD LIMITED,2025-12-31,GBP,412.0,454.0,main_scheme,2026-08-19,67,MMPS; £42m surplus not recognised
 00329102,ABBOTT LABORATORIES LIMITED,2025-12-31,GBP,444.4,1225.1,main_scheme,2026-08-04,62,Surplus £780.7m as printed
 03239951,HANSON OVERSEAS HOLDINGS LIMITED,,EUR,,,misread,2026-07-26,39,Heidelberg Materials (German parent) pension provisions in euros
-00001812,QUANTUM CLOTHING GROUP LIMITED,,LKR,,,misread,2025-09-12,44,Sri Lankan company: gratuity obligations in rupees
 00078439,CARLSBERG MARSTON'S BREWING COMPANY LIMITED,,GBP,335.507,375.685,main_scheme,2026-07-30,40,
 00653331,EXPERIAN LIMITED,2026-03-31,GBP,269,362,main_scheme,2026-10-26,53,Funded plan
 08286875,WPP JUBILEE LIMITED,2025-12-31,GBP,334,222,group,2026-08-26,54,Assets = liabilities less £112m deficit
@@ -761,3 +760,9 @@ NI001003,MAXOL OIL LIMITED,,GBP,,,misread,,,Accounts show no DB scheme on the re
 08461555,SEDDON GROUP LIMITED,2025-12-31,GBP,7.189,6.986,group,,47,Figures entered on the review page 2026-11-17: Read from the page image (page 47): Reconciliation at 31 December 2025 (£000)
 02387531,MASSTOCK ARABLE (UK) LIMITED,2025-07-31,GBP,25.252,27.092,group,,38,Figures entered on the review page 2026-11-17: Read from the page image (page 38): Origin UK scheme main section: reconciliation at 31 July 2025 (£'000)
 00107367,SKF (U.K.) LIMITED,2024-12-31,GBP,210.216,253.804,group,,42,Figures entered on the review page 2026-11-17: Read from the page image (page 42): Two plans: 197
+00001812,QUANTUM CLOTHING GROUP LIMITED,,GBP,,,misread,2025-09-12,44,Accounts show no DB scheme on the review page 2026-11-17: Read from the page image (page 29): UK company's pension note covers only a defined contribution scheme; other pages are a Sri Lankan subsidiary's gratuity plan
+00342798,CROSS MANUFACTURING COMPANY (1938) LIMITED,2026-03-31,GBP,62.719,62.719,group,,35,Figures entered on the review page 2026-11-17: Read from the page image (page 35): Reconciliation at 31 March 2026 (£'000); assets after a £352k restriction
+00242246,SERCO LIMITED,2025-12-31,GBP,828.0,837.6,group,,43,Figures entered on the review page 2026-11-17: Read from the page image (page 43): SPLAS reconciliations at 31 December 2025 (£m)
+01477257,ZUKEN UK LIMITED,,GBP,,,misread,,,Accounts show no DB scheme on the review page 2026-11-17: Read from the page image (page 24): Only a defined contribution plan
+03094828,TJX UK,,GBP,,,misread,,,Accounts show no DB scheme on the review page 2026-11-17: Read from the page image (page 44): UK pension note covers only a defined contribution scheme; the rest is the US parent's 10-K
+00061880,SANDERSON DESIGN GROUP PLC,2026-01-31,GBP,45.241,48.501,group,,100,Figures entered on the review page 2026-11-17: Read from the page image (page 100): Reconciliations at 31 January 2026 (£000)

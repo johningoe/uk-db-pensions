@@ -1,5 +1,17 @@
 [
  {
+  "key": "fig:00001812",
+  "kind": "check",
+  "id": "00001812",
+  "name": "QUANTUM CLOTHING GROUP LIMITED",
+  "schemes": [
+   "10264917"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "no_db",
+  "note": "Read from the page image (page 29): UK company's pension note covers only a defined contribution scheme; other pages are a Sri Lankan subsidiary's gratuity plan"
+ },
+ {
   "action": "confirm",
   "at": "2026-11-16T12:00:00Z",
   "id": "00002065",
@@ -284,6 +296,23 @@
   "schemes": [
    "10129388"
   ]
+ },
+ {
+  "key": "fig:00061880",
+  "kind": "check",
+  "id": "00061880",
+  "name": "SANDERSON DESIGN GROUP PLC",
+  "schemes": [
+   "10047128"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 45.241,
+  "assets_m": 48.501,
+  "basis": "group",
+  "period_end": "2026-01-31",
+  "page": "100",
+  "note": "Read from the page image (page 100): Reconciliations at 31 January 2026 (£000)"
  },
  {
   "key": "fig:00062904",
@@ -1241,6 +1270,24 @@
   "note": "Latest accounts on file are old; needs newer accounts"
  },
  {
+  "key": "fig:00242246",
+  "kind": "check",
+  "id": "00242246",
+  "name": "SERCO LIMITED",
+  "schemes": [
+   "10161969",
+   "19002265"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 828.0,
+  "assets_m": 837.6,
+  "basis": "group",
+  "period_end": "2025-12-31",
+  "page": "43",
+  "note": "Read from the page image (page 43): SPLAS reconciliations at 31 December 2025 (£m)"
+ },
+ {
   "key": "fig:00244159",
   "kind": "verify",
   "id": "00244159",
@@ -1809,6 +1856,23 @@
   "action": "skip",
   "reason": "notable",
   "note": "No pension table found in the accounts"
+ },
+ {
+  "key": "fig:00342798",
+  "kind": "check",
+  "id": "00342798",
+  "name": "CROSS MANUFACTURING COMPANY (1938) LIMITED",
+  "schemes": [
+   "10121595"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 62.719,
+  "assets_m": 62.719,
+  "basis": "group",
+  "period_end": "2026-03-31",
+  "page": "35",
+  "note": "Read from the page image (page 35): Reconciliation at 31 March 2026 (£'000); assets after a £352k restriction"
  },
  {
   "action": "confirm",
@@ -4546,6 +4610,18 @@
   ]
  },
  {
+  "key": "fig:01477257",
+  "kind": "check",
+  "id": "01477257",
+  "name": "ZUKEN UK LIMITED",
+  "schemes": [
+   "10209562"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "no_db",
+  "note": "Read from the page image (page 24): Only a defined contribution plan"
+ },
+ {
   "key": "fig:01477523",
   "kind": "check",
   "id": "01477523",
@@ -6687,6 +6763,18 @@
   "period_end": null,
   "page": null,
   "note": "Two schemes: 61,160/70,654 and 19,832/23,906 (£'000)"
+ },
+ {
+  "key": "fig:03094828",
+  "kind": "check",
+  "id": "03094828",
+  "name": "TJX UK",
+  "schemes": [
+   "10254444"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "no_db",
+  "note": "Read from the page image (page 44): UK pension note covers only a defined contribution scheme; the rest is the US parent's 10-K"
  },
  {
   "action": "confirm",
@@ -15620,6 +15708,19 @@
   "action": "not_live",
   "reason": "bought_out",
   "note": "Read from the page image (page 56): Buy-out with L&G completed 21 April 2020; scheme being wound up with £93k cash left"
+ },
+ {
+  "key": "liveimg:00604144",
+  "kind": "live",
+  "id": "00604144",
+  "name": "SATO UK LIMITED",
+  "schemes": [
+   "10229434"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "not_live",
+  "reason": "bought_out",
+  "note": "Read from the page image (page 29): Buy-in with Aviva January 2022; individual buy-out policies March 2023; plan wound up"
  },
  {
   "key": "liveimg:01049338",
