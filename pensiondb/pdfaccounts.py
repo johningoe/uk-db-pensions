@@ -29,7 +29,48 @@ OCR_ENGINE = os.environ.get("PENSIONDB_OCR") or ("vision" if sys.platform == "da
 TESSERACT_CMD = os.environ.get("TESSERACT_CMD") or shutil.which("tesseract") or "tesseract"
 TESSERACT_PSM = os.environ.get("TESSERACT_PSM", "6")       # 6 = one block of text: keeps table rows on one line
 
-DB_MENTION = re.compile(r"defined benefit|final salary|retirement benefit (?:obligation|scheme)", re.I)
+DB_MENTION = re.compile(r"defined benefit|final salary|retirement benefit (?:obligation|scheme)", re.I)   # finds pension pages
+# Whether a document really says the company has a DB scheme (used for its status, not to find pages): a sentence
+# saying "defined benefit" or "final salary" that isn't a denial ("does not operate a defined benefit scheme") or about
+# directors' benefits in a group scheme. A generic "defined contribution retirement benefit schemes" line in the
+# accounting policies doesn't count.
+DB_WORD = re.compile(r"defined benefit|final salary", re.I)
+DB_DENIED = re.compile(r"(?:does|do|did) not (?:operate|have|participate in|sponsor)[^.]{0,40}(?:defined benefit|final salary)"
+                       r"|no (?:defined benefit|final salary) (?:pension )?(?:scheme|plan)", re.I)
+DB_DIRECTORS = re.compile(r"director[^.]{0,80}(?:defined benefit|final salary)|(?:defined benefit|final salary)[^.]{0,60}director", re.I)
+MULTI_EMPLOYER = re.compile(r"teachers'? pension scheme|local government pension scheme|\bLGPS\b|the pensions trust|\bTPT\b"
+                            r"|social housing pension scheme|\bSHPS\b|universities superannuation|railways pension scheme"
+                            r"|electricity supply pension|merchant navy (?:officers|ratings)|multi-?employer|growth plan"
+                            r"|scottish (?:teachers|local government)|NHS pension|civil service pension|industry[- ]wide", re.I)
+GROUP_PLAN = re.compile(r"accounted for (?:it )?as (?:if it were )?a defined contribution|(?:unable|not possible|cannot) (?:to )?"
+                        r"identify (?:its|the company'?s|their) share|full disclosures? (?:are|is) (?:given|provided|included) in the"
+                        r" (?:financial statements|accounts) of|paragraph 28\.38|28\.11", re.I)
+
+
+def db_mention(full):
+    """The first real DB mention in a document (a match object), or None."""
+    for m in DB_WORD.finditer(full):
+        a, b = full.rfind(".", 0, m.start()) + 1, full.find(".", m.end())
+        sent = full[a: b if b > 0 else m.end() + 200]
+        own = re.search(r"(?:company|group)(?:'s)? defined benefit|further information in respect of the pension", sent, re.I)
+        if not (DB_DENIED.search(sent) or (DB_DIRECTORS.search(sent) and not own)):
+            return m
+    return None
+
+
+def mention_status(full):
+    """Status of a document with no readable figures: mentioned_no_figures, multi_employer (the company is in a
+    multi-employer scheme and has no figure of its own), group_plan (a group scheme accounted for as defined
+    contribution, figures in the parent's accounts), or None when it doesn't really mention a DB scheme."""
+    m = db_mention(full)
+    if not m:
+        return None, None
+    ev = full[max(0, m.start() - 120): m.end() + 200]
+    if MULTI_EMPLOYER.search(full):
+        return "multi_employer", ev
+    if GROUP_PLAN.search(full):
+        return "group_plan", ev
+    return "mentioned_no_figures", ev
 PENSION_WORD = re.compile(r"pension|retirement benefit|(?:scheme|plan) (?:assets|liabilities)", re.I)
 DC_ONLY = re.compile(r"defined contribution|money purchase", re.I)
 LINES = {
@@ -486,9 +527,9 @@ def assess(num, max_pages=MAX_PAGES):
                     obligation=abs(f["obligation"]) if "obligation" in f else None,
                     assets=abs(f["assets"]) if "assets" in f else None,
                     net=f.get("net") if "net" in f else (tagged or {}).get("net"))
-    if DB_MENTION.search(full):
-        m = DB_MENTION.search(full)
-        return dict(base, status="mentioned_no_figures", evidence=full[max(0, m.start() - 120): m.end() + 200])
+    st, ev = mention_status(full)
+    if st:
+        return dict(base, status=st, evidence=ev)
     return dict(base, status="dc_only" if DC_ONLY.search(full) else "no_pension_note")
 
 
@@ -659,9 +700,9 @@ def _from_text(num, date):
                     unit=",".join(sorted({u for _, u in hit["found"].values()})),
                     obligation=abs(f["obligation"]) if "obligation" in f else None,
                     assets=abs(f["assets"]) if "assets" in f else None, net=f.get("net"))
-    if DB_MENTION.search(full):
-        m = DB_MENTION.search(full)
-        return dict(base, status="mentioned_no_figures", evidence=full[max(0, m.start() - 120): m.end() + 200])
+    st, ev = mention_status(full)
+    if st:
+        return dict(base, status=st, evidence=ev)
     return dict(base, status="dc_only" if DC_ONLY.search(full) else "no_pension_note")
 
 

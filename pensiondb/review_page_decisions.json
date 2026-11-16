@@ -19899,6 +19899,23 @@
   "note": "No balance table in the pages read (valuation only, multi-employer, beyond the pages read, or no figure)"
  },
  {
+  "key": "unread:00191398",
+  "kind": "unread",
+  "id": "00191398",
+  "name": "BRAIME PRESSINGS LIMITED",
+  "schemes": [
+   "10005523"
+  ],
+  "action": "figures",
+  "obligation_m": 5.97,
+  "assets_m": 7.81,
+  "basis": "group",
+  "period_end": null,
+  "page": null,
+  "note": "Liabilities £5,970,000; assets restricted to that, with an unrecognised surplus of £1,840,000",
+  "at": "2026-11-17T09:00:00Z"
+ },
+ {
   "key": "unread:00195626",
   "kind": "unread",
   "id": "00195626",
@@ -19947,6 +19964,23 @@
   "note": "No balance table in the pages read (valuation only, multi-employer, beyond the pages read, or no figure)"
  },
  {
+  "key": "unread:00252131",
+  "kind": "unread",
+  "id": "00252131",
+  "name": "MUSEUMS ASSOCIATION(THE)",
+  "schemes": [
+   "10126342"
+  ],
+  "action": "figures",
+  "obligation_m": 2.298,
+  "assets_m": 3.526,
+  "basis": "group",
+  "period_end": null,
+  "page": null,
+  "note": "Liabilities 2,298 and assets 3,526 at the end of the period (£'000)",
+  "at": "2026-11-17T09:00:00Z"
+ },
+ {
   "key": "unread:00257980",
   "kind": "unread",
   "id": "00257980",
@@ -19954,9 +19988,14 @@
   "schemes": [
    "10139906"
   ],
-  "at": "2026-11-16T18:00:00Z",
-  "action": "skip",
-  "note": "No balance table in the pages read (valuation only, multi-employer, beyond the pages read, or no figure)"
+  "action": "figures",
+  "obligation_m": 1.566,
+  "assets_m": 1.59,
+  "basis": "group",
+  "period_end": null,
+  "page": null,
+  "note": "Closing obligation 1,566 and assets 1,590 (£'000)",
+  "at": "2026-11-17T09:00:00Z"
  },
  {
   "key": "unread:00258025",
@@ -20038,9 +20077,31 @@
   "schemes": [
    "10011204"
   ],
-  "at": "2026-11-16T18:00:00Z",
-  "action": "skip",
-  "note": "No balance table in the pages read (valuation only, multi-employer, beyond the pages read, or no figure)"
+  "action": "figures",
+  "obligation_m": 11.414,
+  "assets_m": 14.636,
+  "basis": "group",
+  "period_end": null,
+  "page": null,
+  "note": "Closing obligation 11,414,000 and assets 14,636,000 (whole £)",
+  "at": "2026-11-17T09:00:00Z"
+ },
+ {
+  "key": "unread:00411573",
+  "kind": "unread",
+  "id": "00411573",
+  "name": "MAKRO LIMITED",
+  "schemes": [
+   "10012677"
+  ],
+  "action": "figures",
+  "obligation_m": 125.035,
+  "assets_m": 129.614,
+  "basis": "group",
+  "period_end": null,
+  "page": null,
+  "note": "Liabilities 125,035 and assets 129,614 (£'000); surplus restricted",
+  "at": "2026-11-17T09:00:00Z"
  },
  {
   "key": "unread:00424348",
@@ -20050,9 +20111,14 @@
   "schemes": [
    "19004220"
   ],
-  "at": "2026-11-16T18:00:00Z",
-  "action": "skip",
-  "note": "No balance table in the pages read (valuation only, multi-employer, beyond the pages read, or no figure)"
+  "action": "figures",
+  "obligation_m": 8.061,
+  "assets_m": 7.818,
+  "basis": "group",
+  "period_end": null,
+  "page": null,
+  "note": "Liabilities 8,061 less deficit 243 gives assets 7,818 (£'000)",
+  "at": "2026-11-17T09:00:00Z"
  },
  {
   "key": "unread:00434982",
@@ -20101,6 +20167,58 @@
   "at": "2026-11-16T18:00:00Z",
   "action": "skip",
   "note": "No balance table in the pages read (valuation only, multi-employer, beyond the pages read, or no figure)"
+ },
+ {
+  "key": "unread:00512829",
+  "kind": "unread",
+  "id": "00512829",
+  "name": "PIONEER GB LIMITED",
+  "schemes": [
+   "10094497"
+  ],
+  "action": "figures",
+  "obligation_m": 23.879,
+  "assets_m": 24.387,
+  "basis": "group",
+  "period_end": null,
+  "page": null,
+  "note": "Liabilities 23,879 and assets 24,387 (£'000) at March 2025",
+  "at": "2026-11-17T09:00:00Z"
+ },
+ {
+  "key": "unread:00546129",
+  "kind": "unread",
+  "id": "00546129",
+  "name": "GEBERIT SERVICE",
+  "schemes": [
+   "10256436"
+  ],
+  "action": "figures",
+  "obligation_m": 16.83,
+  "assets_m": 16.83,
+  "basis": "group",
+  "period_end": null,
+  "page": null,
+  "note": "Obligation and assets both 16,830 at the end of the year (£'000)",
+  "at": "2026-11-17T09:00:00Z"
+ },
+ {
+  "key": "unread:00574102",
+  "kind": "unread",
+  "id": "00574102",
+  "name": "TEXAS INSTRUMENTS LIMITED",
+  "schemes": [
+   "10077257",
+   "10146822"
+  ],
+  "action": "figures",
+  "obligation_m": 469.306,
+  "assets_m": 494.055,
+  "basis": "group",
+  "period_end": null,
+  "page": null,
+  "note": "Plan liabilities 469,306 and assets 494,055 (£'000); surplus 24,749",
+  "at": "2026-11-17T09:00:00Z"
  },
  {
   "key": "unread:00575967",
@@ -20188,9 +20306,14 @@
   "schemes": [
    "10086413"
   ],
-  "at": "2026-11-16T18:00:00Z",
-  "action": "skip",
-  "note": "No balance table in the pages read (valuation only, multi-employer, beyond the pages read, or no figure)"
+  "action": "figures",
+  "obligation_m": 25.547,
+  "assets_m": 29.111,
+  "basis": "group",
+  "period_end": null,
+  "page": null,
+  "note": "Closing obligation 25,547 and assets 29,111 (£'000)",
+  "at": "2026-11-17T09:00:00Z"
  },
  {
   "key": "unread:00668987",
@@ -20285,9 +20408,14 @@
   "schemes": [
    "10011890"
   ],
-  "at": "2026-11-16T18:00:00Z",
-  "action": "skip",
-  "note": "No balance table in the pages read (valuation only, multi-employer, beyond the pages read, or no figure)"
+  "action": "figures",
+  "obligation_m": 5.423,
+  "assets_m": 2.566,
+  "basis": "group",
+  "period_end": null,
+  "page": null,
+  "note": "Closing obligation 5,423,000 and assets 2,566,000 at 31 March 2025 (whole £)",
+  "at": "2026-11-17T09:00:00Z"
  },
  {
   "key": "unread:00877859",
@@ -20305,6 +20433,23 @@
   "period_end": null,
   "page": null,
   "note": "Closing obligation 122,663 and fund assets 126,172 (£'000)"
+ },
+ {
+  "key": "unread:00925019",
+  "kind": "unread",
+  "id": "00925019",
+  "name": "JOTUN PAINTS (EUROPE) LIMITED",
+  "schemes": [
+   "10015529"
+  ],
+  "action": "figures",
+  "obligation_m": 19.899,
+  "assets_m": 21.074,
+  "basis": "group",
+  "period_end": null,
+  "page": null,
+  "note": "Liabilities 19,899 and assets 21,074 (scan read 221,074); surplus 1,175 checks",
+  "at": "2026-11-17T09:00:00Z"
  },
  {
   "key": "unread:00966425",
@@ -20341,6 +20486,23 @@
   "at": "2026-11-16T18:00:00Z",
   "action": "skip",
   "note": "No balance table in the pages read (valuation only, multi-employer, beyond the pages read, or no figure)"
+ },
+ {
+  "key": "unread:01177224",
+  "kind": "unread",
+  "id": "01177224",
+  "name": "HEIDELBERG GRAPHIC EQUIPMENT LIMITED",
+  "schemes": [
+   "10003226"
+  ],
+  "action": "figures",
+  "obligation_m": 127.499,
+  "assets_m": 135.539,
+  "basis": "group",
+  "period_end": null,
+  "page": null,
+  "note": "Liabilities 127,499 and assets 135,539 (£'000); surplus 8,040",
+  "at": "2026-11-17T09:00:00Z"
  },
  {
   "key": "unread:01274270",
@@ -20577,6 +20739,21 @@
   "note": "No balance table in the pages read (valuation only, multi-employer, beyond the pages read, or no figure)"
  },
  {
+  "key": "unread:02072970",
+  "kind": "unread",
+  "id": "02072970",
+  "name": "HOERBIGER UK LIMITED",
+  "schemes": [
+   "10092372",
+   "10092373",
+   "10092374"
+  ],
+  "action": "not_live",
+  "reason": "bought_out",
+  "note": "Obligation nil at 31 December 2025 after a settlement; surplus restricted",
+  "at": "2026-11-17T09:00:00Z"
+ },
+ {
   "key": "unread:02276251",
   "kind": "unread",
   "id": "02276251",
@@ -20597,9 +20774,31 @@
    "10031894",
    "10031895"
   ],
-  "at": "2026-11-16T18:00:00Z",
-  "action": "skip",
-  "note": "No balance table in the pages read (valuation only, multi-employer, beyond the pages read, or no figure)"
+  "action": "figures",
+  "obligation_m": 0.353615,
+  "assets_m": 0.545299,
+  "basis": "group",
+  "period_end": null,
+  "page": null,
+  "note": "Closing obligation 353,615 and assets 545,299 at 31 December 2024 (whole £; unlabelled closing rows)",
+  "at": "2026-11-17T09:00:00Z"
+ },
+ {
+  "key": "unread:02426132",
+  "kind": "unread",
+  "id": "02426132",
+  "name": "LEONARDO UK LTD",
+  "schemes": [
+   "10276171"
+  ],
+  "action": "figures",
+  "obligation_m": 1534.0,
+  "assets_m": 1725.65,
+  "basis": "group",
+  "period_end": null,
+  "page": null,
+  "note": "Two schemes: 566,800/659,950 and 967,200/1,065,700 (£'000)",
+  "at": "2026-11-17T09:00:00Z"
  },
  {
   "key": "unread:02440509",
@@ -20646,9 +20845,14 @@
    "10176054",
    "10189924"
   ],
-  "at": "2026-11-16T18:00:00Z",
-  "action": "skip",
-  "note": "No balance table in the pages read (valuation only, multi-employer, beyond the pages read, or no figure)"
+  "action": "figures",
+  "obligation_m": 14.756,
+  "assets_m": 18.188,
+  "basis": "group",
+  "period_end": null,
+  "page": null,
+  "note": "Scheme liabilities 14,756 and assets 18,188 (£'000); surplus 3,482",
+  "at": "2026-11-17T09:00:00Z"
  },
  {
   "key": "unread:02645228",
@@ -20697,6 +20901,25 @@
   "at": "2026-11-16T18:00:00Z",
   "action": "skip",
   "note": "No balance table in the pages read (valuation only, multi-employer, beyond the pages read, or no figure)"
+ },
+ {
+  "key": "unread:02882171",
+  "kind": "unread",
+  "id": "02882171",
+  "name": "BELDEN UK LIMITED",
+  "schemes": [
+   "10121597",
+   "10138896",
+   "10249264"
+  ],
+  "action": "figures",
+  "obligation_m": 117.95,
+  "assets_m": 137.936,
+  "basis": "group",
+  "period_end": null,
+  "page": null,
+  "note": "Three schemes: 23,702,000+75,062,000+19,186,000 / 28,441,000+84,450,000+25,045,000 (whole £)",
+  "at": "2026-11-17T09:00:00Z"
  },
  {
   "key": "unread:02897361",
@@ -20814,6 +21037,23 @@
   "note": "No balance table in the pages read (valuation only, multi-employer, beyond the pages read, or no figure)"
  },
  {
+  "key": "unread:03646114",
+  "kind": "unread",
+  "id": "03646114",
+  "name": "SAFFIL LIMITED",
+  "schemes": [
+   "10242991"
+  ],
+  "action": "figures",
+  "obligation_m": 17.558,
+  "assets_m": 21.165,
+  "basis": "group",
+  "period_end": null,
+  "page": null,
+  "note": "Closing obligation 17,558,000 and assets 21,165,000 (whole £)",
+  "at": "2026-11-17T09:00:00Z"
+ },
+ {
   "key": "unread:03777037",
   "kind": "unread",
   "id": "03777037",
@@ -20836,6 +21076,23 @@
   "at": "2026-11-16T18:00:00Z",
   "action": "skip",
   "note": "No balance table in the pages read (valuation only, multi-employer, beyond the pages read, or no figure)"
+ },
+ {
+  "key": "unread:04007148",
+  "kind": "unread",
+  "id": "04007148",
+  "name": "UNIFRAX LIMITED",
+  "schemes": [
+   "10256418"
+  ],
+  "action": "figures",
+  "obligation_m": 24.576,
+  "assets_m": 31.301,
+  "basis": "group",
+  "period_end": null,
+  "page": null,
+  "note": "Closing obligation 24,576,000 and assets 31,301,000 (whole £)",
+  "at": "2026-11-17T09:00:00Z"
  },
  {
   "key": "unread:04343035",
@@ -21364,6 +21621,24 @@
   "note": "Liabilities 5,917 and assets 7,389; surplus not recognised"
  },
  {
+  "key": "unread:NI001062",
+  "kind": "unread",
+  "id": "NI001062",
+  "name": "SHORT BROTHERS PLC",
+  "schemes": [
+   "10135900",
+   "10135901"
+  ],
+  "action": "figures",
+  "obligation_m": 1471.174,
+  "assets_m": 1482.71,
+  "basis": "group",
+  "period_end": null,
+  "page": null,
+  "note": "Liabilities 1,470,910 + 264 unfunded and assets 1,482,710 (£'000)",
+  "at": "2026-11-17T09:00:00Z"
+ },
+ {
   "key": "unread:NI045303",
   "kind": "unread",
   "id": "NI045303",
@@ -21398,6 +21673,23 @@
   "at": "2026-11-16T18:00:00Z",
   "action": "skip",
   "note": "No balance table in the pages read (valuation only, multi-employer, beyond the pages read, or no figure)"
+ },
+ {
+  "key": "unread:OC318267",
+  "kind": "unread",
+  "id": "OC318267",
+  "name": "DUNWOODY LLP",
+  "schemes": [
+   "10172285"
+  ],
+  "action": "figures",
+  "obligation_m": 2.189,
+  "assets_m": 2.408,
+  "basis": "group",
+  "period_end": null,
+  "page": null,
+  "note": "Closing obligation 2,189,000 and assets 2,408,000 (whole £)",
+  "at": "2026-11-17T09:00:00Z"
  },
  {
   "key": "unread:OC343361",

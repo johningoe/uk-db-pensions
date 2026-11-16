@@ -391,7 +391,7 @@ def flag_status(con):
                                AND (sp.db_obligation IS NOT NULL OR sp.db_plan_assets IS NOT NULL
                                     OR sp.db_surplus_deficit IS NOT NULL)) THEN 'sponsor_accounts,' ELSE '' END) ||
             (CASE WHEN EXISTS (SELECT 1 FROM sponsors sp WHERE sp.company_number = schemes.sponsor_company_number
-                               AND sp.db_pdf_status = 'mentioned_no_figures') THEN 'sponsor_accounts_text,' ELSE '' END) ||
+                               AND sp.db_pdf_status IN ('mentioned_no_figures', 'multi_employer', 'group_plan')) THEN 'sponsor_accounts_text,' ELSE '' END) ||
             (CASE WHEN EXISTS (SELECT 1 FROM sponsors sp WHERE sp.company_number = schemes.sponsor_company_number
                                AND sp.group_db_company_number IS NOT NULL) THEN 'parent_accounts,' ELSE '' END),
             ','), '')""")

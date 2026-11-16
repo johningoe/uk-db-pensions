@@ -405,6 +405,14 @@ Newer accounts: `python run.py pdf-refresh --file F` (F a JSON list of company n
 cached filing history and, where Companies House has a later accounts filing than the one read, reads that one.
 `status` then uses the newer figures, even over iXBRL-tagged ones for an earlier year end.
 
+Whether a document really mentions a DB scheme: a sentence saying "defined benefit" or "final salary" that isn't a
+denial ("the company does not operate a defined benefit scheme") or only about directors' benefits in a group scheme.
+A generic "defined contribution retirement benefit schemes" line doesn't count (it used to, and labelled hundreds of
+DC-only companies as "DB mentioned, figure not readable"). Documents that do mention DB but give no figure are
+further split: `multi_employer` (the company is in the Teachers', LGPS, TPT, SHPS, USS, Railways or a similar
+scheme and has no figure of its own) and `group_plan` (a group scheme accounted for as defined contribution, with
+the figures in the parent's accounts), besides `mentioned_no_figures`.
+
 Other reader rules:
 
 - A number glued to a word is not an amount: the scan of "obligation at the balance sheet date, less the fair

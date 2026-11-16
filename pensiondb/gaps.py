@@ -66,6 +66,10 @@ def _no_figures(r):
             return "Sponsor dissolved, in liquidation or in administration"
         if r["pdf"] == "mentioned_no_figures":
             return "Accounts mention a DB scheme, figure not readable"
+        if r["pdf"] == "multi_employer":
+            return "Member of a multi-employer scheme (no figure of its own)"
+        if r["pdf"] == "group_plan":
+            return "Group scheme: figures are in the parent's accounts"
         if r["pdf"] in ("dc_only", "no_pension_note"):
             return "Accounts show no DB scheme"
         if re.search(r"dormant|no accounts", r["acc_cat"]):
