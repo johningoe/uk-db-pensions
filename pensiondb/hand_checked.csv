@@ -597,3 +597,23 @@ SC123258,Spencer Coatings Group Limited,2025-12-31,GBP,1.57,2.595,group,2026-06-
 00470893,KEYSIGHT TECHNOLOGIES (SPIRENT SERVICES) LIMITED,2025-12-31,GBP,1.261,1.336,group,2026-07-31,32,"Figures entered on the review page 2026-11-16: Obligation 1,261 and assets 1,336 (scan reads 126 1 / 1336)"
 00925463,LONGFIELD CHEMICALS LIMITED,2025-10-31,GBP,0.581,1.223,group,2026-07-10,26,"Figures entered on the review page 2026-11-16: Obligations 581,000 (scan S81,000) and assets 1,223,000"
 02004963,READING TRANSPORT LIMITED,,GBP,39.6,43.8,group,2026-01-13,6,Text: funded obligations of £39.6m and fund assets of £43.8m (the scan dropped the decimal point)
+00608546,CHANDRIS (ENGLAND) LIMITED,,GBP,12.947,15.334,group,2025-11-06,30,"Figures entered on the review page 2026-11-16: Liabilities 12,947,000 plus net asset 2,387,000; the scan read assets as 45,334,000"
+00106884,CHARLES WELLS LIMITED,,GBP,75.669,76.443,group,2026-05-17,,Figures entered on the review page 2026-11-16: Scheme liabilities and assets at 28 September 2025 (£'000)
+FC004087,"""EL AL"" ISRAEL AIRLINES LIMITED",,GBP,,,misread,2024-10-17,102,Figure misread on the review page 2026-11-16: Israeli airline's US-dollar pension note; no UK figure
+00177991,4IMPRINT GROUP PLC,,GBP,21.5,21.8,group,2026-06-01,132,Figures entered on the review page 2026-11-16: Liabilities 21.5 and assets 21.8 (£m); bulk annuity in 2023
+FC004593,BANGKOK BANK PUBLIC COMPANY LIMITED,,GBP,,,misread,2024-02-02,96,Figure misread on the review page 2026-11-16: Thai bank's note; no UK pension figure
+FC000718,BUREAU VERITAS,,GBP,,,misread,2022-02-07,44,Figure misread on the review page 2026-11-16: French group's euro pension note; no UK figure
+NF001324,EASON & SON (N.I.) LIMITED,,GBP,5.917,7.389,group,2011-11-10,,"Figures entered on the review page 2026-11-16: Liabilities 5,917 and assets 7,389; surplus not recognised"
+01316061,EDWARDIAN GROUP LIMITED,,GBP,0.097,0.445,group,2026-09-30,45,Figures entered on the review page 2026-11-16: Funded obligations 97 and assets 445 (£'000)
+03299608,ELEMENTIS PLC,,GBP,,,misread,2026-05-11,193,Figure misread on the review page 2026-11-16: Group reports in US dollars; UK scheme figure not separable
+02902416,FCC ENVIRONMENT (UK) LIMITED,,GBP,37.322,42.144,group,2026-10-09,62,"Figures entered on the review page 2026-11-16: Benefit obligations 37,322 and assets 42,144 (£'000)"
+01708481,GLOBAL MARINE SYSTEMS LIMITED,,GBP,133.3,140.326,group,2026-09-14,57,"Figures entered on the review page 2026-11-16: Plan liabilities 133,300 and assets 140,326 (£'000)"
+00877859,KUWAIT FINANCE HOUSE PLC,,GBP,122.663,126.172,group,2026-05-14,79,"Figures entered on the review page 2026-11-16: Closing obligation 122,663 and fund assets 126,172 (£'000)"
+00176992,MUNTONS PLC,,GBP,43.806,47.011,group,2026-06-25,,"Figures entered on the review page 2026-11-16: Obligations 43,806 and assets 47,011; surplus not recognised"
+00112955,NATIONAL MAGAZINE COMPANY LIMITED(THE),,GBP,107.23,188.093,group,2026-09-17,46,"Figures entered on the review page 2026-11-16: Group: closing obligation 107,230 and assets 188,093 (£'000)"
+01818486,PERSIMMON PUBLIC LIMITED COMPANY,,GBP,371.3,502.0,group,2026-05-21,,Figures entered on the review page 2026-11-16: Total defined benefit obligation 371.3 and scheme assets 502.0 (£m)
+00504877,CURRYS GROUP LIMITED,,GBP,1033.2,931.3,group,2025-11-12,60,"Closing obligation 1,033.2 and assets 931.3 (£m); the scan read 1,033.2 as 11,0332"
+00990937,THE CO-OPERATIVE BANK P.L.C.,,GBP,1174.5,1196.9,group,2026-05-04,58,"Funded 1,169.4 + unfunded 5.1; assets 1,196.9 (£m)"
+01672070,JAGUAR LAND ROVER LIMITED,,GBP,4682,4875,group,2026-06-18,48,"Obligations 4,682 and assets 4,875 (£m); the reader missed the £m unit"
+01171948,MOOG CONTROLS LIMITED,,GBP,,,misread,2026-10-08,110,Moog Inc plan figures in US dollars; no UK figure
+01235639,KYOCERA AVX COMPONENTS LIMITED,,GBP,,,misread,2025-12-30,38,Pension note in US dollars

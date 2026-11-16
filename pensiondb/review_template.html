@@ -155,13 +155,13 @@ const KINDS = {
 };
 const ACTS = {
   confirm: "Figures are right", figures: "Enter figures", misread: "Figure is wrong", no_db: "No DB scheme in these accounts",
-  sponsor: "Set the sponsor", not_company: "Not a company", not_live: "Scheme not live", skip: "Can't tell",
+  sponsor: "Set the sponsor", reject: "Wrong company", not_company: "Not a company", not_live: "Scheme not live", skip: "Can't tell",
 };
 const BY_KIND = {
   check: ["confirm", "figures", "misread", "not_live", "skip"],
   verify: ["confirm", "figures", "misread", "not_live", "skip"],
   unread: ["figures", "no_db", "not_live", "skip"],
-  live: ["not_live", "sponsor", "skip"],
+  live: ["not_live", "reject", "sponsor", "skip"],
   match: ["sponsor", "not_company", "not_live", "skip"],
 };
 const VERDICTS = { public_sector: "Public sector body", product: "Insurer product or master policy",

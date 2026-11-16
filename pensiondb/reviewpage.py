@@ -17,6 +17,7 @@ already uses:
 
   confirm / figures / misread / no_db   rows in hand_checked.csv (register bodies as reg:<source>:<number>)
   sponsor                               review_decisions rows (switch to the company number given)
+  reject                                review_decisions rows (the matched company is a namesake: unmatch)
   not_company                           rows in sponsor_name_review.csv (public sector, product, ...)
   not_live                              rows in liveness_overrides.csv, applied by match.flag_status
   skip                                  nothing (looked at, not settled)
@@ -230,6 +231,14 @@ def apply(con, path):
                                new_company_number, method, reason, decided_at) VALUES (?,?,?,?,?,?,?)""",
                             (psr, cur[0] if cur else None, "switch", new, "review_page", note or tag,
                              d.get("at") or datetime.now(timezone.utc).isoformat()))
+        elif act == "reject":
+            for psr in psrs:
+                cur = con.execute("SELECT sponsor_company_number FROM schemes WHERE psr=?", (psr,)).fetchone()
+                if cur and cur[0]:
+                    con.execute("""INSERT OR REPLACE INTO review_decisions (psr, reviewed_company, decision,
+                                   new_company_number, method, reason, decided_at) VALUES (?,?,?,?,?,?,?)""",
+                                (psr, cur[0], "reject", None, "review_page", note or tag,
+                                 d.get("at") or datetime.now(timezone.utc).isoformat()))
         elif act == "not_company" and d.get("verdict") in gaps.REVIEW:
             for psr, name in it.get("schemes", [[p, ""] for p in psrs]):
                 names.append({"psr": psr, "scheme_name": name, "verdict": d["verdict"], "sponsor_name": ""})
