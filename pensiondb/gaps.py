@@ -94,6 +94,9 @@ def _not_live(r):
         return "Sponsor's accounts show no DB scheme"
     if r["doubt"] in ("sponsor_dormant", "sponsor_no_accounts"):
         return "Sponsor dormant or files no accounts"
+    if (r["doubt"] or "").startswith("reviewed:"):
+        return {"reviewed:bought_out": "Bought out (reviewed)", "reviewed:wound_up": "Wound up (reviewed)",
+                "reviewed:ppf": "In the PPF (reviewed)"}.get(r["doubt"], "Not live (reviewed)")
     if r["dissolved"]:
         return "Sponsor dissolved"
     return "Other"

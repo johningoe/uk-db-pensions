@@ -158,3 +158,441 @@ SC004221,MACFARLANE GROUP PLC,,GBP,56.164,62.2,main_scheme,2026-05-26,117,Scheme
 00155621,EATON LIMITED,,GBP,,,misread,2026-10-06,40,"Multi-employer plan accounted as DC; £101.0m is the net surplus, not the obligation"
 04267530,ALERE UK HOLDINGS LIMITED,,GBP,,,misread,2026-08-14,93,Abbott group (US dollar) pension note; no UK figure
 03536032,CBRE LIMITED,,GBP,,,misread,2026-08-07,68,"Both schemes bought out in 2025: obligation nil, residual assets £1.6m and £1.0m"
+00576970,NUFFIELD HEALTH,2025-12-31,GBP,299.5,292.5,group,2026-07-07,62,Group pension funds at 31 Dec 2025 (£m): PLAS 291.1 (289.4 funded + 1.7 unfunded) / 282.1 and Aspen 8.4 / 10.4; retirement healthcare (1.9) left out. Columns cross-checked against totals 301.4 / 292.5
+00002065,LLOYDS BANK PLC,2025-12-31,GBP,26571.0,29183.0,group,2026-03-19,100,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00027173,COCA-COLA EUROPACIFIC PARTNERS GREAT BRITAIN LIMITED,2025-12-31,GBP,758.325,791.102,group,2026-07-06,42,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00099064,Royal London Mutual Insurance Society Limited (The),2025-12-31,GBP,1998.0,2132.0,group,2026-06-18,187,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00103709,UNISYS LIMITED,2025-12-31,GBP,779.565,708.344,group,2026-10-27,50,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00111982,NATIONAL FARMERS UNION MUTUAL INSURANCE SOCIETY LIMITED(THE),2025-12-31,GBP,549.0,1031.0,group,2026-08-25,191,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00191285,REXAM LIMITED,2025-12-31,GBP,1303.0,1321.0,group,2026-09-28,33,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00293262,ASSOCIATED BRITISH FOODS PLC,2025-09-13,GBP,2034.0,3601.0,group,2025-12-19,188,Figures confirmed on the review page 2026-11-16: UK schemes
+00358949,Wm Morrison Supermarkets Limited,2025-10-26,GBP,810.0,905.0,group,2026-08-12,47,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00366054,Wittington Investments Limited,2025-09-13,GBP,2417.0,4038.0,group,2026-04-13,41,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00444359,TUI AIRWAYS LIMITED,2025-09-30,GBP,1012.0,1092.0,group,2026-03-13,64,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00471864,Northern Foods Limited,2025-07-26,GBP,771.309,631.003,group,2026-06-06,43,Figures confirmed on the review page 2026-11-16: Funded 771.3 plus unfunded 0.1
+00573951,CUMMINS LTD.,2025-12-31,GBP,805.688,800.925,group,2026-08-14,48,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00575914,XEROX LIMITED,2025-12-31,GBP,1818.0,1909.0,group,2026-10-01,44,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00912182,MOTOROLA SOLUTIONS UK LIMITED,2025-12-31,GBP,722.0,832.9,group,2026-07-31,31,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00929027,National Westminster Bank Public Limited Company,2025-12-31,GBP,24765.0,29614.0,group,2026-06-03,116,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00984275,MERCER LIMITED,2025-12-31,GBP,997.0,1313.0,group,2026-04-29,67,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+01002607,SELLAFIELD LIMITED,2026-03-31,GBP,2043.74,2845.378,group,2026-10-07,58,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+01387437,CARGILL PLC,2025-05-31,GBP,634.13,765.512,group,2025-12-03,46,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+01507274,Marsh Limited,2025-12-31,GBP,2734.0,3516.0,group,2026-05-01,64,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+01611136,KIER LIMITED,2025-06-30,GBP,694.3,763.0,group,2025-12-28,52,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+01777777,BRITISH AIRWAYS PLC,2025-12-31,GBP,16338.0,18116.0,group,2026-06-04,121,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+01991017,HEATHROW AIRPORT LIMITED,2025-12-31,GBP,2474.0,2490.0,group,2026-04-10,150,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+02128710,Howden Joinery Group Plc,2025-12-27,GBP,797.4,789.6,group,2026-06-04,192,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+02143253,ARLA FOODS LIMITED,2025-12-31,GBP,712.6,776.5,group,2026-09-11,65,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+02264251,NUCLEAR RESTORATION SERVICES LIMITED,2025-03-31,GBP,1985.131,2238.263,group,2026-02-24,53,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+02295324,Anglo American Services (Uk) Ltd,2025-12-31,GBP,767.768,945.653,group,2026-10-05,51,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+02366686,SEVERN TRENT WATER LIMITED,2026-03-31,GBP,1719.0,1698.0,group,2026-08-10,189,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+02710846,SYNGENTA LIMITED,2025-12-31,GBP,1211.0,1369.0,group,2026-10-07,41,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+02937724,AXA UK PLC,2025-12-31,GBP,3267.0,3340.0,group,2026-05-08,66,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+03033654,CENTRICA PLC,2025-12-31,GBP,5901.0,5606.0,group,2026-06-10,186,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+03076445,EDF ENERGY NUCLEAR GENERATION LIMITED,2025-12-31,GBP,4906.0,5456.0,group,2026-07-21,60,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+03155567,NATS LIMITED,2026-03-31,GBP,3070.0,3168.0,group,2026-08-13,39,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+03476201,Northern Powergrid Holdings Company,2025-12-31,GBP,878.5,974.7,group,2026-06-08,112,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+03679296,AEGON UK PLC,2025-12-31,GBP,786.1,896.9,group,2026-05-26,111,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+03780764,Abb Limited,2025-12-31,GBP,735.216,798.306,group,2026-04-24,53,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+03892782,RWE GENERATION UK PLC,2025-12-31,GBP,819.0,979.0,group,2026-06-28,59,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+04077975,SOPRA STERIA LIMITED,2025-12-31,GBP,890.99,942.178,group,2026-06-19,78,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+04178808,WINCANTON LIMITED,2025-12-31,GBP,686.1,766.5,group,2026-10-08,61,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+04402220,NETWORK RAIL LIMITED,2026-03-31,GBP,8423.0,9589.0,group,2026-08-05,221,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+04992207,G4s Limited,2025-12-31,GBP,1664.0,1694.0,group,2026-08-21,90,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+06234510,Mgl2 Limited,2025-12-31,GBP,795.2,747.854,group,2026-09-22,39,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+06270876,Reckitt Benckiser Group Plc,2025-12-31,GBP,813.0,1039.0,group,2026-07-07,172,"Figures confirmed on the review page 2026-11-16: UK column (funded 813 / assets 1,039); overseas plans left out"
+07373289,Schlumberger Uk Limited,2025-12-31,GBP,899.0,1096.0,group,2026-07-05,38,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+10142224,Natwest Holdings Limited,2025-12-31,GBP,25572.0,30558.0,group,2026-06-03,114,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+NI026041,Northern Ireland Electricity Networks Limited,2025-12-31,GBP,769.2,814.3,group,2026-04-09,75,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+OC300001,ERNST & YOUNG LLP,2025-06-27,GBP,1165.0,1053.0,group,2026-03-15,42,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+SC095000,Lloyds Banking Group Plc,2025-12-31,GBP,26571.0,29183.0,group,2026-03-02,248,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+SC218813,HBOS PLC,2025-12-31,GBP,9257.0,9966.0,group,2026-03-20,41,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00026077,DELTA LIMITED,2025-12-27,GBP,329.7,350.3,group,2026-10-26,27,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00029423,WHITBREAD GROUP PLC,2026-02-26,GBP,1614.0,1745.9,group,2026-08-25,86,Figures entered on the review page 2026-11-16: Decimals from the balance table
+00030470,COBHAM LIMITED,2024-12-31,GBP,460.5,473.7,group,2025-05-27,30,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00061625,BARNARDO'S,2025-03-31,GBP,534.047,504.857,group,2025-12-31,115,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00096056,Fujitsu Services Limited,2025-03-31,GBP,3067.8,3140.1,group,2025-10-28,61,"Figures entered on the review page 2026-11-16: Decimals: 3,067.8 / 3,140.1; net asset 72.3"
+00100674,ROCHE PRODUCTS LIMITED,2025-12-31,GBP,627.003,677.917,group,2026-10-06,34,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00103881,AIR PRODUCTS PUBLIC LIMITED COMPANY,2025-09-30,GBP,646.874,758.944,group,2026-05-04,43,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00148545,PEUGEOT MOTOR COMPANY PLC,2024-12-31,GBP,392.788,509.424,group,2025-07-07,33,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00199171,"KELLOGG COMPANY OF GREAT BRITAIN,LIMITED",2024-12-28,GBP,406.51,415.42,group,2025-12-12,38,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00217768,ETERNIT UK LIMITED,2025-12-31,GBP,420.934,459.402,group,2026-09-29,24,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00235446,FORD MOTOR COMPANY LIMITED,2025-12-31,GBP,7292.0,8779.0,group,2026-09-30,80,"Figures entered on the review page 2026-11-16: Assets at 31 December are 8,779; the reader took the 1 January figure; surplus 1,487"
+00245717,Holcim Uk Limited,2025-12-31,GBP,392.979,394.992,group,2026-09-14,63,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00267687,WEETABIX LIMITED,2025-09-30,GBP,323.935,408.146,group,2026-07-11,49,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00290577,JANUS HENDERSON ADMINISTRATION UK LIMITED,2025-12-31,GBP,447.2,503.5,group,2026-07-12,41,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00308676,KIMBERLY - CLARK LIMITED,2024-12-31,GBP,742.279,733.983,group,2025-10-30,51,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00347103,ARRIVA LIMITED,2025-12-31,GBP,492.249,536.85,group,2026-10-07,50,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00398071,NOVARTIS UK LIMITED,2025-12-31,GBP,299.9,398.2,group,2026-07-12,46,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00406809,RAYTHEON SYSTEMS LIMITED,2025-12-31,GBP,339.976,350.331,group,2026-07-12,34,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00434982,KELLANDS (HOLDINGS) LIMITED,,GBP,,,misread,2026-09-29,23,"Figure misread on the review page 2026-11-16: The £340m and £220m are interest on scheme assets and liabilities in whole pounds, not balances"
+00548648,INDEPENDENT TELEVISION NEWS LIMITED,2025-12-31,GBP,347.2,239.7,group,2026-05-29,44,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00550926,TYCO ELECTRONICS UK LTD,2025-09-30,GBP,355.303,385.323,group,2026-07-10,36,Figures confirmed on the review page 2026-11-16: Group figures (company figures 339.2 / 370.5 on the next page)
+00559693,ITW LIMITED,2025-12-31,GBP,359.31,521.877,group,2026-07-07,67,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00561597,J C Bamford Excavators Limited,2025-12-31,GBP,660.6,598.3,group,2026-10-02,29,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00576777,UNIPART GROUP LIMITED,2025-12-31,GBP,475.5,370.3,group,2026-08-24,48,Figures entered on the review page 2026-11-16: Group figures (the reader mixed group assets with company obligation)
+00733503,TRAVIS PERKINS TRADING COMPANY LIMITED,2025-12-31,GBP,644.7,739.8,group,2026-06-08,37,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00741598,IBM UNITED KINGDOM LIMITED,2025-12-31,GBP,5061.9,5880.6,group,2026-08-03,86,Figures entered on the review page 2026-11-16: Decimals from the balance table
+00842846,SODEXO LIMITED,2025-08-31,GBP,441.535,473.314,group,2026-05-29,,Figures confirmed on the review page 2026-11-16: Read from the note in the tagged filing; matches the tagged net
+01003142,ROLLS-ROYCE PLC,2025-12-31,GBP,4256.0,4512.0,group,2026-03-15,90,"Figures entered on the review page 2026-11-16: Funded 4,237 (UK 4,040 + overseas 197) + unfunded 19; assets 4,512"
+01017013,SMURFIT WESTROCK UK LTD,2025-12-31,GBP,505.336,508.163,group,2026-09-10,72,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+01264300,CANON (UK) LIMITED,2025-12-31,GBP,793.416,913.356,group,2026-08-07,45,"Figures entered on the review page 2026-11-16: Two schemes: 627,914/723,296 and 165,502/190,060 (£'000); the reader took the first only"
+01393773,Costain Group Plc,2025-12-31,GBP,491.0,551.0,group,2026-05-31,145,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+01470151,Bae Systems Plc,2025-12-31,GBP,15827.0,17356.0,uk_plans,2026-06-26,185,Figures entered on the review page 2026-11-16: IAS 19 UK schemes at 31 Dec 2025 (page 188-192); the reader took the March 2024 funding valuation
+01471587,VODAFONE LIMITED,2025-03-31,GBP,2515.4,2635.5,group,2025-12-31,56,Figures entered on the review page 2026-11-16: Decimals from the balance table
+01501573,GALLAHER LIMITED,2025-12-31,GBP,894.7,1211.2,group,2026-09-11,48,"Figures entered on the review page 2026-11-16: Funded 871.5 + unfunded 23.2; assets 1,211.2"
+01676637,Newsquest Media Group Limited,2025-12-31,GBP,432.879,497.737,group,2026-09-10,38,Figures entered on the review page 2026-11-16: Total of both schemes (£'000)
+01996687,BAE SYSTEMS (OPERATIONS) LIMITED,2025-12-31,GBP,9113.0,10022.0,group,2026-07-27,43,Figures entered on the review page 2026-11-16: Company's share of the schemes at 31 Dec 2025 (page 45-47); the reader took the funding valuation
+02100855,The Go-Ahead Group Limited,2025-12-31,GBP,488.0,541.8,group,2026-09-24,70,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+02150950,HAYS PLC,2025-06-30,GBP,451.3,451.3,group,2026-01-03,198,Figures confirmed on the review page 2026-11-16: Full buy-in: assets equal the obligation at 30 June 2025
+02215767,VEOLIA ENVIRONMENTAL SERVICES GROUP (UK) LIMITED,2025-12-31,GBP,366.1,426.722,group,2026-10-14,95,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+02235994,ALSTOM ENGINEERING AND SERVICES LIMITED,2026-03-31,GBP,1008.0,1165.9,group,2026-08-10,62,Figures entered on the review page 2026-11-16: Decimals from the balance table
+02331516,ELECTROLUX PLC,2025-12-31,GBP,343.9,397.0,group,2026-07-01,36,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+02366633,WESSEX WATER LIMITED,2026-06-30,GBP,528.4,556.4,group,2026-09-28,80,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+02366703,NORTHUMBRIAN WATER LIMITED,2025-03-31,GBP,715.8,689.5,group,2025-09-08,136,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+02440829,COSTAIN ENGINEERING & CONSTRUCTION LIMITED,2025-12-31,GBP,490.996,550.988,group,2026-05-10,35,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+02448457,MERCEDES-BENZ UK LIMITED,2025-12-31,GBP,246.167,330.143,group,2026-08-21,45,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+02462001,EUROSTAR INTERNATIONAL LIMITED,2025-12-31,GBP,526.3,609.4,group,2026-06-20,52,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+02481991,VEOLIA ES (UK) LIMITED,2025-12-31,GBP,327.854,361.907,group,2026-10-06,73,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+02504868,TYCO HOLDINGS (U.K.) LIMITED,2025-09-30,GBP,520.512,534.943,group,2026-07-14,30,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+02506007,Pladis (Uk) Limited,2025-12-31,GBP,1322.3,1414.6,group,2026-09-21,48,Figures entered on the review page 2026-11-16: Decimals from the balance table
+02590042,PORT OF FELIXSTOWE LIMITED,2025-12-31,GBP,455.463,546.27,group,2026-09-02,59,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+02650571,NOKIA UK LIMITED,2025-12-31,GBP,431.67,608.61,group,2026-10-15,43,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+02742969,GENOME RESEARCH LIMITED,2025-09-30,GBP,240.0,348.2,group,2026-03-03,47,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+02880853,Sandvik Holdings Limited,2025-12-31,GBP,350.269,373.875,group,2026-08-07,29,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+03116767,SAMWORTH BROTHERS LIMITED,2025-12-27,GBP,395.152,286.611,group,2026-09-28,,Figures confirmed on the review page 2026-11-16: Read from the note in the tagged filing; matches the tagged net
+03342369,C&J Clark (No 1) Limited,2025-12-31,GBP,734.6,729.0,group,2026-04-18,76,Figures entered on the review page 2026-11-16: Total of both schemes at the end of 2025; the reader took the larger one only
+03407696,BRITISH AMERICAN TOBACCO P.L.C.,2025-12-31,GBP,5614.0,6175.0,uk_plans,2026-04-27,298,"Figures entered on the review page 2026-11-16: UK: funded 5,266 + unfunded 348 = 5,614 (present value at 31 Dec); assets 6,175"
+03531467,AT&T ISTEL,2024-12-31,GBP,349.884,374.739,group,2025-10-02,35,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+03580629,Inchcape International Holdings Limited,2025-12-31,GBP,472.015,499.133,group,2026-09-30,24,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+03767075,SABIC UK PETROCHEMICALS LIMITED,2025-12-31,GBP,336.9,351.7,group,2026-09-28,45,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+03796233,QINETIQ LIMITED,2026-03-31,GBP,1153.6,1208.0,group,2026-08-04,52,Figures entered on the review page 2026-11-16: Decimals from the balance table
+03809903,KEYSIGHT TECHNOLOGIES UK LIMITED,2025-10-31,GBP,354.8,357.6,group,2026-07-17,60,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+03834125,DE LA RUE LIMITED,2026-03-28,GBP,615.2,599.8,group,2026-09-28,94,Figures entered on the review page 2026-11-16: Funded 610.8 + unfunded 4.4; assets 599.8
+03870587,PHINIA DELPHI UK LTD,2024-12-31,GBP,605.176,552.174,group,2025-10-04,39,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+03909886,SCHRODERS LIMITED,2025-12-31,GBP,505.3,631.4,group,2026-03-15,145,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+04031152,NATIONAL GRID PLC,2026-03-31,GBP,9370.0,10441.0,uk_plans,2026-07-27,187,"Figures entered on the review page 2026-11-16: UK column: funded 9,319 + unfunded 51; assets 10,441; net 1,071 (US plans left out)"
+04551498,MITCHELLS & BUTLERS PLC,2025-09-27,GBP,1013.0,1123.0,group,2026-02-26,176,"Figures entered on the review page 2026-11-16: Funded 991 + MABETUS unfunded 22; assets 1,123"
+04556216,DU PONT (U.K.) LIMITED,2025-12-31,GBP,565.697,602.677,group,2026-07-24,47,"Figures entered on the review page 2026-11-16: Main scheme 561,743/598,089 plus other 3,954/4,588 (£'000)"
+04639064,Rodart Holdings Limited,2025-06-30,GBP,524.0,619.0,group,2026-09-27,44,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+04736639,Amey Uk Limited,2025-12-31,GBP,601.476,610.799,group,2026-07-15,173,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+04806503,Parker Hannifin Manufacturing Limited,2025-06-30,GBP,279.195,351.604,group,2026-04-10,33,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+05160050,PREMIER FOODS PLC,2026-03-28,GBP,2562.9,3064.7,group,2026-07-28,157,Figures entered on the review page 2026-11-16: Decimals from the balance table
+05379716,TOWERS WATSON LIMITED,2025-12-31,GBP,331.706,399.667,group,2026-07-09,71,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+06038090,P&O FERRIES DIVISION HOLDINGS LIMITED,2025-12-31,GBP,379.5,281.3,group,2026-10-12,115,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+07497036,Ivy Holdco Limited,2025-12-31,GBP,315.6,389.8,group,2026-04-29,132,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+08860726,Informa Plc,2025-12-31,GBP,401.4,461.5,group,2026-07-13,192,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+09800044,Melrose Industries Plc,2025-12-31,GBP,606.0,579.0,group,2026-04-18,31,"Figures entered on the review page 2026-11-16: Group total at 31 Dec 2025: assets 579, liabilities 606, deficit 27; the reader took a euro column"
+09922632,Ineos Quattro Holdings Limited,2025-12-31,GBP,315.1,355.2,group,2026-07-21,92,Figures entered on the review page 2026-11-16: 2025 block (UK 271.8/297.7 plus European 43.3/57.5); the reader took the 2024 block
+11444019,M&G Plc,2025-12-31,GBP,4338.0,4734.0,group,2026-06-09,226,"Figures entered on the review page 2026-11-16: 2025 block (PSPS, SASPS, M&GGPS); the reader took the 2024 block"
+13047827,Vmed O2 Uk Holdings Limited,2025-12-31,GBP,1341.7,1429.0,group,2026-05-31,167,"Figures entered on the review page 2026-11-16: Funded 1,339.2 + unfunded 2.5; assets 1,429.0"
+FC012875,"UNITED AIRLINES, INC.",,GBP,,,misread,2026-06-17,80,"Figure misread on the review page 2026-11-16: US plan (projected benefit obligation, US dollars); no UK figure"
+NI054463,NORTHERN IRELAND WATER LIMITED,2025-03-31,GBP,243.791,322.586,group,2026-01-08,268,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+OC323571,CLIFFORD CHANCE LLP,2025-04-30,GBP,487.0,430.0,group,2025-12-23,53,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+R0000568,NORTHERN BANK LIMITED,2025-12-31,GBP,678.401,686.426,group,2026-04-09,128,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+SC101959,ROSYTH ROYAL DOCKYARD LIMITED,2026-03-31,GBP,562.229,532.653,group,2026-10-01,53,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+SC117119,SSE PLC,2026-03-31,GBP,2258.1,2717.9,group,2026-08-03,207,"Figures entered on the review page 2026-11-16: Assets are both schemes (2,285.5 + 432.4); surplus 459.8 checks"
+SC268758,CHIVAS BROTHERS LIMITED,2025-06-30,GBP,421.351,365.308,group,2026-04-01,68,"Figures entered on the review page 2026-11-16: Total including unfunded arrangements 11,864 and 980 (£'000)"
+ZC000195,ASSOCIATED BRITISH PORTS,2025-12-31,GBP,423.1,429.5,group,2026-04-27,87,"Figures entered on the review page 2026-11-16: Main scheme 336.7 + unfunded 1.4 / 361.6, plus second scheme 85.0 / 67.9"
+reg:oscr:SC005336,University Of Edinburgh,2025-07-31,GBP,399.1,395.3,main_scheme,,,"Figures entered on the review page 2026-11-16: EUSBS at 31 July 2025, page 101 of the annual report; total assets 395.3"
+02223191,Nsk Europe Ltd,2025-03-31,GBP,296.851,284.799,group,2025-11-07,73,"Figures entered on the review page 2026-11-16: Year to 31 March 2025: 289,388 + 7,463 unfunded / 284,799; the reader took 2024 assets"
+05965116,Peel Ports Group Limited,2025-03-31,GBP,320.6,313.6,group,2025-12-31,82,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+08217766,VESUVIUS PLC,2025-12-31,GBP,287.9,319.3,uk_plans,2026-07-08,190,Figures entered on the review page 2026-11-16: UK plan: funded 286.9 + unfunded 1.0 / 319.3; overseas plans left out
+00592235,AVON COSMETICS LIMITED,2024-12-31,GBP,221.979,318.846,group,2025-12-30,73,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+04917650,Time Warner London Limited,2025-12-31,GBP,289.657,315.161,group,2026-08-26,33,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00024869,ECCLESIASTICAL INSURANCE OFFICE PUBLIC LIMITED COMPANY,2025-12-31,GBP,207.142,307.502,group,2026-06-01,120,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+13810960,Cambridge Retail Group Holding Limited,2026-01-03,GBP,261.4,305.1,group,2026-08-26,73,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00081701,NEWS CORP UK & IRELAND LIMITED,2025-06-29,GBP,252.846,301.659,group,2026-04-13,46,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+02110620,PPG INDUSTRIES (UK) LIMITED,2025-12-31,GBP,244.75,297.767,group,2026-10-02,32,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00880328,AECOM INFRASTRUCTURE & ENVIRONMENT UK LIMITED,2025-10-03,GBP,293.452,241.657,group,2026-02-07,88,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00053688,Signature Aviation Limited,2025-12-31,GBP,289.018,274.921,group,2026-08-15,40,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+02442568,Belron International Limited,2025-12-31,GBP,207.478,283.174,group,2026-09-11,58,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00434724,REXEL UK LIMITED,2025-12-31,GBP,280.092,275.898,group,2026-09-29,57,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00215496,HENKEL LIMITED,2025-12-31,GBP,222.375,278.088,group,2026-08-20,56,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+05167070,NORTHERN GAS NETWORKS LIMITED,2026-03-31,GBP,276.768,276.627,group,2026-08-14,86,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+05046791,WALES & WEST UTILITIES LIMITED,2026-03-31,GBP,274.2,272.9,group,2026-08-14,99,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+02667012,EDMUNDSON ELECTRICAL LIMITED,2025-12-31,GBP,221.614,271.986,group,2026-09-30,33,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+01811435,CHANNEL TUNNEL GROUP LIMITED(THE),2024-12-31,GBP,221.773,271.665,group,2026-01-08,39,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00141748,EXPRESS NEWSPAPERS,2025-12-31,GBP,241.766,268.625,group,2026-09-22,32,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+03690830,Luxfer Holdings Plc,2025-12-31,GBP,213.3,268.2,group,2026-05-11,114,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+02695034,EVONIK UK HOLDINGS LIMITED,2024-12-31,GBP,262.612,266.963,group,2025-09-26,29,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00008848,BRITISH MEDICAL ASSOCIATION,2025-12-31,GBP,237.275,266.279,group,2026-08-10,70,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+03496361,KEEP BRITAIN TIDY,2026-03-31,GBP,25.24,24.464,group,2026-10-30,54,"Figures entered on the review page 2026-11-16: Two schemes at 31 March 2026: 11,598+13,642 / 13,231+11,233 (whole £); the reader took a movement line"
+00236383,The Economist Newspaper Limited,2026-03-31,GBP,250.933,263.847,group,2026-07-25,115,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+03298903,Greene King Brewing And Retailing Limited,2026-01-04,GBP,216.7,261.5,group,2026-07-26,55,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00499821,Hickson International Limited,2024-12-31,GBP,210.93,261.281,group,2025-11-20,30,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00106725,HOTPOINT UK APPLIANCES LIMITED,2024-12-31,GBP,260.301,260.584,group,2025-09-25,54,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+02186119,GEORGIA-PACIFIC GB LIMITED,2025-12-31,GBP,223.18,260.373,group,2026-08-21,34,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00182037,PITNEY BOWES LIMITED,2025-12-31,GBP,254.934,237.759,group,2026-09-28,45,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+03007939,THE CHILTERN RAILWAY COMPANY LIMITED,2025-03-31,GBP,218.772,254.095,group,2025-12-24,46,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+reg:co:royal-college-of-nursing-of-the-united-kingdom-information-held-by-the-certification-officer,Royal College of Nursing of the United Kingdom,2025,GBP,219.36,253.521,group,,,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+SC102969,UPM-KYMMENE (UK) LIMITED,2024-12-31,GBP,252.805,227.673,group,2025-12-15,41,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+03691883,NORCROS PLC,2026-03-31,GBP,252.1,252.5,group,2026-08-25,196,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00324340,Linde Material Handling (Uk) Limited,2025-12-31,GBP,189.4,251.96,group,2026-06-05,37,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+01552113,KIN AND CARTA HOLDCO LIMITED,2024-12-31,GBP,233.836,250.617,group,2025-12-30,30,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00733218,MCCAIN FOODS (G.B.) LIMITED,2025-06-30,GBP,234.213,249.209,group,2026-04-11,43,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00129806,STELLANTIS &YOU UK LIMITED,2024-12-31,GBP,190.014,246.437,group,2026-03-11,34,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+SC036374,THE EDRINGTON GROUP LIMITED,2026-03-31,GBP,241.5,246.1,group,2026-09-03,78,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00305189,BAM NUTTALL LIMITED,2025-12-31,GBP,219.417,241.168,group,2026-06-05,63,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+02622111,Pirelli Uk Tyres Limited,2025-12-31,GBP,221.997,241.055,group,2026-09-11,65,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+01171833,LABCORP EARLY DEVELOPMENT LABORATORIES LIMITED,2025-12-31,GBP,210.982,240.35,group,2026-10-01,36,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+reg:ccew:209603,THE ROYAL NATIONAL LIFEBOAT INSTITUTION,2025-12-31,GBP,238.1,235.8,group,,,Figures entered on the review page 2026-11-16: Funded 235.8 + unfunded 2.3 / assets 235.8
+05803359,FUJIFILM DIOSYNTH BIOTECHNOLOGIES UK LIMITED,2025-03-31,GBP,175.7,231.1,group,2025-08-18,41,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+02154540,POST OFFICE LIMITED,2025-03-30,GBP,173.0,231.0,group,2025-12-30,142,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+08804263,SAGA PLC,2026-01-31,GBP,229.5,204.1,group,2026-07-24,39,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00282772,SENIOR AEROFLOW TECHNOLOGIES LIMITED,2025-12-31,GBP,172.7,196.0,uk_plans,2026-06-17,176,Figures entered on the review page 2026-11-16: UK plans of the Senior plc table; US and other plans left out
+00481574,Marshalls Group Limited,2025-12-31,GBP,200.908,225.855,group,2026-09-10,40,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+04212563,WILLIAM HILL LIMITED,2024-12-31,GBP,225.1,225.3,group,2025-07-08,60,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+01128160,CHRISTIE MANSON & WOODS LIMITED,2025-12-31,GBP,225.039,222.744,group,2026-09-03,39,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00060987,THE BSS GROUP LIMITED,2025-12-31,GBP,202.4,222.2,group,2026-06-08,35,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+01070807,MEDTRONIC LIMITED,2025-04-25,GBP,97.276,219.419,group,2026-02-02,39,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00367090,FINNING (UK) LTD.,2025-12-31,GBP,203.496,218.713,group,2026-06-29,77,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+01480047,BERENDSEN LIMITED,2025-12-31,GBP,204.4,212.5,group,2026-09-15,22,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00615548,NALCO LIMITED,2025-11-30,GBP,170.214,212.295,group,2026-07-24,33,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00082932,RENAULT U.K. LIMITED,2025-12-31,GBP,195.007,210.035,group,2026-06-04,41,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+03004959,INVESCO UK LIMITED,2025-12-31,GBP,195.184,207.888,group,2026-04-25,56,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+03818176,YARA UK LIMITED,2025-12-31,GBP,173.216,207.183,group,2026-09-22,49,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+03548809,SAFRAN LANDING SYSTEMS UK LTD,2025-12-31,GBP,184.603,206.72,group,2026-10-02,36,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+reg:oscr:SC011353,The Church of Scotland,,GBP,234.827,271.887,group,,,"Figures entered on the review page 2026-11-16: All four schemes: obligations 234,827 / assets 271,887 (£'000); the reader took the first scheme only"
+02999826,BABCOCK RAIL LIMITED,2026-03-31,GBP,206.161,198.644,group,2026-08-19,50,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00350729,BRITISH POLYTHENE LIMITED,2025-09-30,GBP,204.3,194.8,group,2026-06-25,44,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00775598,OXFORD INSTRUMENTS PLC,2026-03-31,GBP,197.0,204.1,group,2026-09-07,227,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00775276,LUBRIZOL LIMITED,2025-12-31,GBP,163.808,201.154,group,2026-10-06,38,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00321643,FREEMANS PUBLIC LIMITED COMPANY,2026-02-28,GBP,180.7,200.4,group,2026-09-02,36,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00734396,Saint-Gobain Construction Products Uk Limited,2025-12-31,GBP,176.806,198.454,group,2026-10-26,69,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+01199255,ASTON MARTIN LAGONDA LIMITED,2025-12-31,GBP,185.1,197.2,group,2026-08-20,67,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00091891,IDEAL STANDARD (UK) LIMITED,2025-12-31,GBP,172.92,196.798,group,2026-09-02,38,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+SC027389,HARPERCOLLINS PUBLISHERS LIMITED,2025-06-30,GBP,170.572,195.102,group,2026-03-16,36,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+01378137,Bmw (Uk) Limited,2025-12-31,GBP,177.952,194.565,group,2026-09-10,48,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+01019474,RYDER LIMITED,2024-12-31,GBP,192.99,191.275,group,2025-12-23,,Figures confirmed on the review page 2026-11-16: Read from the note in the tagged filing; matches the tagged net
+00291646,GUIDE DOGS FOR THE BLIND ASSOCIATION(THE),2025-12-31,GBP,174.3,191.5,group,2026-08-28,91,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+01933173,UPS LIMITED,2024-12-31,GBP,151.029,190.78,group,2025-12-17,53,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00029131,ALLEGION (UK) LIMITED,2025-12-31,GBP,161.7,189.9,group,2026-07-15,32,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00530589,TIMET UK LIMITED,2025-12-28,GBP,130.141,187.907,group,2026-10-06,29,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+03443946,SEALED AIR LIMITED,2024-12-31,GBP,174.581,187.78,group,2025-12-04,43,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00249001,GRATTAN PUBLIC LIMITED COMPANY,2026-02-28,GBP,170.1,187.739,group,2026-09-02,35,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+07441672,Greencore Foods Limited,2025-09-26,GBP,186.064,171.748,group,2026-06-27,41,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+03022416,IQVIA LTD.,2025-12-31,GBP,158.78,185.96,group,2026-09-28,74,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+02874626,GROSVENOR LIMITED,2025-12-31,GBP,94.8,185.4,group,2026-10-28,43,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+03830161,MITSUBISHI CHEMICAL UK LIMITED,2025-03-31,GBP,181.1,181.2,group,2026-01-20,52,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+02607081,TATA CHEMICALS EUROPE LIMITED,2025-03-31,GBP,180.967,131.495,group,2025-11-28,46,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+SC131772,WILLIAM GRANT & SONS LIMITED,2024-12-31,GBP,175.23,180.136,group,2025-09-29,38,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+02035315,Sysco Gb Limited,2025-06-29,GBP,193.5,154.8,group,2026-03-13,48,Figures entered on the review page 2026-11-16: Funded 178.8 + unfunded 14.7; assets 154.8
+02594504,JACOBS U.K. LIMITED,2025-09-25,GBP,914.761,973.475,group,2026-06-01,77,Figures entered on the review page 2026-11-16: All schemes in the table (£'000); the reader took the first column only
+00177819,JOHNSON WAX LIMITED,2025-06-30,GBP,126.279,173.206,group,2026-01-27,41,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+02995525,COLAS RAIL LIMITED,2025-12-31,GBP,171.8,159.7,group,2026-07-27,45,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+01148594,RM EDUCATION LTD,2025-11-30,GBP,154.0,171.8,group,2026-07-25,48,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+04227446,Amcor Holding,2025-06-30,GBP,171.149,162.104,group,2026-04-10,37,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+01309629,MITEL NETWORKS LIMITED,2024-12-31,GBP,138.342,170.74,group,2026-01-06,40,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+01188567,JONES LANG LASALLE LIMITED,2025-12-31,GBP,143.876,170.477,group,2026-10-02,64,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+03206792,AETC LIMITED,2025-12-28,GBP,129.926,170.135,group,2026-09-25,29,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+07351242,Mitie Treasury Management Limited,2026-03-31,GBP,152.835,168.331,group,2026-09-21,40,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+SC019230,MITIE GROUP PLC,2026-03-31,GBP,214.1,258.4,group,2026-09-24,207,"Figures entered on the review page 2026-11-16: All Mitie schemes: obligations 152.8+20.3+41.0, assets 168.3+23.0+67.1"
+03263498,A.C. NIELSEN COMPANY LIMITED,2024-12-31,GBP,150.728,167.905,group,2025-10-23,45,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00259569,FMC TECHNOLOGIES LIMITED,2025-12-31,GBP,165.431,167.661,group,2026-09-29,37,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00052665,CLDN PORTS HUMBER LIMITED,2025-12-31,GBP,155.849,166.265,group,2026-07-10,26,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+02159282,CELLTECH GROUP LIMITED,2025-12-31,GBP,165.31,163.616,group,2026-07-24,30,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+reg:fca:19025R,The Midcounties Co-operative Limited,2026-01-24,GBP,163.633,165.168,group,,,"Figures entered on the review page 2026-11-16: Closing obligation 163,633 (page 115) and assets 165,168 (£'000)"
+03857770,SPRINGFIELDS FUELS LIMITED,2025-12-31,GBP,134.998,163.925,group,2026-10-08,47,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00159031,SEDGWICK INTERNATIONAL UK,2025-12-31,GBP,161.023,162.455,group,2026-08-20,46,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00806888,OCS FM LIMITED,2025-12-31,GBP,141.072,160.632,group,2026-10-27,45,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+14112511,Ocs Parco Limited,2025-12-31,GBP,141.072,160.632,group,2026-06-04,104,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00916634,TOYOTA(G.B.) PLC,2026-03-31,GBP,159.07,160.463,group,2026-09-07,39,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+OC306763,ALLEN OVERY SHEARMAN STERLING LLP,2025-04-30,GBP,134.4,160.4,group,2025-11-28,106,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00852702,"BECTON, DICKINSON U.K. LIMITED",2025-09-30,GBP,143.271,159.776,group,2026-07-10,72,"Figures entered on the review page 2026-11-16: Company share of the BD scheme 97,828 plus the Crawley scheme 45,443; assets 159,776; surplus 16,505"
+03486244,Napp Pharmaceutical Holdings Limited,2025-12-31,GBP,158.437,158.437,group,2026-09-15,48,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+05444653,ESSENTRA PLC,2025-12-31,GBP,152.8,157.8,group,2026-05-14,185,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+01144899,URENCO UK LIMITED,2025-12-31,GBP,156.611,157.057,group,2026-05-10,55,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+02063786,NUVIA LIMITED,2025-12-31,GBP,156.155,133.733,group,2026-08-07,37,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00872110,ROCKWELL AUTOMATION LIMITED,2025-09-30,GBP,110.022,153.844,group,2026-07-26,41,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+01188070,Stantec Uk Limited,2025-12-31,GBP,116.348,153.508,group,2026-07-25,61,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00187261,ALFA LAVAL LIMITED,2025-12-31,GBP,148.994,152.307,group,2026-09-25,30,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+reg:ccew:214779,THE SALVATION ARMY,2025-03-31,GBP,150.974,240.454,group,,,"Figures entered on the review page 2026-11-16: Assets 240,454 from the same table (page 103)"
+00244159,AMALGAMATED METAL CORPORATION PLC,2025-12-31,GBP,122.951,150.542,group,2026-05-31,63,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+01285743,EQUINOR UK LIMITED,2024-12-31,GBP,134.716,149.438,group,2025-09-29,59,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+01372978,KONE PUBLIC LIMITED COMPANY,2025-12-31,GBP,137.132,148.898,group,2026-07-17,50,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+reg:co:national-education-union-information-held-by-the-certification-officer,National Education Union,2025,GBP,121.264,147.772,group,,,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+04757301,ACCENTURE (UK) LIMITED,2025-08-31,GBP,145.531,146.901,group,2026-03-15,50,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+reg:oscr:SC013683,University Of Aberdeen,2025-07-31,GBP,136.95,136.574,group,,,Figures entered on the review page 2026-11-16: Current-year figures; the reader took the prior-year end
+03444246,Prs For Music Ltd,2025-12-31,GBP,176.636,163.652,group,2026-05-22,46,"Figures entered on the review page 2026-11-16: Two schemes: 145,384/136,051 and 31,252/27,601 (£'000)"
+00025932,LCH LIMITED,2025-12-31,GBP,141.2,145.2,group,2026-06-01,70,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+SC097647,HIGHLANDS AND ISLANDS AIRPORTS LIMITED,2025-03-31,GBP,144.06,144.233,group,2026-01-06,72,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+01664573,GAM (U.K.) LIMITED,2025-12-31,GBP,128.1,142.642,group,2026-08-09,59,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00139876,UNIVAR SOLUTIONS UK LIMITED,2025-12-31,GBP,140.482,141.932,group,2026-10-09,43,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00405836,WAVIN LIMITED,2025-12-31,GBP,124.986,141.456,group,2026-08-13,53,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+reg:oscr:SC037750,General Medical Council,2023-12-31,GBP,141.618,134.049,group,,,"Figures entered on the review page 2026-11-16: Closing obligation 141,618 and assets 134,049; the year follows the 2022 fall in liabilities (file named 2021)"
+00160996,HENRY BOOT PLC,2025-12-31,GBP,137.682,140.691,group,2026-05-16,218,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+02078273,BIRMINGHAM AIRPORT LIMITED,2026-03-31,GBP,126.451,140.576,group,2026-10-09,44,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00137114,VALE EUROPE LIMITED,2025-12-31,GBP,104.538,139.782,group,2026-10-08,29,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+01040616,CREST NICHOLSON PLC,2025-10-31,GBP,124.8,138.5,group,2026-03-06,47,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+02860799,APTIV SERVICES UK LIMITED,2025-12-31,GBP,122.463,137.755,group,2026-08-18,33,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00315076,AVDEL UK LIMITED,2024-12-31,GBP,112.312,136.812,group,2025-09-29,42,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00279596,NOVELIS UK LTD,2026-03-31,GBP,136.747,133.155,group,2026-11-09,29,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+reg:oscr:SC015096,University Of Dundee,2024-07-31,GBP,134.434,106.673,group,,,"Figures entered on the review page 2026-11-16: Figures are the 2024 report's, not 2021 as the file name suggested"
+reg:oscr:SC013532,University Of St Andrews,2025-07-31,GBP,120.211,134.279,group,,,"Figures entered on the review page 2026-11-16: Figures are the 2025 report's, not 2022 as the file name suggested"
+00936569,CHC SCOTIA LIMITED,2025-04-30,GBP,132.766,76.861,group,2026-07-24,30,"Figures confirmed on the review page 2026-11-16: Cross-checked: obligation, assets and the surplus/deficit line agree on the page"
+00732993,Dpdgroup Uk Ltd,2026-01-04,GBP,122.0,132.765,group,2026-10-05,92,"Figures confirmed on the review page 2026-11-16: Cross-checked: obligation, assets and the surplus/deficit line agree on the page"
+01997219,REACH PRINTING SERVICES (WEST FERRY) LIMITED,2025-12-31,GBP,131.3,130.7,group,2026-09-22,26,"Figures confirmed on the review page 2026-11-16: Cross-checked: obligation, assets and the surplus/deficit line agree on the page"
+00757192,JUNGHEINRICH UK LIMITED,2025-12-31,GBP,121.845,129.868,group,2026-06-03,59,"Figures confirmed on the review page 2026-11-16: Cross-checked: obligation, assets and the surplus/deficit line agree on the page"
+NI001509,NORTHSTONE MATERIALS LIMITED,2024-12-31,GBP,109.027,125.908,group,2026-01-02,53,"Figures confirmed on the review page 2026-11-16: Cross-checked: obligation, assets and the surplus/deficit line agree on the page"
+00271998,INNOVIA FILMS LIMITED,2025-12-31,GBP,124.8,114.676,group,2026-09-03,35,"Figures confirmed on the review page 2026-11-16: Cross-checked: obligation, assets and the surplus/deficit line agree on the page"
+11514365,TELEREAL LIMITED,2025-03-31,GBP,111.75,124.728,group,2025-12-16,55,"Figures confirmed on the review page 2026-11-16: Cross-checked: obligation, assets and the surplus/deficit line agree on the page"
+SC014456,WHYTE AND MACKAY LIMITED,2025-12-31,GBP,113.835,123.691,group,2026-09-27,50,"Figures confirmed on the review page 2026-11-16: Cross-checked: obligation, assets and the surplus/deficit line agree on the page"
+00649192,ECOLAB LIMITED,2025-11-30,GBP,92.878,123.361,group,2026-07-24,34,"Figures confirmed on the review page 2026-11-16: Cross-checked: obligation, assets and the surplus/deficit line agree on the page"
+00082196,SONOCO LIMITED,2024-12-31,GBP,107.941,122.648,group,2025-12-19,35,"Figures confirmed on the review page 2026-11-16: Cross-checked: obligation, assets and the surplus/deficit line agree on the page"
+01132885,KONICA MINOLTA BUSINESS SOLUTIONS (UK) LIMITED,2025-03-31,GBP,95.974,120.273,group,2026-01-15,36,"Figures confirmed on the review page 2026-11-16: Cross-checked: obligation, assets and the surplus/deficit line agree on the page"
+OC323639,Hogan Lovells Cadwalader International Llp,2025-12-31,GBP,111.4,119.6,group,2026-10-19,56,"Figures confirmed on the review page 2026-11-16: Cross-checked: obligation, assets and the surplus/deficit line agree on the page"
+02315380,RAILPEN LIMITED,2025-12-31,GBP,119.097,118.505,group,2026-06-27,39,"Figures confirmed on the review page 2026-11-16: Cross-checked: obligation, assets and the surplus/deficit line agree on the page"
+02461639,Unum European Holding Company Limited,2025-12-31,GBP,118.9,114.2,group,2026-04-26,38,"Figures confirmed on the review page 2026-11-16: Cross-checked: obligation, assets and the surplus/deficit line agree on the page"
+OC303359,MAYER BROWN INTERNATIONAL LLP,2025-04-30,GBP,108.245,117.96,group,2026-01-16,36,"Figures confirmed on the review page 2026-11-16: Cross-checked: obligation, assets and the surplus/deficit line agree on the page"
+00263866,THORN LIGHTING LIMITED,2026-04-30,GBP,117.697,101.637,group,2026-09-01,35,"Figures confirmed on the review page 2026-11-16: Cross-checked: obligation, assets and the surplus/deficit line agree on the page"
+13506213,Metropolitan Gaming Holdco Limited,2025-12-31,GBP,108.027,117.48,group,2026-07-13,40,"Figures confirmed on the review page 2026-11-16: Cross-checked: obligation, assets and the surplus/deficit line agree on the page"
+00405555,WELDING INSTITUTE(THE),2024-12-31,GBP,116.542,105.676,group,2025-10-16,82,"Figures confirmed on the review page 2026-11-16: Cross-checked: obligation, assets and the surplus/deficit line agree on the page"
+05176998,ST ANDREW'S HEALTHCARE,2025-03-31,GBP,113.9,115.8,group,2025-12-29,59,"Figures confirmed on the review page 2026-11-16: Cross-checked: obligation, assets and the surplus/deficit line agree on the page"
+SC015262,MCCORMICK (UK) LIMITED,2025-11-30,GBP,85.377,115.086,group,2026-08-14,42,"Figures confirmed on the review page 2026-11-16: Cross-checked: obligation, assets and the surplus/deficit line agree on the page"
+02459095,ARDAGH METAL PACKAGING UK LIMITED,2025-12-31,GBP,102.863,113.918,group,2026-10-02,36,"Figures confirmed on the review page 2026-11-16: Cross-checked: obligation, assets and the surplus/deficit line agree on the page"
+08815891,AGILENT TECHNOLOGIES LDA UK LIMITED,2025-10-31,GBP,109.6,112.5,group,2026-07-04,49,"Figures confirmed on the review page 2026-11-16: Cross-checked: obligation, assets and the surplus/deficit line agree on the page"
+00133804,Arco Limited,2025-06-30,GBP,112.313,100.685,group,2025-11-12,42,"Figures confirmed on the review page 2026-11-16: Cross-checked: obligation, assets and the surplus/deficit line agree on the page"
+03038418,Unipart Rail Limited,2025-12-31,GBP,95.168,110.69,group,2026-08-24,39,"Figures confirmed on the review page 2026-11-16: Cross-checked: obligation, assets and the surplus/deficit line agree on the page"
+00062904,FORFARMERS UK LIMITED,2025-12-31,GBP,109.898,110.621,group,2026-07-24,65,"Figures confirmed on the review page 2026-11-16: Cross-checked: obligation, assets and the surplus/deficit line agree on the page"
+OC328697,NORTON ROSE FULBRIGHT LLP,2025-12-31,GBP,95.108,109.382,group,2026-07-16,53,"Figures confirmed on the review page 2026-11-16: Cross-checked: obligation, assets and the surplus/deficit line agree on the page"
+02023155,AMARI METALS LIMITED,2025-12-31,GBP,101.077,109.077,group,2026-09-28,46,"Figures confirmed on the review page 2026-11-16: Cross-checked: obligation, assets and the surplus/deficit line agree on the page"
+02245562,BRIT GROUP SERVICES LIMITED,2025-12-31,GBP,88.921,109.041,group,2026-05-21,24,"Figures confirmed on the review page 2026-11-16: Cross-checked: obligation, assets and the surplus/deficit line agree on the page"
+00998314,SIG PLC,2025-12-31,GBP,108.9,92.5,group,2026-05-11,179,"Figures confirmed on the review page 2026-11-16: Cross-checked: obligation, assets and the surplus/deficit line agree on the page"
+02786492,RPC CONTAINERS LIMITED,2025-09-30,GBP,108.2,100.4,group,2026-06-04,32,"Figures confirmed on the review page 2026-11-16: Cross-checked: obligation, assets and the surplus/deficit line agree on the page"
+02662742,SOUTH STAFFORDSHIRE WATER PLC,2026-03-31,GBP,107.32,107.703,group,2026-07-24,197,"Figures confirmed on the review page 2026-11-16: Cross-checked: obligation, assets and the surplus/deficit line agree on the page"
+02281044,VOLVO CAR UK LIMITED,2025-12-31,GBP,99.648,106.291,group,2026-06-18,55,"Figures confirmed on the review page 2026-11-16: Cross-checked: obligation, assets and the surplus/deficit line agree on the page"
+04545813,FUJIFILM SPECIALITY INK SYSTEMS LIMITED,2026-03-31,GBP,91.332,105.929,group,2026-11-03,39,"Figures confirmed on the review page 2026-11-16: Cross-checked: obligation, assets and the surplus/deficit line agree on the page"
+00862823,ENI UK LIMITED,2025-12-31,GBP,87.183,105.893,group,2026-09-22,53,"Figures confirmed on the review page 2026-11-16: Cross-checked: obligation, assets and the surplus/deficit line agree on the page"
+02445665,SUMITOMO ELECTRIC WIRING SYSTEMS (EUROPE) LIMITED,2025-03-31,GBP,88.631,105.575,group,2026-04-15,35,"Figures confirmed on the review page 2026-11-16: Cross-checked: obligation, assets and the surplus/deficit line agree on the page"
+00254941,J.P.MCDOUGALL & CO.LIMITED,2025-12-31,GBP,82.901,105.487,group,2026-11-05,46,"Figures confirmed on the review page 2026-11-16: Cross-checked: obligation, assets and the surplus/deficit line agree on the page"
+OC334789,FRESHFIELDS LLP,2025-04-30,GBP,104.8,96.0,group,2025-12-11,66,"Figures confirmed on the review page 2026-11-16: Cross-checked: obligation, assets and the surplus/deficit line agree on the page"
+02679874,SOUTH EAST WATER LIMITED,2026-03-31,GBP,98.047,104.376,group,2026-10-29,272,"Figures confirmed on the review page 2026-11-16: Cross-checked: obligation, assets and the surplus/deficit line agree on the page"
+01193985,SGS UNITED KINGDOM LIMITED,2025-12-31,GBP,87.321,104.285,group,2026-03-28,36,"Figures confirmed on the review page 2026-11-16: Cross-checked: obligation, assets and the surplus/deficit line agree on the page"
+01975271,IVECO LIMITED,2024-12-31,GBP,103.946,100.632,group,2025-11-28,33,"Figures confirmed on the review page 2026-11-16: Cross-checked: obligation, assets and the surplus/deficit line agree on the page"
+02872512,WDFG UK LIMITED,2025-12-31,GBP,100.987,103.016,group,2026-08-14,69,"Figures confirmed on the review page 2026-11-16: Cross-checked: obligation, assets and the surplus/deficit line agree on the page"
+07044474,Arran Isle Limited,2024-12-31,GBP,95.259,102.804,group,2025-08-11,27,"Figures confirmed on the review page 2026-11-16: Cross-checked: obligation, assets and the surplus/deficit line agree on the page"
+00162925,Rubix Group International Limited,2025-12-31,GBP,100.6,102.4,group,2026-07-25,25,"Figures confirmed on the review page 2026-11-16: Cross-checked: obligation, assets and the surplus/deficit line agree on the page"
+00461365,BAXTER HEALTHCARE LIMITED,2025-12-31,GBP,85.972,102.136,group,2026-10-13,48,"Figures confirmed on the review page 2026-11-16: Cross-checked: obligation, assets and the surplus/deficit line agree on the page"
+02533036,Newbury Investments (Uk) Ltd,2025-12-31,GBP,83.148,101.516,group,2026-09-30,50,"Figures confirmed on the review page 2026-11-16: Cross-checked: obligation, assets and the surplus/deficit line agree on the page"
+01570075,H.W. COATES LIMITED,2025-12-31,GBP,25.364,54.368,group,2026-05-11,41,"Figures confirmed on the review page 2026-11-16: Cross-checked: obligation, assets and the surplus/deficit line agree on the page"
+SC025130,J SMART & CO (CONTRACTORS) P L C,2025-07-31,GBP,23.116,48.9,group,2026-02-05,135,"Figures confirmed on the review page 2026-11-16: Cross-checked: obligation, assets and the surplus/deficit line agree on the page"
+SC126333,INVERESK PLC,2007-12-31,GBP,29.134,37.285,group,2008-12-24,51,"Figures confirmed on the review page 2026-11-16: Cross-checked: obligation, assets and the surplus/deficit line agree on the page"
+02193282,Thompson Investments (London) Limited,2025-09-30,GBP,8.255,20.916,group,2026-08-10,18,"Figures confirmed on the review page 2026-11-16: Cross-checked: obligation, assets and the surplus/deficit line agree on the page"
+02328824,PRINCES GROUP PLC,2025-12-31,GBP,133.77,127.583,group,2026-06-27,137,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+02830117,TUI UK LIMITED,2025-09-30,GBP,125.0,133.0,group,2026-03-13,72,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00209116,SELECTA UK HOLDING LIMITED,2024-12-31,GBP,120.5,132.0,group,2025-09-19,24,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00915392,CLEVELAND POTASH LIMITED,2024-12-31,GBP,129.597,127.441,group,2025-10-06,46,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00051702,DANIEL THWAITES PUBLIC LIMITED COMPANY,2026-03-31,GBP,100.5,128.8,group,2026-08-10,49,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+02372738,LOCKHEED MARTIN UK LIMITED,2025-12-31,GBP,115.196,126.394,group,2026-10-01,49,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00173274,CORNING LIMITED,2025-12-31,GBP,126.141,126.338,group,2026-08-06,40,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00354568,AGEAS INSURANCE LIMITED,2025-12-31,GBP,103.5,126.1,group,2026-09-07,96,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+02688514,MAN TRUCK AND BUS UK LIMITED,2025-12-31,GBP,107.932,124.379,group,2026-07-23,44,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+02444277,FIRST HYDRO COMPANY,2025-12-31,GBP,90.759,121.991,group,2026-10-05,37,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+03918171,LEONI WIRING SYSTEMS U.K. LIMITED,2025-12-31,GBP,121.264,100.098,group,2026-09-08,44,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00203669,CHANEL LIMITED,2025-12-31,GBP,87.6,120.5,group,2026-06-29,183,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+03392504,TIMKEN UK LIMITED,2025-12-31,GBP,119.437,109.989,group,2026-09-22,30,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00329377,FENNER GROUP HOLDINGS LIMITED,2025-12-31,GBP,105.328,118.856,group,2026-08-04,37,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+reg:co:eef-limited-information-held-by-the-certification-officer,EEF Limited,2025,GBP,116.837,105.282,group,,,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00586304,LINTON PARK PUBLIC LIMITED COMPANY,2025-12-31,GBP,113.2,113.3,group,2026-06-24,31,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+01290912,MUNICH RE UK SERVICES LIMITED,2025-12-31,GBP,70.79,112.273,group,2026-09-09,35,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00098677,CRANE LIMITED,2025-12-31,GBP,75.707,111.538,group,2026-10-05,35,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+06825798,AGE UK,2025-03-31,GBP,99.99,111.378,group,2025-12-27,81,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+03200432,LOOMIS UK LIMITED,2024-12-31,GBP,95.842,108.449,group,2025-10-07,48,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+14627594,Rsm Uk Holdings Limited,2025-03-31,GBP,104.5,107.2,group,2025-12-04,106,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+03452689,GATE GOURMET LONDON LIMITED,2025-12-31,GBP,83.965,106.756,group,2026-10-06,31,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00250915,TENNANTS CONSOLIDATED LIMITED,2025-12-31,GBP,94.161,106.396,group,2026-07-26,37,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+03019950,TATA CONSUMER PRODUCTS GB LIMITED,2025-03-31,GBP,102.5,103.3,group,2025-11-19,43,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+SC008349,LOW & BONAR LIMITED,2025-12-31,GBP,102.751,100.511,group,2026-09-22,25,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00075035,HOLMEN BOARD AND PAPER LIMITED,2025-12-31,GBP,82.918,99.085,group,2026-09-17,40,"Figures entered on the review page 2026-11-16: Assets 99,085 (scan read 29,085); surplus 16,167 checks"
+reg:co:communication-workers-union-information-held-by-the-certification-officer,Communication Workers Union,,GBP,86.566,83.469,group,,,"Figures entered on the review page 2026-11-16: Closing obligation 86,566 and gross assets 83,469 (£'000)"
+reg:fca:233B,Newcastle Building Society,2025-12-31,GBP,64.9,66.8,group,,,Figures entered on the review page 2026-11-16: Total value of assets 66.8 (surplus not recognised)
+00368850,H.K. WENTWORTH LIMITED,,GBP,,,misread,2026-08-21,106,Figure misread on the review page 2026-11-16: US-dollar group plan table; no UK figure
+00972252,ROCKWOOL LIMITED,2025-12-31,GBP,46.213,45.303,group,2026-08-06,39,Figures entered on the review page 2026-11-16: Balance table (£'000)
+04204705,Le Bas Limited,2025-03-31,GBP,18.48,45.3,group,2026-01-03,56,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00513537,TEKTRONIX U.K.LIMITED,2025-12-31,GBP,38.208,42.769,group,2026-10-07,32,Figures entered on the review page 2026-11-16: Balance table (£'000)
+00377361,People's Partnership Holdings Limited,2026-03-31,GBP,41.472,47.909,group,2026-09-18,51,"Figures entered on the review page 2026-11-16: Balance table; surplus 6,437"
+02657253,Textron Limited,2024-12-31,GBP,12.245,36.484,group,2026-01-08,23,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00613551,JOHN DEWAR AND SONS LIMITED,2025-03-31,GBP,35.107,44.289,group,2025-12-29,41,"Figures entered on the review page 2026-11-16: Liabilities 35,107 and assets at end of year 44,289 (£'000)"
+00160314,DEWHURST GROUP LIMITED,2025-09-30,GBP,31.986,38.948,group,2026-06-24,28,"Figures entered on the review page 2026-11-16: Obligation 31,986; surplus 6,962; assets 38,948"
+reg:co:university-and-college-union-information-held-by-the-certification-officer,University and College Union,2025-08-31,GBP,25.013,29.745,group,,,Figures entered on the review page 2026-11-16: At 31 August 2025 (£'000)
+FC000365,BANK OF MONTREAL,,GBP,,,misread,2026-03-09,197,Figure misread on the review page 2026-11-16: Bank of Montreal group plans in Canadian dollars; no UK figure
+06102611,Pcc Uk Global Holdings Limited,,GBP,,,misread,2026-09-16,70,Figure misread on the review page 2026-11-16: US group plan table in dollars; no UK figure
+05139966,VISA EUROPE LIMITED,,GBP,,,misread,2025-12-22,173,Figure misread on the review page 2026-11-16: US and non-US group plans in dollars; no UK figure
+01810707,CONTROL RISKS GROUP LIMITED,2025-03-31,GBP,29.116,34.721,group,2025-10-24,40,"Figures entered on the review page 2026-11-16: Balance table; surplus 5,605"
+02116088,NORD ANGLIA EDUCATION LIMITED,2025-08-31,GBP,27.87,28.922,group,2026-06-07,35,"Figures entered on the review page 2026-11-16: Assets 28,922 less net asset 1,052"
+01019995,IRISH FERRIES (U.K.) LIMITED,2025-12-31,GBP,14.166,28.824,group,2026-09-18,32,"Figures entered on the review page 2026-11-16: Balance table; surplus 14,658"
+SC326355,MACTAGGART & MICKEL GROUP LIMITED,2024-04-30,GBP,28.744,28.875,group,2026-02-03,45,"Figures entered on the review page 2026-11-16: Obligation 28,744; surplus 131 restricted"
+00972265,JCB FINANCE LTD,2025-12-31,GBP,23.976,28.588,group,2026-06-24,16,"Figures entered on the review page 2026-11-16: Actuarial liability and assets; surplus 4,612"
+NI007608,DUNNES STORES (BANGOR),2025-12-27,GBP,12.058,27.279,group,2026-09-28,36,"Figures entered on the review page 2026-11-16: First column of the balance table; surplus 15,221"
+03175861,CAMBRIDGE WATER PLC,2026-03-31,GBP,26.694,26.831,group,2026-10-07,27,Figures entered on the review page 2026-11-16: Closing liabilities and assets (£'000)
+02564490,ABC INTERNATIONAL BANK PLC,2025-12-31,GBP,26.353,26.19,group,2026-03-17,82,"Figures entered on the review page 2026-11-16: Obligation 26,353 and assets 26,190 at 31 December 2025"
+00142138,"ROLEX WATCH COMPANY,LIMITED(THE)",2025-12-31,GBP,25.152,25.645,group,2026-09-29,31,"Figures entered on the review page 2026-11-16: Liabilities 25,152 and assets 25,645 at the end of the year"
+00143669,ELECTRICAL CONTRACTORS ASSOCIATION LIMITED(THE),2025-12-31,GBP,22.244,24.502,group,2026-08-18,21,Figures entered on the review page 2026-11-16: Funded obligations and assets at 31 December 2025 (whole £)
+02100399,Franklin Templeton Global Investors Limited,2025-09-30,GBP,17.794,23.194,group,2026-01-09,43,"Figures entered on the review page 2026-11-16: Assets 23,194 less the £5.4m surplus"
+02881663,ADDIS HOUSEWARES LIMITED,2025-12-31,GBP,23.106,10.541,group,2026-09-11,32,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+00288046,PHONOGRAPHIC PERFORMANCE LIMITED,2025-12-31,GBP,18.389,22.118,group,2026-08-10,37,Figures entered on the review page 2026-11-16: Actuarial liability and assets; surplus restricted
+00662746,SCHINDLER LTD.,2025-12-31,GBP,21.753,24.614,group,2026-09-21,39,Figures entered on the review page 2026-11-16: Balance table (£'000)
+00385709,ROMO LIMITED,2025-12-31,GBP,10.383,21.569,group,2026-08-18,33,"Figures entered on the review page 2026-11-16: Assets 21,569 less net asset 11,186"
+04101344,Skanska Construction Holdings Uk Limited,,GBP,,,misread,2026-04-22,188,Figure misread on the review page 2026-11-16: Swedish and Norwegian group plans; no UK figure
+01923571,QUILTER CHEVIOT LIMITED,2025-12-31,GBP,20.068,20.068,group,2026-08-18,49,"Figures entered on the review page 2026-11-16: Obligation and assets both 20,068 at year end"
+00556556,MACDERMID CANNING LIMITED,,GBP,,,misread,2026-08-21,108,Figure misread on the review page 2026-11-16: US-dollar group plan table; no UK figure
+00235093,HARVEY & SON (LEWES) LIMITED,2025-12-31,GBP,9.507,19.809,group,2026-07-15,39,"Figures entered on the review page 2026-11-16: Closing obligation 9,507,000 and plan assets 19,809,000"
+08260807,Bny Mellon International Asset Management (Holdings) Limited,,GBP,,,misread,2026-09-16,221,Figure misread on the review page 2026-11-16: BNY Mellon US plan in dollars; no UK figure
+SC188877,CLYDE BERGEMANN POWER GROUP INTERNATIONAL LIMITED,2025-02-28,GBP,18.454,18.016,group,2025-11-14,53,Figures entered on the review page 2026-11-16: Benefit obligation and plan assets at the end of the year
+00944703,FABER AND FABER LIMITED,2025-03-31,GBP,16.856,17.022,group,2025-12-22,34,"Figures entered on the review page 2026-11-16: Obligation 16,856 and plan assets 17,022"
+04036931,Atb Morley Limited,2024-12-31,GBP,6.7,14.687,group,2026-04-26,38,"Figures confirmed on the review page 2026-11-16: Cross-checked: obligation, assets and the surplus/deficit line agree on the page"
+01209891,HAYNES INTERNATIONAL LTD,2025-12-31,GBP,6.052,13.782,group,2026-07-26,43,"Figures confirmed on the review page 2026-11-16: Cross-checked: obligation, assets and the surplus/deficit line agree on the page"
+00481558,A.POOLE & SON LIMITED,2025-12-31,GBP,6.273,12.598,group,2026-09-25,26,"Figures confirmed on the review page 2026-11-16: Cross-checked: obligation, assets and the surplus/deficit line agree on the page"
+01131530,VYGON (U.K.) LIMITED,2025-12-31,GBP,4.026,9.703,group,2026-06-10,27,"Figures confirmed on the review page 2026-11-16: Cross-checked: obligation, assets and the surplus/deficit line agree on the page"
+00690479,W.& H.MARRIAGE & SONS LIMITED,2025-04-26,GBP,3.44,7.468,group,2025-10-28,39,"Figures confirmed on the review page 2026-11-16: Cross-checked: obligation, assets and the surplus/deficit line agree on the page"
+01195803,Dachser Limited,2025-12-31,GBP,2.331,5.293,group,2026-10-05,30,"Figures confirmed on the review page 2026-11-16: Cross-checked: obligation, assets and the surplus/deficit line agree on the page"
+05245944,GREATER MANCHESTER CHAMBER OF COMMERCE,2023-03-31,GBP,4.686,2.691,group,2024-03-27,28,"Figures confirmed on the review page 2026-11-16: Cross-checked: obligation, assets and the surplus/deficit line agree on the page"
+SC041252,REALISATIONS (CM) LIMITED,2020-03-31,GBP,2.688,3.686,group,2021-03-05,28,"Figures confirmed on the review page 2026-11-16: Cross-checked: obligation, assets and the surplus/deficit line agree on the page"
+02296559,B.Braun Medical Limited,,GBP,,,misread,2026-05-11,154,Figure misread on the review page 2026-11-16: German group commitments; no UK figure
+12042258,Constellation Automotive Limited,2025-03-30,GBP,61.4,74.8,group,2025-12-29,91,Figures entered on the review page 2026-11-16: Same schemes as Constellation Automotive Holdings: total row (£m)
+FC007891,BANCO SANTANDER TOTTA S.A.,,GBP,,,misread,2026-07-24,157,Figure misread on the review page 2026-11-16: Portuguese bank's euro pension note; no UK figure
+02757365,Amer Sports Uk Limited,2024-12-31,GBP,14.11,14.539,group,2025-09-29,37,Figures entered on the review page 2026-11-16: Balance table at 31 December 2024 (whole £)
+00195431,Truck-Lite Europe Limited,2025-12-31,GBP,29.903,14.088,group,2026-05-21,36,"Figures entered on the review page 2026-11-16: Obligations 29,903 and assets 14,088 (£'000)"
+reg:fca:377B,Monmouthshire Building Society,2026-04-30,GBP,12.499,11.132,group,,,Figures entered on the review page 2026-11-16: Funded obligations and fund assets at the end of the period (£'000)
+04940417,Britax Childcare Group Limited,2024-12-31,GBP,11.882,12.333,group,2025-11-13,30,Figures entered on the review page 2026-11-16: First column of the history table
+reg:fca:369F,National Deposit Friendly Society Limited,2025-12-31,GBP,12.213,5.474,group,,,Figures entered on the review page 2026-11-16: Closing obligation and fund assets after the buy-in (£'000)
+04355070,BOEING UNITED KINGDOM LIMITED,,GBP,,,misread,2026-08-19,151,Figure misread on the review page 2026-11-16: US group plans in dollars; no UK figure
+SC005832,JAMES JONES & SONS LIMITED,2025-12-31,GBP,7.725,10.358,group,2026-09-04,43,"Figures entered on the review page 2026-11-16: Funded obligations 7,725 and assets 10,358 at 31 December 2025"
+02832349,THE LANCASTER LANDMARK HOTEL COMPANY LIMITED,2025-10-31,GBP,10.353,15.632,group,2026-05-31,25,"Figures entered on the review page 2026-11-16: Liabilities 10,353, assets 15,632, surplus 5,279"
+04947111,Aurorium Holdings Uk Limited,2024-12-31,GBP,8.694,9.643,group,2026-01-07,46,"Figures entered on the review page 2026-11-16: Assets 9,643 less net asset 949"
+04053665,GE VERNOVA FINANCIAL SERVICES LIMITED,,GBP,,,misread,2026-05-05,87,Figure misread on the review page 2026-11-16: US-dollar group plan table; no UK figure
+04267912,GE VERNOVA UK HOLDINGS LTD.,,GBP,,,misread,2026-08-24,104,Figure misread on the review page 2026-11-16: US-dollar group plan table; no UK figure
+SC170072,LOGANAIR LIMITED,2025-03-31,GBP,8.88,9.501,group,2025-11-27,29,"Figures entered on the review page 2026-11-16: Obligation 8,880 and assets 9,501 (scan clipped to 9,50); net asset 621"
+00878357,ROYAL YACHTING ASSOCIATION,2025-03-31,GBP,8.374,8.802,group,2025-12-19,36,"Figures entered on the review page 2026-11-16: Funded obligations 8,374 and assets 8,802; surplus not recognised"
+01969867,THE HARTSTONE GROUP LIMITED,2025-03-31,GBP,4.214,8.501,group,2025-12-23,,Figures confirmed on the review page 2026-11-16: Read from the note in the tagged filing; matches the tagged net
+00065418,RALPH MARTINDALE AND COMPANY LIMITED,2025-12-31,GBP,5.644,6.802,group,2026-09-28,47,"Figures entered on the review page 2026-11-16: Liabilities 5,644,000 and assets 6,802,000; surplus 1,158,000"
+00390845,Wpp Brands (Uk) Limited,2025-12-31,GBP,5.617,6.738,group,2026-09-29,44,"Figures entered on the review page 2026-11-16: Obligation 5,617 and assets 6,738 at 31 December"
+12855336,Bellis Finco Plc,2025-12-31,GBP,6.5,0.0,group,2026-06-28,179,"Figures entered on the review page 2026-11-16: Unfunded: present value of scheme liabilities 6.5, no assets"
+01013852,Inductotherm Heating And Welding Ltd,2025-12-31,GBP,6.254,7.181,group,2026-03-25,31,"Figures entered on the review page 2026-11-16: Obligations 6,254,000 and assets 7,181,000"
+reg:oscr:SC004064,Royal Zoological Society Of Scotland,,GBP,6.098,7.943,group,,,"Figures entered on the review page 2026-11-16: Obligation 6,098 and assets 7,943 (£'000)"
+01187672,BOSE LIMITED,2025-03-31,GBP,2.82,5.903,group,2026-01-04,36,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+reg:ccew:309921,THE CORPORATION OF OUNDLE SCHOOL,2025-07-31,GBP,5.828,9.386,group,,,"Figures entered on the review page 2026-11-16: Closing obligation 5,828 and assets 9,386 at 31 July (£'000)"
+04482213,SPS UK&I LIMITED,2025-12-31,GBP,4.806,5.691,group,2026-09-29,32,"Figures entered on the review page 2026-11-16: Obligation 4,806 and assets 5,691; net asset 885"
+00124503,"BENNETT OPIE,LIMITED",2025-03-31,GBP,2.67,5.59,group,2025-11-11,,Figures confirmed on the review page 2026-11-16: Read from the note in the tagged filing; matches the tagged net
+00992565,KRAUSSMAFFEI GROUP UK LIMITED,2024-12-31,GBP,5.569,4.566,group,2025-10-07,18,"Figures entered on the review page 2026-11-16: Liabilities 5,569,000 and assets 4,566,000; deficit 1,003,000"
+00330768,THE BRITISH ELECTRICAL & MANUFACTURING COMPANY LIMITED,2026-03-31,GBP,5.193,5.225,group,2026-10-26,28,"Figures entered on the review page 2026-11-16: Obligations 5,193,000 and assets 5,225,000; surplus restricted"
+reg:ccew:234252,CONGREGATION OF THE BROTHERS OF CHARITY,2024-03-31,GBP,3.901,4.359,group,,,"Figures entered on the review page 2026-11-16: Obligation 3,901,000 and assets 4,359,000 at 31 March 2024"
+04985069,RICKERBY LIMITED,2025-09-30,GBP,4.722,4.318,group,2026-04-26,29,"Figures entered on the review page 2026-11-16: Group scheme: liabilities 4,722,000 and assets 4,318,000 (from the text)"
+00868273,THALES UK LIMITED,2024-12-31,GBP,2431.61,2377.21,group,2025-08-18,79,"Figures entered on the review page 2026-11-16: Obligations 2,431,610 and plan assets 2,377,210 at 31 December 2024 (£'000); the reader took a settlement line"
+13761825,Medux Uk Holdco Limited,2025-12-31,GBP,2.054,4.257,group,2026-09-15,38,Figures confirmed on the review page 2026-11-16: First scheme in the table
+00673095,HARDWOOD DIMENSIONS (HOLDINGS) LIMITED,2025-03-31,GBP,2.029,4.103,group,2025-12-10,29,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+OC430503,RAWLINSON & HUNTER LLP,2025-03-31,GBP,2.8,3.3,group,2026-01-07,26,Figures entered on the review page 2026-11-16: Obligation £2.8m and assets £3.3m (from the text)
+00907866,KEMIRA CHEMICALS (UK) LIMITED,2024-12-31,GBP,2.97,3.299,group,2025-12-10,38,"Figures entered on the review page 2026-11-16: Obligation 2,970 and assets 3,299 (2024)"
+05752534,Voyage Bidco Limited,2026-03-31,GBP,1.061,2.961,group,2026-09-18,86,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+01152381,SANDS AGRICULTURAL MACHINERY LIMITED,2025-12-31,GBP,2.746,1.821,group,2026-10-07,32,"Figures entered on the review page 2026-11-16: Liabilities £2,746,000 and assets £1,821,000 (from the text)"
+SC123258,Spencer Coatings Group Limited,2025-12-31,GBP,1.57,2.595,group,2026-06-01,23,"Figures entered on the review page 2026-11-16: Obligations 1,570,000 and assets 2,595,000"
+01283512,XBP EUROPE LIMITED,2025-12-31,GBP,2.558,0.0,group,2026-09-25,,Figures entered on the review page 2026-11-16: Unfunded scheme: obligation only
+04592400,BOGOD GROUP LIMITED,2025-03-31,GBP,2.486,2.923,group,2025-12-09,30,"Figures entered on the review page 2026-11-16: Obligations 2,486,000 and assets 2,923,000; surplus restricted"
+02990126,PILGRIM INTERNATIONAL LTD.,2025-12-31,GBP,5.546,7.826,group,2026-08-09,32,"Figures entered on the review page 2026-11-16: Liability 5,546 plus net asset 2,280 gives assets 7,826"
+07853993,Phillips 66 Uk Holdings Limited,,GBP,,,misread,2025-10-07,197,Figure misread on the review page 2026-11-16: US group plans in dollars; no UK figure
+00051456,"MCMULLEN & SONS, LIMITED",2025-09-27,GBP,0.818,1.922,group,2026-07-11,29,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
+05458883,BOLTON SCHOOL,2025-08-31,GBP,1.721,0.026,group,2026-04-26,61,"Figures entered on the review page 2026-11-16: Liabilities 1,721 and deficit 1,695 (£'000)"
+00711858,BOEHRINGER INGELHEIM LIMITED,2025-12-31,GBP,1.6,0.0,group,2026-06-04,25,"Figures entered on the review page 2026-11-16: Unfunded: liabilities 1,600 (£'000), no assets"
+00470893,KEYSIGHT TECHNOLOGIES (SPIRENT SERVICES) LIMITED,2025-12-31,GBP,1.261,1.336,group,2026-07-31,32,"Figures entered on the review page 2026-11-16: Obligation 1,261 and assets 1,336 (scan reads 126 1 / 1336)"
+00925463,LONGFIELD CHEMICALS LIMITED,2025-10-31,GBP,0.581,1.223,group,2026-07-10,26,"Figures entered on the review page 2026-11-16: Obligations 581,000 (scan S81,000) and assets 1,223,000"

@@ -9,6 +9,7 @@ CSV columns:
   currency       GBP / USD / EUR; converted to sterling at the period-end rate in FX
   obligation_m   present value of the DB obligation, in millions
   assets_m       fair value of plan assets, in millions
+  company_number a company number, or reg:<source>:<number> for a charity, mutual or union matched on its register
   basis          uk_plans (the UK column of a multi-country table), main_scheme, group (all plans in the
                  accounts), or misread (the reader's figure is wrong and no reliable figure could be read:
                  the sponsor's figures are cleared)
@@ -45,6 +46,9 @@ def apply(con):
     n = 0
     for r in load():
         num = r["company_number"]
+        if num.startswith("reg:"):
+            n += _apply_register(con, r)
+            continue
         if not con.execute("SELECT 1 FROM sponsors WHERE company_number=?", (num,)).fetchone():
             continue
         src = f"hand-checked: filing {r['filing_date'] or '?'}, page {r['page']}; {r['note']}"
@@ -72,3 +76,24 @@ def apply(con):
         n += 1
     con.commit()
     return n
+
+
+def _apply_register(con, r):
+    """A register body's figures (charity, mutual or union; company_number 'reg:<source>:<number>'), written onto
+    its schemes' charity_db_* columns. Returns the number of bodies changed (0 or 1)."""
+    _, source, number = r["company_number"].split(":", 2)
+    where = "WHERE charity_source=? AND charity_number=?"
+    if not con.execute(f"SELECT 1 FROM schemes {where}", (source, number)).fetchone():
+        return 0
+    if r["basis"] == "misread":
+        con.execute(f"""UPDATE schemes SET charity_db_obligation=NULL, charity_db_assets=NULL, charity_db_pension=NULL,
+                            charity_db_source=NULL, charity_db_check='flag:misread' {where}""", (source, number))
+        return 1
+    ob = float(r["obligation_m"]) * 1e6 if r["obligation_m"] else None
+    assets = float(r["assets_m"]) * 1e6 if r["assets_m"] else None
+    net = assets - ob if ob is not None and assets is not None else None
+    con.execute(f"""UPDATE schemes SET charity_db_obligation=?, charity_db_assets=?, charity_db_pension=?,
+                        charity_fy_end=coalesce(nullif(?, ''), charity_fy_end), charity_db_source='hand_checked',
+                        charity_db_check=NULL {where}""", (ob, assets, net, r["period_end"], source, number))
+    return 1
+

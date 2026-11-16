@@ -11,6 +11,8 @@
     python run.py pdf-reextract               # redo figure extraction from saved text after a rules change
     python run.py cloud-export | cloud-import # read PDF accounts on GitHub Actions (see pensiondb/cloud.py)
     python run.py cloud-progress              # each cloud worker's latest progress line, mid-run
+    python run.py review-page                 # data/review.html: the review queue (decisions saved on the page)
+    python run.py review-import --file F      # apply decisions exported from the review page
     python run.py full-filers                 # read untagged DB notes of full/group/medium iXBRL filers
     python run.py api-second-pass             # dissolved / former names / same-postcode search for unmatched
     python run.py api-third-pass              # unmatched + reviewer-rejected: better name cleaning, same-postcode subset
@@ -38,12 +40,14 @@ def main():
     ap.add_argument("step", choices=["all", "seed", "flags", "match", "api", "postcode", "review", "accounts", "reparse", "status", "summary",
                                      "sip-pilot", "pdf-pilot", "pdf-accounts", "parents", "parent-accounts", "pdf-reextract", "cloud-export", "cloud-import", "cloud-progress", "check",
                                      "charities-download", "charities", "charity-accounts", "api-second-pass", "full-filers",
-                                     "api-third-pass", "accounts-text-match", "long-reports", "confirm-sponsors", "district-match", "sponsor-names", "bulk-scan", "web"])
+                                     "api-third-pass", "accounts-text-match", "long-reports", "confirm-sponsors", "district-match", "sponsor-names", "bulk-scan", "web",
+                                     "review-page", "review-import"])
     ap.add_argument("--month", action="append", help="accounts month, e.g. September2026 (repeatable)")
     ap.add_argument("--all-months", action="store_true")
     ap.add_argument("--shard", help="i/n: this worker's share of the pdf-accounts run")
     ap.add_argument("--limit", type=int, help="pdf-accounts: companies in this batch")
     ap.add_argument("--pause", type=float, default=0, help="pdf-accounts: seconds to rest between documents")
+    ap.add_argument("--file", help="review-import: the decisions JSON exported from the review page")
     ap.add_argument("--rematch", action="store_true", help="redo sponsor matching for every scheme")
     a = ap.parse_args()
 
@@ -112,6 +116,16 @@ def main():
         elif step == "web":
             from pensiondb import web
             web.export(con)
+        elif step == "review-page":
+            from pensiondb import reviewpage
+            n, out = reviewpage.export(con)
+            print(f"Review page: {n:,} items -> {out}")
+        elif step == "review-import":
+            from pensiondb import reviewpage, sponsornames
+            print(f"Review decisions: {reviewpage.apply(con, a.file)}")
+            print(f"Sponsor switches: {review.apply_decisions(con)}")
+            sponsornames.apply(con)
+            print("Now run: run.py status, then run.py web and run.py review-page")
         elif step == "bulk-scan":
             from pensiondb import bulkscan
             found = bulkscan.run(con, limit=a.limit or 12)

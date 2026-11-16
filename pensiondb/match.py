@@ -396,6 +396,9 @@ def flag_status(con):
                                AND sp.group_db_company_number IS NOT NULL) THEN 'parent_accounts,' ELSE '' END),
             ','), '')""")
     _live_doubt(con)
+    from .reviewpage import liveness_overrides
+    for psr, status in liveness_overrides().items():      # decided by hand on the review page
+        con.execute("UPDATE schemes SET live_doubt=? WHERE psr=?", (f"reviewed:{status}", psr))
     con.execute("""UPDATE schemes SET likely_live = CASE
             WHEN ppf_status = 'Transferred' OR fas_status LIKE '%Transferred%' THEN 0
             WHEN live_doubt IS NOT NULL THEN 0

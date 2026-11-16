@@ -1,0 +1,411 @@
+<title>Pension Gaps Review</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a work queue. Sticky header with progress and filters; list of items on the left, the item and its
+   decision on the right. One column on phones, where the item opens over the list. */
+:root {
+  --bg: #f4f6f5; --panel: #ffffff; --ink: #18211f; --muted: #5d6b67; --line: #d9e0dd; --soft: #eaefed;
+  --accent: #1d6b57; --accent-ink: #ffffff; --accent-soft: #dcefe8;
+  --ok: #1f7a4a; --ok-soft: #dff2e7; --warn: #9a5b00; --warn-soft: #fbedd4; --bad: #a8322b; --bad-soft: #f8e1df;
+  --info: #2f5f9e; --info-soft: #e1eaf6;
+  --sans: "Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #111816; --panel: #18211e; --ink: #e5ecea; --muted: #9aa9a4; --line: #2c3834; --soft: #1f2a27;
+  --accent: #5cc4a3; --accent-ink: #0d1a16; --accent-soft: #1d3a31;
+  --ok: #6fd39b; --ok-soft: #173326; --warn: #f0b356; --warn-soft: #3a2c14; --bad: #f08a80; --bad-soft: #3d1f1c;
+  --info: #8fb6ec; --info-soft: #1c2b40; color-scheme: dark; } }
+:root[data-theme="dark"] {
+  --bg: #111816; --panel: #18211e; --ink: #e5ecea; --muted: #9aa9a4; --line: #2c3834; --soft: #1f2a27;
+  --accent: #5cc4a3; --accent-ink: #0d1a16; --accent-soft: #1d3a31;
+  --ok: #6fd39b; --ok-soft: #173326; --warn: #f0b356; --warn-soft: #3a2c14; --bad: #f08a80; --bad-soft: #3d1f1c;
+  --info: #8fb6ec; --info-soft: #1c2b40; color-scheme: dark; }
+html, body { height: 100%; }
+body { background: var(--bg); color: var(--ink); font: 14px/1.45 var(--sans); }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--panel); }
+* { box-sizing: border-box; }
+button, input, select, textarea { font: inherit; color: inherit; }
+a { color: var(--accent); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.num { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+
+header { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--panel); border-bottom: 1px solid var(--line);
+  padding-block: 12px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.top { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 16px; }
+h1 { font-size: 17px; margin: 0; letter-spacing: -0.01em; text-wrap: balance; }
+.built { color: var(--muted); font-size: 12px; }
+.progress { margin-left: auto; display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--muted); }
+.bar { width: 140px; height: 6px; border-radius: 3px; background: var(--soft); overflow: hidden; }
+.bar i { display: block; height: 100%; background: var(--accent); width: 0; }
+.filters { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; align-items: center; }
+.chip { border: 1px solid var(--line); background: var(--panel); border-radius: 999px; padding: 4px 11px; cursor: pointer; font-size: 13px; white-space: nowrap; }
+.chip b { font-weight: 600; margin-left: 4px; font-family: var(--mono); font-size: 12px; }
+.chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.filters select, .filters input { border: 1px solid var(--line); background: var(--panel); border-radius: 6px; padding: 4px 8px; font-size: 13px; }
+.filters input { flex: 1 1 180px; min-width: 0; }
+.notice { margin-top: 10px; font-size: 13px; padding: 7px 10px; border-radius: 6px; background: var(--warn-soft); color: var(--warn); }
+
+main { display: grid; grid-template-columns: minmax(280px, 380px) minmax(0, 1fr); gap: 0; min-height: calc(100% - 120px); }
+#list { border-right: 1px solid var(--line); overflow-y: auto; max-height: calc(100vh - 130px); position: sticky; top: 130px; }
+.row { display: grid; grid-template-columns: 1fr auto; gap: 2px 10px; padding: 10px 14px 10px max(14px, env(safe-area-inset-left, 0px)); border-bottom: 1px solid var(--line); cursor: pointer; background: transparent; border-left: 3px solid transparent; text-align: left; width: 100%; border-top: 0; border-right: 0; }
+.row:hover { background: var(--soft); }
+.row[aria-current="true"] { background: var(--accent-soft); border-left-color: var(--accent); }
+.row .nm { font-weight: 600; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.row .val { font-family: var(--mono); font-size: 13px; text-align: right; }
+.row .sub { grid-column: 1 / -1; display: flex; gap: 6px; align-items: center; color: var(--muted); font-size: 12px; min-width: 0; }
+.row .sub span:last-child { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.pill { display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: 0.03em; text-transform: uppercase; padding: 1px 6px; border-radius: 4px; white-space: nowrap; }
+.k-check { background: var(--warn-soft); color: var(--warn); }
+.k-verify { background: var(--info-soft); color: var(--info); }
+.k-unread { background: var(--bad-soft); color: var(--bad); }
+.k-live { background: var(--soft); color: var(--muted); }
+.k-match { background: var(--accent-soft); color: var(--accent); }
+.done { background: var(--ok-soft); color: var(--ok); }
+.more { padding: 12px 14px; }
+.more button { width: 100%; }
+.empty { padding: 24px 16px; color: var(--muted); }
+
+#detail { padding-block: 18px 40px; padding-left: 24px; padding-right: max(24px, env(safe-area-inset-right, 0px)); min-width: 0; }
+.back { display: none; }
+.dh { display: flex; flex-wrap: wrap; gap: 6px 12px; align-items: baseline; }
+.dh h2 { margin: 0; font-size: 20px; letter-spacing: -0.01em; text-wrap: balance; min-width: 0; }
+.ident { color: var(--muted); font-size: 13px; }
+.why { margin: 8px 0 0; color: var(--muted); }
+.facts { display: flex; flex-wrap: wrap; gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; margin-top: 14px; max-width: 760px; }
+.facts div { background: var(--panel); padding: 9px 12px; flex: 1 1 130px; }
+.facts dt { font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); }
+.facts dd { margin: 2px 0 0; font-family: var(--mono); font-variant-numeric: tabular-nums; font-size: 15px; }
+.links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+.btn { display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--line); background: var(--panel); border-radius: 6px; padding: 6px 12px; cursor: pointer; text-decoration: none; color: var(--ink); font-size: 13px; }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); font-weight: 600; }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.where { font-size: 12px; color: var(--muted); margin-top: 6px; word-break: break-all; max-width: 760px; }
+pre.ev { white-space: pre-wrap; font: 12px/1.5 var(--mono); background: var(--soft); border-radius: 6px; padding: 10px 12px; max-width: 760px; margin: 12px 0 0; overflow-x: auto; }
+h3 { font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin: 22px 0 8px; }
+.schemes { margin: 0; padding: 0; list-style: none; max-width: 760px; }
+.schemes li { display: flex; gap: 10px; padding: 4px 0; border-bottom: 1px dashed var(--line); min-width: 0; }
+.schemes li span:first-child { color: var(--muted); font-family: var(--mono); font-size: 12px; flex: none; padding-top: 1px; }
+.cands { display: grid; gap: 6px; max-width: 760px; }
+.cand { display: grid; grid-template-columns: auto 1fr auto; gap: 2px 10px; align-items: center; border: 1px solid var(--line); border-radius: 6px; padding: 8px 10px; background: var(--panel); cursor: pointer; text-align: left; width: 100%; }
+.cand[aria-pressed="true"] { border-color: var(--accent); background: var(--accent-soft); }
+.cand small { grid-column: 2 / -1; color: var(--muted); }
+
+.decide { margin-top: 26px; border: 1px solid var(--line); border-radius: 10px; background: var(--panel); padding: 14px 16px 16px; max-width: 760px; }
+.decide h3 { margin-top: 0; }
+.acts { display: flex; flex-wrap: wrap; gap: 6px; }
+.act { border: 1px solid var(--line); background: var(--panel); border-radius: 6px; padding: 6px 11px; cursor: pointer; font-size: 13px; }
+.act[aria-pressed="true"] { border-color: var(--accent); background: var(--accent-soft); color: var(--ink); font-weight: 600; }
+.form { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px 12px; margin-top: 12px; }
+.form label { display: grid; gap: 3px; font-size: 12px; color: var(--muted); }
+.form input, .form select, .form textarea { border: 1px solid var(--line); background: var(--bg); border-radius: 6px; padding: 6px 8px; font-size: 14px; color: var(--ink); min-width: 0; }
+.form .wide { grid-column: 1 / -1; }
+.save { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 14px; }
+.status { font-size: 13px; color: var(--muted); }
+.saved { margin-top: 12px; padding: 8px 10px; border-radius: 6px; background: var(--ok-soft); color: var(--ok); font-size: 13px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.saved button { margin-left: auto; }
+.keys { color: var(--muted); font-size: 12px; margin-top: 18px; }
+kbd { font-family: var(--mono); font-size: 11px; border: 1px solid var(--line); border-radius: 3px; padding: 0 4px; background: var(--soft); }
+
+@media (max-width: 760px) {
+  main { grid-template-columns: minmax(0, 1fr); }
+  #list { position: static; max-height: none; border-right: 0; }
+  #detail { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+  body.open #list { display: none; }
+  body:not(.open) #detail { display: none; }
+  .back { display: inline-flex; margin-bottom: 12px; }
+  .progress { margin-left: 0; width: 100%; }
+  .bar { flex: 1; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<header>
+  <div class="top">
+    <h1>Pension Gaps Review</h1>
+    <span class="built" id="built"></span>
+    <div class="progress"><span id="prog">0 of 0 decided</span><div class="bar"><i id="progbar"></i></div></div>
+  </div>
+  <div class="filters" id="kinds" role="group" aria-label="Kind of item"></div>
+  <div class="filters">
+    <select id="state" aria-label="Show">
+      <option value="todo">To do</option><option value="done">Decided</option><option value="all">All</option>
+    </select>
+    <input id="q" type="search" placeholder="Search by name, company number or PSR" aria-label="Search">
+  </div>
+  <div class="notice" id="notice" hidden></div>
+</header>
+<main>
+  <nav id="list" aria-label="Review queue"></nav>
+  <section id="detail" aria-live="polite"></section>
+</main>
+
+<script>
+const DATA = /*__DATA__*/null;
+const KINDS = {
+  all: ["All", ""],
+  check: ["Figure flagged", "The quality rules flag this figure: only one of obligation and assets, net only, old, an odd ratio, or under £1m for a company filing full accounts."],
+  verify: ["Large figure", "A machine-read figure of £100m or more that nobody has checked against the accounts yet."],
+  unread: ["Figure missing", "The sponsor's accounts mention a defined benefit scheme, but no figure was read (or the one read failed the checks)."],
+  live: ["Sponsor gone", "The sponsor is dissolved, in liquidation or in administration. Is the scheme still live, and who sponsors it now?"],
+  match: ["Sponsor not found", "The scheme names a company that the matching couldn't find. Candidates the matching rejected are listed."],
+};
+const ACTS = {
+  confirm: "Figures are right", figures: "Enter figures", misread: "Figure is wrong", no_db: "No DB scheme in these accounts",
+  sponsor: "Set the sponsor", not_company: "Not a company", not_live: "Scheme not live", skip: "Can't tell",
+};
+const BY_KIND = {
+  check: ["confirm", "figures", "misread", "not_live", "skip"],
+  verify: ["confirm", "figures", "misread", "not_live", "skip"],
+  unread: ["figures", "no_db", "not_live", "skip"],
+  live: ["not_live", "sponsor", "skip"],
+  match: ["sponsor", "not_company", "not_live", "skip"],
+};
+const VERDICTS = { public_sector: "Public sector body", product: "Insurer product or master policy",
+  multi_employer: "Multi-employer or industry-wide scheme", non_company_body: "Non-company body (no register entry)",
+  no_usable_name: "Name gives no usable employer" };
+const NOT_LIVE = { bought_out: "Bought out with an insurer", wound_up: "Wound up", ppf: "In the PPF", other: "Other reason" };
+const BASIS = { group: "All plans in the accounts", main_scheme: "This scheme only", uk_plans: "UK plans only" };
+
+const items = DATA ? DATA.items : [];
+const byKey = new Map(items.map(it => [it.key, it]));
+const decisions = new Map();
+let db = null, user = null, me = null, canWrite = true;
+const st = { kind: "all", state: "todo", q: "", sel: null, shown: 150, draft: {} };
+try { Object.assign(st, JSON.parse(localStorage.getItem("review-ui") || "{}"), { shown: 150, draft: {} }); } catch (e) {}
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const money = v => v == null ? "–" : v >= 1000 ? `£${(v / 1000).toFixed(2)}bn` : v >= 10 ? `£${v.toFixed(1)}m` : `£${v.toFixed(2)}m`;
+function remember() { try { localStorage.setItem("review-ui", JSON.stringify({ kind: st.kind, state: st.state, q: st.q, sel: st.sel })); } catch (e) {} }
+
+function visible() {
+  const q = st.q.trim().toLowerCase();
+  return items.filter(it => {
+    if (st.kind !== "all" && it.kind !== st.kind) return false;
+    const d = decisions.has(it.key);
+    if (st.state === "todo" && d) return false;
+    if (st.state === "done" && !d) return false;
+    if (q && !(`${it.name} ${it.id} ${it.derived || ""} ${it.schemes.map(s => s.join(" ")).join(" ")}`.toLowerCase().includes(q))) return false;
+    return true;
+  });
+}
+
+function renderHeader() {
+  $("built").textContent = DATA ? `Queue built ${DATA.built}` : "";
+  const counts = { all: [0, 0] };
+  for (const it of items) {
+    counts[it.kind] = counts[it.kind] || [0, 0];
+    const d = decisions.has(it.key) ? 1 : 0;
+    counts[it.kind][0]++; counts[it.kind][1] += d; counts.all[0]++; counts.all[1] += d;
+  }
+  $("kinds").innerHTML = Object.entries(KINDS).map(([k, [label, tip]]) => {
+    const [n, d] = counts[k] || [0, 0];
+    return `<button class="chip" type="button" data-kind="${k}" title="${esc(tip)}" aria-pressed="${st.kind === k}">${esc(label)}<b>${(n - d).toLocaleString()}</b></button>`;
+  }).join("");
+  const [n, d] = counts.all;
+  $("prog").textContent = `${d.toLocaleString()} of ${n.toLocaleString()} decided`;
+  $("progbar").style.width = n ? `${(100 * d / n).toFixed(1)}%` : "0";
+  $("state").value = st.state; $("q").value = st.q;
+}
+
+function renderList() {
+  const list = visible();
+  if (!DATA) { $("list").innerHTML = `<p class="empty">No queue data in this page. Rebuild it with <code>run.py review-page</code>.</p>`; return; }
+  if (!list.length) { $("list").innerHTML = `<p class="empty">${st.state === "todo" ? "Nothing left to do here." : "No items match."}</p>`; return; }
+  const rows = list.slice(0, st.shown).map(it => {
+    const d = decisions.get(it.key);
+    const tag = d ? `<span class="pill done">${esc(ACTS[d.action] || d.action)}</span>` : `<span class="pill k-${it.kind}">${esc(KINDS[it.kind][0])}</span>`;
+    const val = it.val != null ? money(it.val) : `${it.schemes.length} scheme${it.schemes.length > 1 ? "s" : ""}`;
+    const sub = it.kind === "match" ? (it.derived || it.city || "") : it.kind === "live" ? (it.status || "") : (it.why || it.id);
+    return `<button class="row" type="button" data-key="${esc(it.key)}" aria-current="${st.sel === it.key}">
+      <span class="nm">${esc(it.name)}</span><span class="val">${esc(val)}</span>
+      <span class="sub">${tag}<span>${esc(sub)}</span></span></button>`;
+  }).join("");
+  const more = list.length > st.shown ? `<div class="more"><button class="btn" type="button" id="more">Show ${Math.min(150, list.length - st.shown)} more of ${(list.length - st.shown).toLocaleString()}</button></div>` : "";
+  $("list").innerHTML = rows + more;
+}
+
+function fact(label, value) { return `<div><dt>${esc(label)}</dt><dd>${value}</dd></div>`; }
+
+function renderDetail() {
+  const it = byKey.get(st.sel);
+  if (!it) { $("detail").innerHTML = `<p class="empty">Pick an item from the list. The list is in order of money at stake, largest first; items with no figure follow.</p>`; return; }
+  const d = decisions.get(it.key);
+  const draft = st.draft[it.key] || (d ? { ...d } : { action: null });   // kept only once the reviewer edits
+  let facts = "", extra = "";
+  if (it.kind === "check" || it.kind === "verify") {
+    const ratio = it.o && it.a ? `${Math.round(100 * it.a / it.o)}%` : "–";
+    facts = fact("Obligation", money(it.o)) + fact("Assets", money(it.a)) + fact("Funding", ratio) + fact("Year end", esc(it.period || "–"))
+      + fact("From", esc({ own: "Own accounts", group: "Parent's accounts", register: "Register filing" }[it.source] || "–"));
+  } else if (it.kind === "unread") {
+    facts = fact("Status", esc(it.status || "–")) + fact("Accounts", esc((it.accounts || "–").toLowerCase()))
+      + (it.flagged ? fact("Figure that failed", `${money(it.flagged[0])} / ${money(it.flagged[1])}`) : "")
+      + fact("Filed", esc(it.doc?.filed || "–"));
+    if (it.flagged && it.flagged[2]) extra += `<p class="why">${esc(it.flagged[2])}</p>`;
+    if (it.evidence) extra += `<pre class="ev">${esc(it.evidence)}</pre>`;
+  } else if (it.kind === "live") {
+    facts = fact("Status", esc(it.status || "–")) + fact("Dissolved", esc(it.dissolved || "–")) + fact("Accounts", esc((it.accounts || "–").toLowerCase()));
+  } else if (it.kind === "match") {
+    facts = fact("Named sponsor", esc(it.derived || "–")) + fact("Scheme address", esc([it.city, it.postcode].filter(Boolean).join(", ") || "–"));
+  }
+  const links = [];
+  if (it.doc?.url) links.push(`<a class="btn primary" href="${esc(it.doc.url)}" target="_blank" rel="noopener">Open accounts${it.doc.page ? `, page ${it.doc.page}` : ""} ↗</a>`);
+  if (it.kind !== "match" && /^[A-Z0-9]{8}$/.test(it.id)) links.push(`<a class="btn" href="https://find-and-update.company-information.service.gov.uk/company/${esc(it.id)}/filing-history" target="_blank" rel="noopener">Filing history ↗</a>`);
+  if (it.search) links.push(`<a class="btn" href="${esc(it.search)}" target="_blank" rel="noopener">Search Companies House ↗</a>`);
+  const cands = it.kind === "match" && it.cands.length ? `<h3>Candidates the matching rejected</h3><div class="cands">${it.cands.map(c =>
+    `<button class="cand" type="button" data-cand="${esc(c.no)}" aria-pressed="${draft.action === "sponsor" && draft.company_number === c.no}">
+      <span class="num">${esc(c.no)}</span><span>${esc(c.name)}</span><span class="num">${c.score != null ? Math.round(c.score) : ""}</span>
+      <small>${esc([c.status, c.postcode, c.method].filter(Boolean).join(" · "))}</small></button>`).join("")}</div>` : "";
+  const schemes = `<h3>${it.schemes.length} scheme${it.schemes.length > 1 ? "s" : ""} affected</h3><ul class="schemes">${it.schemes.map(([p, n]) => `<li><span>${esc(p)}</span><span>${esc(n)}</span></li>`).join("")}</ul>`;
+  $("detail").innerHTML = `
+    <button class="btn back" type="button" id="back">← Queue</button>
+    <div class="dh"><span class="pill k-${it.kind}">${esc(KINDS[it.kind][0])}</span><h2>${esc(it.name)}</h2><span class="ident num">${esc(it.id)}</span></div>
+    <p class="why">${esc(it.why && it.kind !== "live" && it.kind !== "unread" ? it.why : KINDS[it.kind][1])}</p>
+    <dl class="facts">${facts}</dl>${extra}
+    <div class="links">${links.join("")}</div>
+    ${it.where && it.kind !== "match" ? `<p class="where">Read from: ${esc(it.where)}</p>` : ""}
+    ${cands}${schemes}
+    <div class="decide">
+      <h3>Decision</h3>
+      <div class="acts" role="group" aria-label="Decision">${BY_KIND[it.kind].map(a => `<button class="act" type="button" data-act="${a}" aria-pressed="${draft.action === a}">${esc(ACTS[a])}</button>`).join("")}</div>
+      <div id="form">${formFor(it, draft)}</div>
+      <div class="save">
+        <button class="btn primary" type="button" id="save" ${!draft.action || !canWrite ? "disabled" : ""}>Save and next</button>
+        <button class="btn" type="button" id="saveonly" ${!draft.action || !canWrite ? "disabled" : ""}>Save</button>
+        <span class="status" id="status">${canWrite ? "" : "You can read decisions here but not save them."}</span>
+      </div>
+      ${d ? `<div class="saved">Saved: ${esc(ACTS[d.action] || d.action)}${d.at ? `, ${esc(d.at.slice(0, 16).replace("T", " "))}` : ""}${d.by && me && d.by !== me ? " by another reviewer" : ""}
+        ${canWrite ? `<button class="btn" type="button" id="clear">Clear decision</button>` : ""}</div>` : ""}
+    </div>
+    <p class="keys"><kbd>j</kbd> next · <kbd>k</kbd> previous · decisions save to this page and Claude imports them into the database</p>`;
+}
+
+function formFor(it, d) {
+  const note = `<label class="wide">Note (optional)<textarea id="f-note" rows="2">${esc(d.note || "")}</textarea></label>`;
+  if (d.action === "figures") return `<div class="form">
+    <label>Obligation, £m<input id="f-o" inputmode="decimal" value="${esc(d.obligation_m ?? "")}" placeholder="e.g. 299.5"></label>
+    <label>Assets, £m<input id="f-a" inputmode="decimal" value="${esc(d.assets_m ?? "")}" placeholder="e.g. 292.5"></label>
+    <label>Year end<input id="f-pe" type="date" value="${esc(d.period_end || "")}"></label>
+    <label>Covers<select id="f-basis">${Object.entries(BASIS).map(([k, v]) => `<option value="${k}" ${(d.basis || "group") === k ? "selected" : ""}>${esc(v)}</option>`).join("")}</select></label>
+    <label>PDF page<input id="f-page" inputmode="numeric" value="${esc(d.page ?? it.doc?.page ?? "")}"></label>${note}</div>`;
+  if (d.action === "sponsor") return `<div class="form">
+    <label>Company number<input id="f-co" value="${esc(d.company_number || "")}" placeholder="8 characters, e.g. 00576970" autocomplete="off"></label>${note}</div>`;
+  if (d.action === "not_company") return `<div class="form">
+    <label class="wide">What the sponsor is<select id="f-verdict">${Object.entries(VERDICTS).map(([k, v]) => `<option value="${k}" ${d.verdict === k ? "selected" : ""}>${esc(v)}</option>`).join("")}</select></label>${note}</div>`;
+  if (d.action === "not_live") return `<div class="form">
+    <label class="wide">Why<select id="f-reason">${Object.entries(NOT_LIVE).map(([k, v]) => `<option value="${k}" ${d.reason === k ? "selected" : ""}>${esc(v)}</option>`).join("")}</select></label>${note}</div>`;
+  if (d.action) return `<div class="form">${note}</div>`;
+  return "";
+}
+
+function readForm(it) {
+  const saved = decisions.get(it.key);
+  const d = st.draft[it.key] || (st.draft[it.key] = saved ? { ...saved } : { action: null }), v = id => $(id) ? $(id).value.trim() : undefined;
+  for (const [f, id] of [["note", "f-note"], ["obligation_m", "f-o"], ["assets_m", "f-a"], ["period_end", "f-pe"], ["basis", "f-basis"],
+    ["page", "f-page"], ["company_number", "f-co"], ["verdict", "f-verdict"], ["reason", "f-reason"]]) {
+    const x = v(id); if (x !== undefined) d[f] = x;
+  }
+  return d;
+}
+
+function problem(d) {
+  if (d.action === "figures") {
+    const o = d.obligation_m === "" ? null : Number(d.obligation_m), a = d.assets_m === "" ? null : Number(d.assets_m);
+    if (o == null && a == null) return "Enter the obligation, the assets or both, in £ millions.";
+    if ((o != null && !(o >= 0)) || (a != null && !(a >= 0))) return "Figures must be numbers in £ millions, like 299.5.";
+  }
+  if (d.action === "sponsor" && !/^[A-Za-z0-9]{6,8}$/.test(d.company_number || "")) return "Enter an 8-character Companies House number, like 00576970 or SC004221.";
+  return null;
+}
+
+async function save(next) {
+  const it = byKey.get(st.sel); if (!it || !db) return;
+  const d = readForm(it), err = problem(d);
+  if (err) { $("status").textContent = err; return; }
+  const doc = { key: it.key, kind: it.kind, id: it.id, name: it.name, action: d.action, schemes: it.schemes.map(s => s[0]),
+    note: d.note || "", at: new Date().toISOString(), by: me || null };
+  if (d.action === "figures") Object.assign(doc, { obligation_m: d.obligation_m === "" ? null : Number(d.obligation_m),
+    assets_m: d.assets_m === "" ? null : Number(d.assets_m), period_end: d.period_end || null, basis: d.basis || "group", page: d.page || null });
+  if (d.action === "sponsor") doc.company_number = d.company_number.toUpperCase().padStart(8, "0");
+  if (d.action === "not_company") doc.verdict = d.verdict || "public_sector";
+  if (d.action === "not_live") doc.reason = d.reason || "bought_out";
+  $("status").textContent = "Saving…";
+  try {
+    await db.collection("decisions").doc(it.key).set(doc);
+    decisions.set(it.key, doc); delete st.draft[it.key];
+    if (next) step(1, true); else { renderAll(); $("status").textContent = "Saved"; }
+  } catch (e) {
+    if (e && e.code === "invalid_argument") { canWrite = false; showNotice("You can read decisions here but not save them."); }
+    $("status") && ($("status").textContent = e?.code === "quota_exceeded" ? "The page's storage is full. Tell Claude so it can import and clear decisions." : "Couldn't save. Check your connection and try again.");
+  }
+}
+
+async function clearDecision() {
+  const it = byKey.get(st.sel); if (!it || !db) return;
+  try { await db.collection("decisions").doc(it.key).delete(); decisions.delete(it.key); delete st.draft[it.key]; renderAll(); }
+  catch (e) { $("status").textContent = "Couldn't clear it. Try again."; }
+}
+
+function step(dir, afterSave) {
+  const list = visible();
+  let i = list.findIndex(it => it.key === st.sel);
+  if (afterSave && st.state === "todo") i = Math.max(-1, i - 1);   // the saved item has left the list
+  const nxt = list[Math.min(list.length - 1, Math.max(0, i + dir))];
+  if (nxt) select(nxt.key); else { st.sel = null; renderAll(); }
+}
+
+function select(key) {
+  st.sel = key; remember();
+  const list = visible(), i = list.findIndex(it => it.key === key);
+  if (i >= st.shown) st.shown = i + 50;
+  document.body.classList.add("open");
+  renderAll();
+  const row = document.querySelector(`.row[data-key="${CSS.escape(key)}"]`);
+  row && row.scrollIntoView({ block: "nearest" });
+  if (window.matchMedia("(max-width: 760px)").matches) window.scrollTo(0, 0);
+}
+
+function renderAll() { renderHeader(); renderList(); renderDetail(); }
+function showNotice(t) { $("notice").textContent = t; $("notice").hidden = !t; }
+
+document.addEventListener("click", e => {
+  const t = e.target.closest("button"); if (!t) return;
+  if (t.dataset.kind) { st.kind = t.dataset.kind; st.shown = 150; remember(); renderAll(); }
+  else if (t.dataset.key) select(t.dataset.key);
+  else if (t.id === "more") { st.shown += 150; renderList(); }
+  else if (t.dataset.act) { const it = byKey.get(st.sel); readForm(it); st.draft[it.key].action = t.dataset.act; renderDetail(); }
+  else if (t.dataset.cand) { const it = byKey.get(st.sel); readForm(it); Object.assign(st.draft[it.key], { action: "sponsor", company_number: t.dataset.cand }); renderDetail(); }
+  else if (t.id === "save") save(true);
+  else if (t.id === "saveonly") save(false);
+  else if (t.id === "clear") clearDecision();
+  else if (t.id === "back") { document.body.classList.remove("open"); renderAll(); }
+});
+$("state").addEventListener("change", e => { st.state = e.target.value; st.shown = 150; remember(); renderAll(); });
+let qt; $("q").addEventListener("input", e => { clearTimeout(qt); qt = setTimeout(() => { st.q = e.target.value; st.shown = 150; remember(); renderList(); }, 150); });
+document.addEventListener("keydown", e => {
+  if (e.target.closest("input, textarea, select") || e.metaKey || e.ctrlKey || e.altKey) return;
+  if (e.key === "j") step(1); else if (e.key === "k") step(-1);
+});
+
+renderAll();
+if (st.sel && byKey.has(st.sel)) select(st.sel);
+
+(async () => {
+  const timer = setTimeout(() => showNotice("Saved decisions can't be reached yet. You can browse the queue; decisions will show when the connection returns."), 10000);
+  try {
+    [db, user] = await Promise.all([window.claude?.use?.("db") ?? null, window.claude?.use?.("user") ?? null]);
+  } catch (e) { db = null; }
+  if (!db) { clearTimeout(timer); canWrite = false; showNotice("Decisions can only be saved when this page is open on claude.ai and you are signed in. You can still browse the queue."); renderAll(); return; }
+  try { me = user ? await user.id() : null; const w = user ? await user.can("data.write") : null; if (w === false) canWrite = false; } catch (e) {}
+  if (!canWrite) showNotice("You can read decisions here but not save them.");
+  db.collection("decisions").onSnapshot(snap => {
+    if (!snap.metadata.fromCache) { clearTimeout(timer); if ($("notice").textContent.startsWith("Saved decisions can't")) showNotice(""); }
+    decisions.clear();
+    for (const doc of snap.docs) { const x = doc.data(); if (x && x.action) decisions.set(doc.id, x); }
+    renderHeader(); renderList(); if (!st.draft[st.sel]) renderDetail();
+  }, err => { clearTimeout(timer); showNotice("Saved decisions stopped updating. Reload the page to reconnect."); });
+})();
+</script>

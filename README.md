@@ -66,6 +66,33 @@ Totals count each obligation-and-assets pair once, as in the coverage summary. T
 `pensiondb/gaps.py`: the reasons for unidentified schemes are rules on the scheme name plus the hand verdicts in
 `sponsor_name_review.csv`, so they size each gap rather than certify it.
 
+## Review page
+
+`python run.py review-page` writes `data/review.html`: a work queue of everything a person can settle, largest
+first. It has five kinds of item:
+
+- **Figure flagged:** the quality rules flag the figure.
+- **Large figure:** a machine-read figure of £100m or more that nobody has checked.
+- **Figure missing:** the accounts mention a DB scheme but no figure was read, or the figure failed the checks.
+- **Sponsor gone:** the sponsor is dissolved, in liquidation or in administration.
+- **Sponsor not found:** with the candidates the matching rejected.
+
+Each item links to the accounts on Companies House, at the page where the reader looked.
+
+Published as an artifact, the page saves each decision in its own database (collection `decisions`, one document
+per item). Claude exports them to a JSON file, and `python run.py review-import --file F` applies them:
+
+- Figures confirmed, entered or marked wrong, and "no DB scheme", become rows in `hand_checked.csv`. Register bodies
+  appear there as `reg:<source>:<number>`, and their figures are written onto their schemes.
+- A sponsor set by company number becomes a `review_decisions` switch.
+- "Not a company" becomes a row in `sponsor_name_review.csv`.
+- "Scheme not live" becomes a row in `liveness_overrides.csv`, which `status` applies as `live_doubt =
+  'reviewed:<reason>'`.
+- "Can't tell" changes nothing.
+
+Every imported decision is also kept in `review_page_decisions.json`. Then run `status`, `web` and `review-page`.
+A newly set sponsor gets figures only once its accounts are read (the `api` and `pdf-accounts` steps).
+
 ## Tables
 
 - **schemes**: one row per UK scheme (PSR number). Columns: name, address, derived sponsor, `sponsor_company_number`,
