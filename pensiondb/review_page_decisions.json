@@ -12409,6 +12409,43 @@
   "note": "BBVA, London branch"
  },
  {
+  "key": "match:10000176",
+  "kind": "match",
+  "id": "10000176",
+  "name": "Eur-O-Compound UK Retirement Benefits Scheme",
+  "schemes": [
+   "10000176"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10000225",
+  "kind": "match",
+  "id": "10000225",
+  "name": "Delta Air Lines UK Staff Pension Scheme",
+  "schemes": [
+   "10000225"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "sponsor",
+  "company_number": "FC005586",
+  "note": "Delta Air Lines, Inc. (UK branch)"
+ },
+ {
+  "key": "match:10000240",
+  "kind": "match",
+  "id": "10000240",
+  "name": "Combined Britons Pension Plan",
+  "schemes": [
+   "10000240"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
   "key": "match:10000429",
   "kind": "match",
   "id": "10000429",
@@ -12421,6 +12458,31 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10000440",
+  "kind": "match",
+  "id": "10000440",
+  "name": "Gotaas-Larsen UK Pension Scheme",
+  "schemes": [
+   "10000440"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10000478",
+  "kind": "match",
+  "id": "10000478",
+  "name": "Covent Garden Market Authority Pension Plan",
+  "schemes": [
+   "10000478"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "not_company",
+  "verdict": "public_sector",
+  "note": "Covent Garden Market Authority: a public body"
+ },
+ {
   "key": "match:10000678",
   "kind": "match",
   "id": "10000678",
@@ -12429,6 +12491,30 @@
    "10000678"
   ],
   "at": "2026-11-16T21:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10000987",
+  "kind": "match",
+  "id": "10000987",
+  "name": "Deseret UK Benefit Plans",
+  "schemes": [
+   "10000987"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10001009",
+  "kind": "match",
+  "id": "10001009",
+  "name": "Liberty Europe Group Pension Scheme",
+  "schemes": [
+   "10001009"
+  ],
+  "at": "2026-11-16T23:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
  },
@@ -12483,6 +12569,18 @@
   "note": "AQA Education"
  },
  {
+  "key": "match:10002892",
+  "kind": "match",
+  "id": "10002892",
+  "name": "Cinch Connectors Limted Pension Plan",
+  "schemes": [
+   "10002892"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
   "key": "match:10002951",
   "kind": "match",
   "id": "10002951",
@@ -12519,6 +12617,18 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10003115",
+  "kind": "match",
+  "id": "10003115",
+  "name": "Hille Ergonom Pension Scheme",
+  "schemes": [
+   "10003115"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
   "key": "match:10003226",
   "kind": "match",
   "id": "10003226",
@@ -12540,6 +12650,18 @@
    "10003863"
   ],
   "at": "2026-11-16T20:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10003882",
+  "kind": "match",
+  "id": "10003882",
+  "name": "Henry Butcher Pension Fund & Life Assurance Scheme",
+  "schemes": [
+   "10003882"
+  ],
+  "at": "2026-11-16T23:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
  },
@@ -12568,6 +12690,42 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10004568",
+  "kind": "match",
+  "id": "10004568",
+  "name": "Furness ( Builders Merchants ) Limited Retirement Savings Scheme",
+  "schemes": [
+   "10004568"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10004904",
+  "kind": "match",
+  "id": "10004904",
+  "name": "Lopian Gross Barnett & Co Retirement Benefits Scheme",
+  "schemes": [
+   "10004904"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10004991",
+  "kind": "match",
+  "id": "10004991",
+  "name": "Cendant Relocation Services Pension Scheme (1985)",
+  "schemes": [
+   "10004991"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
   "key": "match:10005022",
   "kind": "match",
   "id": "10005022",
@@ -12580,6 +12738,66 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10005572",
+  "kind": "match",
+  "id": "10005572",
+  "name": "Canadian Pacific Companies (Europe) Pension Plan",
+  "schemes": [
+   "10005572"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10005681",
+  "kind": "match",
+  "id": "10005681",
+  "name": "Maclay & Co Ltd MD77",
+  "schemes": [
+   "10005681"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10005813",
+  "kind": "match",
+  "id": "10005813",
+  "name": "Dehns Retirement Benefits Scheme",
+  "schemes": [
+   "10005813"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10006713",
+  "kind": "match",
+  "id": "10006713",
+  "name": "George Meller Limited Retirement Benefits Scheme",
+  "schemes": [
+   "10006713"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10006772",
+  "kind": "match",
+  "id": "10006772",
+  "name": "J I Case Benefits Plan",
+  "schemes": [
+   "10006772"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
   "key": "match:10006798",
   "kind": "match",
   "id": "10006798",
@@ -12588,6 +12806,30 @@
    "10006798"
   ],
   "at": "2026-11-16T20:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10007079",
+  "kind": "match",
+  "id": "10007079",
+  "name": "Legal & Trade Financial Services Ltd Superannuation & Life Assurance Scheme",
+  "schemes": [
+   "10007079"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10007482",
+  "kind": "match",
+  "id": "10007482",
+  "name": "Conlon & Sons (Opticians) Limited Pension And Life Assurance Scheme",
+  "schemes": [
+   "10007482"
+  ],
+  "at": "2026-11-16T22:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
  },
@@ -12630,6 +12872,30 @@
   "note": "CNA Insurance Company Limited"
  },
  {
+  "key": "match:10007999",
+  "kind": "match",
+  "id": "10007999",
+  "name": "Lockinge Estate Staff Retirement Benefits Scheme",
+  "schemes": [
+   "10007999"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10008266",
+  "kind": "match",
+  "id": "10008266",
+  "name": "Mars Associates' Saving Plan",
+  "schemes": [
+   "10008266"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
   "key": "match:10008497",
   "kind": "match",
   "id": "10008497",
@@ -12654,6 +12920,30 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10009322",
+  "kind": "match",
+  "id": "10009322",
+  "name": "Lotus Development Pension Investment Plan",
+  "schemes": [
+   "10009322"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10009396",
+  "kind": "match",
+  "id": "10009396",
+  "name": "Geo Adams Group Pension Fund",
+  "schemes": [
+   "10009396"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
   "key": "match:10009496",
   "kind": "match",
   "id": "10009496",
@@ -12662,6 +12952,43 @@
    "10009496"
   ],
   "at": "2026-11-16T21:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10009668",
+  "kind": "match",
+  "id": "10009668",
+  "name": "Donaldson (UK) Pension And Death Benefits Plan",
+  "schemes": [
+   "10009668"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "sponsor",
+  "company_number": "01222246",
+  "note": "Donaldson Filter Components Limited, Hull"
+ },
+ {
+  "key": "match:10011794",
+  "kind": "match",
+  "id": "10011794",
+  "name": "Esco Carpet Tiles (UK) Ltd Retirement Benefits Scheme wp 0050032",
+  "schemes": [
+   "10011794"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10011795",
+  "kind": "match",
+  "id": "10011795",
+  "name": "Esco Carpet Tiles (UK) Ltd Retirement Benefits Scheme Number One Ws 0050482",
+  "schemes": [
+   "10011795"
+  ],
+  "at": "2026-11-16T22:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
  },
@@ -12699,6 +13026,30 @@
    "10012502"
   ],
   "at": "2026-11-16T21:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10012926",
+  "kind": "match",
+  "id": "10012926",
+  "name": "Coopers Filters Limited Retirement Benefits Plan",
+  "schemes": [
+   "10012926"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10013005",
+  "kind": "match",
+  "id": "10013005",
+  "name": "Chas E Goad Ltd 1988 Staff Pension Scheme - EO713",
+  "schemes": [
+   "10013005"
+  ],
+  "at": "2026-11-16T22:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
  },
@@ -12753,6 +13104,30 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10013374",
+  "kind": "match",
+  "id": "10013374",
+  "name": "Genworth Financial UK Pension Scheme",
+  "schemes": [
+   "10013374"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10013500",
+  "kind": "match",
+  "id": "10013500",
+  "name": "Lyon Pilcher R B S",
+  "schemes": [
+   "10013500"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
   "key": "match:10013735",
   "kind": "match",
   "id": "10013735",
@@ -12764,6 +13139,31 @@
   "action": "sponsor",
   "company_number": "02773743",
   "note": "National Bank of Kuwait (International) plc, same postcode"
+ },
+ {
+  "key": "match:10013931",
+  "kind": "match",
+  "id": "10013931",
+  "name": "George Corderoy & Co Pension And Assurance Scheme",
+  "schemes": [
+   "10013931"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10014133",
+  "kind": "match",
+  "id": "10014133",
+  "name": "Huntsman Pension Scheme",
+  "schemes": [
+   "10014133"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "sponsor",
+  "company_number": "03767067",
+  "note": "Huntsman Polyurethanes (UK) Limited"
  },
  {
   "key": "match:10014186",
@@ -12802,6 +13202,30 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10014788",
+  "kind": "match",
+  "id": "10014788",
+  "name": "Coastal Container Group Pension And Life Assurance Scheme",
+  "schemes": [
+   "10014788"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10015204",
+  "kind": "match",
+  "id": "10015204",
+  "name": "Hedley Purvis Limited Retirement And Death Benefit Scheme",
+  "schemes": [
+   "10015204"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
   "key": "match:10015322",
   "kind": "match",
   "id": "10015322",
@@ -12810,6 +13234,18 @@
    "10015322"
   ],
   "at": "2026-11-16T21:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10018575",
+  "kind": "match",
+  "id": "10018575",
+  "name": "Commercial Hydraulics Kontak Limited Pension And Life Assurance Scheme",
+  "schemes": [
+   "10018575"
+  ],
+  "at": "2026-11-16T22:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
  },
@@ -12826,6 +13262,18 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10019677",
+  "kind": "match",
+  "id": "10019677",
+  "name": "Lloyds Bowmaker (Bristol) Employee Retirement Benefits Scheme",
+  "schemes": [
+   "10019677"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
   "key": "match:10019720",
   "kind": "match",
   "id": "10019720",
@@ -12834,6 +13282,18 @@
    "10019720"
   ],
   "at": "2026-11-16T21:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10020350",
+  "kind": "match",
+  "id": "10020350",
+  "name": "Dana Manufacturing Group Pension Scheme",
+  "schemes": [
+   "10020350"
+  ],
+  "at": "2026-11-16T22:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
  },
@@ -12862,6 +13322,18 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10021855",
+  "kind": "match",
+  "id": "10021855",
+  "name": "Gulf Air Retirement Benefits Scheme",
+  "schemes": [
+   "10021855"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
   "key": "match:10022176",
   "kind": "match",
   "id": "10022176",
@@ -12870,6 +13342,18 @@
    "10022176"
   ],
   "at": "2026-11-16T20:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10022415",
+  "kind": "match",
+  "id": "10022415",
+  "name": "John Maclean And Sons Staff Benefits Plan",
+  "schemes": [
+   "10022415"
+  ],
+  "at": "2026-11-16T23:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
  },
@@ -12900,6 +13384,18 @@
   "note": "Kyocera AVX Components Limited (formerly AVX Limited)"
  },
  {
+  "key": "match:10023701",
+  "kind": "match",
+  "id": "10023701",
+  "name": "International Wool Secretariat Retirement Benefits Plan",
+  "schemes": [
+   "10023701"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
   "key": "match:10024471",
   "kind": "match",
   "id": "10024471",
@@ -12908,6 +13404,55 @@
    "10024471"
   ],
   "at": "2026-11-16T20:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10024610",
+  "kind": "match",
+  "id": "10024610",
+  "name": "HypoVereinsbank (UK) Retirement Benefits Scheme",
+  "schemes": [
+   "10024610"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "sponsor",
+  "company_number": "FC009673",
+  "note": "UniCredit Bank GmbH (formerly HypoVereinsbank), UK branch"
+ },
+ {
+  "key": "match:10024647",
+  "kind": "match",
+  "id": "10024647",
+  "name": "London Marriott (1983) Retirement Fund",
+  "schemes": [
+   "10024647"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10025197",
+  "kind": "match",
+  "id": "10025197",
+  "name": "Dictaphone Retirement And Death Benefits Plan",
+  "schemes": [
+   "10025197"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10025302",
+  "kind": "match",
+  "id": "10025302",
+  "name": "Imperial Machine Company (Peelers) Limited 1973 Retirement Fund",
+  "schemes": [
+   "10025302"
+  ],
+  "at": "2026-11-16T23:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
  },
@@ -12944,6 +13489,31 @@
    "10027758"
   ],
   "at": "2026-11-16T21:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10027826",
+  "kind": "match",
+  "id": "10027826",
+  "name": "Grampian Fire Service Pension Scheme",
+  "schemes": [
+   "10027826"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "not_company",
+  "verdict": "public_sector",
+  "note": "Grampian fire service"
+ },
+ {
+  "key": "match:10027961",
+  "kind": "match",
+  "id": "10027961",
+  "name": "Cameron Iron Works retirement Benefits plan (1974)",
+  "schemes": [
+   "10027961"
+  ],
+  "at": "2026-11-16T22:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
  },
@@ -12996,6 +13566,42 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10030493",
+  "kind": "match",
+  "id": "10030493",
+  "name": "J Saville Gordon Group plc and Subsidiary Companies Retirement & Death Benefit Scheme",
+  "schemes": [
+   "10030493"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10032123",
+  "kind": "match",
+  "id": "10032123",
+  "name": "Electro Medical Supplies (Greenham) Ltd Pension & Life Assurance Scheme",
+  "schemes": [
+   "10032123"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10033497",
+  "kind": "match",
+  "id": "10033497",
+  "name": "Inglis Allen Pension Scheme",
+  "schemes": [
+   "10033497"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
   "key": "match:10033876",
   "kind": "match",
   "id": "10033876",
@@ -13004,6 +13610,18 @@
    "10033876"
   ],
   "at": "2026-11-16T21:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10034286",
+  "kind": "match",
+  "id": "10034286",
+  "name": "Carfax Publishing Ltd Company Retirement Scheme",
+  "schemes": [
+   "10034286"
+  ],
+  "at": "2026-11-16T22:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
  },
@@ -13020,6 +13638,19 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10037264",
+  "kind": "match",
+  "id": "10037264",
+  "name": "Malaysian Airline System Pension And Life Assurance Scheme",
+  "schemes": [
+   "10037264"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "sponsor",
+  "company_number": "FC032653",
+  "note": "Malaysia Airlines Berhad, UK branch"
+ },
+ {
   "key": "match:10037444",
   "kind": "match",
   "id": "10037444",
@@ -13032,6 +13663,30 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10039367",
+  "kind": "match",
+  "id": "10039367",
+  "name": "Component Broadcast Fac Limited No1 Executive Pension Plan Epp 105155106",
+  "schemes": [
+   "10039367"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10039698",
+  "kind": "match",
+  "id": "10039698",
+  "name": "David Patton & Sons (N1) Ltd Retirement Benefits Scheme",
+  "schemes": [
+   "10039698"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
   "key": "match:10039729",
   "kind": "match",
   "id": "10039729",
@@ -13040,6 +13695,54 @@
    "10039729"
   ],
   "at": "2026-11-16T20:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10040310",
+  "kind": "match",
+  "id": "10040310",
+  "name": "Castle Supplementary Pension Scheme",
+  "schemes": [
+   "10040310"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10040521",
+  "kind": "match",
+  "id": "10040521",
+  "name": "James B Bennett & Co 1990 41456",
+  "schemes": [
+   "10040521"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10040555",
+  "kind": "match",
+  "id": "10040555",
+  "name": "Hogg Group Pension Scheme B",
+  "schemes": [
+   "10040555"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10040644",
+  "kind": "match",
+  "id": "10040644",
+  "name": "Dickinsons Decorators Ltd Retirement Benefits Scheme",
+  "schemes": [
+   "10040644"
+  ],
+  "at": "2026-11-16T22:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
  },
@@ -13104,6 +13807,18 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10042251",
+  "kind": "match",
+  "id": "10042251",
+  "name": "Macroscan Systems Limited Employees Cash Accumulation Plan 703066",
+  "schemes": [
+   "10042251"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
   "key": "match:10046088",
   "kind": "match",
   "id": "10046088",
@@ -13128,6 +13843,103 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10047170",
+  "kind": "match",
+  "id": "10047170",
+  "name": "Charcon Cash Benefit Scheme",
+  "schemes": [
+   "10047170"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10048261",
+  "kind": "match",
+  "id": "10048261",
+  "name": "Gala Coffee & Tea Group (60378)",
+  "schemes": [
+   "10048261"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10048407",
+  "kind": "match",
+  "id": "10048407",
+  "name": "Exquisite Form Brassiere (Great Britain) Ltd Staff Pension Scheme 701789",
+  "schemes": [
+   "10048407"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10048800",
+  "kind": "match",
+  "id": "10048800",
+  "name": "Denley King Partnership (1988) Rbs",
+  "schemes": [
+   "10048800"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10048945",
+  "kind": "match",
+  "id": "10048945",
+  "name": "K & B Beattie Pension And Life Assurance Scheme 1988",
+  "schemes": [
+   "10048945"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10049596",
+  "kind": "match",
+  "id": "10049596",
+  "name": "Dresser - Rand Pension Plan",
+  "schemes": [
+   "10049596"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10050809",
+  "kind": "match",
+  "id": "10050809",
+  "name": "Comtrans Ltd Retirement Security Plan-3178",
+  "schemes": [
+   "10050809"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10051243",
+  "kind": "match",
+  "id": "10051243",
+  "name": "Dyfed Pension Fund",
+  "schemes": [
+   "10051243"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "not_company",
+  "verdict": "public_sector",
+  "note": "Dyfed Pension Fund: LGPS"
+ },
+ {
   "key": "match:10051542",
   "kind": "match",
   "id": "10051542",
@@ -13138,6 +13950,19 @@
   "at": "2026-11-16T20:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10052599",
+  "kind": "match",
+  "id": "10052599",
+  "name": "Connect Pension And Life Assurance Scheme",
+  "schemes": [
+   "10052599"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "not_company",
+  "verdict": "non_company_body",
+  "note": "Connect, the trade union (now part of Prospect)"
  },
  {
   "key": "match:10053831",
@@ -13166,6 +13991,18 @@
   "note": "H.J. Heinz Foods UK Limited"
  },
  {
+  "key": "match:10053918",
+  "kind": "match",
+  "id": "10053918",
+  "name": "Camp Hopson & Co Ltd Pension Scheme",
+  "schemes": [
+   "10053918"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
   "key": "match:10054628",
   "kind": "match",
   "id": "10054628",
@@ -13174,6 +14011,18 @@
    "10054628"
   ],
   "at": "2026-11-16T20:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10054817",
+  "kind": "match",
+  "id": "10054817",
+  "name": "Medway Packaging Pension Scheme",
+  "schemes": [
+   "10054817"
+  ],
+  "at": "2026-11-16T23:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
  },
@@ -13189,6 +14038,78 @@
   "action": "sponsor",
   "company_number": "OC301540",
   "note": "KPMG LLP"
+ },
+ {
+  "key": "match:10055166",
+  "kind": "match",
+  "id": "10055166",
+  "name": "Caribonum Pension Scheme",
+  "schemes": [
+   "10055166"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10055783",
+  "kind": "match",
+  "id": "10055783",
+  "name": "Luncheon Vouchers Limited (1984) Retirement Benefits Scheme",
+  "schemes": [
+   "10055783"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10056255",
+  "kind": "match",
+  "id": "10056255",
+  "name": "Greig Middleton And Company Limited Executive Pension Plan",
+  "schemes": [
+   "10056255"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10056285",
+  "kind": "match",
+  "id": "10056285",
+  "name": "I S A Poultry Services (Holdings) Limited Retirement Benefits Scheme",
+  "schemes": [
+   "10056285"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10057079",
+  "kind": "match",
+  "id": "10057079",
+  "name": "Gerling UK Limited Retirement Benefits Plan",
+  "schemes": [
+   "10057079"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10058024",
+  "kind": "match",
+  "id": "10058024",
+  "name": "Ernest Green & Partners Pens & Life Ass Plan (Sel-07900B)",
+  "schemes": [
+   "10058024"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
  },
  {
   "key": "match:10058542",
@@ -13216,6 +14137,18 @@
   "note": "Samsung Electronics (UK) Limited"
  },
  {
+  "key": "match:10075227",
+  "kind": "match",
+  "id": "10075227",
+  "name": "Hellmann International Forwarders Pension Scheme",
+  "schemes": [
+   "10075227"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
   "key": "match:10075261",
   "kind": "match",
   "id": "10075261",
@@ -13241,6 +14174,30 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10075783",
+  "kind": "match",
+  "id": "10075783",
+  "name": "Horserace Totalisator Board (1968) Pension Scheme",
+  "schemes": [
+   "10075783"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10075784",
+  "kind": "match",
+  "id": "10075784",
+  "name": "Deloro Stellite Pension Plan",
+  "schemes": [
+   "10075784"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
   "key": "match:10076538",
   "kind": "match",
   "id": "10076538",
@@ -13253,6 +14210,42 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10076845",
+  "kind": "match",
+  "id": "10076845",
+  "name": "G F Haynes Benefit Scheme",
+  "schemes": [
+   "10076845"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10077111",
+  "kind": "match",
+  "id": "10077111",
+  "name": "Gabriel Communications Limited Retirement Benefit Scheme",
+  "schemes": [
+   "10077111"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10077195",
+  "kind": "match",
+  "id": "10077195",
+  "name": "Db (UK) Senior Group Pension Scheme",
+  "schemes": [
+   "10077195"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
   "key": "match:10077221",
   "kind": "match",
   "id": "10077221",
@@ -13261,6 +14254,42 @@
    "10077221"
   ],
   "at": "2026-11-16T21:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10077277",
+  "kind": "match",
+  "id": "10077277",
+  "name": "Llanarth And Llanover Estates Pension And Life Assurance Scheme",
+  "schemes": [
+   "10077277"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10077353",
+  "kind": "match",
+  "id": "10077353",
+  "name": "I C M Computer Group Pension And Assurance Scheme",
+  "schemes": [
+   "10077353"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10077822",
+  "kind": "match",
+  "id": "10077822",
+  "name": "J B Broadley Retirement Benefit Scheme",
+  "schemes": [
+   "10077822"
+  ],
+  "at": "2026-11-16T23:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
  },
@@ -13278,6 +14307,57 @@
   "note": "Fire and rescue service"
  },
  {
+  "key": "match:10079068",
+  "kind": "match",
+  "id": "10079068",
+  "name": "Environment Agency Closed Fund",
+  "schemes": [
+   "10079068"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "not_company",
+  "verdict": "public_sector",
+  "note": "Environment Agency"
+ },
+ {
+  "key": "match:10079069",
+  "kind": "match",
+  "id": "10079069",
+  "name": "Environment Agency Active Fund",
+  "schemes": [
+   "10079069"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "not_company",
+  "verdict": "public_sector",
+  "note": "Environment Agency"
+ },
+ {
+  "key": "match:10079135",
+  "kind": "match",
+  "id": "10079135",
+  "name": "Leicestershire Fire And Rescue Service Pension Scheme",
+  "schemes": [
+   "10079135"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "not_company",
+  "verdict": "public_sector",
+  "note": "Leicestershire Fire and Rescue Service"
+ },
+ {
+  "key": "match:10079593",
+  "kind": "match",
+  "id": "10079593",
+  "name": "E Clarke (Winchelsea) Ltd Trading As Castle Joinery Pension And Life Assurance Scheme MP8649",
+  "schemes": [
+   "10079593"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
   "key": "match:10080316",
   "kind": "match",
   "id": "10080316",
@@ -13291,6 +14371,18 @@
   "note": "DFDS Seaways plc"
  },
  {
+  "key": "match:10080407",
+  "kind": "match",
+  "id": "10080407",
+  "name": "Elsydel Pension Scheme 8633",
+  "schemes": [
+   "10080407"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
   "key": "match:10080442",
   "kind": "match",
   "id": "10080442",
@@ -13301,6 +14393,31 @@
   "at": "2026-11-16T20:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10080718",
+  "kind": "match",
+  "id": "10080718",
+  "name": "Donisthorpe And Company Limited Pension And Life Assurance Scheme",
+  "schemes": [
+   "10080718"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10081027",
+  "kind": "match",
+  "id": "10081027",
+  "name": "Field Fisher & Martineau Pension and Life Assurance Scheme",
+  "schemes": [
+   "10081027"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "sponsor",
+  "company_number": "OC318472",
+  "note": "Fieldfisher LLP (formerly Field Fisher Waterhouse)"
  },
  {
   "key": "match:10083760",
@@ -13328,6 +14445,31 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10084651",
+  "kind": "match",
+  "id": "10084651",
+  "name": "Civil Aviation Authority Pension Scheme",
+  "schemes": [
+   "10084651"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "not_company",
+  "verdict": "public_sector",
+  "note": "Civil Aviation Authority: a public corporation"
+ },
+ {
+  "key": "match:10085501",
+  "kind": "match",
+  "id": "10085501",
+  "name": "Difco Staff Pension Scheme= 401999000y",
+  "schemes": [
+   "10085501"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
   "key": "match:10085735",
   "kind": "match",
   "id": "10085735",
@@ -13336,6 +14478,18 @@
    "10085735"
   ],
   "at": "2026-11-16T21:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10085846",
+  "kind": "match",
+  "id": "10085846",
+  "name": "Hnl Instruments & Controls Ltd (1989) Staff Retirement Security Plan 005793",
+  "schemes": [
+   "10085846"
+  ],
+  "at": "2026-11-16T23:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
  },
@@ -13376,6 +14530,92 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10087784",
+  "kind": "match",
+  "id": "10087784",
+  "name": "Countrywide Communications Group Limited Staff Benefits Plan",
+  "schemes": [
+   "10087784"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10088194",
+  "kind": "match",
+  "id": "10088194",
+  "name": "Home-Grown Cereals Authority Pension Plan",
+  "schemes": [
+   "10088194"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "not_company",
+  "verdict": "public_sector",
+  "note": "Home-Grown Cereals Authority (now AHDB)"
+ },
+ {
+  "key": "match:10088291",
+  "kind": "match",
+  "id": "10088291",
+  "name": "E R Lindley and Company Limited Pension Plan",
+  "schemes": [
+   "10088291"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10088300",
+  "kind": "match",
+  "id": "10088300",
+  "name": "F C B Advertising Pension Scheme",
+  "schemes": [
+   "10088300"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10088305",
+  "kind": "match",
+  "id": "10088305",
+  "name": "Framatome Connectors UK Limited Employee Benefits Plan",
+  "schemes": [
+   "10088305"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10088365",
+  "kind": "match",
+  "id": "10088365",
+  "name": "Hitachi UK Pension Scheme",
+  "schemes": [
+   "10088365"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "sponsor",
+  "company_number": "02210686",
+  "note": "Hitachi Europe Limited"
+ },
+ {
+  "key": "match:10088578",
+  "kind": "match",
+  "id": "10088578",
+  "name": "Greaves Group Workmens Retirement Benefits Scheme 13739/0",
+  "schemes": [
+   "10088578"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
   "key": "match:10088715",
   "kind": "match",
   "id": "10088715",
@@ -13384,6 +14624,18 @@
    "10088715"
   ],
   "at": "2026-11-16T21:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10088843",
+  "kind": "match",
+  "id": "10088843",
+  "name": "Janson Green Group Pension Scheme",
+  "schemes": [
+   "10088843"
+  ],
+  "at": "2026-11-16T23:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
  },
@@ -13437,6 +14689,18 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10090706",
+  "kind": "match",
+  "id": "10090706",
+  "name": "Maunsell Limited Pension Scheme",
+  "schemes": [
+   "10090706"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
   "key": "match:10090996",
   "kind": "match",
   "id": "10090996",
@@ -13485,6 +14749,42 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10091191",
+  "kind": "match",
+  "id": "10091191",
+  "name": "Credito Italiano Pension Fund and Life Assurance Scheme",
+  "schemes": [
+   "10091191"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10091214",
+  "kind": "match",
+  "id": "10091214",
+  "name": "Cotecna Group Pension Scheme PM33052",
+  "schemes": [
+   "10091214"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10091484",
+  "kind": "match",
+  "id": "10091484",
+  "name": "Jenkins Of Retford Limited Life Assurance And Retirement Plan",
+  "schemes": [
+   "10091484"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
   "key": "match:10091736",
   "kind": "match",
   "id": "10091736",
@@ -13521,6 +14821,30 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10092736",
+  "kind": "match",
+  "id": "10092736",
+  "name": "Mc Aleer And Teague Pension Scheme",
+  "schemes": [
+   "10092736"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10093338",
+  "kind": "match",
+  "id": "10093338",
+  "name": "H Forman And Son Pension And Life Assurance Plan",
+  "schemes": [
+   "10093338"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
   "key": "match:10093873",
   "kind": "match",
   "id": "10093873",
@@ -13529,6 +14853,44 @@
    "10093873"
   ],
   "at": "2026-11-16T20:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10094082",
+  "kind": "match",
+  "id": "10094082",
+  "name": "Equity Staff Pension Scheme",
+  "schemes": [
+   "10094082"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "not_company",
+  "verdict": "non_company_body",
+  "note": "Equity, the trade union"
+ },
+ {
+  "key": "match:10094555",
+  "kind": "match",
+  "id": "10094555",
+  "name": "Chubb Security Pension Fund",
+  "schemes": [
+   "10094555"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "sponsor",
+  "company_number": "00524469",
+  "note": "Chubb Fire & Security Limited"
+ },
+ {
+  "key": "match:10094815",
+  "kind": "match",
+  "id": "10094815",
+  "name": "Helaba (London) Pension And Life Assurance Scheme",
+  "schemes": [
+   "10094815"
+  ],
+  "at": "2026-11-16T23:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
  },
@@ -13545,6 +14907,30 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10095156",
+  "kind": "match",
+  "id": "10095156",
+  "name": "Kenhar Products Ltd Pension Scheme",
+  "schemes": [
+   "10095156"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10095266",
+  "kind": "match",
+  "id": "10095266",
+  "name": "Jacuzzi UK Pension And Life Assurance Scheme",
+  "schemes": [
+   "10095266"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
   "key": "match:10096390",
   "kind": "match",
   "id": "10096390",
@@ -13553,6 +14939,18 @@
    "10096390"
   ],
   "at": "2026-11-16T21:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10096623",
+  "kind": "match",
+  "id": "10096623",
+  "name": "Dynochem UK Pension Scheme",
+  "schemes": [
+   "10096623"
+  ],
+  "at": "2026-11-16T22:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
  },
@@ -13569,6 +14967,42 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10097490",
+  "kind": "match",
+  "id": "10097490",
+  "name": "Malmesbury And Parsons Dairies Limited Group Pension Scheme",
+  "schemes": [
+   "10097490"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10097896",
+  "kind": "match",
+  "id": "10097896",
+  "name": "Halse Of Honiton Sterling Group Plan",
+  "schemes": [
+   "10097896"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10098200",
+  "kind": "match",
+  "id": "10098200",
+  "name": "John Heath (Holdings) Limited Pension Fund",
+  "schemes": [
+   "10098200"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
   "key": "match:10098395",
   "kind": "match",
   "id": "10098395",
@@ -13577,6 +15011,18 @@
    "10098395"
   ],
   "at": "2026-11-16T20:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10098971",
+  "kind": "match",
+  "id": "10098971",
+  "name": "IAWS Group (UK) Pension Scheme",
+  "schemes": [
+   "10098971"
+  ],
+  "at": "2026-11-16T23:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
  },
@@ -13605,6 +15051,18 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10099596",
+  "kind": "match",
+  "id": "10099596",
+  "name": "London & Edinburgh Insurance Group Retirement & Death Plan",
+  "schemes": [
+   "10099596"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
   "key": "match:10099659",
   "kind": "match",
   "id": "10099659",
@@ -13613,6 +15071,18 @@
    "10099659"
   ],
   "at": "2026-11-16T21:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10099927",
+  "kind": "match",
+  "id": "10099927",
+  "name": "Invercauld Estates Pension And Life Assurance Scheme",
+  "schemes": [
+   "10099927"
+  ],
+  "at": "2026-11-16T23:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
  },
@@ -13640,6 +15110,56 @@
   "action": "sponsor",
   "company_number": "FC003283",
   "note": "K.L.M. Royal Dutch Airlines (UK branch)"
+ },
+ {
+  "key": "match:10100806",
+  "kind": "match",
+  "id": "10100806",
+  "name": "Jessups Group Of Companies Pension And Life Assurance Plan (1973)",
+  "schemes": [
+   "10100806"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10102148",
+  "kind": "match",
+  "id": "10102148",
+  "name": "Calmac Pension Fund",
+  "schemes": [
+   "10102148"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "sponsor",
+  "company_number": "SC302282",
+  "note": "CalMac Ferries Limited"
+ },
+ {
+  "key": "match:10102186",
+  "kind": "match",
+  "id": "10102186",
+  "name": "Highlands and Islands Enterprise Superannuation Scheme",
+  "schemes": [
+   "10102186"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "not_company",
+  "verdict": "public_sector",
+  "note": "Highlands and Islands Enterprise"
+ },
+ {
+  "key": "match:10102515",
+  "kind": "match",
+  "id": "10102515",
+  "name": "L E C (Liverpool) Ltd 1989 Retirement Benefits Schemez0100936",
+  "schemes": [
+   "10102515"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
  },
  {
   "key": "match:10102651",
@@ -13678,6 +15198,19 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10105062",
+  "kind": "match",
+  "id": "10105062",
+  "name": "Combined Pension Scheme Of The United Kingdom Atomic Energy Authority",
+  "schemes": [
+   "10105062"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "not_company",
+  "verdict": "public_sector",
+  "note": "UK Atomic Energy Authority"
+ },
+ {
   "key": "match:10105372",
   "kind": "match",
   "id": "10105372",
@@ -13686,6 +15219,18 @@
    "10105372"
   ],
   "at": "2026-11-16T20:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10106233",
+  "kind": "match",
+  "id": "10106233",
+  "name": "Industrial Rewind Services Ltd Plan 88",
+  "schemes": [
+   "10106233"
+  ],
+  "at": "2026-11-16T23:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
  },
@@ -13727,6 +15272,18 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10108424",
+  "kind": "match",
+  "id": "10108424",
+  "name": "Le Court Hampshire's Cheshire Home Retirement Benefits Scheme",
+  "schemes": [
+   "10108424"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
   "key": "match:10110668",
   "kind": "match",
   "id": "10110668",
@@ -13764,6 +15321,18 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10111945",
+  "kind": "match",
+  "id": "10111945",
+  "name": "Cosmosair Plc Executive Retirement Benefits Scheme 104TP830",
+  "schemes": [
+   "10111945"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
   "key": "match:10112059",
   "kind": "match",
   "id": "10112059",
@@ -13784,6 +15353,18 @@
    "10112224"
   ],
   "at": "2026-11-16T21:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10112492",
+  "kind": "match",
+  "id": "10112492",
+  "name": "Jones Day (London) Pension Scheme",
+  "schemes": [
+   "10112492"
+  ],
+  "at": "2026-11-16T23:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
  },
@@ -13813,6 +15394,18 @@
   "note": "Financial Services Compensation Scheme Limited"
  },
  {
+  "key": "match:10114451",
+  "kind": "match",
+  "id": "10114451",
+  "name": "Dunham Brindley & Linn (1989) Retirement Benefits Scheme",
+  "schemes": [
+   "10114451"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
   "key": "match:10114621",
   "kind": "match",
   "id": "10114621",
@@ -13837,6 +15430,18 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10117181",
+  "kind": "match",
+  "id": "10117181",
+  "name": "Conroy & Booth (Yorkshire) Ltd Executive Pension Plan- 27225",
+  "schemes": [
+   "10117181"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
   "key": "match:10117641",
   "kind": "match",
   "id": "10117641",
@@ -13849,6 +15454,18 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10118030",
+  "kind": "match",
+  "id": "10118030",
+  "name": "Maynard Advertising Ltd: 60434",
+  "schemes": [
+   "10118030"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
   "key": "match:10118415",
   "kind": "match",
   "id": "10118415",
@@ -13857,6 +15474,18 @@
    "10118415"
   ],
   "at": "2026-11-16T21:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10118525",
+  "kind": "match",
+  "id": "10118525",
+  "name": "Cosmosair Plc Pension and Life Assurance Scheme",
+  "schemes": [
+   "10118525"
+  ],
+  "at": "2026-11-16T22:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
  },
@@ -13881,6 +15510,30 @@
    "10120641"
   ],
   "at": "2026-11-16T20:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10121774",
+  "kind": "match",
+  "id": "10121774",
+  "name": "Clinical Data Systems Group Pension Scheme",
+  "schemes": [
+   "10121774"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10122340",
+  "kind": "match",
+  "id": "10122340",
+  "name": "HPI Hotels Pension Scheme",
+  "schemes": [
+   "10122340"
+  ],
+  "at": "2026-11-16T23:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
  },
@@ -13922,6 +15575,42 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10123352",
+  "kind": "match",
+  "id": "10123352",
+  "name": "Kall-Kwik Printing (UK) Ltd Pension Scheme",
+  "schemes": [
+   "10123352"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10124357",
+  "kind": "match",
+  "id": "10124357",
+  "name": "Karran Products Limited Retirement Benefits Scheme",
+  "schemes": [
+   "10124357"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10124820",
+  "kind": "match",
+  "id": "10124820",
+  "name": "F K Ellis Executive Plan",
+  "schemes": [
+   "10124820"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
   "key": "match:10125196",
   "kind": "match",
   "id": "10125196",
@@ -13946,6 +15635,30 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10125384",
+  "kind": "match",
+  "id": "10125384",
+  "name": "James P Corry Holdings Limited Superannuation Scheme",
+  "schemes": [
+   "10125384"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10126739",
+  "kind": "match",
+  "id": "10126739",
+  "name": "Hirsch Watch Bracelets Hirsch Pension Plan 249321000y",
+  "schemes": [
+   "10126739"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
   "key": "match:10126893",
   "kind": "match",
   "id": "10126893",
@@ -13957,6 +15670,30 @@
   "action": "sponsor",
   "company_number": "00476611",
   "note": "Leica Microsystems (UK) Limited"
+ },
+ {
+  "key": "match:10127754",
+  "kind": "match",
+  "id": "10127754",
+  "name": "Johnson & Johnson UK Group Retirement Plan",
+  "schemes": [
+   "10127754"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10128029",
+  "kind": "match",
+  "id": "10128029",
+  "name": "Knutsford Motors Ltd 103081 (14509/0)",
+  "schemes": [
+   "10128029"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
  },
  {
   "key": "match:10128547",
@@ -13971,6 +15708,30 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10128662",
+  "kind": "match",
+  "id": "10128662",
+  "name": "H E Woolgar Retirements Benefits Scheme",
+  "schemes": [
+   "10128662"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10128906",
+  "kind": "match",
+  "id": "10128906",
+  "name": "Intermec Pension Fund",
+  "schemes": [
+   "10128906"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
   "key": "match:10129191",
   "kind": "match",
   "id": "10129191",
@@ -13979,6 +15740,18 @@
    "10129191"
   ],
   "at": "2026-11-16T20:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10129193",
+  "kind": "match",
+  "id": "10129193",
+  "name": "Marling Industrial Felts Limited Pension And Life Assurance Scheme",
+  "schemes": [
+   "10129193"
+  ],
+  "at": "2026-11-16T23:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
  },
@@ -13996,6 +15769,54 @@
   "note": "Moog Controls Limited, same postcode"
  },
  {
+  "key": "match:10129744",
+  "kind": "match",
+  "id": "10129744",
+  "name": "Langford Lodge Pension Scheme",
+  "schemes": [
+   "10129744"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10129798",
+  "kind": "match",
+  "id": "10129798",
+  "name": "John Wilson (Steel) Ltd Retirement & Death Benefit Scheme",
+  "schemes": [
+   "10129798"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10130400",
+  "kind": "match",
+  "id": "10130400",
+  "name": "Entrelec (UK) Ltd Ret & Death Ben Sch",
+  "schemes": [
+   "10130400"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10130439",
+  "kind": "match",
+  "id": "10130439",
+  "name": "Healthcall Group Limited Pension Scheme",
+  "schemes": [
+   "10130439"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
   "key": "match:10131168",
   "kind": "match",
   "id": "10131168",
@@ -14004,6 +15825,30 @@
    "10131168"
   ],
   "at": "2026-11-16T20:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10131173",
+  "kind": "match",
+  "id": "10131173",
+  "name": "Gen Re UK Pension Plan",
+  "schemes": [
+   "10131173"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10131364",
+  "kind": "match",
+  "id": "10131364",
+  "name": "Exco Allied Dunbar (1) Pension Plan",
+  "schemes": [
+   "10131364"
+  ],
+  "at": "2026-11-16T22:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
  },
@@ -14057,6 +15902,18 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10132384",
+  "kind": "match",
+  "id": "10132384",
+  "name": "Fergusson Wild Group Pension & Assurance Scheme",
+  "schemes": [
+   "10132384"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
   "key": "match:10132419",
   "kind": "match",
   "id": "10132419",
@@ -14083,6 +15940,19 @@
   "note": "Daily Mail and General Trust plc"
  },
  {
+  "key": "match:10132429",
+  "kind": "match",
+  "id": "10132429",
+  "name": "Harmsworth Pension Scheme",
+  "schemes": [
+   "10132429"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "sponsor",
+  "company_number": "00184594",
+  "note": "Daily Mail and General Trust plc: the Harmsworth scheme"
+ },
+ {
   "key": "match:10132685",
   "kind": "match",
   "id": "10132685",
@@ -14091,6 +15961,54 @@
    "10132685"
   ],
   "at": "2026-11-16T20:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10132708",
+  "kind": "match",
+  "id": "10132708",
+  "name": "Jamesway Print Finishers Ltd Retirement Benefits Scheme 90046/384667503",
+  "schemes": [
+   "10132708"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10132880",
+  "kind": "match",
+  "id": "10132880",
+  "name": "Fiat Group Pension Scheme",
+  "schemes": [
+   "10132880"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10133044",
+  "kind": "match",
+  "id": "10133044",
+  "name": "Hercock Simpson (Petroleum) Co Ltd Pension Scheme",
+  "schemes": [
+   "10133044"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10133074",
+  "kind": "match",
+  "id": "10133074",
+  "name": "Heywood And Partners Limited Pension Scheme",
+  "schemes": [
+   "10133074"
+  ],
+  "at": "2026-11-16T23:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
  },
@@ -14168,6 +16086,18 @@
   "note": "Prospect, the trade union"
  },
  {
+  "key": "match:10134082",
+  "kind": "match",
+  "id": "10134082",
+  "name": "Hulbert Of Dudley Retirement Benefits Plan",
+  "schemes": [
+   "10134082"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
   "key": "match:10134406",
   "kind": "match",
   "id": "10134406",
@@ -14192,6 +16122,18 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10135248",
+  "kind": "match",
+  "id": "10135248",
+  "name": "Hartwells Pension Plan 1971",
+  "schemes": [
+   "10135248"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
   "key": "match:10135720",
   "kind": "match",
   "id": "10135720",
@@ -14200,6 +16142,30 @@
    "10135720"
   ],
   "at": "2026-11-16T20:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10135783",
+  "kind": "match",
+  "id": "10135783",
+  "name": "HBG GA Pension Scheme",
+  "schemes": [
+   "10135783"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10135948",
+  "kind": "match",
+  "id": "10135948",
+  "name": "Go Whittle (1987) Retirement Benefit Scheme",
+  "schemes": [
+   "10135948"
+  ],
+  "at": "2026-11-16T23:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
  },
@@ -14240,6 +16206,18 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10137914",
+  "kind": "match",
+  "id": "10137914",
+  "name": "GlobalSantaFe North Sea Final Salary Pension Plan",
+  "schemes": [
+   "10137914"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
   "key": "match:10138007",
   "kind": "match",
   "id": "10138007",
@@ -14264,6 +16242,31 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10138568",
+  "kind": "match",
+  "id": "10138568",
+  "name": "Marubeni UK Pension And Life Assurance Fund",
+  "schemes": [
+   "10138568"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "sponsor",
+  "company_number": "01885084",
+  "note": "Marubeni Europe plc"
+ },
+ {
+  "key": "match:10138728",
+  "kind": "match",
+  "id": "10138728",
+  "name": "Denis Gavros & Co Pension Scheme",
+  "schemes": [
+   "10138728"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
   "key": "match:10139565",
   "kind": "match",
   "id": "10139565",
@@ -14277,6 +16280,18 @@
   "note": "FIL Holdings (UK) Limited (Fidelity)"
  },
  {
+  "key": "match:10139920",
+  "kind": "match",
+  "id": "10139920",
+  "name": "Medical Money Management Retirement & Death Benefits Scheme",
+  "schemes": [
+   "10139920"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
   "key": "match:10140029",
   "kind": "match",
   "id": "10140029",
@@ -14288,6 +16303,18 @@
   "action": "sponsor",
   "company_number": "00966736",
   "note": "KeyMed (Medical & Industrial Equipment) Limited"
+ },
+ {
+  "key": "match:10140953",
+  "kind": "match",
+  "id": "10140953",
+  "name": "George Robson And Company (Conveyors) Limited Retirement Benefit Scheme",
+  "schemes": [
+   "10140953"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
  },
  {
   "key": "match:10141046",
@@ -14339,6 +16366,18 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10143383",
+  "kind": "match",
+  "id": "10143383",
+  "name": "Hempel Paints Ltd Pension & Life Assurance Scheme",
+  "schemes": [
+   "10143383"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
   "key": "match:10143551",
   "kind": "match",
   "id": "10143551",
@@ -14347,6 +16386,18 @@
    "10143551"
   ],
   "at": "2026-11-16T21:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10144007",
+  "kind": "match",
+  "id": "10144007",
+  "name": "Kirkham Engineering Company Ltd Rbs",
+  "schemes": [
+   "10144007"
+  ],
+  "at": "2026-11-16T23:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
  },
@@ -14387,6 +16438,43 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10145445",
+  "kind": "match",
+  "id": "10145445",
+  "name": "Esselte Group (UK) Benefits Plan",
+  "schemes": [
+   "10145445"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10145878",
+  "kind": "match",
+  "id": "10145878",
+  "name": "Manufacturers Life UK Pension Plan",
+  "schemes": [
+   "10145878"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10146102",
+  "kind": "match",
+  "id": "10146102",
+  "name": "Credit Suisse Group (UK) Pension Fund",
+  "schemes": [
+   "10146102"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "sponsor",
+  "company_number": "02009520",
+  "note": "Credit Suisse (UK) Limited"
+ },
+ {
   "key": "match:10146797",
   "kind": "match",
   "id": "10146797",
@@ -14410,6 +16498,54 @@
   "action": "sponsor",
   "company_number": "00123458",
   "note": "AAH Pharmaceuticals Limited"
+ },
+ {
+  "key": "match:10149860",
+  "kind": "match",
+  "id": "10149860",
+  "name": "E And P Plastics Pension And Life Assurance Scheme",
+  "schemes": [
+   "10149860"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10149979",
+  "kind": "match",
+  "id": "10149979",
+  "name": "J And F Stone Superannuation Fund",
+  "schemes": [
+   "10149979"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10150096",
+  "kind": "match",
+  "id": "10150096",
+  "name": "Candles Provident Pension Fund",
+  "schemes": [
+   "10150096"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10150850",
+  "kind": "match",
+  "id": "10150850",
+  "name": "Mal Tool Pension Scheme",
+  "schemes": [
+   "10150850"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
  },
  {
   "key": "match:10151451",
@@ -14437,6 +16573,30 @@
   "note": "British Coal Staff Superannuation Scheme: government-backed"
  },
  {
+  "key": "match:10151928",
+  "kind": "match",
+  "id": "10151928",
+  "name": "Jeyes Supplementary Pension Scheme",
+  "schemes": [
+   "10151928"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10152546",
+  "kind": "match",
+  "id": "10152546",
+  "name": "Dean Witter Reynolds Retirement Benefits Scheme",
+  "schemes": [
+   "10152546"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
   "key": "match:10154169",
   "kind": "match",
   "id": "10154169",
@@ -14461,6 +16621,18 @@
   "action": "sponsor",
   "company_number": "01672070",
   "note": "Jaguar Land Rover Limited"
+ },
+ {
+  "key": "match:10154242",
+  "kind": "match",
+  "id": "10154242",
+  "name": "Dawn Somerset Retirement & Death Benefit Scheme",
+  "schemes": [
+   "10154242"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
  },
  {
   "key": "match:10156299",
@@ -14495,6 +16667,18 @@
    "10158852"
   ],
   "at": "2026-11-16T20:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10158881",
+  "kind": "match",
+  "id": "10158881",
+  "name": "Flying Services Cash Benefit & Life Assurance Scheme",
+  "schemes": [
+   "10158881"
+  ],
+  "at": "2026-11-16T22:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
  },
@@ -14536,6 +16720,18 @@
   "note": "ANZ bank, UK branch"
  },
  {
+  "key": "match:10159580",
+  "kind": "match",
+  "id": "10159580",
+  "name": "Mannesmann UK Pension Scheme",
+  "schemes": [
+   "10159580"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
   "key": "match:10159797",
   "kind": "match",
   "id": "10159797",
@@ -14547,6 +16743,31 @@
   "action": "sponsor",
   "company_number": "10737370",
   "note": "American International Group UK Limited"
+ },
+ {
+  "key": "match:10160592",
+  "kind": "match",
+  "id": "10160592",
+  "name": "John Ward And Sons (Stourbridge) Limited Pension And Life Assurance Scheme",
+  "schemes": [
+   "10160592"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10161704",
+  "kind": "match",
+  "id": "10161704",
+  "name": "KMG Thomson McLintock Pension Scheme",
+  "schemes": [
+   "10161704"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "sponsor",
+  "company_number": "OC301540",
+  "note": "KPMG LLP (KMG Thomson McLintock merged into KPMG)"
  },
  {
   "key": "match:10162269",
@@ -14570,6 +16791,103 @@
    "10163030"
   ],
   "at": "2026-11-16T21:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10163545",
+  "kind": "match",
+  "id": "10163545",
+  "name": "H C Sleigh UK Limited",
+  "schemes": [
+   "10163545"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10164499",
+  "kind": "match",
+  "id": "10164499",
+  "name": "Gee Pension Life Assurance & Disability Plan",
+  "schemes": [
+   "10164499"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10165270",
+  "kind": "match",
+  "id": "10165270",
+  "name": "Harris Adacom Retirement Benefits Scheme",
+  "schemes": [
+   "10165270"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10166256",
+  "kind": "match",
+  "id": "10166256",
+  "name": "Crossley Premier Engines Limited Works Pension Fund",
+  "schemes": [
+   "10166256"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10166261",
+  "kind": "match",
+  "id": "10166261",
+  "name": "Crossley Brothers Staff Pension Scheme",
+  "schemes": [
+   "10166261"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10166742",
+  "kind": "match",
+  "id": "10166742",
+  "name": "Mckinsey And Company Incorporated UK Support Staff Pension Scheme",
+  "schemes": [
+   "10166742"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "sponsor",
+  "company_number": "FC012665",
+  "note": "McKinsey & Company Inc United Kingdom"
+ },
+ {
+  "key": "match:10168109",
+  "kind": "match",
+  "id": "10168109",
+  "name": "Hatch Kaiser Pension And Death Benefit Plan",
+  "schemes": [
+   "10168109"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10168203",
+  "kind": "match",
+  "id": "10168203",
+  "name": "Littlejohn Frazer Retirement Benefits Scheme",
+  "schemes": [
+   "10168203"
+  ],
+  "at": "2026-11-16T23:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
  },
@@ -14599,6 +16917,18 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10168791",
+  "kind": "match",
+  "id": "10168791",
+  "name": "Fieldcare North Retirement Benefit Scheme",
+  "schemes": [
+   "10168791"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
   "key": "match:10168951",
   "kind": "match",
   "id": "10168951",
@@ -14607,6 +16937,18 @@
    "10168951"
   ],
   "at": "2026-11-16T20:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10168964",
+  "kind": "match",
+  "id": "10168964",
+  "name": "E B Crowhurst & Co Ltd Pension Scheme 102761",
+  "schemes": [
+   "10168964"
+  ],
+  "at": "2026-11-16T22:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
  },
@@ -14624,6 +16966,18 @@
   "note": "Merck Sharp & Dohme (UK) Limited"
  },
  {
+  "key": "match:10170062",
+  "kind": "match",
+  "id": "10170062",
+  "name": "Cleco Combined Pension Scheme",
+  "schemes": [
+   "10170062"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
   "key": "match:10170468",
   "kind": "match",
   "id": "10170468",
@@ -14632,6 +16986,42 @@
    "10170468"
   ],
   "at": "2026-11-16T21:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10171116",
+  "kind": "match",
+  "id": "10171116",
+  "name": "Elastic Knitting (Northern Ireland) Ltd NI007886",
+  "schemes": [
+   "10171116"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10171606",
+  "kind": "match",
+  "id": "10171606",
+  "name": "G R Booth Life & Pension Scheme",
+  "schemes": [
+   "10171606"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10172312",
+  "kind": "match",
+  "id": "10172312",
+  "name": "Charterhouse Retirement Benefits Scheme",
+  "schemes": [
+   "10172312"
+  ],
+  "at": "2026-11-16T22:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
  },
@@ -14673,6 +17063,43 @@
   "note": "National House-Building Council, same postcode"
  },
  {
+  "key": "match:10174959",
+  "kind": "match",
+  "id": "10174959",
+  "name": "Fresenius Health Care Group Pension Scheme",
+  "schemes": [
+   "10174959"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "sponsor",
+  "company_number": "03203279",
+  "note": "Fresenius Medical Care (UK) Limited"
+ },
+ {
+  "key": "match:10174963",
+  "kind": "match",
+  "id": "10174963",
+  "name": "French Wools Executive Pension Plan 26347",
+  "schemes": [
+   "10174963"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10175023",
+  "kind": "match",
+  "id": "10175023",
+  "name": "Meda Pension And Death Benefit Scheme",
+  "schemes": [
+   "10175023"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
   "key": "match:10175392",
   "kind": "match",
   "id": "10175392",
@@ -14708,6 +17135,30 @@
   "action": "sponsor",
   "company_number": "01782505",
   "note": "Oracle Corporation UK Limited, same postcode"
+ },
+ {
+  "key": "match:10178909",
+  "kind": "match",
+  "id": "10178909",
+  "name": "Cairns And Byles Pension And Assurance Scheme",
+  "schemes": [
+   "10178909"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10179689",
+  "kind": "match",
+  "id": "10179689",
+  "name": "Johnsons Group (Senior Staff) Retirement Benefits Scheme",
+  "schemes": [
+   "10179689"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
  },
  {
   "key": "match:10179885",
@@ -14746,6 +17197,42 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10181559",
+  "kind": "match",
+  "id": "10181559",
+  "name": "Christopherson's (FS) Pension Scheme",
+  "schemes": [
+   "10181559"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10182749",
+  "kind": "match",
+  "id": "10182749",
+  "name": "Dunlaw Private Pension",
+  "schemes": [
+   "10182749"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10183251",
+  "kind": "match",
+  "id": "10183251",
+  "name": "J Whitaker And Sons Limited Final Salary Plan",
+  "schemes": [
+   "10183251"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
   "key": "match:10183742",
   "kind": "match",
   "id": "10183742",
@@ -14758,6 +17245,30 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10183975",
+  "kind": "match",
+  "id": "10183975",
+  "name": "Indresco UK Pension Plan",
+  "schemes": [
+   "10183975"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10185422",
+  "kind": "match",
+  "id": "10185422",
+  "name": "G W Pearce & Sons Ltd (1992) Retirement & Death Benefit Scheme",
+  "schemes": [
+   "10185422"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
   "key": "match:10185583",
   "kind": "match",
   "id": "10185583",
@@ -14766,6 +17277,30 @@
    "10185583"
   ],
   "at": "2026-11-16T20:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10186071",
+  "kind": "match",
+  "id": "10186071",
+  "name": "F J Beswick (Paper) Ltd Pension And Life Assurance Scheme",
+  "schemes": [
+   "10186071"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10186731",
+  "kind": "match",
+  "id": "10186731",
+  "name": "Magna Kansei Life and Pension Scheme",
+  "schemes": [
+   "10186731"
+  ],
+  "at": "2026-11-16T23:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
  },
@@ -14818,6 +17353,18 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10189661",
+  "kind": "match",
+  "id": "10189661",
+  "name": "Infralec 1992 Pension Scheme",
+  "schemes": [
+   "10189661"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
   "key": "match:10190428",
   "kind": "match",
   "id": "10190428",
@@ -14829,6 +17376,30 @@
   "action": "sponsor",
   "company_number": "02814092",
   "note": "Leyland Trucks Limited (PACCAR's UK company)"
+ },
+ {
+  "key": "match:10191482",
+  "kind": "match",
+  "id": "10191482",
+  "name": "Firstcity Insurance Brokers Limited Pension Scheme",
+  "schemes": [
+   "10191482"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10191702",
+  "kind": "match",
+  "id": "10191702",
+  "name": "Igrox Limited Retirement Benefits Scheme",
+  "schemes": [
+   "10191702"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
  },
  {
   "key": "match:10191704",
@@ -14866,6 +17437,66 @@
   "action": "sponsor",
   "company_number": "02212959",
   "note": "Arcadis Consulting (UK) Limited"
+ },
+ {
+  "key": "match:10196542",
+  "kind": "match",
+  "id": "10196542",
+  "name": "H2 Operations Pension Scheme Hops",
+  "schemes": [
+   "10196542"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10196960",
+  "kind": "match",
+  "id": "10196960",
+  "name": "Hewden Hire Plc Cash Benefits Scheme",
+  "schemes": [
+   "10196960"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10196968",
+  "kind": "match",
+  "id": "10196968",
+  "name": "Educational Exchange Pension Scheme 11582",
+  "schemes": [
+   "10196968"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10197662",
+  "kind": "match",
+  "id": "10197662",
+  "name": "James Greaves Company Retirement Benefits Scheme",
+  "schemes": [
+   "10197662"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10198206",
+  "kind": "match",
+  "id": "10198206",
+  "name": "Everlogic Group Life & Pension Scheme (1994)",
+  "schemes": [
+   "10198206"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
  },
  {
   "key": "match:10198213",
@@ -14928,6 +17559,42 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10200616",
+  "kind": "match",
+  "id": "10200616",
+  "name": "Martin Hamblin GFK Limited Executive Pension Scheme EP5 112599661",
+  "schemes": [
+   "10200616"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10200824",
+  "kind": "match",
+  "id": "10200824",
+  "name": "L B Group Limited Retirement Benefits Scheme",
+  "schemes": [
+   "10200824"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10201610",
+  "kind": "match",
+  "id": "10201610",
+  "name": "Levington Agriculture Limited Gmpp 62105",
+  "schemes": [
+   "10201610"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
   "key": "match:10203139",
   "kind": "match",
   "id": "10203139",
@@ -14948,6 +17615,30 @@
    "10203846"
   ],
   "at": "2026-11-16T21:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10206133",
+  "kind": "match",
+  "id": "10206133",
+  "name": "First Saxon Ltd Retirement Benefits Scheme",
+  "schemes": [
+   "10206133"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10206561",
+  "kind": "match",
+  "id": "10206561",
+  "name": "M R Data Management Group Plc 1994 Staff Pension Scheme",
+  "schemes": [
+   "10206561"
+  ],
+  "at": "2026-11-16T23:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
  },
@@ -14988,6 +17679,30 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10209365",
+  "kind": "match",
+  "id": "10209365",
+  "name": "Marchfirst Consulting Pension Scheme ERA 121000629",
+  "schemes": [
+   "10209365"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10209981",
+  "kind": "match",
+  "id": "10209981",
+  "name": "Faiveley UK Limited Retirement Benefits Scheme 82466",
+  "schemes": [
+   "10209981"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
   "key": "match:10211128",
   "kind": "match",
   "id": "10211128",
@@ -15000,6 +17715,18 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10211678",
+  "kind": "match",
+  "id": "10211678",
+  "name": "Keys Childcare Consultancy Ltd Retirement Benefits Scheme 807",
+  "schemes": [
+   "10211678"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
   "key": "match:10212940",
   "kind": "match",
   "id": "10212940",
@@ -15008,6 +17735,18 @@
    "10212940"
   ],
   "at": "2026-11-16T21:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10213213",
+  "kind": "match",
+  "id": "10213213",
+  "name": "Clive Discount Co Ltd Group Staff Pension Scheme: 56395",
+  "schemes": [
+   "10213213"
+  ],
+  "at": "2026-11-16T22:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
  },
@@ -15032,6 +17771,18 @@
    "10214981"
   ],
   "at": "2026-11-16T20:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10216018",
+  "kind": "match",
+  "id": "10216018",
+  "name": "Employment Opportunities Pension Scheme 704699",
+  "schemes": [
+   "10216018"
+  ],
+  "at": "2026-11-16T22:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
  },
@@ -15084,6 +17835,18 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10218735",
+  "kind": "match",
+  "id": "10218735",
+  "name": "Cambridge Asphalte 1996 Pension Scheme 62449",
+  "schemes": [
+   "10218735"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
   "key": "match:10218825",
   "kind": "match",
   "id": "10218825",
@@ -15095,6 +17858,79 @@
   "action": "sponsor",
   "company_number": "01245534",
   "note": "Atos IT Services UK Limited"
+ },
+ {
+  "key": "match:10218988",
+  "kind": "match",
+  "id": "10218988",
+  "name": "Gee Pension & Life Assurance Scheme",
+  "schemes": [
+   "10218988"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10219065",
+  "kind": "match",
+  "id": "10219065",
+  "name": "Centrefile Pension Plan",
+  "schemes": [
+   "10219065"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10221553",
+  "kind": "match",
+  "id": "10221553",
+  "name": "Laboratory Impex Systems Limited Retirement Benefit Scheme",
+  "schemes": [
+   "10221553"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10222379",
+  "kind": "match",
+  "id": "10222379",
+  "name": "Greenvale Produce Pension Plan",
+  "schemes": [
+   "10222379"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10222484",
+  "kind": "match",
+  "id": "10222484",
+  "name": "G Thornton ( Contracts ) Ltd Retirement Benefits Scheme",
+  "schemes": [
+   "10222484"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10224265",
+  "kind": "match",
+  "id": "10224265",
+  "name": "Government Communications Bureau Pension Scheme",
+  "schemes": [
+   "10224265"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "not_company",
+  "verdict": "public_sector",
+  "note": "Government Communications Bureau"
  },
  {
   "key": "match:10224688",
@@ -15134,6 +17970,18 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10227130",
+  "kind": "match",
+  "id": "10227130",
+  "name": "Danka Office Imaging Pension Scheme",
+  "schemes": [
+   "10227130"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
   "key": "match:10227141",
   "kind": "match",
   "id": "10227141",
@@ -15142,6 +17990,30 @@
    "10227141"
   ],
   "at": "2026-11-16T20:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10228473",
+  "kind": "match",
+  "id": "10228473",
+  "name": "Crown Servants (Grosvenor) Pension Scheme",
+  "schemes": [
+   "10228473"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10230050",
+  "kind": "match",
+  "id": "10230050",
+  "name": "G D Cooper Pension Scheme",
+  "schemes": [
+   "10230050"
+  ],
+  "at": "2026-11-16T22:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
  },
@@ -15184,6 +18056,54 @@
   "note": "Innovia Films Limited (formerly UCB Films), Wigton"
  },
  {
+  "key": "match:10233168",
+  "kind": "match",
+  "id": "10233168",
+  "name": "Donald Rudd And Partners Limited Pension Fund",
+  "schemes": [
+   "10233168"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10233228",
+  "kind": "match",
+  "id": "10233228",
+  "name": "Medas Pension Scheme",
+  "schemes": [
+   "10233228"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10233335",
+  "kind": "match",
+  "id": "10233335",
+  "name": "Gala Coral Pension Plan",
+  "schemes": [
+   "10233335"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10233397",
+  "kind": "match",
+  "id": "10233397",
+  "name": "Flexlink Pension Plan",
+  "schemes": [
+   "10233397"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
   "key": "match:10234107",
   "kind": "match",
   "id": "10234107",
@@ -15196,6 +18116,18 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10234602",
+  "kind": "match",
+  "id": "10234602",
+  "name": "Delco Remy UK Employee Pension Scheme",
+  "schemes": [
+   "10234602"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
   "key": "match:10234776",
   "kind": "match",
   "id": "10234776",
@@ -15204,6 +18136,18 @@
    "10234776"
   ],
   "at": "2026-11-16T20:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10234845",
+  "kind": "match",
+  "id": "10234845",
+  "name": "Imation UK Pension Scheme",
+  "schemes": [
+   "10234845"
+  ],
+  "at": "2026-11-16T23:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
  },
@@ -15257,6 +18201,18 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10237503",
+  "kind": "match",
+  "id": "10237503",
+  "name": "Charles Barrett Interiors ( London ) Limited 1997 Retirement And Death Benefit Scheme",
+  "schemes": [
+   "10237503"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
   "key": "match:10240283",
   "kind": "match",
   "id": "10240283",
@@ -15269,6 +18225,42 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10240597",
+  "kind": "match",
+  "id": "10240597",
+  "name": "Koch Oil (UK) Pension Scheme",
+  "schemes": [
+   "10240597"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10242415",
+  "kind": "match",
+  "id": "10242415",
+  "name": "County Homes G S Retirement Benefits Scheme No 1",
+  "schemes": [
+   "10242415"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10244205",
+  "kind": "match",
+  "id": "10244205",
+  "name": "Heerema Retirement Benefits Scheme",
+  "schemes": [
+   "10244205"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
   "key": "match:10245186",
   "kind": "match",
   "id": "10245186",
@@ -15277,6 +18269,18 @@
    "10245186"
   ],
   "at": "2026-11-16T21:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10245271",
+  "kind": "match",
+  "id": "10245271",
+  "name": "Forst Cardinal Division Of Lapointe Ltd Retirement Benefits Scheme",
+  "schemes": [
+   "10245271"
+  ],
+  "at": "2026-11-16T22:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
  },
@@ -15317,6 +18321,18 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10248045",
+  "kind": "match",
+  "id": "10248045",
+  "name": "F T L Foundry Equipment Ltd Retirement Beneits Scheme 155UP727",
+  "schemes": [
+   "10248045"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
   "key": "match:10248178",
   "kind": "match",
   "id": "10248178",
@@ -15328,6 +18344,30 @@
   "action": "not_company",
   "verdict": "public_sector",
   "note": "Northern Ireland Assembly members' scheme"
+ },
+ {
+  "key": "match:10248385",
+  "kind": "match",
+  "id": "10248385",
+  "name": "First Quench Pension Fund",
+  "schemes": [
+   "10248385"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10248425",
+  "kind": "match",
+  "id": "10248425",
+  "name": "Longford Castle Superannuation Fund And Life Assurance Scheme",
+  "schemes": [
+   "10248425"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
  },
  {
   "key": "match:10248892",
@@ -15343,6 +18383,18 @@
   "note": "Cigna Europe Insurance Company (UK branch)"
  },
  {
+  "key": "match:10249360",
+  "kind": "match",
+  "id": "10249360",
+  "name": "Fundtech Retirement Benefit Scheme 73848",
+  "schemes": [
+   "10249360"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
   "key": "match:10250100",
   "kind": "match",
   "id": "10250100",
@@ -15355,6 +18407,18 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10251015",
+  "kind": "match",
+  "id": "10251015",
+  "name": "I Desk Group Executive Pension EP4 108821803",
+  "schemes": [
+   "10251015"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
   "key": "match:10251023",
   "kind": "match",
   "id": "10251023",
@@ -15363,6 +18427,18 @@
    "10251023"
   ],
   "at": "2026-11-16T21:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10251025",
+  "kind": "match",
+  "id": "10251025",
+  "name": "Joseph Cartwright Limited Retirement Benefit Scheme",
+  "schemes": [
+   "10251025"
+  ],
+  "at": "2026-11-16T23:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
  },
@@ -15392,6 +18468,18 @@
   "note": "H.J. Heinz Foods UK Limited"
  },
  {
+  "key": "match:10251460",
+  "kind": "match",
+  "id": "10251460",
+  "name": "County Homes G S Retirement Benefits Scheme NO2",
+  "schemes": [
+   "10251460"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
   "key": "match:10251787",
   "kind": "match",
   "id": "10251787",
@@ -15402,6 +18490,19 @@
   "at": "2026-11-16T21:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10252894",
+  "kind": "match",
+  "id": "10252894",
+  "name": "Land Rover Pension Scheme",
+  "schemes": [
+   "10252894"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "sponsor",
+  "company_number": "01672070",
+  "note": "Jaguar Land Rover Limited"
  },
  {
   "key": "match:10252975",
@@ -15417,6 +18518,30 @@
   "note": "Colt Technology Services"
  },
  {
+  "key": "match:10253069",
+  "kind": "match",
+  "id": "10253069",
+  "name": "Chiron UK Pension Scheme",
+  "schemes": [
+   "10253069"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10253358",
+  "kind": "match",
+  "id": "10253358",
+  "name": "Chubb Safes Pension Plan",
+  "schemes": [
+   "10253358"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
   "key": "match:10253776",
   "kind": "match",
   "id": "10253776",
@@ -15425,6 +18550,18 @@
    "10253776"
   ],
   "at": "2026-11-16T21:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10253796",
+  "kind": "match",
+  "id": "10253796",
+  "name": "Established Information Ltd/Jc Contracts Scheme",
+  "schemes": [
+   "10253796"
+  ],
+  "at": "2026-11-16T22:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
  },
@@ -15465,6 +18602,54 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10255807",
+  "kind": "match",
+  "id": "10255807",
+  "name": "Huyck And Stowe Woodward Pension Scheme",
+  "schemes": [
+   "10255807"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10255907",
+  "kind": "match",
+  "id": "10255907",
+  "name": "Linfield Pension Scheme",
+  "schemes": [
+   "10255907"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10256144",
+  "kind": "match",
+  "id": "10256144",
+  "name": "Calne Electronics Limited Retirement Benefit Scheme 8940",
+  "schemes": [
+   "10256144"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10256203",
+  "kind": "match",
+  "id": "10256203",
+  "name": "Fibermark UK Pension Plan",
+  "schemes": [
+   "10256203"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
   "key": "match:10256762",
   "kind": "match",
   "id": "10256762",
@@ -15485,6 +18670,42 @@
    "10257329"
   ],
   "at": "2026-11-16T21:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10257529",
+  "kind": "match",
+  "id": "10257529",
+  "name": "Laurel Pub Pension Scheme",
+  "schemes": [
+   "10257529"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10257829",
+  "kind": "match",
+  "id": "10257829",
+  "name": "George S Hall Bbc Staff Retirement Benefit Scheme",
+  "schemes": [
+   "10257829"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10258016",
+  "kind": "match",
+  "id": "10258016",
+  "name": "Cdsm Media Group Ltd Rbs",
+  "schemes": [
+   "10258016"
+  ],
+  "at": "2026-11-16T22:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
  },
@@ -15525,6 +18746,18 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10259109",
+  "kind": "match",
+  "id": "10259109",
+  "name": "Hornbuckle Mitchell Private Pension",
+  "schemes": [
+   "10259109"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
   "key": "match:10259761",
   "kind": "match",
   "id": "10259761",
@@ -15535,6 +18768,31 @@
   "at": "2026-11-16T20:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10260112",
+  "kind": "match",
+  "id": "10260112",
+  "name": "D.E UK Pension Plan",
+  "schemes": [
+   "10260112"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10260767",
+  "kind": "match",
+  "id": "10260767",
+  "name": "Curtiss-Wright Penny And Giles Pension Plan",
+  "schemes": [
+   "10260767"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "sponsor",
+  "company_number": "00843903",
+  "note": "Penny & Giles Controls Limited (Curtiss-Wright)"
  },
  {
   "key": "match:10261047",
@@ -15560,6 +18818,19 @@
   "at": "2026-11-16T21:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10262053",
+  "kind": "match",
+  "id": "10262053",
+  "name": "Cassidian UK Pension Plan",
+  "schemes": [
+   "10262053"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "sponsor",
+  "company_number": "02449259",
+  "note": "Airbus Defence and Space Limited (formerly Cassidian)"
  },
  {
   "key": "match:10262448",
@@ -15610,6 +18881,18 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10264420",
+  "kind": "match",
+  "id": "10264420",
+  "name": "Charthouse Development Capital Limited Pension Scheme",
+  "schemes": [
+   "10264420"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
   "key": "match:10265467",
   "kind": "match",
   "id": "10265467",
@@ -15634,6 +18917,18 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10265802",
+  "kind": "match",
+  "id": "10265802",
+  "name": "In Health Retirment & Death Benefit Scheme 90838",
+  "schemes": [
+   "10265802"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
   "key": "match:10266346",
   "kind": "match",
   "id": "10266346",
@@ -15645,6 +18940,18 @@
   "action": "sponsor",
   "company_number": "04614761",
   "note": "Apache North Sea Limited"
+ },
+ {
+  "key": "match:10266819",
+  "kind": "match",
+  "id": "10266819",
+  "name": "J P Corry Group Pension Scheme",
+  "schemes": [
+   "10266819"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
  },
  {
   "key": "match:10266967",
@@ -15660,6 +18967,31 @@
   "note": "H.J. Heinz Foods UK Limited"
  },
  {
+  "key": "match:10267762",
+  "kind": "match",
+  "id": "10267762",
+  "name": "EADS Astrium Pension Scheme",
+  "schemes": [
+   "10267762"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "sponsor",
+  "company_number": "02449259",
+  "note": "Airbus Defence and Space Limited (formerly EADS Astrium), same postcode"
+ },
+ {
+  "key": "match:10267890",
+  "kind": "match",
+  "id": "10267890",
+  "name": "Ibt Detectives Pension Scheme",
+  "schemes": [
+   "10267890"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
   "key": "match:10269876",
   "kind": "match",
   "id": "10269876",
@@ -15668,6 +19000,30 @@
    "10269876"
   ],
   "at": "2026-11-16T20:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10270110",
+  "kind": "match",
+  "id": "10270110",
+  "name": "Essex County Dvk Retirement Benefits Scheme 15867",
+  "schemes": [
+   "10270110"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10270369",
+  "kind": "match",
+  "id": "10270369",
+  "name": "Essex Autistic Retirement & Death Benefit Scheme",
+  "schemes": [
+   "10270369"
+  ],
+  "at": "2026-11-16T22:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
  },
@@ -15710,6 +19066,18 @@
   "note": "Transport for London: public body"
  },
  {
+  "key": "match:10273536",
+  "kind": "match",
+  "id": "10273536",
+  "name": "Landis Grinding Systems Pension Fund",
+  "schemes": [
+   "10273536"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
   "key": "match:10273642",
   "kind": "match",
   "id": "10273642",
@@ -15731,6 +19099,18 @@
    "10274155"
   ],
   "at": "2026-11-16T20:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10274553",
+  "kind": "match",
+  "id": "10274553",
+  "name": "Liberty International Insurance Co Ltd EP4 119362956",
+  "schemes": [
+   "10274553"
+  ],
+  "at": "2026-11-16T23:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
  },
@@ -15759,6 +19139,18 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10275846",
+  "kind": "match",
+  "id": "10275846",
+  "name": "Faceo 2007 Pension Scheme",
+  "schemes": [
+   "10275846"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
   "key": "match:10275972",
   "kind": "match",
   "id": "10275972",
@@ -15772,6 +19164,79 @@
   "note": "The Doctors Laboratory Limited"
  },
  {
+  "key": "match:10276133",
+  "kind": "match",
+  "id": "10276133",
+  "name": "Hagelin(UK)Ltd Retirement & Death Benefit Scheme",
+  "schemes": [
+   "10276133"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10276171",
+  "kind": "match",
+  "id": "10276171",
+  "name": "Finmeccanica FuturePlanner",
+  "schemes": [
+   "10276171"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "sponsor",
+  "company_number": "02426132",
+  "note": "Leonardo UK Ltd (formerly Finmeccanica)"
+ },
+ {
+  "key": "match:10276345",
+  "kind": "match",
+  "id": "10276345",
+  "name": "Leeds Bronze Pension Scheme",
+  "schemes": [
+   "10276345"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10276374",
+  "kind": "match",
+  "id": "10276374",
+  "name": "Dylon Retirement Benefit Plan",
+  "schemes": [
+   "10276374"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:12000428",
+  "kind": "match",
+  "id": "12000428",
+  "name": "Executive Pension Plan for Employees of Lloyd Fraser (Holdings) Ltd",
+  "schemes": [
+   "12000428"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:12000483",
+  "kind": "match",
+  "id": "12000483",
+  "name": "Johnson & Johnson UK Group Retirement Plan 16",
+  "schemes": [
+   "12000483"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
   "key": "match:12000755",
   "kind": "match",
   "id": "12000755",
@@ -15780,6 +19245,18 @@
    "12000755"
   ],
   "at": "2026-11-16T21:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:12000808",
+  "kind": "match",
+  "id": "12000808",
+  "name": "Doosan UK Pension Scheme",
+  "schemes": [
+   "12000808"
+  ],
+  "at": "2026-11-16T22:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
  },
@@ -15832,6 +19309,18 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:12002529",
+  "kind": "match",
+  "id": "12002529",
+  "name": "Hothi Pension Scheme",
+  "schemes": [
+   "12002529"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
   "key": "match:12002976",
   "kind": "match",
   "id": "12002976",
@@ -15840,6 +19329,18 @@
    "12002976"
   ],
   "at": "2026-11-16T20:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:12003235",
+  "kind": "match",
+  "id": "12003235",
+  "name": "Halco Pension Scheme",
+  "schemes": [
+   "12003235"
+  ],
+  "at": "2026-11-16T23:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
  },
@@ -15893,6 +19394,18 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:12005386",
+  "kind": "match",
+  "id": "12005386",
+  "name": "GS Nottinghamshire Retirement Benefits Scheme",
+  "schemes": [
+   "12005386"
+  ],
+  "at": "2026-11-16T23:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
   "key": "match:12006299",
   "kind": "match",
   "id": "12006299",
@@ -15901,6 +19414,18 @@
    "12006299"
   ],
   "at": "2026-11-16T20:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:12006477",
+  "kind": "match",
+  "id": "12006477",
+  "name": "Century Pension Scheme",
+  "schemes": [
+   "12006477"
+  ],
+  "at": "2026-11-16T22:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
  },
@@ -15916,6 +19441,18 @@
   "action": "sponsor",
   "company_number": "00006400",
   "note": "The Girls' Day School Trust"
+ },
+ {
+  "key": "match:12006793",
+  "kind": "match",
+  "id": "12006793",
+  "name": "Donington MC Pension Scheme",
+  "schemes": [
+   "12006793"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
  },
  {
   "key": "match:12007155",
@@ -15938,6 +19475,18 @@
    "12007196"
   ],
   "at": "2026-11-16T20:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:12007304",
+  "kind": "match",
+  "id": "12007304",
+  "name": "Douglas Goodfellow & Partners Retirement Benefit Plan",
+  "schemes": [
+   "12007304"
+  ],
+  "at": "2026-11-16T22:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
  },
@@ -16003,6 +19552,30 @@
   "note": "TSB Bank plc"
  },
  {
+  "key": "match:12009229",
+  "kind": "match",
+  "id": "12009229",
+  "name": "Control Group Services Ltd Retirement Benefits Scheme",
+  "schemes": [
+   "12009229"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:12009422",
+  "kind": "match",
+  "id": "12009422",
+  "name": "Chop'd Limited Retirement Benefits Scheme",
+  "schemes": [
+   "12009422"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
   "key": "match:12009432",
   "kind": "match",
   "id": "12009432",
@@ -16015,6 +19588,30 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:12009609",
+  "kind": "match",
+  "id": "12009609",
+  "name": "Complete Price Eyeware Limited Retirement Benefits Scheme",
+  "schemes": [
+   "12009609"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:12009632",
+  "kind": "match",
+  "id": "12009632",
+  "name": "Casu Electronics Ltd Retirement and Death Benefits Scheme",
+  "schemes": [
+   "12009632"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
   "key": "match:12009926",
   "kind": "match",
   "id": "12009926",
@@ -16023,6 +19620,42 @@
    "12009926"
   ],
   "at": "2026-11-16T21:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:19002242",
+  "kind": "match",
+  "id": "19002242",
+  "name": "Carillion Rail (GTRM) Secton",
+  "schemes": [
+   "19002242"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:19014302",
+  "kind": "match",
+  "id": "19014302",
+  "name": "FMA Pittenweem Ltd",
+  "schemes": [
+   "19014302"
+  ],
+  "at": "2026-11-16T22:00:00Z",
+  "action": "skip",
+  "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:19014304",
+  "kind": "match",
+  "id": "19014304",
+  "name": "FMA (Eyemouth) Ltd",
+  "schemes": [
+   "19014304"
+  ],
+  "at": "2026-11-16T22:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
  },
