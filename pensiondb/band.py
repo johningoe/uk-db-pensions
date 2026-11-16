@@ -85,7 +85,7 @@ def build(con):
                sp.db_obligation, sp.db_plan_assets, sp.db_period_end, sp.db_check, sp.db_taxonomy, sp.db_source_file,
                sp.group_db_company_name, sp.group_db_obligation, sp.group_db_plan_assets,
                s.charity_db_obligation, s.charity_db_assets, s.charity_fy_end, s.charity_db_source, s.charity_name,
-               lower(coalesce(sp.company_status, ''))
+               lower(coalesce(sp.company_status, '')), coalesce(sp.db_pdf_status, '')
         FROM schemes s LEFT JOIN sponsors sp ON sp.company_number = s.sponsor_company_number""").fetchall()
     # live DB schemes per employer and per register body: one scheme means the employer's figure is the scheme's
     per_co, per_reg = {}, {}
@@ -106,7 +106,7 @@ def build(con):
             cur = {r["company_number"]: r for r in csv.DictReader(f)}
     figs, bands = [], []
     for (psr, co, rsrc, rno, evidence, acc, co_name, own, ob, assets, pe, chk, tax, src, gname, gob, gassets,
-         cob, cassets, cfy, csrc, cname, costatus) in rows:
+         cob, cassets, cfy, csrc, cname, costatus, pdfst) in rows:
         group, reason = status[psr]
         fig = None
         if psr in hand:
@@ -119,7 +119,7 @@ def build(con):
         if fig:
             figs.append((psr, *fig))
         bands.append((*_band(group, reason, fig, co, rno, evidence, acc, own, ob, assets, chk, gname, gob, gassets,
-                             cob, cassets, per_co.get(co) if co else per_reg.get((rsrc, rno)), costatus, cur.get(co), rev.get(co)), psr))
+                             cob, cassets, per_co.get(co) if co else per_reg.get((rsrc, rno)), costatus, cur.get(co), rev.get(co), pdfst), psr))
     con.executemany("INSERT INTO scheme_figures VALUES (?,?,?,?,?,?,?)", figs)
     con.executemany("UPDATE schemes SET band=?, band_kind=?, band_reason=? WHERE psr=?", bands)
     con.commit()
@@ -174,7 +174,7 @@ def _live_check(con):
     return n
 
 
-def _band(group, reason, fig, co, rno, evidence, acc, own, ob, assets, chk, gname, gob, gassets, cob, cassets, n, costatus="", currency=None, review=None):
+def _band(group, reason, fig, co, rno, evidence, acc, own, ob, assets, chk, gname, gob, gassets, cob, cassets, n, costatus="", currency=None, review=None, pdfst=""):
     if group == "not_live":
         return "out", "Not live", "Not live"
     if group == "dc":
@@ -217,7 +217,9 @@ def _band(group, reason, fig, co, rno, evidence, acc, own, ob, assets, chk, gnam
             return "out", "Parent group total under £50m", f"Parent group's schemes total {_m(size)}{how}, under £50m"
         if size <= HIGH:
             return "in", "Parent group's DB assets £50m-£500m", f"Parent group {gname}: DB assets {_m(size)}{how} across the group's schemes"
-        return "candidate", "Parent group's figure only", f"Only the parent group's figure ({gname}, {_m(size)}{how}, over £500m); the sponsor's own share is not known"
+        if pdfst != "figures":
+            return "out", "Parent group's DB assets over £500m", f"Parent group {gname}: DB assets {_m(size)}{how} across the group's schemes, over £500m; the sponsor reports none of its own"
+        return "candidate", "Parent group's figure only", f"Only the parent group's figure ({gname}, {_m(size)}{how}, over £500m); the sponsor's own accounts give a figure that failed the checks"
     if reason == "Accounts show no DB scheme":
         return "out", "Accounts show no DB scheme", "Employer's accounts show no DB scheme"
     if reason.startswith("Member of a multi-employer scheme"):

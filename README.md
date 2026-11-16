@@ -478,8 +478,10 @@ band:
   it. Where assets are missing, the obligation stands in for size.
 - **Parent groups**: where the sponsor has no figures of its own but its nearest UK parent's group figures are
   £50m-£500m, the scheme is `in` with `band_kind` "Parent group's DB assets £50m-£500m": the group is the
-  sponsor in economic terms. Explorer counts still key on the legal sponsor.
-- **Candidates** are: a parent group's figure over £500m only (the sponsor's own share isn't known), no figure from a sponsor
+  sponsor in economic terms. Explorer counts still key on the legal sponsor. On the same footing, a parent group
+  over £500m puts the scheme `out` ("Parent group's DB assets over £500m"), unless the sponsor's own accounts gave
+  a figure (one that failed the checks), which leaves it a candidate.
+- **Candidates** are: a parent group's figure over £500m where the sponsor's own accounts gave a figure that failed the checks, no figure from a sponsor
   that files full, group or medium accounts, a figure that failed the checks, a charity or other body with no
   figure yet, and schemes with DB evidence whose sponsor isn't found (public-sector ones are listed apart, as their
   scope is still to be decided).

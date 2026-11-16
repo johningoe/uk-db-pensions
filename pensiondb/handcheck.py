@@ -30,6 +30,10 @@ FX = {
     ("USD", "2025-03-31"): 1.2910,      # Bank of England spot rate 31 Mar 2025 (via poundsterlinglive.com)
     ("USD", "2025-09-30"): 1.3462,      # Bank of England spot rate 30 Sep 2025 (via poundsterlinglive.com)
     ("USD", "2026-03-31"): 1.3188,      # Bank of England spot rate 31 Mar 2026 (via poundsterlinglive.com)
+    ("USD", "2025-04-30"): 1.3356,      # Bank of England spot rate 30 Apr 2025 (via poundsterlinglive.com)
+    ("USD", "2025-05-31"): 1.3482,      # Bank of England spot rate 30 May 2025, last working day (via poundsterlinglive.com)
+    ("USD", "2025-08-31"): 1.3509,      # Bank of England spot rate 29 Aug 2025, last working day (via poundsterlinglive.com)
+    ("USD", "2025-12-28"): 1.3507,      # Bank of England spot rate 24 Dec 2025, last working day (via poundsterlinglive.com)
 }
 
 
