@@ -22,7 +22,7 @@ COLS = ["psr", "name", "postcode", "city", "name_type", "is_section", "group", "
         "reg", "reg_number", "reg_name",
         "source", "fig_body", "fig_body_no", "period_end", "obligation", "assets", "fig_check", "fig_where",
         "ppf", "fas", "live_doubt", "parent_top", "parent_country", "sector", "sic", "region", "sponsor_postcode",
-        "quality", "quality_why", "band", "band_kind", "band_reason", "sf_obligation", "sf_assets", "sf_basis", "sf_period"]
+        "quality", "quality_why", "band", "band_kind", "band_reason", "sf_obligation", "sf_assets", "sf_basis", "sf_period", "live_check", "live_evidence"]
 
 
 def _place(co, reg, sic, spc, rpc):
@@ -56,7 +56,8 @@ def _rows(con):
            s.charity_db_source, s.charity_fy_end, s.charity_db_obligation, s.charity_db_assets, s.charity_db_pension,
            s.charity_db_check, a.doc, a.page,
            s.ppf_status, s.fas_status, s.live_doubt, sp.parent_top_name, sp.parent_top_country,
-           sp.sic_1, sp.reg_post_code, s.band, s.band_kind, s.band_reason, sf.obligation, sf.assets, sf.basis, sf.period_end
+           sp.sic_1, sp.reg_post_code, s.band, s.band_kind, s.band_reason, sf.obligation, sf.assets, sf.basis, sf.period_end,
+           s.live_check, s.live_evidence
     FROM schemes s
     LEFT JOIN sponsors sp ON sp.company_number = s.sponsor_company_number
     LEFT JOIN charity_accounts a ON a.source = s.charity_source AND a.number = s.charity_number

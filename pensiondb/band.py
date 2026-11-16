@@ -1,21 +1,21 @@
-"""Figures per scheme, and whether each scheme falls in the £50m-£500m asset band.
+"""Whether each sponsor's DB schemes, taken together, hold £50m-£500m of assets; and figures per scheme where they
+can be told apart.
 
-Accounts give DB figures per employer, not per scheme. An employer with one live DB scheme gives that scheme's
-figures; an employer with several needs its pension note split by scheme, which is entered by hand in
-scheme_figures.csv. build(con) writes:
+The target is sponsors (employers) with £50m-£500m of DB assets across all their schemes, from their own accounts.
+build(con) writes, on every scheme row (each scheme carries its sponsor's band):
 
-  scheme_figures   psr, obligation, assets (£), period_end, basis, source, note
-                   basis: scheme_note (split by hand from the pension note) | employer_single | register_single
-  schemes.band     in / candidate / out
+  schemes.band          in / candidate / out
   schemes.band_kind     the kind of reason, short enough to group by
   schemes.band_reason   the reason, with the figure behind it
+  scheme_figures        a scheme's own figures where known: split by hand from the pension note
+                        (scheme_figures.csv) or the sponsor's figures when it has only one live DB scheme
 
-  in         the scheme's own assets are £50m-£500m
-  candidate  could be in the band and is not settled yet: an employer total of £50m+ across several schemes,
-             a parent group's figure only, no figure from an employer that files full accounts, or an
-             employer not yet found for a scheme with DB evidence
-  out        the scheme's own assets are outside the band, the employer's schemes together come to under £50m,
-             the employer files small or micro accounts, or the scheme is not live, DC or shows no DB evidence
+  in         the sponsor's own DB assets are £50m-£500m
+  candidate  could be in the band and is not settled yet: a parent group's figure only, no figure from a sponsor
+             that files full accounts, a figure that failed the checks, or a scheme with DB evidence whose sponsor
+             is not yet found
+  out        the sponsor's DB assets are outside the band, the parent group's total is under £50m, the sponsor
+             files small or micro accounts, or the scheme is not live, DC or shows no DB evidence
 
 Where assets are missing the obligation stands in for size, and the reason says so.
 
@@ -28,6 +28,7 @@ from . import gaps
 
 LOW, HIGH = 50e6, 500e6
 CSV = Path(__file__).with_name("scheme_figures.csv")
+LIVE_CHECKED = Path(__file__).with_name("live_checked.csv")   # psr, verdict (live), note: a liveness lead reviewed and set aside
 FIELDS = ["psr", "scheme_name", "period_end", "obligation_m", "assets_m", "source", "note"]
 LIVE = ("with_figures", "no_figures")
 SMALL = {"total exemption full", "total exemption small", "small", "micro entity", "dormant", "no accounts filed",
@@ -109,7 +110,52 @@ def build(con):
     out = {}
     for b, *_ in bands:
         out[b] = out.get(b, 0) + 1
+    out.update(_live_check(con))
     return {"scheme figures": len(figs), **out}
+
+
+SIGNAL_TEXT = {"figures": "Recent DB figures in the employer's accounts", "buy_in": "Accounts describe a buy-in (still live)",
+               "winding_up": "Accounts say a buy-out or wind-up is under way (live until it completes)"}
+
+
+def _live_check(con):
+    """schemes.live_check for target schemes: live (evidence the scheme still exists), check (a sign it may have been
+    bought out or wound up: review it) or unknown. Built from scheme_liveness (run.py liveness)."""
+    for col in ("live_check", "live_evidence"):
+        try:
+            con.execute(f"ALTER TABLE schemes ADD COLUMN {col} TEXT")
+        except Exception:
+            pass
+    con.execute("UPDATE schemes SET live_check=NULL, live_evidence=NULL")
+    if not con.execute("SELECT 1 FROM sqlite_master WHERE name='scheme_liveness'").fetchone():
+        return {}
+    cols = {r[1] for r in con.execute("PRAGMA table_info(scheme_liveness)")}
+    tr = "l.trustee_status, l.trustee_evidence" if "trustee_status" in cols else "NULL, NULL"
+    checked = {}
+    if LIVE_CHECKED.exists():
+        with open(LIVE_CHECKED, newline="") as f:
+            checked = {r["psr"]: r for r in csv.DictReader(f)}
+    upd, n = [], {}
+    for psr, sig, names, ev, src, tst, tev in con.execute(f"""
+            SELECT s.psr, l.signal, l.names, l.evidence, l.source, {tr} FROM schemes s
+            LEFT JOIN scheme_liveness l ON l.psr = s.psr WHERE s.band IN ('in', 'candidate')"""):
+        if psr in checked:
+            chk, why = checked[psr]["verdict"], f"Reviewed: {checked[psr]['note']}"
+        elif sig == "bought_out":
+            chk, why = "check", f"Accounts may say it was bought out or wound up: {ev} ({src})"
+        elif sig in SIGNAL_TEXT and (names or sig == "figures"):
+            chk, why = "live", f"{SIGNAL_TEXT[sig]}: {ev}" + (f" ({src})" if src and sig != "figures" else "")
+        elif tst == "dissolved":
+            chk, why = "check", f"Trustee company dissolved (may only have been replaced): {tev}"
+        elif tst == "active":
+            chk, why = "live", f"Pension trustee company still active: {tev}"
+        else:
+            chk, why = "unknown", "No evidence either way in the saved accounts or trustee companies"
+        upd.append((chk, why, psr))
+        n[f"live_{chk}"] = n.get(f"live_{chk}", 0) + 1
+    con.executemany("UPDATE schemes SET live_check=?, live_evidence=? WHERE psr=?", upd)
+    con.commit()
+    return n
 
 
 def _band(group, reason, fig, co, rno, evidence, acc, own, ob, assets, chk, gname, gob, gassets, cob, cassets, n):
@@ -117,32 +163,27 @@ def _band(group, reason, fig, co, rno, evidence, acc, own, ob, assets, chk, gnam
         return "out", "Not live", "Not live"
     if group == "dc":
         return "out", "DC scheme", "DC scheme"
-    if fig:
-        size, how = _size(fig[0], fig[1])
-        if size is not None:
-            if size < LOW:
-                return "out", "Scheme assets under £50m", f"Scheme assets {_m(size)}{how}, under £50m"
-            if size > HIGH:
-                return "out", "Scheme assets over £500m", f"Scheme assets {_m(size)}{how}, over £500m"
-            return "in", "Scheme assets £50m-£500m", f"Scheme assets {_m(size)}{how}"
     if group == "not_identified":
         if not evidence:
             return "out", "No employer found, no DB evidence", "No employer found and no DB evidence"
         if reason == "Public sector":
             return "candidate", "Public sector (scope to decide)", "Public-sector scheme with DB evidence (scope to decide)"
         return "candidate", "Employer not found, DB evidence", f"Employer not found; scheme has DB evidence ({reason.lower()})"
-    # several schemes share one employer or body figure
+    # the sponsor's own DB figures, covering all its schemes
     if own or (not co and (cob is not None or cassets is not None)):
         size, how = _size(ob, assets) if own else _size(cob, cassets)
         if size is not None:
+            schemes = f" ({n} live DB schemes)" if n and n > 1 else ""
             if size < LOW:
-                return "out", "Employer's schemes total under £50m", f"Employer's {n} schemes total {_m(size)}{how}, under £50m"
-            return "candidate", "Employer total £50m+ across several schemes", f"Employer's {n} schemes total {_m(size)}{how}: split by scheme needed"
+                return "out", "Sponsor's DB assets under £50m", f"Sponsor's DB assets {_m(size)}{how}{schemes}, under £50m"
+            if size > HIGH:
+                return "out", "Sponsor's DB assets over £500m", f"Sponsor's DB assets {_m(size)}{how}{schemes}, over £500m"
+            return "in", "Sponsor's DB assets £50m-£500m", f"Sponsor's DB assets {_m(size)}{how}{schemes}"
     if co and (gob is not None or gassets is not None):
         size, how = _size(gob, gassets)
         if size < LOW:
             return "out", "Parent group total under £50m", f"Parent group's schemes total {_m(size)}{how}, under £50m"
-        return "candidate", "Parent group's figure only", f"Only the parent group's figure ({gname}, {_m(size)}{how})"
+        return "candidate", "Parent group's figure only", f"Only the parent group's figure ({gname}, {_m(size)}{how}); the sponsor's own share is not known"
     if reason == "Accounts show no DB scheme":
         return "out", "Accounts show no DB scheme", "Employer's accounts show no DB scheme"
     if reason.startswith("Member of a multi-employer scheme"):

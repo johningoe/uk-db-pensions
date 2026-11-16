@@ -161,10 +161,11 @@ textarea.copybox { width: 100%; height: 120px; font: 12px var(--f-mono); margin-
       <p class="legend-note" id="qualitynote"></p>
     </div>
     <div class="panel" style="margin-bottom:16px">
-      <h2>Schemes with £50m–£500m of assets</h2>
-      <p class="legend-note">Each scheme's own assets: an employer with one live DB scheme gives that scheme's figures; an employer with several needs its pension note split by scheme. Candidates could be in the band and are not settled yet. Click a line to see those schemes.</p>
+      <h2>Sponsors with £50m–£500m of DB assets</h2>
+      <p class="legend-note">The sponsor's DB assets across all its schemes, from its own accounts. Candidates could be in the band and are not settled yet. Counts are sponsors; click a line to see their schemes.</p>
       <div class="lede" id="bandlede"></div>
       <div class="cols3" id="bandcols"></div>
+      <p class="legend-note" id="livenote"></p>
     </div>
     <div class="cols2">
       <div class="panel"><h2>Funding level of sponsors with figures</h2><p class="legend-note">Assets as a share of the DB obligation, one count per set of figures (a sponsor with several schemes counts once).</p><div id="hist"></div></div>
@@ -190,9 +191,12 @@ textarea.copybox { width: 100%; height: 120px; font: 12px var(--f-mono); margin-
         <option value="">Any</option><option value="hand">Checked by hand</option><option value="tagged">Tagged in the accounts</option>
         <option value="read">Read from the accounts</option><option value="check">Needs checking</option><option value="trusted">Checked, tagged or read cleanly</option></select></label>
       <label>Size (DB obligation)<select id="f-size"></select></label>
-      <label>£50m–£500m band<select id="f-band">
+      <label>Sponsor £50m–£500m<select id="f-band">
         <option value="">Any</option><option value="target">In band or candidate</option><option value="in">In band</option>
         <option value="candidate">Candidate</option><option value="out">Out of band</option></select></label>
+      <label>Still live?<select id="f-live">
+        <option value="">Any</option><option value="live">Evidence it is live</option><option value="check">May be bought out: check</option>
+        <option value="unknown">No evidence either way</option></select></label>
       <label>Sponsor region<select id="f-region"></select></label>
       <label>Sector<select id="f-sector"></select></label>
       <label class="check"><input type="checkbox" id="f-ppf"> PPF or FAS involvement</label>
@@ -242,7 +246,8 @@ function money(v) {
 const fundRatio = s => (s.obligation > 0 && s.assets != null) ? s.assets / s.obligation : null;
 const pct = r => r == null ? "–" : Math.round(r * 100) + "%";
 const TYPE = {DB_likely: "Name says DB", hybrid_likely: "Name says hybrid", unknown: "Name doesn't say", DC_likely: "Name says DC"};
-const BANDNAME = {in: "In band", candidate: "Candidate (not settled yet)", out: "Out of band"};
+const LIVENAME = {live: "Evidence it is live", check: "May have been bought out or wound up: check", unknown: "No evidence either way"};
+const BANDNAME = {in: "Sponsor in band", candidate: "Candidate (not settled yet)", out: "Out of band"};
 const SFBASIS = {employer_single: "Employer's figures: its only live DB scheme", register_single: "Body's figures: its only live DB scheme", scheme_note: "Split by scheme from the pension note"};
 const QSHORT = {hand: "checked", tagged: "tagged", read: "read", check: "needs check"};
 const SOURCE = {own: "Sponsor's own accounts", group: "Parent group's accounts", register: "Charity, union or mutual accounts"};
@@ -307,17 +312,25 @@ function overview() {
   const qc = {}; live.filter(s => s.group === "with_figures").forEach(s => qc[s.quality] = (qc[s.quality] || 0) + 1);
   $("#qualitynote").innerHTML = `How far to trust the figures: ` + ["hand", "tagged", "read", "check"].filter(k => qc[k]).map(k =>
     `<button class="chip" data-quality="${k}">${fmtN(qc[k])} ${esc(D.quality[k].toLowerCase())}</button>`).join(" ");
-  const B = S.filter(s => s.band === "in" || s.band === "candidate"), nIn = S.filter(s => s.band === "in");
-  const inAssets = nIn.reduce((a, s) => a + (s.sf_assets ?? s.sf_obligation ?? 0), 0);
+  // counted by sponsor: a company, a register body, or (no sponsor found) the scheme itself
+  const spKey = s => s.co || (s.reg ? `${s.reg}:${s.reg_number}` : `psr:${s.psr}`);
+  const bySp = rows => { const m = new Map(); rows.forEach(s => { const k = spKey(s); if (!m.has(k)) m.set(k, []); m.get(k).push(s); }); return m; };
+  const B = bySp(S.filter(s => s.band === "in" || s.band === "candidate")), nIn = bySp(S.filter(s => s.band === "in"));
+  const inAssets = [...nIn.values()].reduce((a, rs) => a + (rs[0].assets ?? rs[0].obligation ?? 0), 0);
   $("#bandlede").innerHTML = `
-    <div class="stat a"><b>${fmtN(B.length)}</b><span>schemes in band or still candidates</span></div>
-    <div class="stat g"><b>${fmtN(nIn.length)}</b><span>in band (${pct(nIn.length / B.length)} of those)</span></div>
-    <div class="stat w"><b>${fmtN(B.length - nIn.length)}</b><span>candidates to settle</span></div>
-    <div class="stat"><b>${money(inAssets)}</b><span>assets of the schemes in band</span></div>`;
-  const kinds = b => { const c = {}; S.filter(s => s.band === b).forEach(s => c[s.band_kind] = (c[s.band_kind] || 0) + 1); return Object.entries(c).sort((x, y) => y[1] - x[1]); };
+    <div class="stat a"><b>${fmtN(B.size)}</b><span>sponsors in band or still candidates</span></div>
+    <div class="stat g"><b>${fmtN(nIn.size)}</b><span>in band (${pct(nIn.size / B.size)} of those)</span></div>
+    <div class="stat w"><b>${fmtN(B.size - nIn.size)}</b><span>candidates to settle</span></div>
+    <div class="stat"><b>${money(inAssets)}</b><span>DB assets of the sponsors in band</span></div>`;
+  const kinds = b => { const c = {}; bySp(S.filter(s => s.band === b)).forEach(rs => { const k = rs[0].band_kind; c[k] = (c[k] || 0) + 1; }); return Object.entries(c).sort((x, y) => y[1] - x[1]); };
   const col = (b, title, cls) => { const items = kinds(b), max = items[0]?.[1] || 1;
     return `<div><h3>${title}</h3><ul class="reasons">${items.map(([k, n]) =>
       `<li><button data-band="${b}" data-bkind="${esc(k)}"><span>${esc(k)}</span><span class="num">${fmtN(n)}</span><span class="r-bar"><i class="${cls}" style="width:${n / max * 100}%"></i></span></button></li>`).join("")}</ul></div>`; };
+  const spLive = rs => rs.some(s => s.live_check === "live") ? "live" : rs.some(s => s.live_check === "check") ? "check" : "unknown";
+  const lc = k => [...B.values()].filter(rs => spLive(rs) === k).length;
+  $("#livenote").innerHTML = `Still live? Of the ${fmtN(B.size)} sponsors: ` + ["live", "check", "unknown"].map(k =>
+    `<button class="chip" data-band="target" data-live="${k}">${fmtN(lc(k))} ${esc(LIVENAME[k].toLowerCase())}</button>`).join(" ")
+    + ` <span class="muted">(a sponsor counts as live if any of its schemes has evidence; the filter shows schemes)</span>`;
   $("#bandcols").innerHTML = col("in", "In band", "i-with_figures") + col("candidate", "Candidates", "i-no_figures") + col("out", "Out of band", "i-not_live");
   // funding histogram
   const bins = [0, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0, 1.1, 1.2, 1.3, 1.5, Infinity];
@@ -340,7 +353,7 @@ function overview() {
 }
 
 /* ---------- schemes ---------- */
-const st = {band: "", bkind: "", q: "", scope: "live", group: "", reason: "", source: "", type: "", quality: "", size: "", region: "", sector: "", ppf: false, review: false, body: "", sort: "obligation", dir: -1, page: 0};
+const st = {live: "", band: "", bkind: "", q: "", scope: "live", group: "", reason: "", source: "", type: "", quality: "", size: "", region: "", sector: "", ppf: false, review: false, body: "", sort: "obligation", dir: -1, page: 0};
 const PAGE = 50;
 function scopeRows() {
   if (st.scope === "live") return S.filter(s => LIVE.includes(s.group));
@@ -382,7 +395,7 @@ function filtered() {
     (!st.type || s.name_type === st.type) && (!st.ppf || s.ppf || s.fas) && (!st.review || s.needs_review) &&
     (!st.quality || (st.quality === "trusted" ? ["hand", "tagged", "read"].includes(s.quality) : s.quality === st.quality)) &&
     (!st.size || s._band === st.size) &&
-    (!st.band || (st.band === "target" ? ["in", "candidate"].includes(s.band) : s.band === st.band)) && (!st.bkind || s.band_kind === st.bkind) && (!st.region || s._region === st.region) && (!st.sector || s._sector === st.sector) &&
+    (!st.band || (st.band === "target" ? ["in", "candidate"].includes(s.band) : s.band === st.band)) && (!st.bkind || s.band_kind === st.bkind) && (!st.live || s.live_check === st.live) && (!st.region || s._region === st.region) && (!st.sector || s._sector === st.sector) &&
     (!st.body || st.body.split(" ").some(b => s.fig_body_no === b || s.co === b)) &&
     q.every(w => s._t.includes(w)));
   const k = st.sort, d = st.dir;
@@ -400,8 +413,8 @@ function fundCell(r) {
 }
 let current = [], selected = null;
 const SCOPE_NAME = {live: "live DB and hybrid schemes", all: "schemes", dc: "DC schemes", not_live: "schemes that are not live"};
-const DEFAULTS = {band: "", bkind: "", q: "", scope: "live", group: "", reason: "", source: "", type: "", quality: "", size: "", region: "", sector: "", ppf: false, review: false, body: ""};
-const CONTROL = {band: "#f-band", q: "#q", scope: "#f-scope", source: "#f-source", type: "#f-type", quality: "#f-quality", ppf: "#f-ppf", review: "#f-review"};
+const DEFAULTS = {live: "", band: "", bkind: "", q: "", scope: "live", group: "", reason: "", source: "", type: "", quality: "", size: "", region: "", sector: "", ppf: false, review: false, body: ""};
+const CONTROL = {live: "#f-live", band: "#f-band", q: "#q", scope: "#f-scope", source: "#f-source", type: "#f-type", quality: "#f-quality", ppf: "#f-ppf", review: "#f-review"};
 function activeFilters() {
   const out = [], opt = (id, v) => $(id).querySelector(`option[value="${CSS.escape(v)}"]`)?.textContent.replace(/ \([\d,]+\)$/, "") || v;
   if (st.body) { const b0 = st.body.split(" ")[0]; const s = S.find(x => x.fig_body_no === b0 || x.co === b0); out.push(["body", `Sponsor: ${s?.fig_body || s?.co_name || s?.reg_name || st.body}`]); }
@@ -415,6 +428,7 @@ function activeFilters() {
   if (st.size) out.push(["size", `Size: ${st.size}`]);
   if (st.band) out.push(["band", `£50m–£500m: ${opt("#f-band", st.band)}`]);
   if (st.bkind) out.push(["bkind", st.bkind]);
+  if (st.live) out.push(["live", `Still live: ${opt("#f-live", st.live)}`]);
   if (st.region) out.push(["region", `Region: ${st.region}`]);
   if (st.sector) out.push(["sector", `Sector: ${st.sector}`]);
   if (st.ppf) out.push(["ppf", "PPF or FAS involvement"]);
@@ -491,7 +505,7 @@ function openScheme(psr) {
       + (nShared > 1 ? `<p class="note">${nShared} live schemes in this database share these figures (the body's DB schemes together, or a parent and subsidiary reporting the same scheme). Count them once when adding up.</p>` : "")
       + (s.source === "group" ? `<p class="note">Group figures from a parent company's accounts. They include other group schemes, so they overstate this scheme alone.</p>` : "")
       : `<p class="muted">${esc(s.group === "with_figures" ? "" : s.reason)}</p>`}</section>
-    <section><h3>£50m–£500m band</h3>${kv([["Band", esc(BANDNAME[s.band] || s.band)], ["Why", esc(s.band_reason)],
+    <section><h3>Sponsor £50m–£500m band</h3>${kv([["Band", esc(BANDNAME[s.band] || s.band)], ["Why", esc(s.band_reason)], ["Still live?", s.live_check ? esc(LIVENAME[s.live_check]) + `<span class="sub muted">${esc(s.live_evidence)}</span>` : null],
       ["Scheme's own figures", s.sf_basis ? `Obligation ${money(s.sf_obligation)} · assets ${money(s.sf_assets)}<span class="sub muted">${esc(SFBASIS[s.sf_basis] || s.sf_basis)}${s.sf_period ? " · year end " + esc(String(s.sf_period).slice(0, 10)) : ""}</span>` : null]])}</section>
     ${s.co || s.fig_body_no ? `<section><button class="btn" id="bysponsor">Show all schemes of this sponsor</button></section>` : ""}`;
   $("#drawer").hidden = false; $("#scrim").hidden = false;
@@ -546,7 +560,7 @@ function renderSponsors() {
 /* ---------- csv ---------- */
 function toast(msg) { const t = $("#toast"); t.textContent = msg; t.hidden = false; clearTimeout(toast.t); toast.t = setTimeout(() => t.hidden = true, 2200); }
 function csv() {
-  const cols = ["psr", "name", "postcode", "name_type", "group", "reason", "co", "co_name", "reg", "reg_number", "reg_name", "source", "fig_body", "fig_body_no", "period_end", "obligation", "assets", "quality", "quality_why", "_band", "sector", "sic", "region", "sponsor_postcode", "ppf", "fas", "band", "band_kind", "band_reason", "sf_obligation", "sf_assets", "sf_basis"];
+  const cols = ["psr", "name", "postcode", "name_type", "group", "reason", "co", "co_name", "reg", "reg_number", "reg_name", "source", "fig_body", "fig_body_no", "period_end", "obligation", "assets", "quality", "quality_why", "_band", "sector", "sic", "region", "sponsor_postcode", "ppf", "fas", "band", "band_kind", "band_reason", "sf_obligation", "sf_assets", "sf_basis", "live_check", "live_evidence"];
   const q = v => v == null ? "" : /[",\n]/.test(String(v)) ? `"${String(v).replace(/"/g, '""')}"` : String(v);
   return [cols.map(c => c === "_band" ? "size_band" : c).join(","), ...current.map(s => cols.map(c => q(c === "group" ? D.groups[s.group] : s[c])).join(","))].join("\n");
 }
@@ -572,6 +586,7 @@ $("#q").addEventListener("input", e => { clearTimeout(timer); timer = setTimeout
 $("#f-scope").addEventListener("change", e => { st.scope = e.target.value; st.page = 0; fillGroupReason(); renderSchemes(); });
 $("#f-group").addEventListener("change", e => { st.group = e.target.value; st.reason = ""; st.page = 0; fillGroupReason(); renderSchemes(); });
 [["#f-reason", "reason"], ["#f-source", "source"], ["#f-type", "type"], ["#f-quality", "quality"], ["#f-size", "size"], ["#f-region", "region"], ["#f-sector", "sector"]].forEach(([id, k]) => $(id).addEventListener("change", e => { st[k] = e.target.value; st.page = 0; if (k === "reason") fillGroupReason(); renderSchemes(); }));
+$("#f-live").addEventListener("change", e => { st.live = e.target.value; st.page = 0; renderSchemes(); });
 $("#f-band").addEventListener("change", e => { st.band = e.target.value; st.bkind = ""; st.page = 0; renderSchemes(); });
 $("#f-ppf").addEventListener("change", e => { st.ppf = e.target.checked; st.page = 0; renderSchemes(); });
 $("#f-review").addEventListener("change", e => { st.review = e.target.checked; st.page = 0; renderSchemes(); });
@@ -587,7 +602,7 @@ document.addEventListener("click", e => {
   else if (t.dataset.psr) openScheme(t.dataset.psr);
   else if (t.dataset.group) { Object.assign(st, {scope: "live", group: t.dataset.group, reason: t.dataset.reason || "", body: "", page: 0}); $("#f-scope").value = "live"; go("schemes"); }
   else if (t.dataset.scope) { Object.assign(st, {scope: t.dataset.scope, group: "", reason: "", body: "", page: 0}); $("#f-scope").value = t.dataset.scope; go("schemes"); }
-  else if (t.dataset.band) { setFilters({...DEFAULTS, scope: "all", band: t.dataset.band, bkind: t.dataset.bkind || ""}); go("schemes"); }
+  else if (t.dataset.band) { setFilters({...DEFAULTS, scope: "all", band: t.dataset.band, bkind: t.dataset.bkind || "", live: t.dataset.live || ""}); go("schemes"); }
   else if (t.dataset.quality) { setFilters({...DEFAULTS, group: "with_figures", quality: t.dataset.quality}); go("schemes"); }
   else if (t.dataset.clear) { const k = t.dataset.clear; setFilters(k === "group" ? {group: "", reason: ""} : k === "band" ? {band: "", bkind: ""} : {[k]: DEFAULTS[k]}); }
   else if (t.dataset.body) { Object.assign(st, {body: t.dataset.body, scope: "all", group: "", reason: "", page: 0}); $("#f-scope").value = "all"; go("schemes"); }

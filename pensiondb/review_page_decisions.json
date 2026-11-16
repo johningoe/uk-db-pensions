@@ -14560,6 +14560,474 @@
   "note": "Matched on a short brand name to HARLEY HADDOW PARTNERSHIP LLP, a namesake company dissolved 2019-04-30"
  },
  {
+  "key": "liveev:10000070",
+  "kind": "live",
+  "id": "10000070",
+  "name": "Innospec Limited Pension Plan (previously Associated Octel)",
+  "schemes": [
+   "10000070"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "not_live",
+  "reason": "bought_out",
+  "note": "Accounts: buy-out of the UK DB plan completed in 2024"
+ },
+ {
+  "key": "liveev:10005456",
+  "kind": "live",
+  "id": "10005456",
+  "name": "Dow Corning Ltd Pension Plan",
+  "schemes": [
+   "10005456"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "not_live",
+  "reason": "bought_out",
+  "note": "Accounts: buy-out completed end of October 2025"
+ },
+ {
+  "key": "liveev:10006544",
+  "kind": "live",
+  "id": "10006544",
+  "name": "Ayrshire Metal Products Group Senior Officials Pension Scheme",
+  "schemes": [
+   "10006544"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "not_live",
+  "reason": "wound_up",
+  "note": "Accounts: scheme wound up, annuities in members' names"
+ },
+ {
+  "key": "liveev:10008061",
+  "kind": "live",
+  "id": "10008061",
+  "name": "Sotheby's Pension Scheme",
+  "schemes": [
+   "10008061"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "not_live",
+  "reason": "bought_out",
+  "note": "Accounts: fully bought out and wound up 31 March 2024"
+ },
+ {
+  "key": "liveev:10009037",
+  "kind": "live",
+  "id": "10009037",
+  "name": "Pension Scheme For The Institute Of Biomedical Science",
+  "schemes": [
+   "10009037"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "not_live",
+  "reason": "wound_up",
+  "note": "Accounts: DB scheme wound up on 17 May 2021"
+ },
+ {
+  "key": "liveev:10011317",
+  "kind": "live",
+  "id": "10011317",
+  "name": "The Swarovski Pension Scheme",
+  "schemes": [
+   "10011317"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "not_live",
+  "reason": "wound_up",
+  "note": "Accounts: DB scheme formally wound up in 2024"
+ },
+ {
+  "key": "liveev:10011384",
+  "kind": "live",
+  "id": "10011384",
+  "name": "Bett Limited Superannuation And Life Assurance Scheme",
+  "schemes": [
+   "10011384"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "not_live",
+  "reason": "bought_out",
+  "note": "Accounts: fully bought out 11 May 2021, wind-up pending"
+ },
+ {
+  "key": "liveev:10015582",
+  "kind": "live",
+  "id": "10015582",
+  "name": "Evonik Pension Scheme",
+  "schemes": [
+   "10015582"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "not_live",
+  "reason": "wound_up",
+  "note": "Accounts: legacy schemes merged into the Laporte Group Pension Trust and wound up in 2022"
+ },
+ {
+  "key": "liveev:10058185",
+  "kind": "live",
+  "id": "10058185",
+  "name": "Degussa-Huls Employees Pension Scheme",
+  "schemes": [
+   "10058185"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "not_live",
+  "reason": "wound_up",
+  "note": "Accounts: legacy schemes merged into the Laporte Group Pension Trust and wound up in 2022"
+ },
+ {
+  "key": "liveev:10085738",
+  "kind": "live",
+  "id": "10085738",
+  "name": "Ulster Television Pension & Assurance Scheme",
+  "schemes": [
+   "10085738"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "not_live",
+  "reason": "wound_up",
+  "note": "Accounts: UTV Pension Scheme wound up February 2026"
+ },
+ {
+  "key": "liveev:10090748",
+  "kind": "live",
+  "id": "10090748",
+  "name": "Mothercare Executive Pension Scheme",
+  "schemes": [
+   "10090748"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "not_live",
+  "reason": "bought_out",
+  "note": "Accounts: full buy-out of the Executive Scheme after the reporting date"
+ },
+ {
+  "key": "liveev:10094070",
+  "kind": "live",
+  "id": "10094070",
+  "name": "The Barratt Group Pension & Life Assurance Scheme",
+  "schemes": [
+   "10094070"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "not_live",
+  "reason": "bought_out",
+  "note": "Accounts (remuneration report): scheme bought out by an insurer"
+ },
+ {
+  "key": "liveev:10099922",
+  "kind": "live",
+  "id": "10099922",
+  "name": "The North Of England Zoological Society Superannuation Fund Scheme",
+  "schemes": [
+   "10099922"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "not_live",
+  "reason": "bought_out",
+  "note": "Accounts: scheme extinguished through completion of a buy-out, 1 August 2025"
+ },
+ {
+  "key": "liveev:10107993",
+  "kind": "live",
+  "id": "10107993",
+  "name": "The Ipswich And Norwich Co-Operative Society Limited Employees Pension Fund",
+  "schemes": [
+   "10107993"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "not_live",
+  "reason": "wound_up",
+  "note": "Society accounts: the two former schemes were wound up in the year to January 2019"
+ },
+ {
+  "key": "liveev:10111941",
+  "kind": "live",
+  "id": "10111941",
+  "name": "Brit Group Services Ltd Retirement Benefits Scheme",
+  "schemes": [
+   "10111941"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "not_live",
+  "reason": "bought_out",
+  "note": "Accounts: scheme settled after buy-out and wind-up"
+ },
+ {
+  "key": "liveev:10124042",
+  "kind": "live",
+  "id": "10124042",
+  "name": "Cornish Mutual Assurance Company Limited Staff Pension Scheme",
+  "schemes": [
+   "10124042"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "not_live",
+  "reason": "bought_out",
+  "note": "Accounts: full buy-out of the staff pension scheme completed FY2024"
+ },
+ {
+  "key": "liveev:10125603",
+  "kind": "live",
+  "id": "10125603",
+  "name": "Highland Distillers Pension Scheme",
+  "schemes": [
+   "10125603"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "not_live",
+  "reason": "bought_out",
+  "note": "Accounts: full buy-out with PIC completed May 2026"
+ },
+ {
+  "key": "liveev:10130959",
+  "kind": "live",
+  "id": "10130959",
+  "name": "Gallaher A Pension Scheme",
+  "schemes": [
+   "10130959"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "not_live",
+  "reason": "bought_out",
+  "note": "Accounts: buy-out of the Gallaher DB Pension Scheme completed in the year"
+ },
+ {
+  "key": "liveev:10130960",
+  "kind": "live",
+  "id": "10130960",
+  "name": "Gallaher M Pension Scheme",
+  "schemes": [
+   "10130960"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "not_live",
+  "reason": "bought_out",
+  "note": "Accounts: buy-out of the Gallaher DB Pension Scheme completed in the year"
+ },
+ {
+  "key": "liveev:10132427",
+  "kind": "live",
+  "id": "10132427",
+  "name": "DMGT Senior Executives Pension Fund",
+  "schemes": [
+   "10132427"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "not_live",
+  "reason": "bought_out",
+  "note": "Accounts: benefits transferred to individual policies and the trust-based plans wound up"
+ },
+ {
+  "key": "liveev:10132429",
+  "kind": "live",
+  "id": "10132429",
+  "name": "Harmsworth Pension Scheme",
+  "schemes": [
+   "10132429"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "not_live",
+  "reason": "bought_out",
+  "note": "Accounts: benefits transferred to individual policies and the trust-based plans wound up"
+ },
+ {
+  "key": "liveev:10136330",
+  "kind": "live",
+  "id": "10136330",
+  "name": "The Colt Life Assurance & Retirement Scheme",
+  "schemes": [
+   "10136330"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "not_live",
+  "reason": "wound_up",
+  "note": "Accounts: wind-up completed, trustee discharged 30 June 2026"
+ },
+ {
+  "key": "liveev:10139574",
+  "kind": "live",
+  "id": "10139574",
+  "name": "Baptist Union Staff Pension Scheme",
+  "schemes": [
+   "10139574"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "not_live",
+  "reason": "bought_out",
+  "note": "Accounts: Just Group completed a buy-out of the closed DB scheme, October 2024"
+ },
+ {
+  "key": "liveev:10143381",
+  "kind": "live",
+  "id": "10143381",
+  "name": "Timpson Group Pension Scheme",
+  "schemes": [
+   "10143381"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "not_live",
+  "reason": "bought_out",
+  "note": "Accounts: trustees completed a buy-out during the year"
+ },
+ {
+  "key": "liveev:10167789",
+  "kind": "live",
+  "id": "10167789",
+  "name": "Express Newspapers Senior Management Pension Fund",
+  "schemes": [
+   "10167789"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "not_live",
+  "reason": "bought_out",
+  "note": "Accounts: ENSM scheme wound up 18 August 2025 after full buy-out February 2024"
+ },
+ {
+  "key": "liveev:10170220",
+  "kind": "live",
+  "id": "10170220",
+  "name": "Mitchells & Butlers Executive Pension Plan",
+  "schemes": [
+   "10170220"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "not_live",
+  "reason": "wound_up",
+  "note": "Accounts: the executive scheme has been wound up"
+ },
+ {
+  "key": "liveev:10182928",
+  "kind": "live",
+  "id": "10182928",
+  "name": "E.ON UK Senior Executive Pension Scheme",
+  "schemes": [
+   "10182928"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "not_live",
+  "reason": "bought_out",
+  "note": "Accounts: wind-up triggered, scheme bought out in 2025"
+ },
+ {
+  "key": "liveev:10203032",
+  "kind": "live",
+  "id": "10203032",
+  "name": "Rexel UK Pension Scheme",
+  "schemes": [
+   "10203032"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "not_live",
+  "reason": "wound_up",
+  "note": "Accounts: scheme wound up on 20 December 2024"
+ },
+ {
+  "key": "liveev:10209886",
+  "kind": "live",
+  "id": "10209886",
+  "name": "Gate Gourmet London Pension Scheme",
+  "schemes": [
+   "10209886"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "not_live",
+  "reason": "bought_out",
+  "note": "Accounts: buy-out of the Company's DB scheme completed; residual surplus £15.3m received"
+ },
+ {
+  "key": "liveev:10228991",
+  "kind": "live",
+  "id": "10228991",
+  "name": "The Mitsubishi Ufj Securites International Plc Pension Scheme G76428",
+  "schemes": [
+   "10228991"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "not_live",
+  "reason": "bought_out",
+  "note": "Accounts: buy-out completed, surplus of £18.5m remained"
+ },
+ {
+  "key": "liveev:10271807",
+  "kind": "live",
+  "id": "10271807",
+  "name": "INVISTA Textiles (U.K.) Limited Pension Plan",
+  "schemes": [
+   "10271807"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "not_live",
+  "reason": "bought_out",
+  "note": "Accounts: buy-out completed, obligation nil at 31 December 2024"
+ },
+ {
+  "key": "liveev:19004218",
+  "kind": "live",
+  "id": "19004218",
+  "name": "Leonard Cheshire Disability Group Pension Scheme Section",
+  "schemes": [
+   "19004218"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "not_live",
+  "reason": "wound_up",
+  "note": "Accounts: DB scheme wound up on 28 November 2024"
+ },
+ {
+  "key": "liveev:19005301",
+  "kind": "live",
+  "id": "19005301",
+  "name": "Gate Gourmet London Pension Scheme - Main Section",
+  "schemes": [
+   "19005301"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "not_live",
+  "reason": "bought_out",
+  "note": "Accounts: buy-out of the Company's DB scheme completed; residual surplus £15.3m received"
+ },
+ {
+  "key": "liveev:19005302",
+  "kind": "live",
+  "id": "19005302",
+  "name": "Gate Gourmet London Pension Scheme - BA Section",
+  "schemes": [
+   "19005302"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "not_live",
+  "reason": "bought_out",
+  "note": "Accounts: buy-out of the Company's DB scheme completed; residual surplus £15.3m received"
+ },
+ {
+  "key": "liveev:19006706",
+  "kind": "live",
+  "id": "19006706",
+  "name": "Water Companies Pension Scheme - Bristol Water Plc Section",
+  "schemes": [
+   "19006706"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "not_live",
+  "reason": "bought_out",
+  "note": "Accounts: section bought out on 11 July 2026"
+ },
+ {
+  "key": "liveev:19015932",
+  "kind": "live",
+  "id": "19015932",
+  "name": "Horizon Nuclear Power Services Limited",
+  "schemes": [
+   "19015932"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "not_live",
+  "reason": "bought_out",
+  "note": "Accounts: buy-out of the scheme completed in the prior year"
+ },
+ {
   "key": "match:10000042",
   "kind": "match",
   "id": "10000042",
