@@ -26,6 +26,23 @@
   "note": "Checked against the balance table in the accounts"
  },
  {
+  "key": "fig:00009433",
+  "kind": "check",
+  "id": "00009433",
+  "name": "SINGLETON BIRCH LIMITED",
+  "schemes": [
+   "10053021"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 21.121,
+  "assets_m": 18.657,
+  "basis": "group",
+  "period_end": null,
+  "page": null,
+  "note": "Closing obligation 21,121 (incl. unfunded 812) and assets 18,657 (£'000)"
+ },
+ {
   "key": "fig:00010262",
   "kind": "check",
   "id": "00010262",
@@ -57,9 +74,10 @@
   "schemes": [
    "10137212"
   ],
-  "at": "2026-11-16T16:00:00Z",
+  "at": "2026-11-17T12:00:00Z",
   "action": "skip",
-  "note": "Only a valuation figure"
+  "reason": "funding",
+  "note": "Only the funding-valuation figure is given, not the accounting obligation and assets"
  },
  {
   "key": "fig:00025932",
@@ -140,6 +158,19 @@
   ]
  },
  {
+  "key": "fig:00032965",
+  "kind": "check",
+  "id": "00032965",
+  "name": "AVON TECHNOLOGIES PLC",
+  "schemes": [
+   "10000086"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "skip",
+  "reason": "usd",
+  "note": "Figures in US dollars and cover worldwide plans"
+ },
+ {
   "key": "fig:00034121",
   "kind": "check",
   "id": "00034121",
@@ -208,9 +239,10 @@
   "schemes": [
    "10154685"
   ],
-  "at": "2026-11-16T17:00:00Z",
+  "at": "2026-11-17T12:00:00Z",
   "action": "skip",
-  "note": "No usable balance table (valuation figure only, partial, or not legible)"
+  "reason": "one",
+  "note": "The note gives only one of obligation and assets"
  },
  {
   "key": "fig:00060987",
@@ -284,6 +316,19 @@
   "note": "Assets 99,085 (scan read 29,085); surplus 16,167 checks"
  },
  {
+  "key": "fig:00076535",
+  "kind": "check",
+  "id": "00076535",
+  "name": "TATE & LYLE PUBLIC LIMITED COMPANY",
+  "schemes": [
+   "10142345"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "not_live",
+  "reason": "bought_out",
+  "note": "Tate & Lyle Group Pension Scheme discharged by buy-out in year to March 2026"
+ },
+ {
   "key": "fig:00079585",
   "kind": "check",
   "id": "00079585",
@@ -291,9 +336,10 @@
   "schemes": [
    "10048482"
   ],
-  "at": "2026-11-16T17:00:00Z",
+  "at": "2026-11-17T12:00:00Z",
   "action": "skip",
-  "note": "No usable balance table (valuation figure only, partial, or not legible)"
+  "reason": "scan",
+  "note": "Scanned accounts: the pension table is scrambled or its numbers lost in OCR"
  },
  {
   "key": "fig:00081701",
@@ -333,6 +379,23 @@
   "note": "Checked against the balance table in the accounts"
  },
  {
+  "key": "fig:00084884",
+  "kind": "check",
+  "id": "00084884",
+  "name": "COLEHERNE LIMITED",
+  "schemes": [
+   "10112297"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 5.081,
+  "assets_m": 5.542,
+  "basis": "group",
+  "period_end": null,
+  "page": null,
+  "note": "Obligations 5,081,000 and assets 5,542,000 (2024); surplus partly restricted"
+ },
+ {
   "key": "fig:00086564",
   "kind": "check",
   "id": "00086564",
@@ -343,6 +406,37 @@
   "at": "2026-11-16T17:00:00Z",
   "action": "skip",
   "note": "Latest accounts on file are old; needs newer accounts"
+ },
+ {
+  "key": "fig:00087249",
+  "kind": "check",
+  "id": "00087249",
+  "name": "Tt Electronics Plc",
+  "schemes": [
+   "10191576",
+   "10255013"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 305.1,
+  "assets_m": 312.4,
+  "basis": "group",
+  "period_end": null,
+  "page": null,
+  "note": "Obligation 305.1 plus net surplus 7.3 (£m)"
+ },
+ {
+  "key": "fig:00087803",
+  "kind": "check",
+  "id": "00087803",
+  "name": "KENTMERE LIMITED",
+  "schemes": [
+   "10032816"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "not_live",
+  "reason": "bought_out",
+  "note": "Obligation nil at 31 December 2024; £0.18m residual assets"
  },
  {
   "key": "fig:00091891",
@@ -490,6 +584,32 @@
   "note": "Checked against the balance table in the accounts"
  },
  {
+  "key": "fig:00129871",
+  "kind": "check",
+  "id": "00129871",
+  "name": "HARRIS & BAILEY LIMITED",
+  "schemes": [
+   "10251437"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "skip",
+  "reason": "winding",
+  "note": "Scheme closing; assets £43k and final expenses only"
+ },
+ {
+  "key": "fig:00133143",
+  "kind": "check",
+  "id": "00133143",
+  "name": "JOHN SWIRE & SONS LIMITED",
+  "schemes": [
+   "10003898"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "skip",
+  "reason": "net",
+  "note": "Accounts give only the net surplus or deficit, with no gross obligation or assets"
+ },
+ {
   "key": "fig:00133804",
   "kind": "verify",
   "id": "00133804",
@@ -537,6 +657,19 @@
   "at": "2026-11-16T15:00:00Z",
   "action": "confirm",
   "note": "Checked against the balance table in the accounts"
+ },
+ {
+  "key": "fig:00140166",
+  "kind": "check",
+  "id": "00140166",
+  "name": "GEORGE SYKES LIMITED",
+  "schemes": [
+   "10130072"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "skip",
+  "reason": "net",
+  "note": "Accounts give only the net surplus or deficit, with no gross obligation or assets"
  },
  {
   "key": "fig:00141748",
@@ -598,6 +731,36 @@
   ]
  },
  {
+  "key": "fig:00151276",
+  "kind": "check",
+  "id": "00151276",
+  "name": "BONEHAM & TURNER LIMITED",
+  "schemes": [
+   "10256120"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "skip",
+  "reason": "tagged",
+  "note": "Small-company accounts: net figure tagged, no pension table in the note"
+ },
+ {
+  "key": "fig:00153475",
+  "kind": "check",
+  "id": "00153475",
+  "name": "SATRA",
+  "schemes": [
+   "10024456"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 33.871,
+  "assets_m": 26.866,
+  "basis": "group",
+  "period_end": null,
+  "page": null,
+  "note": "Two schemes: 21,744,000/20,206,000 and 12,126,705/6,660,000"
+ },
+ {
   "key": "fig:00159031",
   "kind": "verify",
   "id": "00159031",
@@ -651,6 +814,18 @@
   "note": "Cross-checked: obligation, assets and the surplus/deficit line agree on the page"
  },
  {
+  "key": "fig:00169343",
+  "kind": "check",
+  "id": "00169343",
+  "name": "LEWIS & TOWERS LIMITED",
+  "schemes": [
+   "10132787"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "confirm",
+  "note": "Small scheme; figures checked against the note"
+ },
+ {
   "key": "fig:00173274",
   "kind": "verify",
   "id": "00173274",
@@ -670,9 +845,27 @@
   "schemes": [
    "10151956"
   ],
-  "at": "2026-11-16T17:00:00Z",
+  "at": "2026-11-17T12:00:00Z",
   "action": "skip",
-  "note": "Latest accounts on file are old; needs newer accounts"
+  "reason": "old",
+  "note": "Only old accounts at Companies House; no newer filing to read"
+ },
+ {
+  "key": "fig:00177501",
+  "kind": "check",
+  "id": "00177501",
+  "name": "THE SWATCH GROUP (UK) LIMITED",
+  "schemes": [
+   "10131498"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 16.637,
+  "assets_m": 19.147,
+  "basis": "group",
+  "period_end": "2025-12-31",
+  "page": null,
+  "note": "Obligation 16,637, assets 19,147 incl. insured benefits (£'000)"
  },
  {
   "key": "fig:00177819",
@@ -763,6 +956,19 @@
   "period_end": "2025-12-31",
   "page": null,
   "note": "Obligations 29,903 and assets 14,088 (£'000)"
+ },
+ {
+  "key": "fig:00197966",
+  "kind": "check",
+  "id": "00197966",
+  "name": "JOHN LIVINGSTON & SONS,LIMITED",
+  "schemes": [
+   "10275627"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "skip",
+  "reason": "old",
+  "note": "Only old accounts at Companies House; no newer filing to read"
  },
  {
   "action": "confirm",
@@ -858,9 +1064,27 @@
    "10000220",
    "10008321"
   ],
-  "at": "2026-11-16T17:00:00Z",
+  "at": "2026-11-17T12:00:00Z",
   "action": "skip",
-  "note": "No usable balance table (valuation figure only, partial, or not legible)"
+  "reason": "net",
+  "note": "Accounts give only the net surplus or deficit, with no gross obligation or assets"
+ },
+ {
+  "key": "fig:00223081",
+  "kind": "check",
+  "id": "00223081",
+  "name": "LLEWELLINS MACHINE COMPANY LIMITED",
+  "schemes": [
+   "10022511"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 0.191,
+  "assets_m": 0.0,
+  "basis": "group",
+  "period_end": null,
+  "page": null,
+  "note": "Unfunded: liabilities 190,881, no assets"
  },
  {
   "key": "fig:00230737",
@@ -874,6 +1098,19 @@
   "action": "not_live",
   "reason": "bought_out",
   "note": "Settled in 2025: £89.1m settlement payments; £0.2m obligation left"
+ },
+ {
+  "key": "fig:00233687",
+  "kind": "check",
+  "id": "00233687",
+  "name": "MERCK SHARP & DOHME (UK) LIMITED",
+  "schemes": [
+   "10169713"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "skip",
+  "reason": "funding",
+  "note": "Only the funding-valuation figure is given, not the accounting obligation and assets"
  },
  {
   "key": "fig:00235093",
@@ -998,6 +1235,23 @@
   "note": "Checked against the balance table in the accounts"
  },
  {
+  "key": "fig:00252672",
+  "kind": "check",
+  "id": "00252672",
+  "name": "BIRDS (DERBY) LIMITED",
+  "schemes": [
+   "10051560"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 25.593,
+  "assets_m": 24.803,
+  "basis": "group",
+  "period_end": "2026-01-03",
+  "page": null,
+  "note": "Obligation 25,593,000, assets 24,803,000; deficit 790,000 checks"
+ },
+ {
   "key": "fig:00254941",
   "kind": "verify",
   "id": "00254941",
@@ -1067,9 +1321,10 @@
   "schemes": [
    "10091013"
   ],
-  "at": "2026-11-16T17:00:00Z",
+  "at": "2026-11-17T12:00:00Z",
   "action": "skip",
-  "note": "No usable balance table (valuation figure only, partial, or not legible)"
+  "reason": "notable",
+  "note": "No pension table found in the accounts"
  },
  {
   "key": "fig:00271998",
@@ -1094,6 +1349,19 @@
   "at": "2026-11-16T15:00:00Z",
   "action": "confirm",
   "note": "Checked against the balance table in the accounts"
+ },
+ {
+  "key": "fig:00282503",
+  "kind": "check",
+  "id": "00282503",
+  "name": "AMUSEMENT EQUIPMENT CO.LIMITED",
+  "schemes": [
+   "10152369"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "skip",
+  "reason": "old",
+  "note": "Only old accounts at Companies House; no newer filing to read"
  },
  {
   "key": "fig:00282772",
@@ -1166,6 +1434,44 @@
   ]
  },
  {
+  "key": "fig:00297673",
+  "kind": "check",
+  "id": "00297673",
+  "name": "GEERINGS LIMITED",
+  "schemes": [
+   "10000481"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "skip",
+  "reason": "tagged",
+  "note": "Small-company accounts: net figure tagged, no pension table in the note"
+ },
+ {
+  "key": "fig:00297731",
+  "kind": "check",
+  "id": "00297731",
+  "name": "KILFROST LIMITED",
+  "schemes": [
+   "10025272"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "confirm",
+  "note": "Small scheme; figures checked against the note"
+ },
+ {
+  "key": "fig:00301393",
+  "kind": "check",
+  "id": "00301393",
+  "name": "RAVENSCLIFFE PROPERTY LIMITED",
+  "schemes": [
+   "10047666"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "skip",
+  "reason": "net",
+  "note": "Accounts give only the net surplus or deficit, with no gross obligation or assets"
+ },
+ {
   "key": "fig:00305189",
   "kind": "verify",
   "id": "00305189",
@@ -1216,6 +1522,40 @@
   "note": "Latest accounts on file are old; needs newer accounts"
  },
  {
+  "key": "fig:00315891",
+  "kind": "check",
+  "id": "00315891",
+  "name": "UNIVERSAL EDITION (LONDON) LIMITED",
+  "schemes": [
+   "10124531"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 0.435,
+  "assets_m": 0.482,
+  "basis": "group",
+  "period_end": null,
+  "page": null,
+  "note": "Liabilities 435,000 and assets 482,000"
+ },
+ {
+  "key": "fig:00319261",
+  "kind": "check",
+  "id": "00319261",
+  "name": "EVERARDS BREWERY LIMITED",
+  "schemes": [
+   "10162261"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 34.777,
+  "assets_m": 36.381,
+  "basis": "group",
+  "period_end": "2025-09-27",
+  "page": null,
+  "note": "Obligation 34,777, assets 36,381 before asset ceiling of 1,607 (£'000)"
+ },
+ {
   "key": "fig:00319964",
   "kind": "check",
   "id": "00319964",
@@ -1223,9 +1563,10 @@
   "schemes": [
    "10219557"
   ],
-  "at": "2026-11-16T17:00:00Z",
+  "at": "2026-11-17T12:00:00Z",
   "action": "skip",
-  "note": "Latest accounts on file are old; needs newer accounts"
+  "reason": "old",
+  "note": "Only old accounts at Companies House; no newer filing to read"
  },
  {
   "key": "fig:00321643",
@@ -1238,6 +1579,19 @@
   "at": "2026-11-16T14:00:00Z",
   "action": "confirm",
   "note": "Checked against the balance table in the accounts"
+ },
+ {
+  "key": "fig:00321992",
+  "kind": "check",
+  "id": "00321992",
+  "name": "Doncasters Limited",
+  "schemes": [
+   "10188191"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "not_live",
+  "reason": "bought_out",
+  "note": "Bought out in 2023"
  },
  {
   "key": "fig:00324340",
@@ -1262,9 +1616,14 @@
   "schemes": [
    "10173639"
   ],
-  "at": "2026-11-16T17:00:00Z",
-  "action": "skip",
-  "note": "No usable balance table (valuation figure only, partial, or not legible)"
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 1.326,
+  "assets_m": 1.724,
+  "basis": "group",
+  "period_end": null,
+  "page": null,
+  "note": "Obligations 1,326,000 and assets 1,724,000"
  },
  {
   "key": "fig:00329377",
@@ -1296,6 +1655,19 @@
   "note": "Obligations 5,193,000 and assets 5,225,000; surplus restricted"
  },
  {
+  "key": "fig:00333313",
+  "kind": "check",
+  "id": "00333313",
+  "name": "GEDORE TORQUE LTD",
+  "schemes": [
+   "10158316"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "skip",
+  "reason": "net",
+  "note": "Accounts give only the net surplus or deficit, with no gross obligation or assets"
+ },
+ {
   "key": "fig:00335087",
   "kind": "check",
   "id": "00335087",
@@ -1303,9 +1675,54 @@
   "schemes": [
    "10172880"
   ],
-  "at": "2026-11-16T17:00:00Z",
+  "at": "2026-11-17T12:00:00Z",
   "action": "skip",
-  "note": "Latest accounts on file are old; needs newer accounts"
+  "reason": "old",
+  "note": "Only old accounts at Companies House; no newer filing to read"
+ },
+ {
+  "key": "fig:00337663",
+  "kind": "check",
+  "id": "00337663",
+  "name": "BOC LIMITED",
+  "schemes": [
+   "10124787",
+   "10124788"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "skip",
+  "reason": "group",
+  "note": "BOC Group scheme: BOC Ltd does not recognise it; only the net asset £431.4m is stated"
+ },
+ {
+  "key": "fig:00339722",
+  "kind": "check",
+  "id": "00339722",
+  "name": "J. J. SMITH & CO. (WOODWORKING MACHINERY) LIMITED",
+  "schemes": [
+   "10012135"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 4.998,
+  "assets_m": 4.998,
+  "basis": "group",
+  "period_end": null,
+  "page": null,
+  "note": "Liabilities and assets both 4,998,000 (surplus restricted)"
+ },
+ {
+  "key": "fig:00342025",
+  "kind": "check",
+  "id": "00342025",
+  "name": "S & U PLC",
+  "schemes": [
+   "10140132"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "skip",
+  "reason": "notable",
+  "note": "No pension table found in the accounts"
  },
  {
   "action": "confirm",
@@ -1355,9 +1772,23 @@
   "schemes": [
    "10204669"
   ],
-  "at": "2026-11-16T17:00:00Z",
+  "at": "2026-11-17T12:00:00Z",
   "action": "skip",
-  "note": "Latest accounts on file are old; needs newer accounts"
+  "reason": "old",
+  "note": "Only old accounts at Companies House; no newer filing to read"
+ },
+ {
+  "key": "fig:00351508",
+  "kind": "check",
+  "id": "00351508",
+  "name": "HARRISON & HARRISON LIMITED",
+  "schemes": [
+   "10168635"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "skip",
+  "reason": "net",
+  "note": "Accounts give only the net surplus or deficit, with no gross obligation or assets"
  },
  {
   "key": "fig:00354568",
@@ -1443,6 +1874,19 @@
   "at": "2026-11-16T16:00:00Z",
   "action": "misread",
   "note": "US-dollar group plan table; no UK figure"
+ },
+ {
+  "key": "fig:00374485",
+  "kind": "check",
+  "id": "00374485",
+  "name": "LOADES LIMITED",
+  "schemes": [
+   "10052655"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "skip",
+  "reason": "tagged",
+  "note": "Small-company accounts: net figure tagged, no pension table in the note"
  },
  {
   "key": "fig:00377361",
@@ -1554,9 +1998,10 @@
   "schemes": [
    "19001238"
   ],
-  "at": "2026-11-16T17:00:00Z",
+  "at": "2026-11-17T12:00:00Z",
   "action": "skip",
-  "note": "Latest accounts on file are old; needs newer accounts"
+  "reason": "old",
+  "note": "Only old accounts at Companies House; no newer filing to read"
  },
  {
   "action": "confirm",
@@ -1571,6 +2016,18 @@
   ]
  },
  {
+  "key": "fig:00411322",
+  "kind": "check",
+  "id": "00411322",
+  "name": "ROYSTON LEAD LIMITED",
+  "schemes": [
+   "10054048"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "confirm",
+  "note": "Small scheme; figures checked against the note"
+ },
+ {
   "key": "fig:00412652",
   "kind": "check",
   "id": "00412652",
@@ -1578,9 +2035,14 @@
   "schemes": [
    "10122346"
   ],
-  "at": "2026-11-16T16:00:00Z",
-  "action": "skip",
-  "note": "Only a valuation figure"
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 17.232,
+  "assets_m": 20.658,
+  "basis": "group",
+  "period_end": null,
+  "page": null,
+  "note": "Obligation and assets at the end of the year (£'000)"
  },
  {
   "key": "fig:00434274",
@@ -1620,6 +2082,37 @@
   ]
  },
  {
+  "key": "fig:00436709",
+  "kind": "check",
+  "id": "00436709",
+  "name": "LIGNACITE LIMITED",
+  "schemes": [
+   "10020669",
+   "10268049"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 0.491,
+  "assets_m": 1.577,
+  "basis": "group",
+  "period_end": null,
+  "page": null,
+  "note": "Obligation 491,000 and scheme assets 1,577,000 (before restriction)"
+ },
+ {
+  "key": "fig:00443179",
+  "kind": "check",
+  "id": "00443179",
+  "name": "DUROLAS (CONTRACTORS) LIMITED",
+  "schemes": [
+   "10023745"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "skip",
+  "reason": "old",
+  "note": "Only old accounts at Companies House; no newer filing to read"
+ },
+ {
   "action": "confirm",
   "at": "2026-11-16T12:00:00Z",
   "id": "00444359",
@@ -1632,6 +2125,19 @@
   ]
  },
  {
+  "key": "fig:00457930",
+  "kind": "check",
+  "id": "00457930",
+  "name": "WATFORD REFRIGERATION AND AIR CONDITIONING LIMITED",
+  "schemes": [
+   "10011248"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "not_live",
+  "reason": "wound_up",
+  "note": "Nil balances in 2021 accounts"
+ },
+ {
   "key": "fig:00458246",
   "kind": "check",
   "id": "00458246",
@@ -1639,9 +2145,23 @@
   "schemes": [
    "10117622"
   ],
-  "at": "2026-11-16T17:00:00Z",
+  "at": "2026-11-17T12:00:00Z",
   "action": "skip",
-  "note": "Latest accounts on file are old; needs newer accounts"
+  "reason": "old",
+  "note": "Only old accounts at Companies House; no newer filing to read"
+ },
+ {
+  "key": "fig:00459364",
+  "kind": "check",
+  "id": "00459364",
+  "name": "CABLE MAKERS PROPERTIES & SERVICES LIMITED",
+  "schemes": [
+   "10099867"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "skip",
+  "reason": "old",
+  "note": "Only old accounts at Companies House; no newer filing to read"
  },
  {
   "key": "fig:00461365",
@@ -1656,6 +2176,19 @@
   "note": "Cross-checked: obligation, assets and the surplus/deficit line agree on the page"
  },
  {
+  "key": "fig:00461974",
+  "kind": "check",
+  "id": "00461974",
+  "name": "MORRIS BROTHERS (TUNSTALL) LIMITED",
+  "schemes": [
+   "10000087"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "skip",
+  "reason": "tagged",
+  "note": "Small-company accounts: net figure tagged, no pension table in the note"
+ },
+ {
   "key": "fig:00466486",
   "kind": "check",
   "id": "00466486",
@@ -1663,9 +2196,10 @@
   "schemes": [
    "10007306"
   ],
-  "at": "2026-11-16T17:00:00Z",
+  "at": "2026-11-17T12:00:00Z",
   "action": "skip",
-  "note": "Latest accounts on file are old; needs newer accounts"
+  "reason": "old",
+  "note": "Only old accounts at Companies House; no newer filing to read"
  },
  {
   "key": "fig:00468526",
@@ -1675,9 +2209,10 @@
   "schemes": [
    "10086622"
   ],
-  "at": "2026-11-16T17:00:00Z",
+  "at": "2026-11-17T12:00:00Z",
   "action": "skip",
-  "note": "No usable balance table (valuation figure only, partial, or not legible)"
+  "reason": "one",
+  "note": "The note gives only one of obligation and assets"
  },
  {
   "key": "fig:00470893",
@@ -1743,9 +2278,14 @@
   "schemes": [
    "10081048"
   ],
-  "at": "2026-11-16T17:00:00Z",
-  "action": "skip",
-  "note": "No usable balance table (valuation figure only, partial, or not legible)"
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 11.339,
+  "assets_m": 12.784,
+  "basis": "group",
+  "period_end": null,
+  "page": null,
+  "note": "Two schemes: 6,299/6,969 (scan read 16,299) and 5,040/5,815 (£'000); surpluses 670 and 775 check"
  },
  {
   "key": "fig:00491378",
@@ -1758,6 +2298,23 @@
   "at": "2026-11-16T17:00:00Z",
   "action": "skip",
   "note": "Latest accounts on file are old; needs newer accounts"
+ },
+ {
+  "key": "fig:00493485",
+  "kind": "check",
+  "id": "00493485",
+  "name": "GROZ-BECKERT U.K. LIMITED",
+  "schemes": [
+   "10015096"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 2.403,
+  "assets_m": 2.894,
+  "basis": "group",
+  "period_end": "2025-12-31",
+  "page": null,
+  "note": "Obligation 2,403,000, assets 2,894,000; surplus 491,000 checks"
  },
  {
   "key": "fig:00499821",
@@ -1780,9 +2337,22 @@
    "10100841",
    "10100842"
   ],
-  "at": "2026-11-16T17:00:00Z",
+  "at": "2026-11-17T12:00:00Z",
   "action": "skip",
-  "note": "No usable balance table (valuation figure only, partial, or not legible)"
+  "reason": "one",
+  "note": "The note gives only one of obligation and assets"
+ },
+ {
+  "key": "fig:00509221",
+  "kind": "check",
+  "id": "00509221",
+  "name": "FOURSTONES PAPER MILL COMPANY LIMITED",
+  "schemes": [
+   "10228811"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "confirm",
+  "note": "Small scheme; figures checked against the note"
  },
  {
   "key": "fig:00512225",
@@ -1792,9 +2362,14 @@
   "schemes": [
    "10156159"
   ],
-  "at": "2026-11-16T17:00:00Z",
-  "action": "skip",
-  "note": "No usable balance table (valuation figure only, partial, or not legible)"
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 9.203,
+  "assets_m": 11.654,
+  "basis": "group",
+  "period_end": "2025-12-31",
+  "page": null,
+  "note": "Obligation 9,203, assets 11,654 (£'000)"
  },
  {
   "key": "fig:00513537",
@@ -1812,6 +2387,19 @@
   "period_end": "2025-12-31",
   "page": null,
   "note": "Balance table (£'000)"
+ },
+ {
+  "key": "fig:00519057",
+  "kind": "check",
+  "id": "00519057",
+  "name": "BODYCOTE PLC",
+  "schemes": [
+   "10083475"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "skip",
+  "reason": "net",
+  "note": "UK scheme: IAS 19 net surplus £0.6m only; the gross table shown covers overseas plans"
  },
  {
   "key": "fig:00520353",
@@ -1845,9 +2433,10 @@
   "schemes": [
    "19001202"
   ],
-  "at": "2026-11-16T17:00:00Z",
-  "action": "skip",
-  "note": "Latest accounts on file are old; needs newer accounts"
+  "at": "2026-11-17T12:00:00Z",
+  "action": "not_live",
+  "reason": "wound_up",
+  "note": "Nil scheme balances at 2015; scheme appears wound up"
  },
  {
   "action": "confirm",
@@ -1919,9 +2508,23 @@
   "schemes": [
    "10118733"
   ],
-  "at": "2026-11-16T17:00:00Z",
+  "at": "2026-11-17T12:00:00Z",
   "action": "skip",
-  "note": "No usable balance table (valuation figure only, partial, or not legible)"
+  "reason": "multi",
+  "note": "Multi-employer scheme; only the employer's share or contributions shown"
+ },
+ {
+  "key": "fig:00572657",
+  "kind": "check",
+  "id": "00572657",
+  "name": "W. VASEY & SONS (CARLISLE) LIMITED",
+  "schemes": [
+   "10110722"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "skip",
+  "reason": "old",
+  "note": "Only old accounts at Companies House; no newer filing to read"
  },
  {
   "action": "confirm",
@@ -2011,9 +2614,14 @@
   "schemes": [
    "10204952"
   ],
-  "at": "2026-11-16T17:00:00Z",
-  "action": "skip",
-  "note": "No usable balance table (valuation figure only, partial, or not legible)"
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 8.418,
+  "assets_m": 12.605,
+  "basis": "group",
+  "period_end": null,
+  "page": null,
+  "note": "Liabilities 8,418 and assets 12,605; surplus restricted (£'000)"
  },
  {
   "key": "fig:00592235",
@@ -2028,6 +2636,19 @@
   "note": "Checked against the balance table in the accounts"
  },
  {
+  "key": "fig:00592720",
+  "kind": "check",
+  "id": "00592720",
+  "name": "CENTRAX LIMITED",
+  "schemes": [
+   "10049612"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "skip",
+  "reason": "notable",
+  "note": "No pension table found in the accounts"
+ },
+ {
   "key": "fig:00592752",
   "kind": "check",
   "id": "00592752",
@@ -2035,9 +2656,10 @@
   "schemes": [
    "10138127"
   ],
-  "at": "2026-11-16T17:00:00Z",
+  "at": "2026-11-17T12:00:00Z",
   "action": "skip",
-  "note": "No usable balance table (valuation figure only, partial, or not legible)"
+  "reason": "tagged",
+  "note": "Small-company accounts: net figure tagged, no pension table in the note"
  },
  {
   "key": "fig:00592844",
@@ -2047,9 +2669,14 @@
   "schemes": [
    "10201661"
   ],
-  "at": "2026-11-16T16:00:00Z",
-  "action": "skip",
-  "note": "Latest accounts on file are old; needs newer accounts"
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 10.4166,
+  "assets_m": 6.64,
+  "basis": "group",
+  "period_end": "2026-03-31",
+  "page": null,
+  "note": "Obligation 10,416,600, assets 6,640,000; deficit 3,776,600 checks"
  },
  {
   "key": "fig:00612172",
@@ -2059,9 +2686,10 @@
   "schemes": [
    "19004222"
   ],
-  "at": "2026-11-16T16:00:00Z",
+  "at": "2026-11-17T12:00:00Z",
   "action": "skip",
-  "note": "Scan too scrambled"
+  "reason": "scan",
+  "note": "Scanned accounts: the pension table is scrambled or its numbers lost in OCR"
  },
  {
   "key": "fig:00613551",
@@ -2102,9 +2730,23 @@
   "schemes": [
    "10002443"
   ],
-  "at": "2026-11-16T17:00:00Z",
+  "at": "2026-11-17T12:00:00Z",
   "action": "skip",
-  "note": "No usable balance table (valuation figure only, partial, or not legible)"
+  "reason": "one",
+  "note": "The note gives only one of obligation and assets"
+ },
+ {
+  "key": "fig:00638559",
+  "kind": "check",
+  "id": "00638559",
+  "name": "VOLKERHIGHWAYS LIMITED",
+  "schemes": [
+   "10132825"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "skip",
+  "reason": "net",
+  "note": "Accounts give only the net surplus or deficit, with no gross obligation or assets"
  },
  {
   "key": "fig:00647788",
@@ -2114,9 +2756,10 @@
   "schemes": [
    "10030850"
   ],
-  "at": "2026-11-16T16:00:00Z",
+  "at": "2026-11-17T12:00:00Z",
   "action": "skip",
-  "note": "£22.9m is part of the UK obligation; full table not legible"
+  "reason": "one",
+  "note": "The note gives only one of obligation and assets"
  },
  {
   "key": "fig:00649192",
@@ -2211,6 +2854,25 @@
   "note": "Cross-checked: obligation, assets and the surplus/deficit line agree on the page"
  },
  {
+  "key": "fig:00691403",
+  "kind": "check",
+  "id": "00691403",
+  "name": "GIVAUDAN UK LIMITED",
+  "schemes": [
+   "10015446",
+   "10232133",
+   "10275996"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 161.188,
+  "assets_m": 169.098,
+  "basis": "group",
+  "period_end": "2025-12-31",
+  "page": null,
+  "note": "Two schemes: 31,006/29,688 and 130,182/139,410 (£'000)"
+ },
+ {
   "key": "fig:00711858",
   "kind": "check",
   "id": "00711858",
@@ -2226,6 +2888,23 @@
   "period_end": "2025-12-31",
   "page": null,
   "note": "Unfunded: liabilities 1,600 (£'000), no assets"
+ },
+ {
+  "key": "fig:00714275",
+  "kind": "check",
+  "id": "00714275",
+  "name": "IMI PLC",
+  "schemes": [
+   "10130966"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 26.2,
+  "assets_m": 26.5,
+  "basis": "group",
+  "period_end": "2025-12-31",
+  "page": null,
+  "note": "UK scheme: obligation 26.2, assets 26.5, surplus 0.3 (£m); liabilities bought in"
  },
  {
   "key": "fig:00729671",
@@ -2346,6 +3025,19 @@
   "note": "Cross-checked: obligation, assets and the surplus/deficit line agree on the page"
  },
  {
+  "key": "fig:00764299",
+  "kind": "check",
+  "id": "00764299",
+  "name": "TRIDENT GARAGES LIMITED",
+  "schemes": [
+   "19001282"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "skip",
+  "reason": "funding",
+  "note": "Only the funding-valuation figure is given, not the accounting obligation and assets"
+ },
+ {
   "key": "fig:00775276",
   "kind": "verify",
   "id": "00775276",
@@ -2377,9 +3069,10 @@
   "schemes": [
    "10028360"
   ],
-  "at": "2026-11-16T17:00:00Z",
+  "at": "2026-11-17T12:00:00Z",
   "action": "skip",
-  "note": "Latest accounts on file are old; needs newer accounts"
+  "reason": "one",
+  "note": "The note gives only one of obligation and assets"
  },
  {
   "key": "fig:00784278",
@@ -2389,9 +3082,14 @@
   "schemes": [
    "10141439"
   ],
-  "at": "2026-11-16T16:00:00Z",
-  "action": "skip",
-  "note": "Latest accounts on file are old; needs newer accounts"
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 29.393,
+  "assets_m": 31.163,
+  "basis": "group",
+  "period_end": null,
+  "page": null,
+  "note": "Liabilities 29,393 and assets 31,163 (£'000)"
  },
  {
   "key": "fig:00805960",
@@ -2401,9 +3099,14 @@
   "schemes": [
    "10005071"
   ],
-  "at": "2026-11-16T16:00:00Z",
-  "action": "skip",
-  "note": "Scan lost the numbers in the balance table"
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 81.398,
+  "assets_m": 98.232,
+  "basis": "group",
+  "period_end": "2024-12-31",
+  "page": null,
+  "note": "Obligation 81,398; assets 98,232 after removing 16,834 unrecognised surplus (£'000)"
  },
  {
   "key": "fig:00806888",
@@ -2463,6 +3166,23 @@
   "note": "Cross-checked: obligation, assets and the surplus/deficit line agree on the page"
  },
  {
+  "key": "fig:00867637",
+  "kind": "check",
+  "id": "00867637",
+  "name": "INTERPUBLIC LIMITED",
+  "schemes": [
+   "10129981"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 200.556,
+  "assets_m": 200.333,
+  "basis": "group",
+  "period_end": "2024-12-31",
+  "page": null,
+  "note": "At 31 December 2024: obligation 200,556, assets 200,333 (£'000)"
+ },
+ {
   "key": "fig:00868273",
   "kind": "check",
   "id": "00868273",
@@ -2512,6 +3232,19 @@
   "note": "Funded obligations 8,374 and assets 8,802; surplus not recognised"
  },
  {
+  "key": "fig:00879464",
+  "kind": "check",
+  "id": "00879464",
+  "name": "IAN WILLIAMS LIMITED",
+  "schemes": [
+   "10020941"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "skip",
+  "reason": "scan",
+  "note": "Scanned accounts: the pension table is scrambled or its numbers lost in OCR"
+ },
+ {
   "key": "fig:00880328",
   "kind": "verify",
   "id": "00880328",
@@ -2523,6 +3256,23 @@
   "at": "2026-11-16T14:00:00Z",
   "action": "confirm",
   "note": "Checked against the balance table in the accounts"
+ },
+ {
+  "key": "fig:00893599",
+  "kind": "check",
+  "id": "00893599",
+  "name": "YKK (U.K.) LIMITED",
+  "schemes": [
+   "10140607"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 25.497,
+  "assets_m": 22.806,
+  "basis": "group",
+  "period_end": null,
+  "page": null,
+  "note": "Obligation 25,497 and assets 22,806 (£'000; the reader took them as whole pounds)"
  },
  {
   "key": "fig:00907866",
@@ -2549,9 +3299,14 @@
   "schemes": [
    "10052639"
   ],
-  "at": "2026-11-16T17:00:00Z",
-  "action": "skip",
-  "note": "Latest accounts on file are old; needs newer accounts"
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 10.742,
+  "assets_m": 13.805,
+  "basis": "group",
+  "period_end": null,
+  "page": null,
+  "note": "Obligations 10,742,000 and assets 13,805,000; surplus restricted"
  },
  {
   "action": "confirm",
@@ -2620,6 +3375,23 @@
   ]
  },
  {
+  "key": "fig:00932731",
+  "kind": "check",
+  "id": "00932731",
+  "name": "BULLDOG REMOULDS LIMITED",
+  "schemes": [
+   "10006201"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 6.133,
+  "assets_m": 11.471,
+  "basis": "group",
+  "period_end": null,
+  "page": null,
+  "note": "Obligations 6,133,000 and assets 11,471,000; surplus restricted"
+ },
+ {
   "key": "fig:00936569",
   "kind": "verify",
   "id": "00936569",
@@ -2630,6 +3402,19 @@
   "at": "2026-11-16T16:00:00Z",
   "action": "confirm",
   "note": "Cross-checked: obligation, assets and the surplus/deficit line agree on the page"
+ },
+ {
+  "key": "fig:00942649",
+  "kind": "check",
+  "id": "00942649",
+  "name": "SHEPHERD FOODS (LONDON) LIMITED",
+  "schemes": [
+   "10092848"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "skip",
+  "reason": "old",
+  "note": "Only old accounts at Companies House; no newer filing to read"
  },
  {
   "key": "fig:00944703",
@@ -2649,6 +3434,32 @@
   "note": "Obligation 16,856 and plan assets 17,022"
  },
  {
+  "key": "fig:00944844",
+  "kind": "check",
+  "id": "00944844",
+  "name": "THE BRICK DEVELOPMENT ASSOCIATION LIMITED",
+  "schemes": [
+   "10025127"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "skip",
+  "reason": "old",
+  "note": "Only old accounts at Companies House; no newer filing to read"
+ },
+ {
+  "key": "fig:00946942",
+  "kind": "check",
+  "id": "00946942",
+  "name": "MSD ANIMAL HEALTH UK LIMITED",
+  "schemes": [
+   "10003932"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "skip",
+  "reason": "net",
+  "note": "Accounts give only the net surplus or deficit, with no gross obligation or assets"
+ },
+ {
   "key": "fig:00951778",
   "kind": "check",
   "id": "00951778",
@@ -2659,6 +3470,23 @@
   "at": "2026-11-16T17:00:00Z",
   "action": "skip",
   "note": "Latest accounts on file are old; needs newer accounts"
+ },
+ {
+  "key": "fig:00966736",
+  "kind": "check",
+  "id": "00966736",
+  "name": "KEYMED (MEDICAL & INDUSTRIAL EQUIPMENT) LIMITED",
+  "schemes": [
+   "10140029"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 49.227,
+  "assets_m": 105.594,
+  "basis": "group",
+  "period_end": null,
+  "page": null,
+  "note": "Obligation 49,227 and assets 105,594 at 31 March 2025 (£'000)"
  },
  {
   "key": "fig:00972252",
@@ -2727,9 +3555,10 @@
   "schemes": [
    "10086408"
   ],
-  "at": "2026-11-16T17:00:00Z",
+  "at": "2026-11-17T12:00:00Z",
   "action": "skip",
-  "note": "No usable balance table (valuation figure only, partial, or not legible)"
+  "reason": "tagged",
+  "note": "Small-company accounts: net figure tagged, no pension table in the note"
  },
  {
   "key": "fig:00992565",
@@ -2759,6 +3588,22 @@
   "at": "2026-11-16T16:00:00Z",
   "action": "confirm",
   "note": "Cross-checked: obligation, assets and the surplus/deficit line agree on the page"
+ },
+ {
+  "key": "fig:01000403",
+  "kind": "check",
+  "id": "01000403",
+  "name": "Rathbones Group Plc",
+  "schemes": [
+   "10076940",
+   "10107797",
+   "10149610",
+   "10271236"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "skip",
+  "reason": "scan",
+  "note": "Scanned accounts: the pension table is scrambled or its numbers lost in OCR"
  },
  {
   "action": "confirm",
@@ -2796,6 +3641,19 @@
   ]
  },
  {
+  "key": "fig:01003647",
+  "kind": "check",
+  "id": "01003647",
+  "name": "JACOB,WHITE(PACKAGING)LIMITED",
+  "schemes": [
+   "10011273"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "skip",
+  "reason": "tagged",
+  "note": "Small-company accounts: net figure tagged, no pension table in the note"
+ },
+ {
   "key": "fig:01008747",
   "kind": "check",
   "id": "01008747",
@@ -2823,6 +3681,19 @@
   "period_end": "2025-12-31",
   "page": null,
   "note": "Obligations 6,254,000 and assets 7,181,000"
+ },
+ {
+  "key": "fig:01015961",
+  "kind": "check",
+  "id": "01015961",
+  "name": "LEAFE & HAWKES LIMITED",
+  "schemes": [
+   "10024147"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "skip",
+  "reason": "old",
+  "note": "Only old accounts at Companies House; no newer filing to read"
  },
  {
   "action": "confirm",
@@ -2871,6 +3742,32 @@
   "note": "Balance table; surplus 14,658"
  },
  {
+  "key": "fig:01023248",
+  "kind": "check",
+  "id": "01023248",
+  "name": "BLAGG & JOHNSON LIMITED",
+  "schemes": [
+   "10108440"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "skip",
+  "reason": "net",
+  "note": "Accounts give only the net surplus or deficit, with no gross obligation or assets"
+ },
+ {
+  "key": "fig:01024686",
+  "kind": "check",
+  "id": "01024686",
+  "name": "CHEVELEY HOLDINGS LIMITED",
+  "schemes": [
+   "10140888"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "skip",
+  "reason": "scan",
+  "note": "Scanned accounts: the pension table is scrambled or its numbers lost in OCR"
+ },
+ {
   "key": "fig:01030127",
   "kind": "check",
   "id": "01030127",
@@ -2902,9 +3799,10 @@
   "schemes": [
    "10013780"
   ],
-  "at": "2026-11-16T16:00:00Z",
+  "at": "2026-11-17T12:00:00Z",
   "action": "skip",
-  "note": "Only a 2021 valuation figure"
+  "reason": "funding",
+  "note": "Only the funding-valuation figure is given, not the accounting obligation and assets"
  },
  {
   "key": "fig:01059511",
@@ -2920,6 +3818,19 @@
   "note": "Obligation nil at February 2025 with £0.2m residual assets"
  },
  {
+  "key": "fig:01069525",
+  "kind": "check",
+  "id": "01069525",
+  "name": "W.CROWDER & SONS LIMITED",
+  "schemes": [
+   "10016861"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "skip",
+  "reason": "old",
+  "note": "Only old accounts at Companies House; no newer filing to read"
+ },
+ {
   "key": "fig:01070807",
   "kind": "check",
   "id": "01070807",
@@ -2932,6 +3843,23 @@
   "note": "Checked against the balance table in the accounts"
  },
  {
+  "key": "fig:01095841",
+  "kind": "check",
+  "id": "01095841",
+  "name": "SUCDEN FINANCIAL LIMITED",
+  "schemes": [
+   "10028065"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 26.417,
+  "assets_m": 28.373,
+  "basis": "group",
+  "period_end": null,
+  "page": null,
+  "note": "Funded obligations 26,417 and assets 28,373 (£'000)"
+ },
+ {
   "key": "fig:01106260",
   "kind": "check",
   "id": "01106260",
@@ -2939,9 +3867,14 @@
   "schemes": [
    "10099505"
   ],
-  "at": "2026-11-16T17:00:00Z",
-  "action": "skip",
-  "note": "No usable balance table (valuation figure only, partial, or not legible)"
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 162.301,
+  "assets_m": 169.322,
+  "basis": "group",
+  "period_end": null,
+  "page": null,
+  "note": "UK 151,301 / 154,522 (net 3,221) plus Ireland 11.0 / 14.8 (£m)"
  },
  {
   "key": "fig:01128160",
@@ -2987,9 +3920,10 @@
   "schemes": [
    "10105073"
   ],
-  "at": "2026-11-16T16:00:00Z",
+  "at": "2026-11-17T12:00:00Z",
   "action": "skip",
-  "note": "Only a 2023 valuation figure"
+  "reason": "funding",
+  "note": "Only the funding-valuation figure is given, not the accounting obligation and assets"
  },
  {
   "key": "fig:01144899",
@@ -3031,6 +3965,23 @@
   "period_end": "2025-12-31",
   "page": null,
   "note": "Liabilities £2,746,000 and assets £1,821,000 (from the text)"
+ },
+ {
+  "key": "fig:01154766",
+  "kind": "check",
+  "id": "01154766",
+  "name": "OLIVETTI UK LIMITED",
+  "schemes": [
+   "10131862"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 4.988,
+  "assets_m": 4.792,
+  "basis": "group",
+  "period_end": null,
+  "page": null,
+  "note": "Closing obligation 4,988 and deficit 196 (£'000)"
  },
  {
   "key": "fig:01171833",
@@ -3108,6 +4059,19 @@
   "note": "Cross-checked: obligation, assets and the surplus/deficit line agree on the page"
  },
  {
+  "key": "fig:01198336",
+  "kind": "check",
+  "id": "01198336",
+  "name": "ACUSHNET EUROPE LTD",
+  "schemes": [
+   "10038384"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "skip",
+  "reason": "scan",
+  "note": "Scanned accounts: the pension table is scrambled or its numbers lost in OCR"
+ },
+ {
   "key": "fig:01199255",
   "kind": "verify",
   "id": "01199255",
@@ -3149,6 +4113,19 @@
   ]
  },
  {
+  "key": "fig:01271767",
+  "kind": "check",
+  "id": "01271767",
+  "name": "Lloyd Motors Limited",
+  "schemes": [
+   "10043159"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "skip",
+  "reason": "net",
+  "note": "Accounts give only the net surplus or deficit, with no gross obligation or assets"
+ },
+ {
   "key": "fig:01283512",
   "kind": "check",
   "id": "01283512",
@@ -3164,6 +4141,19 @@
   "period_end": "2025-12-31",
   "page": null,
   "note": "Unfunded scheme: obligation only"
+ },
+ {
+  "key": "fig:01283801",
+  "kind": "check",
+  "id": "01283801",
+  "name": "SINGER & JAMES LIMITED",
+  "schemes": [
+   "10021642"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "skip",
+  "reason": "old",
+  "note": "Only old accounts at Companies House; no newer filing to read"
  },
  {
   "key": "fig:01285743",
@@ -3198,9 +4188,10 @@
   "schemes": [
    "10086405"
   ],
-  "at": "2026-11-16T17:00:00Z",
+  "at": "2026-11-17T12:00:00Z",
   "action": "skip",
-  "note": "No usable balance table (valuation figure only, partial, or not legible)"
+  "reason": "net",
+  "note": "Accounts give only the net surplus or deficit, with no gross obligation or assets"
  },
  {
   "key": "fig:01309629",
@@ -3213,6 +4204,35 @@
   "at": "2026-11-16T15:00:00Z",
   "action": "confirm",
   "note": "Checked against the balance table in the accounts"
+ },
+ {
+  "key": "fig:01316094",
+  "kind": "check",
+  "id": "01316094",
+  "name": "TAYLOR ENGINEERING & PLASTICS LIMITED",
+  "schemes": [
+   "10133486"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "confirm",
+  "note": "Small scheme; figures checked against the note"
+ },
+ {
+  "key": "fig:01372603",
+  "kind": "check",
+  "id": "01372603",
+  "name": "BELLWAY P L C",
+  "schemes": [
+   "10092997"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 38.9,
+  "assets_m": 39.8,
+  "basis": "group",
+  "period_end": "2025-07-31",
+  "page": null,
+  "note": "At 31 July 2025: obligation 38.9, assets 39.8, net asset 0.9 (£m)"
  },
  {
   "key": "fig:01372978",
@@ -3262,6 +4282,19 @@
   "schemes": [
    "10000043"
   ]
+ },
+ {
+  "key": "fig:01463301",
+  "kind": "check",
+  "id": "01463301",
+  "name": "STILL MATERIALS HANDLING LIMITED",
+  "schemes": [
+   "10167097"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "skip",
+  "reason": "net",
+  "note": "Accounts give only the net surplus or deficit, with no gross obligation or assets"
  },
  {
   "action": "figures",
@@ -3328,6 +4361,32 @@
   "note": "Checked against the balance table in the accounts"
  },
  {
+  "key": "fig:01491305",
+  "kind": "check",
+  "id": "01491305",
+  "name": "W. GROSE LIMITED",
+  "schemes": [
+   "10015506"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "skip",
+  "reason": "old",
+  "note": "Only old accounts at Companies House; no newer filing to read"
+ },
+ {
+  "key": "fig:01497078",
+  "kind": "check",
+  "id": "01497078",
+  "name": "S J DIXON & SON LTD",
+  "schemes": [
+   "10006420"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "skip",
+  "reason": "old",
+  "note": "Only old accounts at Companies House; no newer filing to read"
+ },
+ {
   "action": "figures",
   "assets_m": 1211.2,
   "at": "2026-11-16T12:00:00Z",
@@ -3344,6 +4403,19 @@
    "10130959",
    "10130960"
   ]
+ },
+ {
+  "key": "fig:01501627",
+  "kind": "check",
+  "id": "01501627",
+  "name": "BOYD LINE LIMITED",
+  "schemes": [
+   "10049446"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "skip",
+  "reason": "tagged",
+  "note": "Small-company accounts: net figure tagged, no pension table in the note"
  },
  {
   "action": "confirm",
@@ -3364,12 +4436,12 @@
   "id": "01531838",
   "name": "BRAMBLES U.K. LIMITED",
   "schemes": [
-   "10090731",
-   "10214362"
+   "10090731"
   ],
-  "at": "2026-11-16T16:00:00Z",
+  "at": "2026-11-17T12:00:00Z",
   "action": "skip",
-  "note": "Obligation not found"
+  "reason": "one",
+  "note": "The note gives only one of obligation and assets"
  },
  {
   "key": "fig:01552113",
@@ -3382,6 +4454,23 @@
   "at": "2026-11-16T14:00:00Z",
   "action": "confirm",
   "note": "Checked against the balance table in the accounts"
+ },
+ {
+  "key": "fig:01561575",
+  "kind": "check",
+  "id": "01561575",
+  "name": "HARRIS & SHELDON GROUP LIMITED",
+  "schemes": [
+   "10057503"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 17.275,
+  "assets_m": 46.125,
+  "basis": "group",
+  "period_end": "2025-12-31",
+  "page": null,
+  "note": "Two schemes: obligation 17,275, assets 46,125 before irrecoverable surplus of 28,112 (£'000)"
  },
  {
   "key": "fig:01570075",
@@ -3417,9 +4506,10 @@
   "schemes": [
    "10232697"
   ],
-  "at": "2026-11-16T17:00:00Z",
+  "at": "2026-11-17T12:00:00Z",
   "action": "skip",
-  "note": "Latest accounts on file are old; needs newer accounts"
+  "reason": "old",
+  "note": "Only old accounts at Companies House; no newer filing to read"
  },
  {
   "key": "fig:01664573",
@@ -3432,6 +4522,19 @@
   "at": "2026-11-16T15:00:00Z",
   "action": "confirm",
   "note": "Checked against the balance table in the accounts"
+ },
+ {
+  "key": "fig:01675237",
+  "kind": "check",
+  "id": "01675237",
+  "name": "NORBULK SHIPPING U.K. LIMITED",
+  "schemes": [
+   "10144286"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "skip",
+  "reason": "old",
+  "note": "Only old accounts at Companies House; no newer filing to read"
  },
  {
   "action": "figures",
@@ -3463,17 +4566,34 @@
   "note": "Latest accounts on file are old; needs newer accounts"
  },
  {
+  "key": "fig:01743099",
+  "kind": "check",
+  "id": "01743099",
+  "name": "TELEFONICA UK LIMITED",
+  "schemes": [
+   "10261369"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 0.978,
+  "assets_m": 1.046,
+  "basis": "group",
+  "period_end": "2025-12-31",
+  "page": null,
+  "note": "Obligation 978, assets 1,046 (£'000)"
+ },
+ {
   "key": "fig:01767387",
   "kind": "check",
   "id": "01767387",
   "name": "THE ALUMASC GROUP PLC",
   "schemes": [
-   "10098953",
-   "10099084"
+   "10098953"
   ],
-  "at": "2026-11-16T17:00:00Z",
+  "at": "2026-11-17T12:00:00Z",
   "action": "skip",
-  "note": "No usable balance table (valuation figure only, partial, or not legible)"
+  "reason": "net",
+  "note": "Accounts give only the net surplus or deficit, with no gross obligation or assets"
  },
  {
   "action": "confirm",
@@ -3497,9 +4617,14 @@
   "schemes": [
    "10028070"
   ],
-  "at": "2026-11-16T16:00:00Z",
-  "action": "skip",
-  "note": "Only a valuation figure"
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 9.29,
+  "assets_m": 9.29,
+  "basis": "group",
+  "period_end": "2025-12-31",
+  "page": null,
+  "note": "Fully insured: assets equal obligation £9.29m"
  },
  {
   "key": "fig:01810707",
@@ -3537,12 +4662,16 @@
   "id": "01833679",
   "name": "VODAFONE GROUP PUBLIC LIMITED COMPANY",
   "schemes": [
-   "10091020",
-   "12002681"
+   "10091020"
   ],
-  "at": "2026-11-16T17:00:00Z",
-  "action": "skip",
-  "note": "No usable balance table (valuation figure only, partial, or not legible)"
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 4657,
+  "assets_m": 4739,
+  "basis": "group",
+  "period_end": null,
+  "page": null,
+  "note": "Funded 4,561 + unfunded 96; assets 4,739 (funded surplus 178) (£m)"
  },
  {
   "key": "fig:01865375",
@@ -3552,9 +4681,10 @@
   "schemes": [
    "10097735"
   ],
-  "at": "2026-11-16T17:00:00Z",
+  "at": "2026-11-17T12:00:00Z",
   "action": "skip",
-  "note": "Latest accounts on file are old; needs newer accounts"
+  "reason": "old",
+  "note": "Only old accounts at Companies House; no newer filing to read"
  },
  {
   "key": "fig:01923571",
@@ -3607,9 +4737,10 @@
   "schemes": [
    "10260020"
   ],
-  "at": "2026-11-16T17:00:00Z",
+  "at": "2026-11-17T12:00:00Z",
   "action": "skip",
-  "note": "Latest accounts on file are old; needs newer accounts"
+  "reason": "old",
+  "note": "Only old accounts at Companies House; no newer filing to read"
  },
  {
   "key": "fig:01969867",
@@ -3722,6 +4853,20 @@
   "note": "Funded 178.8 + unfunded 14.7; assets 154.8"
  },
  {
+  "key": "fig:02048608",
+  "kind": "check",
+  "id": "02048608",
+  "name": "Serco Group Plc",
+  "schemes": [
+   "10161969",
+   "19002265"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "skip",
+  "reason": "net",
+  "note": "SPLAS accounting asset £7.8m only; table not legible"
+ },
+ {
   "key": "fig:02063786",
   "kind": "verify",
   "id": "02063786",
@@ -3746,6 +4891,19 @@
   "note": "Latest accounts on file are old; needs newer accounts"
  },
  {
+  "key": "fig:02077752",
+  "kind": "check",
+  "id": "02077752",
+  "name": "DEVONPORT ROYAL DOCKYARD LIMITED",
+  "schemes": [
+   "10000733"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "skip",
+  "reason": "net",
+  "note": "Accounts give only the net surplus or deficit, with no gross obligation or assets"
+ },
+ {
   "key": "fig:02078273",
   "kind": "verify",
   "id": "02078273",
@@ -3763,14 +4921,12 @@
   "id": "02081330",
   "name": "Capita Plc",
   "schemes": [
-   "10011924",
-   "10177609",
-   "12005533",
-   "12006487"
+   "10011924"
   ],
-  "at": "2026-11-16T16:00:00Z",
+  "at": "2026-11-17T12:00:00Z",
   "action": "skip",
-  "note": "Table not legible"
+  "reason": "net",
+  "note": "Accounts give only the net surplus or deficit, with no gross obligation or assets"
  },
  {
   "key": "fig:02100399",
@@ -3859,6 +5015,18 @@
   ]
  },
  {
+  "key": "fig:02147074",
+  "kind": "check",
+  "id": "02147074",
+  "name": "BRIXHAM TRAWLER AGENTS LIMITED",
+  "schemes": [
+   "10140594"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "confirm",
+  "note": "Small scheme; figures checked against the note"
+ },
+ {
   "action": "confirm",
   "at": "2026-11-16T13:00:00Z",
   "id": "02150950",
@@ -3895,6 +5063,23 @@
   "note": "Checked against the balance table in the accounts"
  },
  {
+  "key": "fig:02171917",
+  "kind": "check",
+  "id": "02171917",
+  "name": "GALBRAITH HOLDINGS LIMITED",
+  "schemes": [
+   "10108168"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 4.286,
+  "assets_m": 5.074,
+  "basis": "group",
+  "period_end": null,
+  "page": null,
+  "note": "Closing obligation 4,286,183 and assets 5,074,000"
+ },
+ {
   "key": "fig:02186119",
   "kind": "verify",
   "id": "02186119",
@@ -3917,6 +5102,36 @@
   "at": "2026-11-16T16:00:00Z",
   "action": "confirm",
   "note": "Cross-checked: obligation, assets and the surplus/deficit line agree on the page"
+ },
+ {
+  "key": "fig:02194190",
+  "kind": "check",
+  "id": "02194190",
+  "name": "G.D. AUTOMATIC MACHINERY LIMITED",
+  "schemes": [
+   "10021960"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "skip",
+  "reason": "tagged",
+  "note": "Small-company accounts: net figure tagged, no pension table in the note"
+ },
+ {
+  "key": "fig:02213725",
+  "kind": "check",
+  "id": "02213725",
+  "name": "SCHADES LIMITED",
+  "schemes": [
+   "10088295"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 6.433,
+  "assets_m": 6.405,
+  "basis": "group",
+  "period_end": null,
+  "page": null,
+  "note": "Obligations 6,433,000 and assets 6,405,000 (2024)"
  },
  {
   "action": "confirm",
@@ -4032,6 +5247,23 @@
   "note": "German group commitments; no UK figure"
  },
  {
+  "key": "fig:02299747",
+  "kind": "check",
+  "id": "02299747",
+  "name": "CAPITA BUSINESS SERVICES LTD",
+  "schemes": [
+   "19004702"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 994.5,
+  "assets_m": 1024.6,
+  "basis": "group",
+  "period_end": "2025-12-31",
+  "page": null,
+  "note": "Capita BS section: obligation 994.5, assets 1,024.6 (£m)"
+ },
+ {
   "key": "fig:02315380",
   "kind": "verify",
   "id": "02315380",
@@ -4076,9 +5308,14 @@
   "schemes": [
    "10166592"
   ],
-  "at": "2026-11-16T17:00:00Z",
-  "action": "skip",
-  "note": "Latest accounts on file are old; needs newer accounts"
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 5.8,
+  "assets_m": 0,
+  "basis": "group",
+  "period_end": "2023-03-31",
+  "page": null,
+  "note": "Unfunded obligation £5.8m (2023 accounts)"
  },
  {
   "action": "confirm",
@@ -4184,9 +5421,10 @@
   "schemes": [
    "10231618"
   ],
-  "at": "2026-11-16T17:00:00Z",
+  "at": "2026-11-17T12:00:00Z",
   "action": "skip",
-  "note": "Latest accounts on file are old; needs newer accounts"
+  "reason": "old",
+  "note": "Only old accounts at Companies House; no newer filing to read"
  },
  {
   "action": "confirm",
@@ -4200,6 +5438,19 @@
    "10086420",
    "10091027"
   ]
+ },
+ {
+  "key": "fig:02456984",
+  "kind": "check",
+  "id": "02456984",
+  "name": "MITSUBISHI ELECTRIC FINANCE EUROPE PLC",
+  "schemes": [
+   "10001094"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "skip",
+  "reason": "net",
+  "note": "Accounts give only the net surplus or deficit, with no gross obligation or assets"
  },
  {
   "key": "fig:02459095",
@@ -4245,9 +5496,27 @@
   "schemes": [
    "19004448"
   ],
-  "at": "2026-11-16T17:00:00Z",
+  "at": "2026-11-17T12:00:00Z",
   "action": "skip",
-  "note": "No usable balance table (valuation figure only, partial, or not legible)"
+  "reason": "scan",
+  "note": "Scanned accounts: the pension table is scrambled or its numbers lost in OCR"
+ },
+ {
+  "key": "fig:02472364",
+  "kind": "check",
+  "id": "02472364",
+  "name": "MERCEDES-BENZ FINANCIAL SERVICES UK LIMITED",
+  "schemes": [
+   "10218495"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 57.962,
+  "assets_m": 71.252,
+  "basis": "group",
+  "period_end": null,
+  "page": null,
+  "note": "Obligation 57,962 and assets 71,252; surplus 13,290 (£'000)"
  },
  {
   "action": "confirm",
@@ -4319,6 +5588,19 @@
   "note": "Cross-checked: obligation, assets and the surplus/deficit line agree on the page"
  },
  {
+  "key": "fig:02559444",
+  "kind": "check",
+  "id": "02559444",
+  "name": "THE BIRD GROUP OF COMPANIES LIMITED",
+  "schemes": [
+   "10033092"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "skip",
+  "reason": "notable",
+  "note": "No pension table found in the accounts"
+ },
+ {
   "key": "fig:02560839",
   "kind": "check",
   "id": "02560839",
@@ -4326,9 +5608,10 @@
   "schemes": [
    "10004319"
   ],
-  "at": "2026-11-16T17:00:00Z",
+  "at": "2026-11-17T12:00:00Z",
   "action": "skip",
-  "note": "Latest accounts on file are old; needs newer accounts"
+  "reason": "tagged",
+  "note": "Small-company accounts: net figure tagged, no pension table in the note"
  },
  {
   "key": "fig:02564490",
@@ -4429,6 +5712,19 @@
   "note": "Checked against the balance table in the accounts"
  },
  {
+  "key": "fig:02662226",
+  "kind": "check",
+  "id": "02662226",
+  "name": "BRISTOL WATER PLC",
+  "schemes": [
+   "19006706"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "skip",
+  "reason": "scan",
+  "note": "Gross surplus £15.2m only; the asset and obligation columns for 2026 are lost in OCR"
+ },
+ {
   "key": "fig:02662742",
   "kind": "verify",
   "id": "02662742",
@@ -4453,6 +5749,23 @@
   "at": "2026-11-16T14:00:00Z",
   "action": "confirm",
   "note": "Checked against the balance table in the accounts"
+ },
+ {
+  "key": "fig:02677142",
+  "kind": "check",
+  "id": "02677142",
+  "name": "WALES AND THE BORDERS NEWS MEDIA LIMITED",
+  "schemes": [
+   "10244279"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 1.638,
+  "assets_m": 1.432,
+  "basis": "group",
+  "period_end": "2016-03-31",
+  "page": null,
+  "note": "2016 accounts: assets 1,432,000 plus deficit 206,000"
  },
  {
   "key": "fig:02679874",
@@ -4486,9 +5799,10 @@
   "schemes": [
    "10189374"
   ],
-  "at": "2026-11-16T17:00:00Z",
+  "at": "2026-11-17T12:00:00Z",
   "action": "skip",
-  "note": "Latest accounts on file are old; needs newer accounts"
+  "reason": "old",
+  "note": "Only old accounts at Companies House; no newer filing to read"
  },
  {
   "key": "fig:02695034",
@@ -4559,6 +5873,40 @@
   "note": "Balance table at 31 December 2024 (whole £)"
  },
  {
+  "key": "fig:02775102",
+  "kind": "check",
+  "id": "02775102",
+  "name": "SWISSLOG (UK) LTD.",
+  "schemes": [
+   "10262078"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 14.33,
+  "assets_m": 16.879,
+  "basis": "group",
+  "period_end": null,
+  "page": null,
+  "note": "Funded obligations 14,330 and assets 16,879 (£'000)"
+ },
+ {
+  "key": "fig:02778086",
+  "kind": "check",
+  "id": "02778086",
+  "name": "PADLEY & VENABLES LIMITED",
+  "schemes": [
+   "10087735"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 31.115,
+  "assets_m": 54.214,
+  "basis": "group",
+  "period_end": null,
+  "page": null,
+  "note": "Liabilities 31,115 and assets 54,214 (£'000); surplus mostly not recognised"
+ },
+ {
   "key": "fig:02784271",
   "kind": "check",
   "id": "02784271",
@@ -4566,9 +5914,9 @@
   "schemes": [
    "10141405"
   ],
-  "at": "2026-11-16T17:00:00Z",
-  "action": "skip",
-  "note": "No usable balance table (valuation figure only, partial, or not legible)"
+  "at": "2026-11-17T12:00:00Z",
+  "action": "confirm",
+  "note": "Small scheme; figures checked against the note"
  },
  {
   "key": "fig:02786492",
@@ -4590,9 +5938,22 @@
   "schemes": [
    "10194816"
   ],
-  "at": "2026-11-16T17:00:00Z",
+  "at": "2026-11-17T12:00:00Z",
   "action": "skip",
-  "note": "No usable balance table (valuation figure only, partial, or not legible)"
+  "reason": "net",
+  "note": "Accounts give only the net surplus or deficit, with no gross obligation or assets"
+ },
+ {
+  "key": "fig:02800215",
+  "kind": "check",
+  "id": "02800215",
+  "name": "SCOTT BROWNRIGG LIMITED",
+  "schemes": [
+   "10129181"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "confirm",
+  "note": "Small scheme; figures checked against the note"
  },
  {
   "key": "fig:02804125",
@@ -4634,6 +5995,24 @@
   "period_end": "2025-10-31",
   "page": null,
   "note": "Liabilities 10,353, assets 15,632, surplus 5,279"
+ },
+ {
+  "key": "fig:02836071",
+  "kind": "check",
+  "id": "02836071",
+  "name": "REFRESCO DRINKS UK LIMITED",
+  "schemes": [
+   "10078414",
+   "10169362"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 28.672,
+  "assets_m": 33.11,
+  "basis": "group",
+  "period_end": "2025-12-31",
+  "page": null,
+  "note": "Two schemes: 17,491/21,393 and 11,181/11,717 (£'000)"
  },
  {
   "key": "fig:02860799",
@@ -4716,9 +6095,23 @@
   "schemes": [
    "10051376"
   ],
-  "at": "2026-11-16T16:00:00Z",
+  "at": "2026-11-17T12:00:00Z",
   "action": "skip",
-  "note": "Buy-in with surplus; no balance table"
+  "reason": "buyout",
+  "note": "Bought out or bought in; only the surplus is shown"
+ },
+ {
+  "key": "fig:02970583",
+  "kind": "check",
+  "id": "02970583",
+  "name": "Reassure Midco Limited",
+  "schemes": [
+   "10009581"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "skip",
+  "reason": "net",
+  "note": "Accounts give only the net surplus or deficit, with no gross obligation or assets"
  },
  {
   "key": "fig:02990126",
@@ -4760,6 +6153,32 @@
   "at": "2026-11-16T15:00:00Z",
   "action": "confirm",
   "note": "Checked against the balance table in the accounts"
+ },
+ {
+  "key": "fig:02995730",
+  "kind": "check",
+  "id": "02995730",
+  "name": "COURISTAN CARPETS (UK) LIMITED",
+  "schemes": [
+   "10212821"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "skip",
+  "reason": "old",
+  "note": "Only old accounts at Companies House; no newer filing to read"
+ },
+ {
+  "key": "fig:02997376",
+  "kind": "check",
+  "id": "02997376",
+  "name": "CELTIC ENERGY LIMITED",
+  "schemes": [
+   "19004506"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "skip",
+  "reason": "tagged",
+  "note": "Small-company accounts: net figure tagged, no pension table in the note"
  },
  {
   "key": "fig:02999826",
@@ -4861,6 +6280,36 @@
   ]
  },
  {
+  "key": "fig:03078711",
+  "kind": "check",
+  "id": "03078711",
+  "name": "BRITISH GAS TRADING LIMITED",
+  "schemes": [
+   "19015902"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "skip",
+  "reason": "scan",
+  "note": "Net retirement benefit asset only; table not legible"
+ },
+ {
+  "key": "fig:03086621",
+  "kind": "check",
+  "id": "03086621",
+  "name": "SAMSUNG ELECTRONICS (UK) LIMITED",
+  "schemes": [
+   "10075165"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 80.992,
+  "assets_m": 94.56,
+  "basis": "group",
+  "period_end": null,
+  "page": null,
+  "note": "Two schemes: 61,160/70,654 and 19,832/23,906 (£'000)"
+ },
+ {
   "action": "confirm",
   "at": "2026-11-16T13:00:00Z",
   "id": "03116767",
@@ -4909,9 +6358,14 @@
   "schemes": [
    "10227746"
   ],
-  "at": "2026-11-16T17:00:00Z",
-  "action": "skip",
-  "note": "Latest accounts on file are old; needs newer accounts"
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 5.28,
+  "assets_m": 5.242,
+  "basis": "group",
+  "period_end": null,
+  "page": null,
+  "note": "Obligations 5,280,000 and assets 5,242,000 at March 2024"
  },
  {
   "key": "fig:03200432",
@@ -4950,6 +6404,19 @@
   "note": "Checked against the balance table in the accounts"
  },
  {
+  "key": "fig:03268807",
+  "kind": "check",
+  "id": "03268807",
+  "name": "SUNBURY NURSING HOMES LIMITED",
+  "schemes": [
+   "10114361"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "skip",
+  "reason": "tagged",
+  "note": "Small-company accounts: net figure tagged, no pension table in the note"
+ },
+ {
   "key": "fig:03298903",
   "kind": "verify",
   "id": "03298903",
@@ -4960,6 +6427,19 @@
   "at": "2026-11-16T14:00:00Z",
   "action": "confirm",
   "note": "Checked against the balance table in the accounts"
+ },
+ {
+  "key": "fig:03305650",
+  "kind": "check",
+  "id": "03305650",
+  "name": "Colsur Materials Ltd",
+  "schemes": [
+   "10211498"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "skip",
+  "reason": "funding",
+  "note": "Only the funding-valuation figure is given, not the accounting obligation and assets"
  },
  {
   "action": "figures",
@@ -5008,6 +6488,19 @@
   ]
  },
  {
+  "key": "fig:03441005",
+  "kind": "check",
+  "id": "03441005",
+  "name": "LEADEC LIMITED",
+  "schemes": [
+   "10200988",
+   "19012405"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "confirm",
+  "note": "Figures checked against the note"
+ },
+ {
   "key": "fig:03443946",
   "kind": "verify",
   "id": "03443946",
@@ -5045,9 +6538,10 @@
   "schemes": [
    "10157991"
   ],
-  "at": "2026-11-16T17:00:00Z",
+  "at": "2026-11-17T12:00:00Z",
   "action": "skip",
-  "note": "Latest accounts on file are old; needs newer accounts"
+  "reason": "old",
+  "note": "Only old accounts at Companies House; no newer filing to read"
  },
  {
   "key": "fig:03452689",
@@ -5063,6 +6557,21 @@
   "at": "2026-11-16T16:00:00Z",
   "action": "confirm",
   "note": "Checked against the balance table in the accounts"
+ },
+ {
+  "key": "fig:03455690",
+  "kind": "check",
+  "id": "03455690",
+  "name": "CF FERTILISERS UK LIMITED",
+  "schemes": [
+   "10156239",
+   "10231999",
+   "12000864"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "skip",
+  "reason": "scan",
+  "note": "Scanned accounts: the pension table is scrambled or its numbers lost in OCR"
  },
  {
   "key": "fig:03462881",
@@ -5127,9 +6636,10 @@
   "schemes": [
    "10246477"
   ],
-  "at": "2026-11-16T17:00:00Z",
+  "at": "2026-11-17T12:00:00Z",
   "action": "skip",
-  "note": "No usable balance table (valuation figure only, partial, or not legible)"
+  "reason": "scan",
+  "note": "Scanned accounts: the pension table is scrambled or its numbers lost in OCR"
  },
  {
   "action": "confirm",
@@ -5142,6 +6652,19 @@
   "schemes": [
    "10129119"
   ]
+ },
+ {
+  "key": "fig:03539665",
+  "kind": "check",
+  "id": "03539665",
+  "name": "HS1 LIMITED",
+  "schemes": [
+   "19002399"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "skip",
+  "reason": "net",
+  "note": "HS1 section of the Railways Pension Scheme: net liability £0.5m only"
  },
  {
   "key": "fig:03548809",
@@ -5202,6 +6725,23 @@
   "at": "2026-11-16T14:00:00Z",
   "action": "confirm",
   "note": "Checked against the balance table in the accounts"
+ },
+ {
+  "key": "fig:03767067",
+  "kind": "check",
+  "id": "03767067",
+  "name": "HUNTSMAN POLYURETHANES (UK) LIMITED",
+  "schemes": [
+   "10014133"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 120.669,
+  "assets_m": 135.314,
+  "basis": "group",
+  "period_end": null,
+  "page": null,
+  "note": "Liabilities 120,669 and assets 135,314; net surplus 14,645 checks (£'000)"
  },
  {
   "action": "confirm",
@@ -5348,9 +6888,27 @@
   "schemes": [
    "10008788"
   ],
-  "at": "2026-11-16T17:00:00Z",
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 244.5,
+  "assets_m": 250.7,
+  "basis": "group",
+  "period_end": null,
+  "page": null,
+  "note": "Defined benefit obligation 244.5 and assets 250.7 (£m)"
+ },
+ {
+  "key": "fig:03892046",
+  "kind": "check",
+  "id": "03892046",
+  "name": "SOG LIMITED",
+  "schemes": [
+   "10251087"
+  ],
+  "at": "2026-11-17T12:00:00Z",
   "action": "skip",
-  "note": "No usable balance table (valuation figure only, partial, or not legible)"
+  "reason": "old",
+  "note": "Only old accounts at Companies House; no newer filing to read"
  },
  {
   "action": "confirm",
@@ -5375,6 +6933,22 @@
   "schemes": [
    "10000213"
   ]
+ },
+ {
+  "key": "fig:03914810",
+  "kind": "check",
+  "id": "03914810",
+  "name": "Transport Trading Limited",
+  "schemes": [
+   "10210916",
+   "10269445",
+   "19002379",
+   "19004104"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "skip",
+  "reason": "lgps",
+  "note": "TfL Pension Fund sections; only the Crossrail section surplus £7.0m recognised"
  },
  {
   "key": "fig:03918171",
@@ -5408,9 +6982,45 @@
   "schemes": [
    "12002887"
   ],
-  "at": "2026-11-16T17:00:00Z",
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 71.062,
+  "assets_m": 79.708,
+  "basis": "group",
+  "period_end": null,
+  "page": null,
+  "note": "Total benefit obligation 71,062 plus net asset 8,646 gives assets 79,708 (£'000)"
+ },
+ {
+  "key": "fig:03966107",
+  "kind": "check",
+  "id": "03966107",
+  "name": "ERASTEEL STUBS LIMITED",
+  "schemes": [
+   "19005202"
+  ],
+  "at": "2026-11-17T12:00:00Z",
   "action": "skip",
-  "note": "No usable balance table (valuation figure only, partial, or not legible)"
+  "reason": "net",
+  "note": "Accounts give only the net surplus or deficit, with no gross obligation or assets"
+ },
+ {
+  "key": "fig:03982132",
+  "kind": "check",
+  "id": "03982132",
+  "name": "AB INBEV UK LIMITED",
+  "schemes": [
+   "10215107",
+   "10252525"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 653.626,
+  "assets_m": 761.132,
+  "basis": "group",
+  "period_end": null,
+  "page": null,
+  "note": "Obligations 653,626 and assets 761,132 (£'000)"
  },
  {
   "action": "figures",
@@ -5462,9 +7072,10 @@
   "schemes": [
    "10256043"
   ],
-  "at": "2026-11-16T17:00:00Z",
+  "at": "2026-11-17T12:00:00Z",
   "action": "skip",
-  "note": "No usable balance table (valuation figure only, partial, or not legible)"
+  "reason": "notable",
+  "note": "No pension table found in the accounts"
  },
  {
   "action": "confirm",
@@ -5491,6 +7102,36 @@
   "at": "2026-11-16T16:00:00Z",
   "action": "misread",
   "note": "Swedish and Norwegian group plans; no UK figure"
+ },
+ {
+  "key": "fig:04152338",
+  "kind": "check",
+  "id": "04152338",
+  "name": "MELLI BANK PLC",
+  "schemes": [
+   "10150912"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 10.215,
+  "assets_m": 15.583,
+  "basis": "group",
+  "period_end": "2025-12-31",
+  "page": null,
+  "note": "Obligation 10,215, assets 15,583, net 5,368 (£'000)"
+ },
+ {
+  "key": "fig:04153939",
+  "kind": "check",
+  "id": "04153939",
+  "name": "JARVIS GROUP LIMITED",
+  "schemes": [
+   "10006989"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "skip",
+  "reason": "unclear",
+  "note": "Unclear whether the scheme has been bought out; figures not usable"
  },
  {
   "action": "confirm",
@@ -5556,6 +7197,38 @@
   "note": "Checked against the balance table in the accounts"
  },
  {
+  "key": "fig:04240505",
+  "kind": "check",
+  "id": "04240505",
+  "name": "A&P Gh 2006 Limited",
+  "schemes": [
+   "10091661",
+   "12006331"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "skip",
+  "reason": "scan",
+  "note": "Scanned accounts: the pension table is scrambled or its numbers lost in OCR"
+ },
+ {
+  "key": "fig:04246702",
+  "kind": "check",
+  "id": "04246702",
+  "name": "RAMAC HOLDINGS (TRADING) LIMITED",
+  "schemes": [
+   "10037247",
+   "10112331"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 5.184,
+  "assets_m": 9.943,
+  "basis": "group",
+  "period_end": "2025-02-28",
+  "page": null,
+  "note": "Group: obligation 5,184,000, assets 9,943,000; surplus 4,759,000 checks"
+ },
+ {
   "key": "fig:04267912",
   "kind": "check",
   "id": "04267912",
@@ -5566,6 +7239,23 @@
   "at": "2026-11-16T17:00:00Z",
   "action": "misread",
   "note": "US-dollar group plan table; no UK figure"
+ },
+ {
+  "key": "fig:04325234",
+  "kind": "check",
+  "id": "04325234",
+  "name": "CANCER RESEARCH UK",
+  "schemes": [
+   "10136678"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 385.4,
+  "assets_m": 401.8,
+  "basis": "group",
+  "period_end": "2025-03-31",
+  "page": null,
+  "note": "At 31 March 2025: obligation 385.4, assets 401.8, net 16.4 (£m)"
  },
  {
   "key": "fig:04355070",
@@ -5600,9 +7290,10 @@
   "schemes": [
    "10077477"
   ],
-  "at": "2026-11-16T16:00:00Z",
+  "at": "2026-11-17T12:00:00Z",
   "action": "skip",
-  "note": "Latest accounts on file are old; needs newer accounts"
+  "reason": "old",
+  "note": "Only old accounts at Companies House; no newer filing to read"
  },
  {
   "key": "fig:04444980",
@@ -5641,9 +7332,10 @@
   "schemes": [
    "19004705"
   ],
-  "at": "2026-11-16T16:00:00Z",
+  "at": "2026-11-17T12:00:00Z",
   "action": "skip",
-  "note": "Latest accounts on file are old; needs newer accounts"
+  "reason": "old",
+  "note": "Only old accounts at Companies House; no newer filing to read"
  },
  {
   "key": "fig:04545813",
@@ -5676,6 +7368,23 @@
   ]
  },
  {
+  "key": "fig:04552091",
+  "kind": "check",
+  "id": "04552091",
+  "name": "Wade Group Limited",
+  "schemes": [
+   "10114886"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 23.206,
+  "assets_m": 24.917,
+  "basis": "group",
+  "period_end": "2025-09-28",
+  "page": null,
+  "note": "Two schemes: 16,272/17,495 and 6,934/7,422 (£'000)"
+ },
+ {
   "action": "figures",
   "assets_m": 602.677,
   "at": "2026-11-16T13:00:00Z",
@@ -5700,9 +7409,23 @@
   "schemes": [
    "10008043"
   ],
-  "at": "2026-11-16T17:00:00Z",
+  "at": "2026-11-17T12:00:00Z",
   "action": "skip",
-  "note": "No usable balance table (valuation figure only, partial, or not legible)"
+  "reason": "scan",
+  "note": "Scanned accounts: the pension table is scrambled or its numbers lost in OCR"
+ },
+ {
+  "key": "fig:04569871",
+  "kind": "check",
+  "id": "04569871",
+  "name": "Steve Hopewell Holdings Ltd",
+  "schemes": [
+   "19001278"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "skip",
+  "reason": "deficit",
+  "note": "Only the deficit is given"
  },
  {
   "key": "fig:04592400",
@@ -5775,6 +7498,23 @@
   "note": "Checked against the balance table in the accounts"
  },
  {
+  "key": "fig:04764232",
+  "kind": "check",
+  "id": "04764232",
+  "name": "ACTION FOR CHILDREN",
+  "schemes": [
+   "10146410"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 402.732,
+  "assets_m": 414.477,
+  "basis": "group",
+  "period_end": "2025-03-31",
+  "page": null,
+  "note": "At 31 March 2025: obligation 402,732, assets 414,477 before asset ceiling (£'000)"
+ },
+ {
   "action": "confirm",
   "at": "2026-11-16T13:00:00Z",
   "id": "04806503",
@@ -5787,6 +7527,18 @@
   ]
  },
  {
+  "key": "fig:04881298",
+  "kind": "check",
+  "id": "04881298",
+  "name": "ALUCAST LIMITED",
+  "schemes": [
+   "10114365"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "confirm",
+  "note": "Small scheme; figures checked against the note"
+ },
+ {
   "key": "fig:04886072",
   "kind": "check",
   "id": "04886072",
@@ -5794,9 +7546,14 @@
   "schemes": [
    "10241247"
   ],
-  "at": "2026-11-16T16:00:00Z",
-  "action": "skip",
-  "note": "Unfunded post-employment benefits, not a funded scheme"
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 19.7,
+  "assets_m": 0,
+  "basis": "group",
+  "period_end": "2025-03-31",
+  "page": null,
+  "note": "Unfunded post-employment obligation £19.7m; no plan assets"
  },
  {
   "key": "fig:04917650",
@@ -5845,6 +7602,27 @@
   "note": "Assets 9,643 less net asset 949"
  },
  {
+  "key": "fig:04982095",
+  "kind": "check",
+  "id": "04982095",
+  "name": "Mms Uk Holdings Limited",
+  "schemes": [
+   "10076937",
+   "10097768",
+   "10161196",
+   "10254433",
+   "19005901"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 0.15,
+  "assets_m": 0.173,
+  "basis": "group",
+  "period_end": "2025-12-31",
+  "page": null,
+  "note": "Obligation 150, assets 173 (£'000)"
+ },
+ {
   "key": "fig:04985069",
   "kind": "check",
   "id": "04985069",
@@ -5882,9 +7660,10 @@
   "schemes": [
    "19011302"
   ],
-  "at": "2026-11-16T17:00:00Z",
+  "at": "2026-11-17T12:00:00Z",
   "action": "skip",
-  "note": "No usable balance table (valuation figure only, partial, or not legible)"
+  "reason": "one",
+  "note": "The note gives only one of obligation and assets"
  },
  {
   "key": "fig:05046791",
@@ -5897,6 +7676,23 @@
   "at": "2026-11-16T14:00:00Z",
   "action": "confirm",
   "note": "Checked against the balance table in the accounts"
+ },
+ {
+  "key": "fig:05100353",
+  "kind": "check",
+  "id": "05100353",
+  "name": "MARSHALLS PLC",
+  "schemes": [
+   "10102124"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 200.9,
+  "assets_m": 225.8,
+  "basis": "group",
+  "period_end": null,
+  "page": null,
+  "note": "Assets £225.8m less the £24.9m net surplus"
  },
  {
   "key": "fig:05139966",
@@ -6015,9 +7811,22 @@
   "schemes": [
    "10075106"
   ],
-  "at": "2026-11-16T17:00:00Z",
+  "at": "2026-11-17T12:00:00Z",
   "action": "skip",
-  "note": "No usable balance table (valuation figure only, partial, or not legible)"
+  "reason": "one",
+  "note": "The note gives only one of obligation and assets"
+ },
+ {
+  "key": "fig:05578070",
+  "kind": "check",
+  "id": "05578070",
+  "name": "Caterpillar Uk Engines Company Limited",
+  "schemes": [
+   "10149431"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "misread",
+  "note": "Caterpillar group plans in US dollars; no UK figure"
  },
  {
   "key": "fig:05752534",
@@ -6123,6 +7932,19 @@
   ]
  },
  {
+  "key": "fig:06322345",
+  "kind": "check",
+  "id": "06322345",
+  "name": "Macdermid Continental Investments Limited",
+  "schemes": [
+   "10102132",
+   "10151581"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "misread",
+  "note": "MacDermid group plans in US dollars; no UK figure"
+ },
+ {
   "key": "fig:06433017",
   "kind": "check",
   "id": "06433017",
@@ -6155,9 +7977,10 @@
   "schemes": [
    "10193385"
   ],
-  "at": "2026-11-16T16:00:00Z",
+  "at": "2026-11-17T12:00:00Z",
   "action": "skip",
-  "note": "Only a valuation figure"
+  "reason": "funding",
+  "note": "Only the funding-valuation figure is given, not the accounting obligation and assets"
  },
  {
   "key": "fig:06691866",
@@ -6167,9 +7990,10 @@
   "schemes": [
    "10096619"
   ],
-  "at": "2026-11-16T17:00:00Z",
+  "at": "2026-11-17T12:00:00Z",
   "action": "skip",
-  "note": "No usable balance table (valuation figure only, partial, or not legible)"
+  "reason": "tagged",
+  "note": "Small-company accounts: net figure tagged, no pension table in the note"
  },
  {
   "key": "fig:06825798",
@@ -6185,17 +8009,36 @@
   "note": "Checked against the balance table in the accounts"
  },
  {
+  "key": "fig:06953114",
+  "kind": "check",
+  "id": "06953114",
+  "name": "EVERSHOLT RAIL LIMITED",
+  "schemes": [
+   "19002213"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 35.36,
+  "assets_m": 34.336,
+  "basis": "group",
+  "period_end": null,
+  "page": null,
+  "note": "Closing DBO 35,360 and assets 34,336 (£'000)"
+ },
+ {
   "key": "fig:07022885",
   "kind": "check",
   "id": "07022885",
   "name": "BANK OF IRELAND (UK) PLC",
   "schemes": [
    "10275301",
-   "19003502"
+   "19003502",
+   "19015501"
   ],
-  "at": "2026-11-16T16:00:00Z",
+  "at": "2026-11-17T12:00:00Z",
   "action": "skip",
-  "note": "Scan too scrambled"
+  "reason": "scan",
+  "note": "Scanned accounts: the pension table is scrambled or its numbers lost in OCR"
  },
  {
   "key": "fig:07044474",
@@ -6294,9 +8137,14 @@
   "schemes": [
    "19002269"
   ],
-  "at": "2026-11-16T17:00:00Z",
-  "action": "skip",
-  "note": "No usable balance table (valuation figure only, partial, or not legible)"
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 1538.2,
+  "assets_m": 1624.9,
+  "basis": "group",
+  "period_end": "2025-03-31",
+  "page": null,
+  "note": "Obligation 1,538.2, assets 1,624.9; surplus 86.7 checks (£m)"
  },
  {
   "key": "fig:08217766",
@@ -6326,6 +8174,22 @@
   "at": "2026-11-16T16:00:00Z",
   "action": "misread",
   "note": "BNY Mellon US plan in dollars; no UK figure"
+ },
+ {
+  "key": "fig:08322668",
+  "kind": "check",
+  "id": "08322668",
+  "name": "H.J. HEINZ FOODS UK LIMITED",
+  "schemes": [
+   "10053831",
+   "10053832",
+   "10251375",
+   "10266967"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "skip",
+  "reason": "scan",
+  "note": "Only the surplus (£307.1m) is legible; the table is lost in OCR"
  },
  {
   "key": "fig:08804263",
@@ -6374,9 +8238,10 @@
   "schemes": [
    "10122275"
   ],
-  "at": "2026-11-16T17:00:00Z",
+  "at": "2026-11-17T12:00:00Z",
   "action": "skip",
-  "note": "No usable balance table (valuation figure only, partial, or not legible)"
+  "reason": "one",
+  "note": "The note gives only one of obligation and assets"
  },
  {
   "action": "figures",
@@ -6429,6 +8294,23 @@
   ]
  },
  {
+  "key": "fig:10737370",
+  "kind": "check",
+  "id": "10737370",
+  "name": "AMERICAN INTERNATIONAL GROUP UK LIMITED",
+  "schemes": [
+   "10159797"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 83.6,
+  "assets_m": 100.2,
+  "basis": "group",
+  "period_end": "2025-12-31",
+  "page": null,
+  "note": "Obligation 83.6, assets 100.2 (£m)"
+ },
+ {
   "action": "figures",
   "assets_m": 4734,
   "at": "2026-11-16T12:00:00Z",
@@ -6463,12 +8345,26 @@
   "id": "11606773",
   "name": "STANDARD LIFE PLC",
   "schemes": [
-   "10006691",
-   "10158478"
+   "10006691"
   ],
-  "at": "2026-11-16T16:00:00Z",
+  "at": "2026-11-17T12:00:00Z",
   "action": "skip",
-  "note": "Several schemes; the reader's figure isn't a balance"
+  "reason": "buyout",
+  "note": "Bought out or bought in; only the surplus is shown"
+ },
+ {
+  "key": "fig:11635435",
+  "kind": "check",
+  "id": "11635435",
+  "name": "Lhtca Midco Limited",
+  "schemes": [
+   "10129182",
+   "10129183"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "skip",
+  "reason": "one",
+  "note": "The note gives only one of obligation and assets"
  },
  {
   "key": "fig:11961132",
@@ -6478,9 +8374,14 @@
   "schemes": [
    "19002358"
   ],
-  "at": "2026-11-16T17:00:00Z",
-  "action": "skip",
-  "note": "No usable balance table (valuation figure only, partial, or not legible)"
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 3.06,
+  "assets_m": 3.896,
+  "basis": "group",
+  "period_end": null,
+  "page": null,
+  "note": "Closing obligation 3,060 and assets 3,896; funded status 836 checks (£'000)"
  },
  {
   "key": "fig:12042258",
@@ -6517,6 +8418,37 @@
   "period_end": "2025-12-31",
   "page": null,
   "note": "Unfunded: present value of scheme liabilities 6.5, no assets"
+ },
+ {
+  "key": "fig:12867781",
+  "kind": "check",
+  "id": "12867781",
+  "name": "Aurelius Crocodile Limited",
+  "schemes": [
+   "10123587"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 0.1925,
+  "assets_m": 0.1925,
+  "basis": "group",
+  "period_end": "2025-03-31",
+  "page": null,
+  "note": "Insured: obligation and assets £192.5k"
+ },
+ {
+  "key": "fig:13035335",
+  "kind": "check",
+  "id": "13035335",
+  "name": "Pa Consulting Group Limited",
+  "schemes": [
+   "10047966",
+   "19015909"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "skip",
+  "reason": "notable",
+  "note": "No pension table found in the accounts"
  },
  {
   "action": "figures",
@@ -6609,6 +8541,19 @@
   "note": "Checked against the balance table in the accounts"
  },
  {
+  "key": "fig:14910669",
+  "kind": "check",
+  "id": "14910669",
+  "name": "Solenis Holding Limited",
+  "schemes": [
+   "10122368"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "skip",
+  "reason": "usd",
+  "note": "Figures in US dollars and cover worldwide plans"
+ },
+ {
   "key": "fig:15148687",
   "kind": "check",
   "id": "15148687",
@@ -6616,9 +8561,9 @@
   "schemes": [
    "10203653"
   ],
-  "at": "2026-11-16T17:00:00Z",
-  "action": "skip",
-  "note": "No usable balance table (valuation figure only, partial, or not legible)"
+  "at": "2026-11-17T12:00:00Z",
+  "action": "misread",
+  "note": "Group note in euro millions; no UK figure"
  },
  {
   "key": "fig:16143259",
@@ -6628,9 +8573,10 @@
   "schemes": [
    "10262620"
   ],
-  "at": "2026-11-16T17:00:00Z",
+  "at": "2026-11-17T12:00:00Z",
   "action": "skip",
-  "note": "No usable balance table (valuation figure only, partial, or not legible)"
+  "reason": "scan",
+  "note": "Scanned accounts: the pension table is scrambled or its numbers lost in OCR"
  },
  {
   "key": "fig:FC000365",
@@ -6669,6 +8615,18 @@
   ]
  },
  {
+  "key": "fig:FC014702",
+  "kind": "check",
+  "id": "FC014702",
+  "name": "BANCO BILBAO VIZCAYA ARGENTARIA S.A.",
+  "schemes": [
+   "10000151"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "misread",
+  "note": "Spanish bank's euro pension note; no UK figure"
+ },
+ {
   "action": "skip",
   "at": "2026-11-16T13:00:00Z",
   "id": "FC031116",
@@ -6679,6 +8637,19 @@
   "schemes": [
    "10131275"
   ]
+ },
+ {
+  "key": "fig:NI001169",
+  "kind": "check",
+  "id": "NI001169",
+  "name": "MCANERNEY BROTHERS LIMITED",
+  "schemes": [
+   "19001404"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "skip",
+  "reason": "notable",
+  "note": "No pension table found in the accounts"
  },
  {
   "key": "fig:NI001509",
@@ -6735,6 +8706,23 @@
   "schemes": [
    "10275726"
   ]
+ },
+ {
+  "key": "fig:NI653961",
+  "kind": "check",
+  "id": "NI653961",
+  "name": "Gilbert-Ash Holdings Limited",
+  "schemes": [
+   "10107652"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 8.433,
+  "assets_m": 9.255,
+  "basis": "group",
+  "period_end": null,
+  "page": null,
+  "note": "Obligation 8,433,000 and assets 9,255,000"
  },
  {
   "action": "confirm",
@@ -6849,6 +8837,19 @@
   "schemes": [
    "10015013"
   ]
+ },
+ {
+  "key": "fig:SA001088",
+  "kind": "check",
+  "id": "SA001088",
+  "name": "SCOTTISH BOATOWNERS MUTUAL INSURANCE ASSOCIATION(THE)",
+  "schemes": [
+   "10050515"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "skip",
+  "reason": "old",
+  "note": "Only old accounts at Companies House; no newer filing to read"
  },
  {
   "key": "fig:SC005832",
@@ -6967,9 +8968,23 @@
   "schemes": [
    "10125619"
   ],
-  "at": "2026-11-16T16:00:00Z",
+  "at": "2026-11-17T12:00:00Z",
   "action": "skip",
-  "note": "Latest accounts on file are old; needs newer accounts"
+  "reason": "old",
+  "note": "Only old accounts at Companies House; no newer filing to read"
+ },
+ {
+  "key": "fig:SC032937",
+  "kind": "check",
+  "id": "SC032937",
+  "name": "CENTRAL MOTORS (CALDERBANK) LIMITED",
+  "schemes": [
+   "10124761"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "skip",
+  "reason": "old",
+  "note": "Only old accounts at Companies House; no newer filing to read"
  },
  {
   "key": "fig:SC036374",
@@ -7003,9 +9018,10 @@
   "schemes": [
    "10117921"
   ],
-  "at": "2026-11-16T15:00:00Z",
+  "at": "2026-11-17T12:00:00Z",
   "action": "skip",
-  "note": "2014 accounts of a company in realisation; needs a liveness check"
+  "reason": "old",
+  "note": "Only old accounts at Companies House; no newer filing to read"
  },
  {
   "key": "fig:SC051413",
@@ -7027,9 +9043,14 @@
   "schemes": [
    "10004750"
   ],
-  "at": "2026-11-16T16:00:00Z",
-  "action": "skip",
-  "note": "Columns garbled"
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 17.764,
+  "assets_m": 24.014,
+  "basis": "group",
+  "period_end": null,
+  "page": null,
+  "note": "Obligation 17,764 plus net asset 6,250 gives assets 24,014 (scan garbled the assets row)"
  },
  {
   "key": "fig:SC084953",
@@ -7039,9 +9060,10 @@
   "schemes": [
    "10094277"
   ],
-  "at": "2026-11-16T17:00:00Z",
+  "at": "2026-11-17T12:00:00Z",
   "action": "skip",
-  "note": "Latest accounts on file are old; needs newer accounts"
+  "reason": "old",
+  "note": "Only old accounts at Companies House; no newer filing to read"
  },
  {
   "key": "fig:SC085061",
@@ -7051,9 +9073,10 @@
   "schemes": [
    "10168988"
   ],
-  "at": "2026-11-16T17:00:00Z",
+  "at": "2026-11-17T12:00:00Z",
   "action": "skip",
-  "note": "Latest accounts on file are old; needs newer accounts"
+  "reason": "old",
+  "note": "Only old accounts at Companies House; no newer filing to read"
  },
  {
   "action": "confirm",
@@ -7182,9 +9205,23 @@
   "schemes": [
    "10208699"
   ],
-  "at": "2026-11-16T17:00:00Z",
+  "at": "2026-11-17T12:00:00Z",
   "action": "skip",
-  "note": "No usable balance table (valuation figure only, partial, or not legible)"
+  "reason": "scan",
+  "note": "Scanned accounts: the pension table is scrambled or its numbers lost in OCR"
+ },
+ {
+  "key": "fig:SC157176",
+  "kind": "check",
+  "id": "SC157176",
+  "name": "Firstgroup Plc",
+  "schemes": [
+   "10206795"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "skip",
+  "reason": "lgps",
+  "note": "London United Busways plan within FirstGroup's combined disclosures; not separable"
  },
  {
   "key": "fig:SC170072",
@@ -7219,6 +9256,19 @@
   "period_end": "2025-02-28",
   "page": null,
   "note": "Benefit obligation and plan assets at the end of the year"
+ },
+ {
+  "key": "fig:SC204765",
+  "kind": "check",
+  "id": "SC204765",
+  "name": "DUNNS FOOD & DRINKS LIMITED",
+  "schemes": [
+   "10008695"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "skip",
+  "reason": "tagged",
+  "note": "Small-company accounts: net figure tagged, no pension table in the note"
  },
  {
   "action": "confirm",
@@ -7296,6 +9346,45 @@
   ]
  },
  {
+  "key": "fig:reg:ccew:1058226",
+  "kind": "check",
+  "id": "reg:ccew:1058226",
+  "name": "M A F EUROPE",
+  "schemes": [
+   "10247117"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "skip",
+  "reason": "notext",
+  "note": "Accounts text could not be read"
+ },
+ {
+  "key": "fig:reg:ccew:1137496",
+  "kind": "check",
+  "id": "reg:ccew:1137496",
+  "name": "FITZWILLIAM COLLEGE IN THE UNIVERSITY OF CAMBRIDGE",
+  "schemes": [
+   "10237561"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "skip",
+  "reason": "scan",
+  "note": "Scanned accounts: the pension table is scrambled or its numbers lost in OCR"
+ },
+ {
+  "key": "fig:reg:ccew:207790",
+  "kind": "check",
+  "id": "reg:ccew:207790",
+  "name": "WEST KIRBY RESIDENTIAL SCHOOL",
+  "schemes": [
+   "10123422"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "skip",
+  "reason": "notext",
+  "note": "Accounts text could not be read"
+ },
+ {
   "key": "fig:reg:ccew:209603",
   "kind": "verify",
   "id": "reg:ccew:209603",
@@ -7330,6 +9419,19 @@
   "note": "Assets 240,454 from the same table (page 103)"
  },
  {
+  "key": "fig:reg:ccew:221124",
+  "kind": "check",
+  "id": "reg:ccew:221124",
+  "name": "THE CHILDREN'S SOCIETY",
+  "schemes": [
+   "19004213"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "skip",
+  "reason": "notext",
+  "note": "Accounts text could not be read"
+ },
+ {
   "key": "fig:reg:ccew:234252",
   "kind": "check",
   "id": "reg:ccew:234252",
@@ -7354,9 +9456,14 @@
   "schemes": [
    "10189917"
   ],
-  "at": "2026-11-16T17:00:00Z",
-  "action": "skip",
-  "note": "No usable balance table (valuation figure only, partial, or not legible)"
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 8.572,
+  "assets_m": 8.608,
+  "basis": "group",
+  "period_end": null,
+  "page": null,
+  "note": "Assets 8,608 less the 36 surplus (£'000)"
  },
  {
   "key": "fig:reg:ccew:276286",
@@ -7366,9 +9473,10 @@
   "schemes": [
    "10014211"
   ],
-  "at": "2026-11-16T17:00:00Z",
+  "at": "2026-11-17T12:00:00Z",
   "action": "skip",
-  "note": "No usable balance table (valuation figure only, partial, or not legible)"
+  "reason": "notext",
+  "note": "Accounts text could not be read"
  },
  {
   "key": "fig:reg:ccew:309921",
@@ -7386,6 +9494,32 @@
   "period_end": "2025-07-31",
   "page": null,
   "note": "Closing obligation 5,828 and assets 9,386 at 31 July (£'000)"
+ },
+ {
+  "key": "fig:reg:ccew:310638",
+  "kind": "check",
+  "id": "reg:ccew:310638",
+  "name": "WYCOMBE ABBEY SCHOOL",
+  "schemes": [
+   "10116580"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "skip",
+  "reason": "notext",
+  "note": "Accounts text could not be read"
+ },
+ {
+  "key": "fig:reg:ccew:529051",
+  "kind": "check",
+  "id": "reg:ccew:529051",
+  "name": "THE SCHOOLS OF KING EDWARD VI IN BIRMINGHAM",
+  "schemes": [
+   "10131067"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "skip",
+  "reason": "scan",
+  "note": "Scanned accounts: the pension table is scrambled or its numbers lost in OCR"
  },
  {
   "key": "fig:reg:co:communication-workers-union-information-held-by-the-certification-officer",
@@ -7471,6 +9605,19 @@
   "note": "At 31 August 2025 (£'000)"
  },
  {
+  "key": "fig:reg:fca:148B",
+  "kind": "check",
+  "id": "reg:fca:148B",
+  "name": "Coventry Building Society",
+  "schemes": [
+   "10054715"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "skip",
+  "reason": "scan",
+  "note": "Net pension asset (£15m BPS, £13m Pace) given; the table rows have no numbers in the extracted text"
+ },
+ {
   "key": "fig:reg:fca:19025R",
   "kind": "check",
   "id": "reg:fca:19025R",
@@ -7512,9 +9659,10 @@
   "schemes": [
    "10006864"
   ],
-  "at": "2026-11-16T17:00:00Z",
+  "at": "2026-11-17T12:00:00Z",
   "action": "skip",
-  "note": "Latest accounts on file are old; needs newer accounts"
+  "reason": "old",
+  "note": "Only old accounts at Companies House; no newer filing to read"
  },
  {
   "key": "fig:reg:fca:369F",
@@ -7558,9 +9706,31 @@
   "schemes": [
    "10047112"
   ],
-  "at": "2026-11-16T16:00:00Z",
-  "action": "skip",
-  "note": "Obligation not found on the page"
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 36.0,
+  "assets_m": 42.9,
+  "basis": "group",
+  "period_end": null,
+  "page": null,
+  "note": "Assets 42.9 less the 6.9 surplus (£m)"
+ },
+ {
+  "key": "fig:reg:fca:434F",
+  "kind": "check",
+  "id": "reg:fca:434F",
+  "name": "Transport Friendly Society Limited",
+  "schemes": [
+   "10040208"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 2.921,
+  "assets_m": 5.152,
+  "basis": "group",
+  "period_end": "2024-12-31",
+  "page": null,
+  "note": "Assets 5,152 less surplus 2,231 (£'000)"
  },
  {
   "key": "fig:reg:fca:518B",
@@ -7570,9 +9740,27 @@
   "schemes": [
    "10088995"
   ],
-  "at": "2026-11-16T17:00:00Z",
+  "at": "2026-11-17T12:00:00Z",
   "action": "skip",
-  "note": "No usable balance table (valuation figure only, partial, or not legible)"
+  "reason": "net",
+  "note": "Accounts give only the net surplus or deficit, with no gross obligation or assets"
+ },
+ {
+  "key": "fig:reg:fca:82B",
+  "kind": "check",
+  "id": "reg:fca:82B",
+  "name": "Cambridge Building Society",
+  "schemes": [
+   "10027430"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 16.52,
+  "assets_m": 13.5,
+  "basis": "group",
+  "period_end": "2025-12-31",
+  "page": null,
+  "note": "Assets 13,500 plus net deficit 3,020 (£'000)"
  },
  {
   "key": "fig:reg:oscr:SC004064",
@@ -7688,9 +9876,10 @@
   "schemes": [
    "10165271"
   ],
-  "at": "2026-11-16T16:00:00Z",
+  "at": "2026-11-17T12:00:00Z",
   "action": "skip",
-  "note": "Obligation not found"
+  "reason": "one",
+  "note": "The note gives only one of obligation and assets"
  },
  {
   "key": "fig:reg:oscr:SC037750",

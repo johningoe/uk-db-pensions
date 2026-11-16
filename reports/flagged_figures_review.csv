@@ -1,0 +1,181 @@
+item,id,name,outcome,obligation_m,assets_m,reason
+0,SC045681,HS REALISATIONS LIMITED,not corrected,,,Only old accounts at Companies House; no newer filing to read
+1,00805960,GRUNDFOS PUMPS LIMITED,figures entered,81.398,98.232,"Obligation 81,398; assets 98,232 after removing 16,834 unrecognised surplus (£'000)"
+2,00612172,OXFAM,not corrected,,,Scanned accounts: the pension table is scrambled or its numbers lost in OCR
+3,00233687,MERCK SHARP & DOHME (UK) LIMITED,not corrected,,,"Only the funding-valuation figure is given, not the accounting obligation and assets"
+4,07022885,BANK OF IRELAND (UK) PLC,not corrected,,,Scanned accounts: the pension table is scrambled or its numbers lost in OCR
+5,11606773,STANDARD LIFE PLC,not corrected,,,Bought out or bought in; only the surplus is shown
+6,11606773,Standard Life Plc,not corrected,,,Bought out or bought in; only the surplus is shown
+7,01134223,Ahj Holdings Limited,not corrected,,,"Only the funding-valuation figure is given, not the accounting obligation and assets"
+8,02954623,EMR GROUP LIMITED,not corrected,,,Bought out or bought in; only the surplus is shown
+9,00025334,Read Limited,not corrected,,,"Only the funding-valuation figure is given, not the accounting obligation and assets"
+10,01531838,BRAMBLES U.K. LIMITED,not corrected,,,The note gives only one of obligation and assets
+11,01531838,Brambles U.K. Limited,not corrected,,,The note gives only one of obligation and assets
+12,01056008,P.J.H. GROUP LIMITED,not corrected,,,"Only the funding-valuation figure is given, not the accounting obligation and assets"
+13,04484139,FELTON PROPERTY AND INVESTMENTS LIMITED,not corrected,,,Only old accounts at Companies House; no newer filing to read
+14,reg:oscr:SC017167,Royal Blind,not corrected,,,The note gives only one of obligation and assets
+15,00647788,RS GROUP PLC,not corrected,,,The note gives only one of obligation and assets
+16,02081330,Capita Plc,not corrected,,,"Accounts give only the net surplus or deficit, with no gross obligation or assets"
+17,02081330,CAPITA PLC,not corrected,,,"Accounts give only the net surplus or deficit, with no gross obligation or assets"
+18,SC032886,L.S. STARRETT COMPANY LTD. (THE),not corrected,,,Only old accounts at Companies House; no newer filing to read
+19,04886072,INMARSAT GROUP HOLDINGS LIMITED,figures entered,19.7,0,Unfunded post-employment obligation £19.7m; no plan assets
+20,01784930,LOWMAN MANUFACTURING COMPANY LIMITED,figures entered,9.29,9.29,Fully insured: assets equal obligation £9.29m
+21,06539986,Idverde Uk Limited,not corrected,,,"Only the funding-valuation figure is given, not the accounting obligation and assets"
+22,04408748,RANNOCH FOOD GROUP LIMITED,not corrected,,,Only old accounts at Companies House; no newer filing to read
+23,10737370,AMERICAN INTERNATIONAL GROUP UK LIMITED,figures entered,83.6,100.2,"Obligation 83.6, assets 100.2 (£m)"
+24,SC147386,VALLOUREC OIL & GAS UK LTD.,not corrected,,,Scanned accounts: the pension table is scrambled or its numbers lost in OCR
+25,09665181,Rockrose Energy Limited,not corrected,,,The note gives only one of obligation and assets
+26,00468526,DAVIS(FOREST FIELD)LIMITED,not corrected,,,The note gives only one of obligation and assets
+27,01865375,MULTIVAC U.K. LIMITED,not corrected,,,Only old accounts at Companies House; no newer filing to read
+28,00592752,ALANOD LIMITED,not corrected,,,"Small-company accounts: net figure tagged, no pension table in the note"
+29,00350911,SL REALISATIONS 2025 LTD,not corrected,,,Only old accounts at Companies House; no newer filing to read
+30,reg:fca:518B,Skipton Building Society,not corrected,,,"Accounts give only the net surplus or deficit, with no gross obligation or assets"
+31,00500829,BETTYS & TAYLORS GROUP LTD,not corrected,,,The note gives only one of obligation and assets
+32,00319964,TUFFNELLS PARCELS EXPRESS LIMITED,not corrected,,,Only old accounts at Companies House; no newer filing to read
+33,reg:fca:362B,Market Harborough Building Society,not corrected,,,Only old accounts at Companies House; no newer filing to read
+34,00512225,A. SCHULMAN INC. LIMITED,figures entered,9.203,11.654,"Obligation 9,203, assets 11,654 (£'000)"
+35,02560839,METRIC GROUP LIMITED,not corrected,,,"Small-company accounts: net figure tagged, no pension table in the note"
+36,00634226,SPAR (UK) LIMITED,not corrected,,,The note gives only one of obligation and assets
+37,reg:ccew:276286,THE FOUNDATION FOR CHRISTIAN COMMUNICATION LIMITED,not corrected,,,Accounts text could not be read
+38,00335087,RODOL LIMITED,not corrected,,,Only old accounts at Companies House; no newer filing to read
+39,00783023,SERVIER LABORATORIES LIMITED,not corrected,,,The note gives only one of obligation and assets
+40,05040573,DRAKA COMTEQ UK LIMITED,not corrected,,,The note gives only one of obligation and assets
+41,SC085061,GLENALMOND GROUP LIMITED,not corrected,,,Only old accounts at Companies House; no newer filing to read
+42,02446884,A GOMEZ LIMITED,not corrected,,,Only old accounts at Companies House; no newer filing to read
+43,03446623,KODAK GRAPHIC COMMUNICATIONS LIMITED,not corrected,,,Only old accounts at Companies House; no newer filing to read
+44,01295286,DAIWA SPORTS LIMITED,not corrected,,,"Accounts give only the net surplus or deficit, with no gross obligation or assets"
+45,04562724,SCOTT BADER UK LIMITED,not corrected,,,Scanned accounts: the pension table is scrambled or its numbers lost in OCR
+46,16143259,Rrd Uk Corporation Limited,not corrected,,,Scanned accounts: the pension table is scrambled or its numbers lost in OCR
+47,00536160,CHARLES WARNER LIMITED,not live (wound_up),,,Nil scheme balances at 2015; scheme appears wound up
+48,01645445,O&H PROPERTIES LIMITED,not corrected,,,Only old accounts at Companies House; no newer filing to read
+49,00222915,RICARDO LIMITED,not corrected,,,"Accounts give only the net surplus or deficit, with no gross obligation or assets"
+50,02366623,THAMES WATER LIMITED,figures entered,5.8,0,Unfunded obligation £5.8m (2023 accounts)
+51,00055513,LAIRD LIMITED,not corrected,,,The note gives only one of obligation and assets
+52,01952280,V W CO. LIMITED,not corrected,,,Only old accounts at Companies House; no newer filing to read
+53,00406113,"W.DAVIS & SONS,(SEVENOAKS)LIMITED",not corrected,,,Only old accounts at Companies House; no newer filing to read
+54,00466486,DUNKELMAN & SON LIMITED,not corrected,,,Only old accounts at Companies House; no newer filing to read
+55,05575609,Access Technology Group,not corrected,,,The note gives only one of obligation and assets
+56,SC084953,MORTON YOUNG & BORLAND LIMITED,not corrected,,,Only old accounts at Companies House; no newer filing to read
+57,02688985,THE QUARR GROUP LIMITED,not corrected,,,Only old accounts at Companies House; no newer filing to read
+58,00175893,HARBISONWALKER INTERNATIONAL LIMITED,not corrected,,,Only old accounts at Companies House; no newer filing to read
+59,00566823,SIR ROBERT MCALPINE LIMITED,not corrected,,,Multi-employer scheme; only the employer's share or contributions shown
+60,06691866,BUCHANAN & CURWEN GROUP LIMITED,not corrected,,,"Small-company accounts: net figure tagged, no pension table in the note"
+61,02462697,15billionebp,not corrected,,,Scanned accounts: the pension table is scrambled or its numbers lost in OCR
+62,01767387,THE ALUMASC GROUP PLC,not corrected,,,"Accounts give only the net surplus or deficit, with no gross obligation or assets"
+63,01767387,The Alumasc Group Plc,not corrected,,,"Accounts give only the net surplus or deficit, with no gross obligation or assets"
+64,00079585,ACCORD-UK LTD,not corrected,,,Scanned accounts: the pension table is scrambled or its numbers lost in OCR
+65,00985614,TANVIC GROUP LIMITED,not corrected,,,"Small-company accounts: net figure tagged, no pension table in the note"
+66,03526640,Pcc Global Plc,not corrected,,,Scanned accounts: the pension table is scrambled or its numbers lost in OCR
+67,07934306,GOVIA THAMESLINK RAILWAY LIMITED,figures entered,1538.2,1624.9,"Obligation 1,538.2, assets 1,624.9; surplus 86.7 checks (£m)"
+68,00458246,CORONET HOLIDAYS LTD,not corrected,,,Only old accounts at Companies House; no newer filing to read
+69,04068812,INOVYN CHLORVINYLS LIMITED,not corrected,,,No pension table found in the accounts
+70,00271555,L'OREAL (U.K.) LIMITED,not corrected,,,No pension table found in the accounts
+71,02798634,Mcbride Plc,not corrected,,,"Accounts give only the net surplus or deficit, with no gross obligation or assets"
+72,00342025,S & U PLC,not corrected,,,No pension table found in the accounts
+73,01743099,TELEFONICA UK LIMITED,figures entered,0.978,1.046,"Obligation 978, assets 1,046 (£'000)"
+74,00638559,VOLKERHIGHWAYS LIMITED,not corrected,,,"Accounts give only the net surplus or deficit, with no gross obligation or assets"
+75,03441005,LEADEC LIMITED,confirmed,,,Figures checked against the note
+76,03305650,Colsur Materials Ltd,not corrected,,,"Only the funding-valuation figure is given, not the accounting obligation and assets"
+77,SA001088,SCOTTISH BOATOWNERS MUTUAL INSURANCE ASSOCIATION(THE),not corrected,,,Only old accounts at Companies House; no newer filing to read
+78,00321992,DONCASTERS LIMITED,not live (bought_out),,,Bought out in 2023
+79,00321992,Doncasters Limited,not live (bought_out),,,Bought out in 2023
+80,11635435,Lhtca Midco Limited,not corrected,,,The note gives only one of obligation and assets
+81,02995730,COURISTAN CARPETS (UK) LIMITED,not corrected,,,Only old accounts at Companies House; no newer filing to read
+82,13035335,Pa Consulting Group Limited,not corrected,,,No pension table found in the accounts
+83,04569871,Steve Hopewell Holdings Ltd,not corrected,,,Only the deficit is given
+84,04982095,Mms Uk Holdings Limited,figures entered,0.15,0.173,"Obligation 150, assets 173 (£'000)"
+85,01463301,STILL MATERIALS HANDLING LIMITED,not corrected,,,"Accounts give only the net surplus or deficit, with no gross obligation or assets"
+86,01271767,Lloyd Motors Limited,not corrected,,,"Accounts give only the net surplus or deficit, with no gross obligation or assets"
+87,12867781,Aurelius Crocodile Limited,figures entered,0.1925,0.1925,Insured: obligation and assets £192.5k
+88,00032965,AVON TECHNOLOGIES PLC,not corrected,,,Figures in US dollars and cover worldwide plans
+89,00461974,MORRIS BROTHERS (TUNSTALL) LIMITED,not corrected,,,"Small-company accounts: net figure tagged, no pension table in the note"
+90,00297673,GEERINGS LIMITED,not corrected,,,"Small-company accounts: net figure tagged, no pension table in the note"
+91,02077752,DEVONPORT ROYAL DOCKYARD LIMITED,not corrected,,,"Accounts give only the net surplus or deficit, with no gross obligation or assets"
+92,02456984,MITSUBISHI ELECTRIC FINANCE EUROPE PLC,not corrected,,,"Accounts give only the net surplus or deficit, with no gross obligation or assets"
+93,00133143,JOHN SWIRE & SONS LIMITED,not corrected,,,"Accounts give only the net surplus or deficit, with no gross obligation or assets"
+94,00946942,MSD ANIMAL HEALTH UK LIMITED,not corrected,,,"Accounts give only the net surplus or deficit, with no gross obligation or assets"
+95,01497078,S J DIXON & SON LTD,not corrected,,,Only old accounts at Companies House; no newer filing to read
+96,04153939,JARVIS GROUP LIMITED,not corrected,,,Unclear whether the scheme has been bought out; figures not usable
+97,SC204765,DUNNS FOOD & DRINKS LIMITED,not corrected,,,"Small-company accounts: net figure tagged, no pension table in the note"
+98,02970583,Reassure Midco Limited,not corrected,,,"Accounts give only the net surplus or deficit, with no gross obligation or assets"
+99,00457930,WATFORD REFRIGERATION AND AIR CONDITIONING LIMITED,not live (wound_up),,,Nil balances in 2021 accounts
+100,01003647,"JACOB,WHITE(PACKAGING)LIMITED",not corrected,,,"Small-company accounts: net figure tagged, no pension table in the note"
+101,00493485,GROZ-BECKERT U.K. LIMITED,figures entered,2.403,2.894,"Obligation 2,403,000, assets 2,894,000; surplus 491,000 checks"
+102,00691403,GIVAUDAN UK LIMITED,figures entered,161.188,169.098,"Two schemes: 31,006/29,688 and 130,182/139,410 (£'000)"
+103,01491305,W. GROSE LIMITED,not corrected,,,Only old accounts at Companies House; no newer filing to read
+104,01069525,W.CROWDER & SONS LIMITED,not corrected,,,Only old accounts at Companies House; no newer filing to read
+105,00879464,IAN WILLIAMS LIMITED,not corrected,,,Scanned accounts: the pension table is scrambled or its numbers lost in OCR
+106,01283801,SINGER & JAMES LIMITED,not corrected,,,Only old accounts at Companies House; no newer filing to read
+107,02194190,G.D. AUTOMATIC MACHINERY LIMITED,not corrected,,,"Small-company accounts: net figure tagged, no pension table in the note"
+108,00443179,DUROLAS (CONTRACTORS) LIMITED,not corrected,,,Only old accounts at Companies House; no newer filing to read
+109,01015961,LEAFE & HAWKES LIMITED,not corrected,,,Only old accounts at Companies House; no newer filing to read
+110,00944844,THE BRICK DEVELOPMENT ASSOCIATION LIMITED,not corrected,,,Only old accounts at Companies House; no newer filing to read
+111,reg:fca:82B,Cambridge Building Society,figures entered,16.52,13.5,"Assets 13,500 plus net deficit 3,020 (£'000)"
+112,02559444,THE BIRD GROUP OF COMPANIES LIMITED,not corrected,,,No pension table found in the accounts
+113,04246702,RAMAC HOLDINGS (TRADING) LIMITED,figures entered,5.184,9.943,"Group: obligation 5,184,000, assets 9,943,000; surplus 4,759,000 checks"
+114,01198336,ACUSHNET EUROPE LTD,not corrected,,,Scanned accounts: the pension table is scrambled or its numbers lost in OCR
+115,reg:fca:434F,Transport Friendly Society Limited,figures entered,2.921,5.152,"Assets 5,152 less surplus 2,231 (£'000)"
+116,00301393,RAVENSCLIFFE PROPERTY LIMITED,not corrected,,,"Accounts give only the net surplus or deficit, with no gross obligation or assets"
+117,01501627,BOYD LINE LIMITED,not corrected,,,"Small-company accounts: net figure tagged, no pension table in the note"
+118,00592720,CENTRAX LIMITED,not corrected,,,No pension table found in the accounts
+119,00252672,BIRDS (DERBY) LIMITED,figures entered,25.593,24.803,"Obligation 25,593,000, assets 24,803,000; deficit 790,000 checks"
+120,00374485,LOADES LIMITED,not corrected,,,"Small-company accounts: net figure tagged, no pension table in the note"
+121,08322668,H.J. HEINZ FOODS UK LIMITED,not corrected,,,Only the surplus (£307.1m) is legible; the table is lost in OCR
+122,reg:fca:148B,Coventry Building Society,not corrected,,,"Net pension asset (£15m BPS, £13m Pace) given; the table rows have no numbers in the extracted text"
+123,01561575,HARRIS & SHELDON GROUP LIMITED,figures entered,17.275,46.125,"Two schemes: obligation 17,275, assets 46,125 before irrecoverable surplus of 28,112 (£'000)"
+124,01000403,Rathbones Group Plc,not corrected,,,Scanned accounts: the pension table is scrambled or its numbers lost in OCR
+125,02836071,REFRESCO DRINKS UK LIMITED,figures entered,28.672,33.11,"Two schemes: 17,491/21,393 and 11,181/11,717 (£'000)"
+126,00519057,BODYCOTE PLC,not corrected,,,UK scheme: IAS 19 net surplus £0.6m only; the gross table shown covers overseas plans
+127,04240505,A&P Gh 2006 Limited,not corrected,,,Scanned accounts: the pension table is scrambled or its numbers lost in OCR
+128,00942649,SHEPHERD FOODS (LONDON) LIMITED,not corrected,,,Only old accounts at Companies House; no newer filing to read
+129,01372603,BELLWAY P L C,figures entered,38.9,39.8,"At 31 July 2025: obligation 38.9, assets 39.8, net asset 0.9 (£m)"
+130,00459364,CABLE MAKERS PROPERTIES & SERVICES LIMITED,not corrected,,,Only old accounts at Companies House; no newer filing to read
+131,01023248,BLAGG & JOHNSON LIMITED,not corrected,,,"Accounts give only the net surplus or deficit, with no gross obligation or assets"
+132,00572657,W. VASEY & SONS (CARLISLE) LIMITED,not corrected,,,Only old accounts at Companies House; no newer filing to read
+133,03268807,SUNBURY NURSING HOMES LIMITED,not corrected,,,"Small-company accounts: net figure tagged, no pension table in the note"
+134,04552091,Wade Group Limited,figures entered,23.206,24.917,"Two schemes: 16,272/17,495 and 6,934/7,422 (£'000)"
+135,reg:ccew:310638,WYCOMBE ABBEY SCHOOL,not corrected,,,Accounts text could not be read
+136,14910669,Solenis Holding Limited,not corrected,,,Figures in US dollars and cover worldwide plans
+137,reg:ccew:207790,WEST KIRBY RESIDENTIAL SCHOOL,not corrected,,,Accounts text could not be read
+138,SC032937,CENTRAL MOTORS (CALDERBANK) LIMITED,not corrected,,,Only old accounts at Companies House; no newer filing to read
+139,00337663,BOC LIMITED,not corrected,,,BOC Group scheme: BOC Ltd does not recognise it; only the net asset £431.4m is stated
+140,00867637,INTERPUBLIC LIMITED,figures entered,200.556,200.333,"At 31 December 2024: obligation 200,556, assets 200,333 (£'000)"
+141,00140166,GEORGE SYKES LIMITED,not corrected,,,"Accounts give only the net surplus or deficit, with no gross obligation or assets"
+142,00714275,IMI PLC,figures entered,26.2,26.5,"UK scheme: obligation 26.2, assets 26.5, surplus 0.3 (£m); liabilities bought in"
+143,reg:ccew:529051,THE SCHOOLS OF KING EDWARD VI IN BIRMINGHAM,not corrected,,,Scanned accounts: the pension table is scrambled or its numbers lost in OCR
+144,00177501,THE SWATCH GROUP (UK) LIMITED,figures entered,16.637,19.147,"Obligation 16,637, assets 19,147 incl. insured benefits (£'000)"
+145,04325234,CANCER RESEARCH UK,figures entered,385.4,401.8,"At 31 March 2025: obligation 385.4, assets 401.8, net 16.4 (£m)"
+146,01024686,CHEVELEY HOLDINGS LIMITED,not corrected,,,Scanned accounts: the pension table is scrambled or its numbers lost in OCR
+147,00076535,TATE & LYLE PUBLIC LIMITED COMPANY,not live (bought_out),,,Tate & Lyle Group Pension Scheme discharged by buy-out in year to March 2026
+148,01675237,NORBULK SHIPPING U.K. LIMITED,not corrected,,,Only old accounts at Companies House; no newer filing to read
+149,04764232,ACTION FOR CHILDREN,figures entered,402.732,414.477,"At 31 March 2025: obligation 402,732, assets 414,477 before asset ceiling (£'000)"
+150,04152338,MELLI BANK PLC,figures entered,10.215,15.583,"Obligation 10,215, assets 15,583, net 5,368 (£'000)"
+151,00282503,AMUSEMENT EQUIPMENT CO.LIMITED,not corrected,,,Only old accounts at Companies House; no newer filing to read
+152,03455690,CF FERTILISERS UK LIMITED,not corrected,,,Scanned accounts: the pension table is scrambled or its numbers lost in OCR
+153,00333313,GEDORE TORQUE LTD,not corrected,,,"Accounts give only the net surplus or deficit, with no gross obligation or assets"
+154,02048608,Serco Group Plc,not corrected,,,SPLAS accounting asset £7.8m only; table not legible
+155,00319261,EVERARDS BREWERY LIMITED,figures entered,34.777,36.381,"Obligation 34,777, assets 36,381 before asset ceiling of 1,607 (£'000)"
+156,00351508,HARRISON & HARRISON LIMITED,not corrected,,,"Accounts give only the net surplus or deficit, with no gross obligation or assets"
+157,00592844,HOVAL LIMITED,figures entered,10.4166,6.64,"Obligation 10,416,600, assets 6,640,000; deficit 3,776,600 checks"
+158,SC157176,Firstgroup Plc,not corrected,,,London United Busways plan within FirstGroup's combined disclosures; not separable
+159,03914810,Transport Trading Limited,not corrected,,,TfL Pension Fund sections; only the Crossrail section surplus £7.0m recognised
+160,04552091,WADE GROUP LIMITED,not corrected,,,Same company as Wade Group (item 134); figures entered there
+161,reg:ccew:1137496,FITZWILLIAM COLLEGE IN THE UNIVERSITY OF CAMBRIDGE,not corrected,,,Scanned accounts: the pension table is scrambled or its numbers lost in OCR
+162,02677142,WALES AND THE BORDERS NEWS MEDIA LIMITED,figures entered,1.638,1.432,"2016 accounts: assets 1,432,000 plus deficit 206,000"
+163,02299747,Capita Business Services Ltd,not corrected,,,Same company as Capita Business Services (item 176); figures entered there
+164,reg:ccew:1058226,M A F EUROPE,not corrected,,,Accounts text could not be read
+165,SC157176,FIRSTGROUP PLC,not corrected,,,London United Busways plan within FirstGroup's combined disclosures; not separable
+166,03892046,SOG LIMITED,not corrected,,,Only old accounts at Companies House; no newer filing to read
+167,00129871,HARRIS & BAILEY LIMITED,not corrected,,,Scheme closing; assets £43k and final expenses only
+168,00151276,BONEHAM & TURNER LIMITED,not corrected,,,"Small-company accounts: net figure tagged, no pension table in the note"
+169,00197966,"JOHN LIVINGSTON & SONS,LIMITED",not corrected,,,Only old accounts at Companies House; no newer filing to read
+170,00764299,TRIDENT GARAGES LIMITED,not corrected,,,"Only the funding-valuation figure is given, not the accounting obligation and assets"
+171,NI001169,MCANERNEY BROTHERS LIMITED,not corrected,,,No pension table found in the accounts
+172,03539665,HS1 LIMITED,not corrected,,,HS1 section of the Railways Pension Scheme: net liability £0.5m only
+173,03914810,TRANSPORT TRADING LIMITED,not corrected,,,TfL Pension Fund sections; only the Crossrail section surplus £7.0m recognised
+174,reg:ccew:221124,THE CHILDREN'S SOCIETY,not corrected,,,Accounts text could not be read
+175,02997376,CELTIC ENERGY LIMITED,not corrected,,,"Small-company accounts: net figure tagged, no pension table in the note"
+176,02299747,CAPITA BUSINESS SERVICES LTD,figures entered,994.5,1024.6,"Capita BS section: obligation 994.5, assets 1,024.6 (£m)"
+177,03966107,ERASTEEL STUBS LIMITED,not corrected,,,"Accounts give only the net surplus or deficit, with no gross obligation or assets"
+178,02662226,BRISTOL WATER PLC,not corrected,,,Gross surplus £15.2m only; the asset and obligation columns for 2026 are lost in OCR
+179,03078711,BRITISH GAS TRADING LIMITED,not corrected,,,Net retirement benefit asset only; table not legible

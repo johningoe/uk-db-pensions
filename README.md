@@ -361,6 +361,12 @@ Results are in `charity_accounts`; figures go to `charity_db_obligation`, `chari
 `charity_db_pension` (assets minus obligation), checked like sponsors' figures (`charity_db_check`), with
 `charity_db_source` = `annual_return` or `accounts`.
 
+Charities whose annual return gives only the net pension balance are read too: `charities.read_accounts(con,
+bodies=[(source, number), ...])` reads named bodies, whatever their annual return says (accounts figures replace the
+net balance). The Charity Commission's register pages are keyed on the charity's internal organisation number, not its
+registered number; for charities registered since about 2008 the two differ (Eton College, charity 1139086, is
+organisation 4010044), so the reader looks the organisation number up in the register extract first.
+
 ### From parent companies (group level)
 
 Many named sponsors are dormant, small or exempt subsidiaries, or take part in a group scheme and report it as DC,

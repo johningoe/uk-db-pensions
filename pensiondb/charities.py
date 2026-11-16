@@ -301,11 +301,31 @@ def _http(url, **kw):
     return r
 
 
+_ORG = {}
+
+
+def _org_number(number):
+    """The register's internal organisation number for a registered charity number. The register's web pages are
+    keyed on it; for charities registered before about 2008 it equals the charity number, for later ones it doesn't
+    (Eton College 1139086 is organisation 4010044)."""
+    import csv
+    import io
+    import zipfile
+    if not _ORG:
+        csv.field_size_limit(10 ** 9)
+        z = zipfile.ZipFile(C.RAW / "charities" / "ccew_charity.zip")
+        with z.open(z.namelist()[0]) as f:
+            for row in csv.DictReader(io.TextIOWrapper(f, "utf-8-sig"), delimiter="\t"):
+                if row.get("linked_charity_number") in ("0", ""):
+                    _ORG[row["registered_charity_number"]] = row["organisation_number"]
+    return _ORG.get(str(number), str(number))
+
+
 def _latest_ccew(number):
     """(period end, PDF url) of the latest accounts on the Charity Commission register page."""
     import html
     from datetime import datetime
-    page = _http(CC_PAGE.format(number)).text
+    page = _http(CC_PAGE.format(_org_number(number))).text
     best = None
     for row in re.findall(r"<tr.*?</tr>", page, re.S):
         link = re.search(r'href="([^"]*accounts-resource[^"]*)"', row)
@@ -401,13 +421,22 @@ def targets(con):
                WHERE r.source = s.charity_source AND r.number = s.charity_number) >= 1e6)""").fetchall()
 
 
-def read_accounts(con, limit=None):
+def read_accounts(con, limit=None, bodies=None, reread=False):
+    """Read the accounts of the target bodies (see targets), or of `bodies` [(source, number)] when given: e.g. those
+    whose annual return gives only a net pension figure, which targets() skips. reread=True reads them again even
+    if read before."""
     con.execute("""CREATE TABLE IF NOT EXISTS charity_accounts (
         source TEXT, number TEXT, doc TEXT, filing_date TEXT, text_source TEXT, status TEXT, obligation REAL,
         assets REAL, net REAL, unit TEXT, page INTEGER, evidence TEXT, checked_at TEXT,
         PRIMARY KEY (source, number))""")
-    done = {(r[0], r[1]) for r in con.execute("SELECT source, number FROM charity_accounts WHERE status <> 'error'")}
-    todo = [t for t in targets(con) if (t[0], t[1]) not in done][:limit]
+    done = set() if reread else {(r[0], r[1]) for r in con.execute(
+        "SELECT source, number FROM charity_accounts WHERE status <> 'error'")}
+    if bodies is not None:
+        pool = [(s, n, con.execute("SELECT max(company_number) FROM charity_register WHERE source=? AND number=?",
+                                   (s, n)).fetchone()[0]) for s, n in bodies]
+    else:
+        pool = targets(con)
+    todo = [t for t in pool if (t[0], t[1]) not in done][:limit]
     for i, (src, num, co) in enumerate(todo, 1):
         try:
             r = _read_body(src, num, co)
