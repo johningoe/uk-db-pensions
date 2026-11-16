@@ -215,7 +215,9 @@ def _band(group, reason, fig, co, rno, evidence, acc, own, ob, assets, chk, gnam
         size, how = _size(gob, gassets)
         if size < LOW:
             return "out", "Parent group total under £50m", f"Parent group's schemes total {_m(size)}{how}, under £50m"
-        return "candidate", "Parent group's figure only", f"Only the parent group's figure ({gname}, {_m(size)}{how}); the sponsor's own share is not known"
+        if size <= HIGH:
+            return "in", "Parent group's DB assets £50m-£500m", f"Parent group {gname}: DB assets {_m(size)}{how} across the group's schemes"
+        return "candidate", "Parent group's figure only", f"Only the parent group's figure ({gname}, {_m(size)}{how}, over £500m); the sponsor's own share is not known"
     if reason == "Accounts show no DB scheme":
         return "out", "Accounts show no DB scheme", "Employer's accounts show no DB scheme"
     if reason.startswith("Member of a multi-employer scheme"):
