@@ -18,7 +18,8 @@
     python run.py api-third-pass              # unmatched + reviewer-rejected: better name cleaning, same-postcode subset
     python run.py accounts-text-match         # unmatched schemes named in a company's saved accounts
     python run.py bulk-scan --limit 12        # search 12 months of everyone's iXBRL accounts for unmatched scheme names
-    python run.py web                         # data/explorer.html: a page to search and filter the results
+    python run.py band                        # figures per scheme and the £50m-£500m band (also part of status)
+python run.py web                         # data/explorer.html: a page to search and filter the results
     python run.py sponsor-names               # clean unmatched schemes' derived sponsor names; queue re-match candidates
     python run.py district-match              # unmatched schemes: same-district company sharing the scheme's distinctive words
     python run.py confirm-sponsors            # does each matched sponsor's saved accounts name its scheme?
@@ -32,7 +33,7 @@
 """
 import argparse
 
-from pensiondb import accounts, charities, chapi, checks, cloud, db, handcheck, match, parents, pdfaccounts, review, sips, sources, summary
+from pensiondb import accounts, band, charities, chapi, checks, cloud, db, handcheck, match, parents, pdfaccounts, review, sips, sources, summary
 
 
 def main():
@@ -40,7 +41,7 @@ def main():
     ap.add_argument("step", choices=["all", "seed", "flags", "match", "api", "postcode", "review", "accounts", "reparse", "status", "summary",
                                      "sip-pilot", "pdf-pilot", "pdf-accounts", "parents", "parent-accounts", "pdf-reextract", "cloud-export", "cloud-import", "cloud-progress", "check",
                                      "charities-download", "charities", "charity-accounts", "api-second-pass", "full-filers",
-                                     "api-third-pass", "accounts-text-match", "long-reports", "confirm-sponsors", "district-match", "sponsor-names", "bulk-scan", "web",
+                                     "api-third-pass", "accounts-text-match", "long-reports", "confirm-sponsors", "district-match", "sponsor-names", "bulk-scan", "web", "band",
                                      "review-page", "review-import", "pdf-refresh"])
     ap.add_argument("--month", action="append", help="accounts month, e.g. September2026 (repeatable)")
     ap.add_argument("--all-months", action="store_true")
@@ -87,6 +88,9 @@ def main():
             print(f"Hand-checked: {handcheck.apply(con):,} sponsors")
             print(f"Parents: {parents.merge(con):,} sponsors given group DB figures")
             match.flag_status(con)
+            print(f"Band £50m-£500m: {band.build(con)}")
+        elif step == "band":
+            print(f"Band £50m-£500m: {band.build(con)}")
         elif step == "summary":
             summary.write(con)
         elif step == "sip-pilot":

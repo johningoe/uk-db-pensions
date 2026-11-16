@@ -1,0 +1,165 @@
+"""Figures per scheme, and whether each scheme falls in the £50m-£500m asset band.
+
+Accounts give DB figures per employer, not per scheme. An employer with one live DB scheme gives that scheme's
+figures; an employer with several needs its pension note split by scheme, which is entered by hand in
+scheme_figures.csv. build(con) writes:
+
+  scheme_figures   psr, obligation, assets (£), period_end, basis, source, note
+                   basis: scheme_note (split by hand from the pension note) | employer_single | register_single
+  schemes.band     in / candidate / out
+  schemes.band_kind     the kind of reason, short enough to group by
+  schemes.band_reason   the reason, with the figure behind it
+
+  in         the scheme's own assets are £50m-£500m
+  candidate  could be in the band and is not settled yet: an employer total of £50m+ across several schemes,
+             a parent group's figure only, no figure from an employer that files full accounts, or an
+             employer not yet found for a scheme with DB evidence
+  out        the scheme's own assets are outside the band, the employer's schemes together come to under £50m,
+             the employer files small or micro accounts, or the scheme is not live, DC or shows no DB evidence
+
+Where assets are missing the obligation stands in for size, and the reason says so.
+
+    python run.py band          # also part of run.py status
+"""
+import csv
+from pathlib import Path
+
+from . import gaps
+
+LOW, HIGH = 50e6, 500e6
+CSV = Path(__file__).with_name("scheme_figures.csv")
+FIELDS = ["psr", "scheme_name", "period_end", "obligation_m", "assets_m", "source", "note"]
+LIVE = ("with_figures", "no_figures")
+SMALL = {"total exemption full", "total exemption small", "small", "micro entity", "dormant", "no accounts filed",
+         "unaudited abridged", "audited abridged", "filing exemption subsidiary", "partial exemption"}
+
+
+def _cat(c):
+    return (c or "").replace("-", " ").strip().lower()
+
+
+def _m(x):
+    return f"£{x / 1e6:,.0f}m" if x >= 10e6 else f"£{x / 1e6:,.1f}m"
+
+
+def _size(ob, assets):
+    """(size in £, note): assets, else the obligation standing in for them."""
+    if assets is not None:
+        return assets, ""
+    if ob is not None:
+        return ob, " (obligation; assets not known)"
+    return None, ""
+
+
+def _hand():
+    if not CSV.exists():
+        return {}
+    with open(CSV, newline="") as f:
+        num = lambda v: float(v) * 1e6 if (v or "").strip() else None
+        return {r["psr"]: (num(r["obligation_m"]), num(r["assets_m"]), r["period_end"] or None, r["source"], r["note"])
+                for r in csv.DictReader(f) if r.get("psr")}
+
+
+def build(con):
+    for col in ("band", "band_kind", "band_reason"):
+        try:
+            con.execute(f"ALTER TABLE schemes ADD COLUMN {col} TEXT")
+        except Exception:
+            pass
+    con.execute("DROP TABLE IF EXISTS scheme_figures")
+    con.execute("""CREATE TABLE scheme_figures (psr TEXT PRIMARY KEY, obligation REAL, assets REAL, period_end TEXT,
+                   basis TEXT, source TEXT, note TEXT)""")
+    status = gaps.classify(con)
+    rows = con.execute("""
+        SELECT s.psr, s.sponsor_company_number, s.charity_source, s.charity_number, s.db_evidence,
+               sp.accounts_category, sp.company_name,
+               sp.db_period_end IS NOT NULL AND coalesce(sp.db_check, 'ok') NOT LIKE 'flag%',
+               sp.db_obligation, sp.db_plan_assets, sp.db_period_end, sp.db_check, sp.db_taxonomy, sp.db_source_file,
+               sp.group_db_company_name, sp.group_db_obligation, sp.group_db_plan_assets,
+               s.charity_db_obligation, s.charity_db_assets, s.charity_fy_end, s.charity_db_source, s.charity_name
+        FROM schemes s LEFT JOIN sponsors sp ON sp.company_number = s.sponsor_company_number""").fetchall()
+    # live DB schemes per employer and per register body: one scheme means the employer's figure is the scheme's
+    per_co, per_reg = {}, {}
+    for r in rows:
+        if status[r[0]][0] in LIVE:
+            if r[1]:
+                per_co[r[1]] = per_co.get(r[1], 0) + 1
+            elif r[3]:
+                per_reg[(r[2], r[3])] = per_reg.get((r[2], r[3]), 0) + 1
+    hand = _hand()
+    figs, bands = [], []
+    for (psr, co, rsrc, rno, evidence, acc, co_name, own, ob, assets, pe, chk, tax, src, gname, gob, gassets,
+         cob, cassets, cfy, csrc, cname) in rows:
+        group, reason = status[psr]
+        fig = None
+        if psr in hand:
+            hob, has, hpe, hsrc, hnote = hand[psr]
+            fig = (hob, has, hpe, "scheme_note", hsrc, hnote)
+        elif group in LIVE and co and own and per_co.get(co) == 1:
+            fig = (ob, assets, pe, "employer_single", f"{co_name} ({co})", tax or "")
+        elif group in LIVE and not co and rno and (cob is not None or cassets is not None) and per_reg.get((rsrc, rno)) == 1:
+            fig = (cob, cassets, cfy, "register_single", f"{cname} ({rsrc} {rno})", csrc or "")
+        if fig:
+            figs.append((psr, *fig))
+        bands.append((*_band(group, reason, fig, co, rno, evidence, acc, own, ob, assets, chk, gname, gob, gassets,
+                             cob, cassets, per_co.get(co) if co else per_reg.get((rsrc, rno))), psr))
+    con.executemany("INSERT INTO scheme_figures VALUES (?,?,?,?,?,?,?)", figs)
+    con.executemany("UPDATE schemes SET band=?, band_kind=?, band_reason=? WHERE psr=?", bands)
+    con.commit()
+    out = {}
+    for b, *_ in bands:
+        out[b] = out.get(b, 0) + 1
+    return {"scheme figures": len(figs), **out}
+
+
+def _band(group, reason, fig, co, rno, evidence, acc, own, ob, assets, chk, gname, gob, gassets, cob, cassets, n):
+    if group == "not_live":
+        return "out", "Not live", "Not live"
+    if group == "dc":
+        return "out", "DC scheme", "DC scheme"
+    if fig:
+        size, how = _size(fig[0], fig[1])
+        if size is not None:
+            if size < LOW:
+                return "out", "Scheme assets under £50m", f"Scheme assets {_m(size)}{how}, under £50m"
+            if size > HIGH:
+                return "out", "Scheme assets over £500m", f"Scheme assets {_m(size)}{how}, over £500m"
+            return "in", "Scheme assets £50m-£500m", f"Scheme assets {_m(size)}{how}"
+    if group == "not_identified":
+        if not evidence:
+            return "out", "No employer found, no DB evidence", "No employer found and no DB evidence"
+        if reason == "Public sector":
+            return "candidate", "Public sector (scope to decide)", "Public-sector scheme with DB evidence (scope to decide)"
+        return "candidate", "Employer not found, DB evidence", f"Employer not found; scheme has DB evidence ({reason.lower()})"
+    # several schemes share one employer or body figure
+    if own or (not co and (cob is not None or cassets is not None)):
+        size, how = _size(ob, assets) if own else _size(cob, cassets)
+        if size is not None:
+            if size < LOW:
+                return "out", "Employer's schemes total under £50m", f"Employer's {n} schemes total {_m(size)}{how}, under £50m"
+            return "candidate", "Employer total £50m+ across several schemes", f"Employer's {n} schemes total {_m(size)}{how}: split by scheme needed"
+    if co and (gob is not None or gassets is not None):
+        size, how = _size(gob, gassets)
+        if size < LOW:
+            return "out", "Parent group total under £50m", f"Parent group's schemes total {_m(size)}{how}, under £50m"
+        return "candidate", "Parent group's figure only", f"Only the parent group's figure ({gname}, {_m(size)}{how})"
+    if reason == "Accounts show no DB scheme":
+        return "out", "Accounts show no DB scheme", "Employer's accounts show no DB scheme"
+    if reason.startswith("Member of a multi-employer scheme"):
+        return "out", "Member of a multi-employer scheme", "Member of a multi-employer scheme (no figure of its own)"
+    if co and (chk or "").startswith("flag"):
+        size, how = _size(ob, assets)
+        if size is not None and size >= LOW / 2:
+            return "candidate", "Figure failed the checks", f"Figure of {_m(size)}{how} failed the checks"
+    if not co:
+        if reason.startswith("Not read"):
+            return "out", "Small charity or body", "Small charity or body, accounts not read"
+        return "candidate", "Charity or other body, no figure yet", "Charity or other body, no figure yet"
+    cat = _cat(acc)
+    if cat == "no accounts filed":
+        return "out", "Employer files small, micro or no accounts", "Employer files no accounts"
+    if cat in SMALL:
+        return "out", "Employer files small, micro or no accounts", f"Employer files {cat} accounts"
+    if cat in ("", "null", "accounts type not available", "no accounts type available"):
+        return "candidate", "No figure yet, employer files full accounts", "No figure yet; employer's accounts type not known"
+    return "candidate", "No figure yet, employer files full accounts", f"No figure yet; employer files {cat} accounts"

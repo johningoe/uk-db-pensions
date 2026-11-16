@@ -22,7 +22,7 @@ COLS = ["psr", "name", "postcode", "city", "name_type", "is_section", "group", "
         "reg", "reg_number", "reg_name",
         "source", "fig_body", "fig_body_no", "period_end", "obligation", "assets", "fig_check", "fig_where",
         "ppf", "fas", "live_doubt", "parent_top", "parent_country", "sector", "sic", "region", "sponsor_postcode",
-        "quality", "quality_why"]
+        "quality", "quality_why", "band", "band_kind", "band_reason", "sf_obligation", "sf_assets", "sf_basis", "sf_period"]
 
 
 def _place(co, reg, sic, spc, rpc):
@@ -56,14 +56,15 @@ def _rows(con):
            s.charity_db_source, s.charity_fy_end, s.charity_db_obligation, s.charity_db_assets, s.charity_db_pension,
            s.charity_db_check, a.doc, a.page,
            s.ppf_status, s.fas_status, s.live_doubt, sp.parent_top_name, sp.parent_top_country,
-           sp.sic_1, sp.reg_post_code
+           sp.sic_1, sp.reg_post_code, s.band, s.band_kind, s.band_reason, sf.obligation, sf.assets, sf.basis, sf.period_end
     FROM schemes s
     LEFT JOIN sponsors sp ON sp.company_number = s.sponsor_company_number
-    LEFT JOIN charity_accounts a ON a.source = s.charity_source AND a.number = s.charity_number"""
+    LEFT JOIN charity_accounts a ON a.source = s.charity_source AND a.number = s.charity_number
+    LEFT JOIN scheme_figures sf ON sf.psr = s.psr"""
     out = []
     for (psr, name, pc, city, nt, sec, co, co_name, co_st, co_acc, mm, mc, nr, derived, review, named,
          reg, reg_no, reg_name, own, pe, ob, assets, chk, src_file, tax, gco, gname, gpe, gob, gassets, gsrc,
-         csrc, cfy, cob, cassets, cnet, cchk, cdoc, cpage, ppf, fas, doubt, ptop, pctry, sic, spc) in con.execute(q):
+         csrc, cfy, cob, cassets, cnet, cchk, cdoc, cpage, ppf, fas, doubt, ptop, pctry, sic, spc, *bandcols) in con.execute(q):
         group, reason = status[psr]
         fig = [None] * 8
         if co and own:
@@ -86,7 +87,7 @@ def _rows(con):
         out.append([psr, name, pc, city, nt, sec, group, reason,
                     co, co_name, co_st, co_acc, mm, mc, nr,
                     derived, review, named,
-                    reg, reg_no, reg_name, *fig, ppf, fas, doubt, ptop, pctry, *_place(co, reg, sic, spc, reg_pc.get((reg, reg_no))), *q])
+                    reg, reg_no, reg_name, *fig, ppf, fas, doubt, ptop, pctry, *_place(co, reg, sic, spc, reg_pc.get((reg, reg_no))), *q, *bandcols])
     return out
 
 

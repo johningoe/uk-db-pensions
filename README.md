@@ -102,6 +102,8 @@ A newly set sponsor gets figures only once its accounts are read (the `api` and 
   `db_surplus_deficit`, `db_period_end`, `db_net_basis`, `db_taxonomy`, `db_source_file`).
 - **match_log**: every match attempt, accepted or not, with candidate, method, score, confidence and notes.
 - **accounts_facts**: every DB balance-sheet fact extracted (concept, period, value, dimensions), kept for audit.
+- **scheme_figures**: DB figures for one scheme, where they can be told apart from the employer's other schemes
+  (see "Schemes with £50m-£500m of assets").
 - **ppf_schemes**, **fas_schemes**: the raw lists.
 - **v_live_db_hybrid**: a view of schemes that are likely live and not DC by name, joined to sponsor figures.
 
@@ -464,5 +466,30 @@ filter:
 
 Figures that fail the figure check above are left out altogether; "Needs checking" figures are counted but
 deserve a look before being relied on.
+
+## Schemes with £50m-£500m of assets
+
+The main target is schemes whose own assets are £50m-£500m. Accounts give DB figures per employer, so
+`band.build` (run by `run.py status`, or alone as `run.py band`) works out figures per scheme where it can and
+puts every scheme in a band:
+
+- **scheme_figures** holds a scheme's own obligation and assets. They come from `scheme_figures.csv`, where an
+  employer's pension note has been split by scheme by hand (`psr, scheme_name, period_end, obligation_m, assets_m,
+  source, note`; £m). Failing that, they come from the employer's figures when it has only one live DB scheme, or
+  a charity or mutual's figures on the same terms.
+- **schemes.band** is `in` (own assets £50m-£500m), `candidate` (could be in the band, not settled yet) or `out`.
+  `band_kind` groups the reasons, and `band_reason` gives the reason with the figure behind it. Where assets are
+  missing, the obligation stands in for size.
+- **Candidates** are: an employer total of £50m or more across several schemes (split needed), a parent group's
+  figure only, no figure from an employer that files full, group or medium accounts, a figure that failed the
+  checks, a charity or other body with no figure yet, and schemes with DB evidence whose employer isn't found
+  (public-sector ones are listed apart, as their scope is still to be decided).
+- **Out of band**: own assets outside £50m-£500m, an employer's or parent's schemes totalling under £50m, an
+  employer that files small, micro or dormant accounts or none, accounts that show no DB scheme, a member of a
+  multi-employer scheme, no employer and no DB evidence, DC, or not live.
+
+An employer's own accounts may be consolidated and cover overseas plans too, so an employer's figure for its
+only UK scheme can overstate it. The explorer's overview shows the band counts, and each line opens those schemes;
+the Schemes view has a band filter.
 
 Not used: the gov.uk Pension Tracing Service.
