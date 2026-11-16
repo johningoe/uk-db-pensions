@@ -150,7 +150,7 @@ def quality(source, how, obligation, assets, period_end, accounts_category=None,
                        annual_return)
     accounts_category  the reporting company's accounts type, to catch a £m report read as £'000
 
-    Hand-checked figures are trusted as they are. Others need checking when only one of obligation and assets was
+    Hand-checked figures are trusted as they are. Others need checking when only one of obligation and assets (or only the net) was
     found, the year end is more than three years before the build date, a company filing full or group accounts
     reports under £1m (a £m table read as £'000 is the usual cause), or assets are under half or over twice the
     obligation."""
@@ -160,6 +160,8 @@ def quality(source, how, obligation, assets, period_end, accounts_category=None,
     why = []
     if how == "annual_return":
         why.append("net figure only (charity annual return)")
+    elif obligation is None and assets is None:
+        why.append("net figure only (no obligation or assets found)")
     elif obligation is None or assets is None:
         why.append("only one of obligation and assets found")
     built = built or date.today().isoformat()

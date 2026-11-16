@@ -44,9 +44,19 @@ LINES = {
                       r"|(?:deficit|surplus) in the (?:scheme|plan)|net (?:deficit|surplus)\b", re.I),
 }
 # wordings used only to complete a pair (see extract): "projected benefit obligation" is mostly US parents' plans
-LINES_MORE = dict(LINES, obligation=re.compile(
-    LINES["obligation"].pattern + r"|projected benefit obligations?\b(?! at)|actuarial value of (?:the )?liabilities"
-    r"|pension (?:scheme|plan) obligations?\b(?! at)", re.I))
+# and the closing line of a reconciliation ("Benefit obligation at end of year"), other "present value of ..." wordings,
+# and OCR misspellings of "liabilities" ("labilities", "habihtes")
+LIAB = r"(?:l|h)[il1]?ab[il1h]{1,2}[il1h]?t"
+LINES_MORE = dict(
+    LINES,
+    obligation=re.compile(
+        LINES["obligation"].pattern + r"|projected benefit obligations?\b(?! at)|actuarial value of (?:the )?liabilities"
+        r"|pension (?:scheme|plan) obligations?\b(?! at)|^\W*(?:defined )?benefit obligations?\b(?! at)"
+        r"|(?:benefit )?obligations? at (?:the )?end of (?:the )?(?:year|period)"
+        r"|present value of (?:the )?(?:[a-z]+ ){0,3}(?:obligations?\b|" + LIAB + r")|(?:scheme|plan) " + LIAB, re.I),
+    assets=re.compile(
+        LINES["assets"].pattern + r"|(?:scheme |plan )?assets at (?:the )?end of (?:the )?(?:year|period)"
+        r"|fair value of (?:the )?(?:[a-z]+ ){0,3}assets|^\W*(?:total )?(?:scheme|plan) assets", re.I))
 NUM = re.compile(r"\(?-?\d{1,3}(?:[,:;]\d{3})+\)?|\(?-?\d+(?:\.\d+)?\)?")     # OCR reads some commas as : or ;
 
 
@@ -165,6 +175,41 @@ def _ocr_vision_inner(page, fast=False):
                      for ln in lines if ln)
 
 
+BLOCK = {"div", "p", "tr", "li", "h1", "h2", "h3", "h4", "h5", "h6", "td", "th"}
+TOP = re.compile(r"top:\s*(-?[\d.]+)")
+
+
+def _tag(el):
+    return el.tag.split("}")[-1] if isinstance(el.tag, str) else ""
+
+
+def xhtml_text(data):
+    """The text of an (i)XBRL or HTML filing, one printed line per line, so a table row's label and amounts stay
+    together: a table row is one line (its cells joined), and in filings rendered from a PDF, where every cell is an
+    absolutely positioned div, divs at the same height under the same parent are joined into one line. Other text
+    is one line per innermost block."""
+    root = lxml.html.fromstring(data or b"<html/>")
+    for el in root.iter("style", "script"):
+        el.drop_tree()
+    lines, prev = [], None
+    for el in root.iter():
+        t = _tag(el)
+        if t == "tr":
+            lines.append(" ".join(" ".join(c.text_content().split()) for c in el if _tag(c) in ("td", "th")))
+            prev = None
+        elif (t in BLOCK and t not in ("td", "th") and not any(_tag(a) == "tr" for a in el.iterancestors())
+              and not any(_tag(c) in BLOCK for c in el.iterdescendants())):
+            txt = " ".join(el.text_content().split())
+            m = TOP.search(el.get("style") or "")
+            key = (el.getparent(), round(float(m.group(1)))) if m else None
+            if key and key == prev and lines:
+                lines[-1] = f"{lines[-1]} {txt}".strip()
+            else:
+                lines.append(txt)
+            prev = key
+    return "\n".join(ln for ln in lines if ln.strip())
+
+
 def page_texts(num, item, data, kind="pdf", max_pages=MAX_PAGES, cache_dir=None):
     """[(page_no, text)], text source. Cached as one file per filing with form feeds between pages."""
     cache_dir = cache_dir or PDF_DIR
@@ -174,15 +219,7 @@ def page_texts(num, item, data, kind="pdf", max_pages=MAX_PAGES, cache_dir=None)
         src, _, body = raw.partition("\n")
         return list(enumerate(body.split("\f"))), src
     if kind != "pdf":
-        root = lxml.html.fromstring(_xhtml(data, kind) or b"<html/>")
-        for el in root.iter("style", "script"):
-            el.drop_tree()
-        # one line per innermost block (rendered PDFs put each printed line in its own div)
-        block = {"div", "p", "tr", "li", "h1", "h2", "h3", "h4", "h5", "h6", "td"}
-        lines = [" ".join(el.text_content().split()) for el in root.iter()
-                 if isinstance(el.tag, str) and el.tag.split("}")[-1] in block
-                 and not any(isinstance(c.tag, str) and c.tag.split("}")[-1] in block for c in el)]
-        text = "\n".join(ln for ln in lines if ln)
+        text = xhtml_text(_xhtml(data, kind))
         cache.write_text("xhtml\n" + text)
         return [(0, text)], "xhtml"
     doc = pdfium.PdfDocument(data)
@@ -620,6 +657,50 @@ def reextract(con):
     con.commit()
     print(f"Re-extracted {len(rows):,} documents: {len(changed):,} changed")
     return changed
+
+
+# ---------------------------------------------------------------- the untagged note in a tagged filing
+
+def _note_agrees(ob, assets, net):
+    """True when obligation and assets read from the note fit the net figure the filing tags (its sign is not
+    trusted): the same size, the same less deferred tax (16-26%), or a surplus the company does not recognise."""
+    if net is None or not ob or not assets:
+        return False
+    d, tol = assets - ob, max(1500, 0.002 * ob)
+    if abs(abs(d) - abs(net)) <= tol:
+        return ob != assets or abs(net) <= tol
+    if not 0.5 <= assets / ob <= 2:
+        return False
+    if d and 0.74 <= abs(net) / abs(d) <= 0.84:
+        return True
+    return abs(net) <= tol and d > 0
+
+
+def tagged_notes(con):
+    """Many small companies' iXBRL tags only the balance-sheet net pension figure, while the note beside it prints
+    the obligation and the assets untagged. For those sponsors, read the note from the saved filing (no download)
+    and keep the pair when it fits the tagged net. Marked db_taxonomy 'ixbrl_text'. Returns the number filled."""
+    files = {p.name: p for p in C.CH_ACCOUNTS_DIR.rglob("Prod*")}
+    n = 0
+    for num, net, f in con.execute("""SELECT company_number, db_surplus_deficit, db_source_file FROM sponsors
+                                       WHERE db_taxonomy IN ('frs102', 'uk-gaap', 'ifrs') AND db_obligation IS NULL
+                                         AND db_plan_assets IS NULL AND db_surplus_deficit IS NOT NULL""").fetchall():
+        p = files.get(f or "")
+        if not p:
+            continue
+        try:
+            hit = extract([(0, xhtml_text(_xhtml(p.read_bytes(), "zip" if p.suffix.lower() == ".zip" else "html")))])
+        except Exception:                       # noqa: BLE001 - leave the tagged net as it is
+            continue
+        found = {k: abs(v * MULT[u]) for k, (v, u) in (hit or {}).get("found", {}).items()}
+        ob, assets = found.get("obligation"), found.get("assets")
+        if _note_agrees(ob, assets, net):
+            con.execute("""UPDATE sponsors SET db_obligation=?, db_plan_assets=?, db_surplus_deficit=?,
+                               db_net_basis='assets_minus_obligation', db_taxonomy='ixbrl_text' WHERE company_number=?""",
+                        (ob, assets, assets - ob, num))
+            n += 1
+    con.commit()
+    return n
 
 
 # ---------------------------------------------------------------- merge into sponsors

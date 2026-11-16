@@ -77,6 +77,7 @@ def main():
         elif step == "reparse":
             accounts.reparse(con)
         elif step == "status":
+            print(f"Tagged filings' notes: {pdfaccounts.tagged_notes(con):,} sponsors given obligation and assets")
             print(f"PDF accounts: {pdfaccounts.merge(con):,} sponsors given DB figures")
             print(f"Figure check: {checks.run(con)}")
             print(f"Hand-checked: {handcheck.apply(con):,} sponsors")

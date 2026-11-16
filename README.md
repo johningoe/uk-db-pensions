@@ -224,6 +224,13 @@ From FRS 102 (FRC `core`) and IFRS tags: `LiabilitiesDefinedBenefitPlanPresentVa
 - Filers sign the net line inconsistently. So `db_surplus_deficit` is assets minus obligation when both exist,
   minus the obligation when the scheme is unfunded, and otherwise the tagged value marked `tagged_sign_unverified`.
 
+Many small companies tag only the balance-sheet net figure, while the note beside it prints the obligation and the
+assets untagged. For those, `run.py status` reads the note from the saved filing (no download) and keeps the pair
+when it fits the tagged net: the same size (either sign), the same less deferred tax (16-26%), or a surplus the
+company doesn't recognise. These are marked `db_taxonomy = 'ixbrl_text'` and count as "read", not "tagged". The
+filing's text keeps each table row on one line: a row's cells are joined, and in filings rendered from a PDF (each
+cell an absolutely positioned div) divs at the same height are joined.
+
 ### From PDF accounts
 
 Most large sponsors never file iXBRL. `run.py pdf-accounts` takes active full/group/medium-accounts sponsors with
@@ -375,8 +382,10 @@ Other reader rules:
 - When the best page gives only one of obligation and assets, the reader looks for a consistent pair (assets
   between half and twice the obligation): the page joined to the next or previous one (the two reconciliations
   often sit either side of a page break), then the same with less common wordings ("Projected benefit
-  obligation", "Actuarial value of liabilities", "Pension scheme obligation"). Those wordings are used only to
-  complete a pair, because "projected benefit obligation" is mostly US parents' plans.
+  obligation", "Actuarial value of liabilities", "Pension scheme obligation", the closing line of a
+  reconciliation such as "Benefit obligation at end of year", other "Present value of ..." wordings, and scan
+  misspellings such as "labilities" and "habihtes"). Those wordings are used only to complete a pair, because
+  "projected benefit obligation" is mostly US parents' plans.
 
 The check catches gross errors only. A figure misread within the right order of magnitude (a wrong digit, a
 prior-year column) passes, so spot-check figures that matter against the filed accounts.
@@ -404,7 +413,7 @@ filter:
 - **Checked by hand**: from `hand_checked.csv`.
 - **Tagged in the accounts**: iXBRL tags.
 - **Read from the accounts**: read from PDF or scanned text with nothing odd.
-- **Needs checking**, with the reasons: only one of obligation and assets found; a year end more than three years
+- **Needs checking**, with the reasons: only one of obligation and assets found, or only the net figure; a year end more than three years
   before the build date; under £1m for a company that files full or group accounts (a £m table read as £'000 is
   the usual cause); assets under half or over twice the obligation; or a charity's annual-return net figure only.
 
