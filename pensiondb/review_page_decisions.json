@@ -2038,9 +2038,9 @@
   "schemes": [
    "10151581"
   ],
-  "at": "2026-11-16T16:00:00Z",
-  "action": "misread",
-  "note": "US-dollar group plan table; no UK figure"
+  "at": "2026-11-17T12:00:00Z",
+  "action": "no_db",
+  "note": "Read from the page image (page 32): Company's own pension note covers only a defined contribution scheme; the rest is the US parent's 10-K"
  },
  {
   "key": "fig:00371167",
@@ -3357,6 +3357,18 @@
   "note": "Checked against the balance table in the accounts"
  },
  {
+  "key": "fig:00835066",
+  "kind": "check",
+  "id": "00835066",
+  "name": "KLIKLOK INTERNATIONAL LIMITED",
+  "schemes": [
+   "10093640"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "no_db",
+  "note": "Read from the page image (page 40): Only a defined contribution scheme"
+ },
+ {
   "action": "confirm",
   "at": "2026-11-16T13:00:00Z",
   "id": "00842846",
@@ -3436,6 +3448,18 @@
   "period_end": "2024-12-31",
   "page": null,
   "note": "Obligations 2,431,610 and plan assets 2,377,210 at 31 December 2024 (£'000); the reader took a settlement line"
+ },
+ {
+  "key": "fig:00870128",
+  "kind": "check",
+  "id": "00870128",
+  "name": "CARTOR SECURITY PRINTERS LIMITED",
+  "schemes": [
+   "10091616"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "no_db",
+  "note": "Read from the page image (page 25): Only a defined contribution scheme"
  },
  {
   "key": "fig:00872110",
@@ -5153,6 +5177,18 @@
   "at": "2026-11-16T16:00:00Z",
   "action": "confirm",
   "note": "Cross-checked: obligation, assets and the surplus/deficit line agree on the page"
+ },
+ {
+  "key": "fig:02024289",
+  "kind": "check",
+  "id": "02024289",
+  "name": "GLAMOX LIMITED",
+  "schemes": [
+   "10026989"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "no_db",
+  "note": "Read from the page image (page 28): Company's own note covers only a defined contribution scheme; the rest is the Norwegian parent's accounts"
  },
  {
   "key": "fig:02035315",
@@ -9409,6 +9445,18 @@
   "note": "Cross-checked: obligation, assets and the surplus/deficit line agree on the page"
  },
  {
+  "key": "fig:OC427581",
+  "kind": "check",
+  "id": "OC427581",
+  "name": "J A KEMP LLP",
+  "schemes": [
+   "10001015"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "no_db",
+  "note": "Read from the page image (page 31): Only defined contribution schemes in 2025; DB pension reserve removed in 2024"
+ },
+ {
   "key": "fig:OC430503",
   "kind": "check",
   "id": "OC430503",
@@ -9449,6 +9497,18 @@
   "action": "skip",
   "reason": "old",
   "note": "Only old accounts at Companies House; no newer filing to read"
+ },
+ {
+  "key": "fig:SC003487",
+  "kind": "check",
+  "id": "SC003487",
+  "name": "CELTIC PLC",
+  "schemes": [
+   "10184248"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "no_db",
+  "note": "Read from the page image (page 77): Group pension arrangements are a defined contribution money purchase scheme"
  },
  {
   "key": "fig:SC005832",
@@ -15736,6 +15796,19 @@
   "note": "Read from the page image (page 38): Buy-in with L&G January 2022; scheme wound up from 19 December 2024; nil at 2025"
  },
  {
+  "key": "liveimg:OC307138",
+  "kind": "live",
+  "id": "OC307138",
+  "name": "WARDELL ARMSTRONG LLP",
+  "schemes": [
+   "10010129"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "not_live",
+  "reason": "bought_out",
+  "note": "Read from the page image (page 20): Fully funded at March 2024; full buy-in and buy-out completed by January 2025"
+ },
+ {
   "key": "liveimg:OC343361",
   "kind": "live",
   "id": "OC343361",
@@ -15747,6 +15820,19 @@
   "action": "not_live",
   "reason": "bought_out",
   "note": "Read from the page image (page 37): Buy-in with L&G 2022; buy-out completed in the year to March 2025 with a £1.52m surplus refund"
+ },
+ {
+  "key": "liveimg:SC047482",
+  "kind": "live",
+  "id": "SC047482",
+  "name": "GRAY & ADAMS LIMITED",
+  "schemes": [
+   "10275743"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "not_live",
+  "reason": "bought_out",
+  "note": "Read from the page image (page 30): Buy-in with L&G 2022 then buy-out; liabilities nil at May 2025 with a small surplus"
  },
  {
   "key": "match:10000042",

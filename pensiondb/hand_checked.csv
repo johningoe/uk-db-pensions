@@ -502,7 +502,6 @@ SC008349,LOW & BONAR LIMITED,2025-12-31,GBP,102.751,100.511,group,2026-09-22,25,
 00075035,HOLMEN BOARD AND PAPER LIMITED,2025-12-31,GBP,82.918,99.085,group,2026-09-17,40,"Figures entered on the review page 2026-11-16: Assets 99,085 (scan read 29,085); surplus 16,167 checks"
 reg:co:communication-workers-union-information-held-by-the-certification-officer,Communication Workers Union,,GBP,86.566,83.469,group,,,"Figures entered on the review page 2026-11-16: Closing obligation 86,566 and gross assets 83,469 (£'000)"
 reg:fca:233B,Newcastle Building Society,2025-12-31,GBP,64.9,66.8,group,,,Figures entered on the review page 2026-11-16: Total value of assets 66.8 (surplus not recognised)
-00368850,H.K. WENTWORTH LIMITED,,GBP,,,misread,2026-08-21,106,Figure misread on the review page 2026-11-16: US-dollar group plan table; no UK figure
 00972252,ROCKWOOL LIMITED,2025-12-31,GBP,46.213,45.303,group,2026-08-06,39,Figures entered on the review page 2026-11-16: Balance table (£'000)
 04204705,Le Bas Limited,2025-03-31,GBP,18.48,45.3,group,2026-01-03,56,Figures confirmed on the review page 2026-11-16: Checked against the balance table in the accounts
 00513537,TEKTRONIX U.K.LIMITED,2025-12-31,GBP,38.208,42.769,group,2026-10-07,32,Figures entered on the review page 2026-11-16: Balance table (£'000)
@@ -766,3 +765,9 @@ NI001003,MAXOL OIL LIMITED,,GBP,,,misread,,,Accounts show no DB scheme on the re
 01477257,ZUKEN UK LIMITED,,GBP,,,misread,,,Accounts show no DB scheme on the review page 2026-11-17: Read from the page image (page 24): Only a defined contribution plan
 03094828,TJX UK,,GBP,,,misread,,,Accounts show no DB scheme on the review page 2026-11-17: Read from the page image (page 44): UK pension note covers only a defined contribution scheme; the rest is the US parent's 10-K
 00061880,SANDERSON DESIGN GROUP PLC,2026-01-31,GBP,45.241,48.501,group,,100,Figures entered on the review page 2026-11-17: Read from the page image (page 100): Reconciliations at 31 January 2026 (£000)
+00368850,H.K. WENTWORTH LIMITED,,GBP,,,misread,2026-08-21,106,Accounts show no DB scheme on the review page 2026-11-17: Read from the page image (page 32): Company's own pension note covers only a defined contribution scheme; the rest is the US parent's 10-K
+00870128,CARTOR SECURITY PRINTERS LIMITED,,GBP,,,misread,,,Accounts show no DB scheme on the review page 2026-11-17: Read from the page image (page 25): Only a defined contribution scheme
+00835066,KLIKLOK INTERNATIONAL LIMITED,,GBP,,,misread,,,Accounts show no DB scheme on the review page 2026-11-17: Read from the page image (page 40): Only a defined contribution scheme
+02024289,GLAMOX LIMITED,,GBP,,,misread,,,Accounts show no DB scheme on the review page 2026-11-17: Read from the page image (page 28): Company's own note covers only a defined contribution scheme; the rest is the Norwegian parent's accounts
+OC427581,J A KEMP LLP,,GBP,,,misread,,,Accounts show no DB scheme on the review page 2026-11-17: Read from the page image (page 31): Only defined contribution schemes in 2025; DB pension reserve removed in 2024
+SC003487,CELTIC PLC,,GBP,,,misread,,,Accounts show no DB scheme on the review page 2026-11-17: Read from the page image (page 77): Group pension arrangements are a defined contribution money purchase scheme

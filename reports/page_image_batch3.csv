@@ -13,39 +13,39 @@ SC185956,skip,,,,27,Pension note gives contributions only; no DB figures
 00337663,skip,,,,,Group plan accounted for by another Linde company; only a net asset is stated
 00616818,skip,,,,,Pension note beyond the pages on the contact sheet
 01198336,out,2025-12-31,,,37,Obligation and assets both about £14.5m-£15m
-00368850,skip,,,,,Contact sheet built but not reviewed yet
-02782737,skip,,,,,Contact sheet built but not reviewed yet
-00500106,skip,,,,,Contact sheet built but not reviewed yet
-01280133,skip,,,,,Contact sheet built but not reviewed yet
-00726533,skip,,,,,Contact sheet built but not reviewed yet
-00852809,skip,,,,,Contact sheet built but not reviewed yet
-00870128,skip,,,,,Contact sheet built but not reviewed yet
-01619615,skip,,,,,Contact sheet built but not reviewed yet
-00755780,skip,,,,,Contact sheet built but not reviewed yet
+00368850,no_db,2025-12-31,,,32,Company's own pension note covers only a defined contribution scheme; the rest is the US parent's 10-K
+02782737,skip,,,,30,Participating employer in the HVCA/BESA retirement benefit scheme; contributions only
+00500106,skip,,,,15,Stopped being sponsoring employer in 2018; scheme moved to BorgWarner Limited
+01280133,skip,,,,30,Participates in group schemes accounted for by the parent; figures in Pembroke Hotels' accounts
+00726533,skip,,,,5,DB scheme in deficit mentioned; pension note not on the contact sheet
+00852809,skip,,,,37,Group pays into the HVCA Retirement Benefit Scheme accounted for as DC; no figures of its own
+00870128,no_db,2025-12-31,,,25,Only a defined contribution scheme
+01619615,skip,,,,35,DB scheme not accounted for under FRS 102 (auditor's opinion qualified); no figures
+00755780,skip,,,,21,UK and German schemes transferred to FM Insurance Europe under a Part VII transfer
 02847982,skip,,,,24,DB scheme belongs to subsidiary Chaucer Syndicates Ltd; the holding company is a guarantor
-04053665,skip,,,,,Contact sheet built but not reviewed yet
-SC204765,skip,,,,,Contact sheet built but not reviewed yet
-05266811,skip,,,,,Contact sheet built but not reviewed yet
-00333313,skip,,,,,Contact sheet built but not reviewed yet
-00835066,skip,,,,,Contact sheet built but not reviewed yet
+04053665,skip,,,,,Filing is the US parent's (GE Vernova) 10-K; UK plan not separable
+SC204765,out,2025-09-30,,,27,Plan assets about £6.4m
+05266811,skip,,,,13,Legal responsibility for the Spirit Group (Legacy) Pension Scheme; figures reported in Greene King's accounts
+00333313,out,2025-12-31,,,23,Small scheme: net deficit £690k (not recognised; audit opinion qualified)
+00835066,no_db,2024-12-31,,,40,Only a defined contribution scheme
 03468967,skip,,,,17,Takes part in a group plan; no figures of its own
-02024289,skip,,,,,Contact sheet built but not reviewed yet
+02024289,no_db,2025-12-31,,,28,Company's own note covers only a defined contribution scheme; the rest is the Norwegian parent's accounts
 04421171,skip,,,,22,"Participating employer in the Smith & Nephew UK Pension Fund, accounted for by another group company"
-00282503,skip,,,,,Contact sheet built but not reviewed yet
-OC427581,skip,,,,,Contact sheet built but not reviewed yet
+00282503,skip,,,,,Only 2016 accounts available
+OC427581,no_db,2025-12-31,,,31,Only defined contribution schemes in 2025; DB pension reserve removed in 2024
 03094828,no_db,2026-01-31,,,44,UK pension note covers only a defined contribution scheme; the rest is the US parent's 10-K
-SC058445,skip,,,,,Contact sheet built but not reviewed yet
-00434982,skip,,,,,Contact sheet built but not reviewed yet
-01635854,skip,,,,,Contact sheet built but not reviewed yet
-OC308202,skip,,,,,Contact sheet built but not reviewed yet
-SC047482,skip,,,,,Contact sheet built but not reviewed yet
+SC058445,out,2026-01-31,,,18,Small scheme: assets about £2.4m at the last valuation (audit opinion qualified)
+00434982,out,2025-12-31,,,33,Plan assets about £6.4m (Aviva with-profits policy)
+01635854,skip,,,,31,Participating employer in the Cargill Pension Plan accounted for as DC
+OC308202,skip,,,,23,Small DB scheme with an unrecognised surplus; figures not legible on the sheet
+SC047482,not_live:bought_out,2025-05-02,,,30,Buy-in with L&G 2022 then buy-out; liabilities nil at May 2025 with a small surplus
 02122340,skip,,,,20,Business and scheme transferred to Rathbones Group in 2025; no figures here
-OC307138,skip,,,,,Contact sheet built but not reviewed yet
-03153442,skip,,,,,Contact sheet built but not reviewed yet
+OC307138,not_live:bought_out,2025-01-03,,,20,Fully funded at March 2024; full buy-in and buy-out completed by January 2025
+03153442,skip,,,,46,DB arrangement for transferred staff accounted for as DC; no figures
 00061880,figures,2026-01-31,45.241,48.501,100,Reconciliations at 31 January 2026 (£000)
 00238721,out,2024-12-31,,,43,Obligation about £40.9m and assets about £44.6m (surplus £3.8m on the balance sheet)
 00737204,skip,,,,18,Holding company with no employees; scheme sits with an operating subsidiary
-08499108,skip,,,,,Contact sheet built but not reviewed yet
-SC003487,skip,,,,,Contact sheet built but not reviewed yet
+08499108,out,2025-12-31,,,30,Assets about £4.1m and obligation about £3.4m
+SC003487,no_db,2025-06-30,,,77,Group pension arrangements are a defined contribution money purchase scheme
 03236121,skip,,,,57,Filing appends the US parent's (BNY) 10-K; UK plan not separable
 03669284,skip,,,,46,Participating employer; scheme accounted for as DC here with figures held by The Berkeley Hotel Ltd
