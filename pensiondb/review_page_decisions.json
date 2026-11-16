@@ -986,6 +986,23 @@
   "note": "Bought out with Aviva in 2024; no liabilities remain"
  },
  {
+  "key": "fig:00184915",
+  "kind": "check",
+  "id": "00184915",
+  "name": "CHAUCER SYNDICATES LIMITED",
+  "schemes": [
+   "10211359"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 60.62,
+  "assets_m": 65.76,
+  "basis": "group",
+  "period_end": "2025-12-31",
+  "page": 29,
+  "note": "Read from the page image (page 29): Statement of financial position amounts: DBO 60,620 and assets 65,760 (£'000)"
+ },
+ {
   "key": "fig:00185924",
   "kind": "check",
   "id": "00185924",
@@ -3873,17 +3890,18 @@
   "key": "fig:01000403",
   "kind": "check",
   "id": "01000403",
-  "name": "Rathbones Group Plc",
+  "name": "RATHBONES GROUP PLC",
   "schemes": [
-   "10076940",
-   "10107797",
-   "10149610",
-   "10271236"
+   "10076940"
   ],
   "at": "2026-11-17T12:00:00Z",
-  "action": "skip",
-  "reason": "scan",
-  "note": "Scanned accounts: the pension table is scrambled or its numbers lost in OCR"
+  "action": "figures",
+  "obligation_m": 88.6,
+  "assets_m": 89.2,
+  "basis": "group",
+  "period_end": "2025-12-31",
+  "page": 161,
+  "note": "Read from the page image (page 161): Laurence Keen and Rathbone 1987 schemes: obligation 88.6 and assets 89.2 (£m); the Investec W&I scheme is not yet in this note"
  },
  {
   "action": "confirm",
@@ -7192,6 +7210,23 @@
   "schemes": [
    "19013903"
   ]
+ },
+ {
+  "key": "fig:03669260",
+  "kind": "check",
+  "id": "03669260",
+  "name": "THE BERKELEY HOTEL LIMITED",
+  "schemes": [
+   "10149915"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "figures",
+  "obligation_m": 26.992,
+  "assets_m": 32.305,
+  "basis": "group",
+  "period_end": "2025-12-31",
+  "page": 41,
+  "note": "Read from the page image (page 41): Group scheme share: obligation 26,992 and assets 32,305 (£'000); OCR had read the 5,313 surplus as assets"
  },
  {
   "action": "confirm",
@@ -23135,6 +23170,110 @@
   "action": "sponsor",
   "company_number": "07022885",
   "note": "Bank of Ireland (UK) plc"
+ },
+ {
+  "key": "repoint:10076940",
+  "kind": "match",
+  "id": "10076940",
+  "name": "Investec Wealth & Investment Limited Pension Scheme",
+  "schemes": [
+   "10076940"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "sponsor",
+  "company_number": "01000403",
+  "note": "Scheme passed to Rathbones Group with the Investec Wealth & Investment business in 2025"
+ },
+ {
+  "key": "repoint:10091661",
+  "kind": "match",
+  "id": "10091661",
+  "name": "A&P Ship Repairers Pension Scheme",
+  "schemes": [
+   "10091661"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "sponsor",
+  "company_number": "05832836",
+  "note": "Ship Repairers section of the A&P Group scheme; figures in A&P Group's accounts"
+ },
+ {
+  "key": "repoint:10092089",
+  "kind": "match",
+  "id": "10092089",
+  "name": "The Sevcon Limited Pension Plan",
+  "schemes": [
+   "10092089"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "sponsor",
+  "company_number": "02346109",
+  "note": "BorgWarner Gateshead stopped being sponsoring employer in 2018; scheme moved to BorgWarner Limited"
+ },
+ {
+  "key": "repoint:10124787",
+  "kind": "match",
+  "id": "10124787",
+  "name": "BOC Pension Scheme",
+  "schemes": [
+   "10124787"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "sponsor",
+  "company_number": "00022096",
+  "note": "BOC Ltd's accounts: the sponsoring employer is The BOC Group Limited"
+ },
+ {
+  "key": "repoint:10124788",
+  "kind": "match",
+  "id": "10124788",
+  "name": "BOC Senior Executive Pension Scheme",
+  "schemes": [
+   "10124788"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "sponsor",
+  "company_number": "00022096",
+  "note": "BOC Ltd's accounts: the sponsoring employer is The BOC Group Limited"
+ },
+ {
+  "key": "repoint:10149915",
+  "kind": "match",
+  "id": "10149915",
+  "name": "Maybourne Hotels Group Pension And Life Insurance Scheme",
+  "schemes": [
+   "10149915"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "sponsor",
+  "company_number": "03669260",
+  "note": "Maybourne Hotels' accounts: scheme figures in The Berkeley Hotel Limited's accounts"
+ },
+ {
+  "key": "repoint:10211359",
+  "kind": "match",
+  "id": "10211359",
+  "name": "Chaucer Pension Scheme",
+  "schemes": [
+   "10211359"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "sponsor",
+  "company_number": "00184915",
+  "note": "Chaucer Holdings' accounts: the DB scheme belongs to Chaucer Syndicates Limited"
+ },
+ {
+  "key": "repoint:10251440",
+  "kind": "match",
+  "id": "10251440",
+  "name": "Spirit Group Pension Scheme",
+  "schemes": [
+   "10251440"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "sponsor",
+  "company_number": "00024511",
+  "note": "Spirit Pub Company (Services) accounts: scheme reported in Greene King Limited's accounts"
  },
  {
   "key": "unread:00019457",
