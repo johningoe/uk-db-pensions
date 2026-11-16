@@ -616,6 +616,37 @@ def run(con, companies, shard=None, limit=None, pause=0):
             time.sleep(pause)
 
 
+def refresh(con, companies):
+    """Look again for newer accounts: clear each company's cached filing history, and where Companies House now has
+    a later accounts filing than the one read, read that one (download, text or OCR, extraction) in its place.
+    Returns [(company, old filing date, new filing date, status)]."""
+    import hashlib, json
+    _schema(con)
+    out = []
+    for num in companies:
+        path, params = f"/company/{num}/filing-history", {"category": "accounts", "items_per_page": 10}
+        key = hashlib.sha1((path + json.dumps(params, sort_keys=True)).encode()).hexdigest()
+        (C.CH_API_CACHE / f"{key}.json").unlink(missing_ok=True)
+        item = latest_accounts(num)
+        old = con.execute("SELECT filing_date FROM pdf_accounts WHERE company_number=?", (num,)).fetchone()
+        old = old[0] if old else None
+        if not item or (old and item.get("date") and item["date"] <= old):
+            out.append((num, old, item.get("date") if item else None, "no newer filing"))
+            continue
+        try:
+            r = assess(num)
+        except Exception as e:                  # noqa: BLE001 - record and carry on
+            r = dict(status="error", evidence=str(e)[:300])
+        cols = ["filing_date", "description", "paper_filed", "pages", "text_source", "status", "obligation", "assets",
+                "net", "unit", "page", "evidence"]
+        con.execute(f"INSERT OR REPLACE INTO pdf_accounts (company_number, {', '.join(cols)}, checked_at) "
+                    f"VALUES (?, {', '.join('?' * len(cols))}, datetime('now'))", [num, *[r.get(c) for c in cols]])
+        con.commit()
+        out.append((num, old, item.get("date"), r["status"]))
+        print(f"[{len(out)}/{len(companies)}] {num} {old} -> {item.get('date')} {r['status']}", flush=True)
+    return out
+
+
 def _from_text(num, date):
     """assess() for a document whose text is already saved: the same result, with no download or API call."""
     pages, src = page_texts(num, {"date": date}, None, "pdf")
@@ -706,7 +737,8 @@ def tagged_notes(con):
 # ---------------------------------------------------------------- merge into sponsors
 
 def merge(con):
-    """Copy PDF results onto sponsors. iXBRL figures always win, so this only fills sponsors with none.
+    """Copy PDF results onto sponsors: those with no figures, and those whose iXBRL figures are for an earlier year
+    end than the PDF accounts (a newer filing read by refresh). Otherwise iXBRL figures win.
     Run after accounts.refresh_sponsor_figures (which clears and rebuilds the iXBRL figures)."""
     _schema(con)
     if "db_pdf_status" not in {r[1] for r in con.execute("PRAGMA table_info(sponsors)")}:
@@ -718,12 +750,15 @@ def merge(con):
                        db_surplus_deficit=NULL, db_net_basis=NULL, db_taxonomy=NULL, db_source_file=NULL
                    WHERE db_taxonomy LIKE 'pdf_%' OR db_taxonomy = 'hand_checked'""")
     n = 0
-    for num, ob, assets, net, src, fdate, page in con.execute(
-            """SELECT p.company_number, p.obligation, p.assets, p.net, p.text_source, p.filing_date, p.page
+    # sponsors with no figures, and sponsors whose iXBRL figures are older than the PDF accounts read since
+    for num, ob, assets, net, src, fdate, page, have in con.execute(
+            """SELECT p.company_number, p.obligation, p.assets, p.net, p.text_source, p.filing_date, p.page, sp.db_period_end
                FROM pdf_accounts p JOIN sponsors sp USING (company_number)
-               WHERE p.status = 'figures' AND sp.db_period_end IS NULL""").fetchall():
+               WHERE p.status = 'figures' AND (sp.db_period_end IS NULL OR sp.db_period_end < p.filing_date)""").fetchall():
         item = latest_accounts(num) or {}           # cached API response: gives the balance-sheet date
         period = item.get("action_date") or (item.get("description_values") or {}).get("made_up_date") or fdate
+        if have and period[:10] <= have[:10]:
+            continue                                # the tagged figures are as new: they win
         if ob is not None and assets is not None:
             net, basis = assets - ob, "assets_minus_obligation"
         else:

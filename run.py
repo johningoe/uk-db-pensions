@@ -41,7 +41,7 @@ def main():
                                      "sip-pilot", "pdf-pilot", "pdf-accounts", "parents", "parent-accounts", "pdf-reextract", "cloud-export", "cloud-import", "cloud-progress", "check",
                                      "charities-download", "charities", "charity-accounts", "api-second-pass", "full-filers",
                                      "api-third-pass", "accounts-text-match", "long-reports", "confirm-sponsors", "district-match", "sponsor-names", "bulk-scan", "web",
-                                     "review-page", "review-import"])
+                                     "review-page", "review-import", "pdf-refresh"])
     ap.add_argument("--month", action="append", help="accounts month, e.g. September2026 (repeatable)")
     ap.add_argument("--all-months", action="store_true")
     ap.add_argument("--shard", help="i/n: this worker's share of the pdf-accounts run")
@@ -116,6 +116,12 @@ def main():
         elif step == "web":
             from pensiondb import web
             web.export(con)
+        elif step == "pdf-refresh":
+            import json as _json
+            nums = _json.loads(open(a.file).read())
+            res = pdfaccounts.refresh(con, nums)
+            from collections import Counter
+            print(f"Refreshed {len(nums):,} companies: {dict(Counter(r[3] for r in res))}")
         elif step == "review-page":
             from pensiondb import reviewpage
             n, out = reviewpage.export(con)

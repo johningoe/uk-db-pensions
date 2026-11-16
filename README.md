@@ -401,6 +401,10 @@ heading, when amounts are whole pounds (small companies: "Defined benefit obliga
 `run.py pdf-reextract` then `run.py status`. The re-extract reads the saved text using the filing date stored with
 each result, so it needs no download or API call and takes a few minutes.
 
+Newer accounts: `python run.py pdf-refresh --file F` (F a JSON list of company numbers) clears each company's
+cached filing history and, where Companies House has a later accounts filing than the one read, reads that one.
+`status` then uses the newer figures, even over iXBRL-tagged ones for an earlier year end.
+
 Other reader rules:
 
 - A number glued to a word is not an amount: the scan of "obligation at the balance sheet date, less the fair
