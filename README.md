@@ -72,6 +72,22 @@ Totals count each obligation-and-assets pair once, as in the coverage summary. T
 `pensiondb/gaps.py`: the reasons for unidentified schemes are rules on the scheme name plus the hand verdicts in
 `sponsor_name_review.csv`, so they size each gap rather than certify it.
 
+## Gaps report
+
+`run.py gaps` (also part of `run.py status`) writes `reports/gaps.csv` and `data/gaps.html`: every live DB scheme
+with no usable figure, and every scheme still a band candidate. There is one row per identified sponsor (company or
+register body) and one per scheme with no employer found. Each row gives its group (figures not settled, identified
+with no figures, not identified), its band reason, what has been tried (match method, how the accounts were read,
+the latest review-page note) and the next step. Rows are:
+
+- **open**: band candidates, which work could settle;
+- **assumed**: out of the band on an assumption (small or no accounts, no DB evidence from the name, small charity,
+  multi-employer member);
+- **sample**: 40 rows of each assumption, picked with a fixed seed, to check by hand and test it;
+- **explained**: out for a settled reason (dissolved, no DB scheme in the accounts, outside the band on review).
+
+`run.py summary` adds a table of the same rows by group and reason to `data/coverage_summary.md`.
+
 ## Review page
 
 `python run.py review-page` writes `data/review.html`: a work queue of everything a person can settle, largest

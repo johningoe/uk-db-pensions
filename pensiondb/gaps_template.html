@@ -1,0 +1,234 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>DB Scheme Gaps</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Condensed:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Same ledger look as the Scheme Explorer: what is missing, why, and what to do next. */
+:root {
+  --bg: #f5f7f5; --surface: #ffffff; --sunk: #edf1ee; --fg: #16201b; --muted: #5a6760; --line: #d8dfda;
+  --accent: #1d5c4f; --accent-fg: #ffffff; --accent-soft: #dcebe6;
+  --good: #2c7a4b; --good-soft: #dff0e5; --warn: #a86a12; --warn-soft: #f7ead3; --bad: #a83a3a; --bad-soft: #f6e0df;
+  --dim: #7b8580; --dim-soft: #e7eae8; --dc: #4c6a8a; --dc-soft: #e1e8f0;
+  --f-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-head: "IBM Plex Sans Condensed", "Arial Narrow", system-ui, sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #0f1412; --surface: #161d1a; --sunk: #1c2521; --fg: #e3eae6; --muted: #9aa8a1; --line: #2a3531;
+  --accent: #6fbea8; --accent-fg: #0c1310; --accent-soft: #1e3a33;
+  --good: #6cc18f; --good-soft: #1b3326; --warn: #e0a64a; --warn-soft: #3a2d17; --bad: #e07c78; --bad-soft: #3c2221;
+  --dim: #8d9792; --dim-soft: #232c28; --dc: #8fb0d4; --dc-soft: #1f2b38;
+  color-scheme: dark; } }
+:root[data-theme="dark"] {
+  --bg: #0f1412; --surface: #161d1a; --sunk: #1c2521; --fg: #e3eae6; --muted: #9aa8a1; --line: #2a3531;
+  --accent: #6fbea8; --accent-fg: #0c1310; --accent-soft: #1e3a33;
+  --good: #6cc18f; --good-soft: #1b3326; --warn: #e0a64a; --warn-soft: #3a2d17; --bad: #e07c78; --bad-soft: #3c2221;
+  --dim: #8d9792; --dim-soft: #232c28; --dc: #8fb0d4; --dc-soft: #1f2b38;
+  color-scheme: dark; }
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--fg); font: 14px/1.5 var(--f-body); }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 30; background: var(--surface); }
+.wrap { max-width: 1280px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: var(--surface); border-bottom: 1px solid var(--line); }
+header.top .wrap { padding-block: 12px; }
+h1 { font: 600 20px/1.2 var(--f-head); margin: 0; letter-spacing: 0.01em; }
+h1 small { display: block; font: 400 12.5px/1.4 var(--f-body); color: var(--muted); }
+h2 { font: 600 17px/1.3 var(--f-head); margin: 0 0 10px; text-wrap: balance; }
+main.wrap { padding-block: 18px 40px; }
+.lede { max-width: 70ch; color: var(--muted); margin: 0 0 16px; }
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 10px; margin-bottom: 18px; }
+.stat { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px; cursor: pointer; text-align: left; }
+.stat.on { outline: 2px solid var(--accent); }
+.stat b { display: block; font: 600 24px/1.15 var(--f-head); font-variant-numeric: tabular-nums; }
+.stat span { font-size: 12.5px; color: var(--muted); }
+.stat em { font-style: normal; display: block; font-size: 12.5px; margin-top: 4px; }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 14px; margin-bottom: 18px; min-width: 0; }
+.scroll { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; }
+th, td { text-align: left; padding: 7px 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font: 600 12px var(--f-head); text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); white-space: nowrap; }
+.num { font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; }
+.mono { font-family: var(--f-mono); font-size: 12.5px; }
+.bk tr.r { cursor: pointer; }
+.bk tr.r:hover td, .bk tr.r.on td { background: var(--accent-soft); }
+.bk td.g { font: 600 12.5px var(--f-head); color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; padding-top: 14px; }
+.filters { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 10px; }
+.filters input, .filters select { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 6px 10px; font: inherit; color: inherit; min-width: 0; }
+.filters input { flex: 1 1 220px; }
+.filters select { flex: 0 1 260px; }
+button.clear { background: none; border: 1px solid var(--line); border-radius: 6px; padding: 6px 10px; font: inherit; color: var(--muted); cursor: pointer; }
+.count { color: var(--muted); font-size: 12.5px; margin-left: auto; }
+.pill { display: inline-block; font: 500 11.5px/1.6 var(--f-body); padding: 0 7px; border-radius: 999px; white-space: nowrap; }
+.p-open { background: var(--warn-soft); color: var(--warn); }
+.p-sample { background: var(--dc-soft); color: var(--dc); }
+.p-assumed { background: var(--dim-soft); color: var(--dim); }
+.p-explained { background: var(--good-soft); color: var(--good); }
+.list td { font-size: 13px; }
+.list tr.r { cursor: pointer; }
+.list tr.r:hover td { background: var(--sunk); }
+.list .sp { font-weight: 500; }
+.list .sub { color: var(--muted); font-size: 12px; }
+.list .names { color: var(--muted); font-size: 12px; max-width: 34ch; }
+.list .step { max-width: 38ch; }
+tr.more td { background: var(--sunk); font-size: 12.5px; }
+tr.more dl { display: grid; grid-template-columns: max-content 1fr; gap: 4px 14px; margin: 4px 0; }
+tr.more dt { color: var(--muted); }
+tr.more dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
+.showmore { margin-top: 12px; }
+.showmore button { background: var(--accent); color: var(--accent-fg); border: 0; border-radius: 6px; padding: 7px 14px; font: inherit; cursor: pointer; }
+@media (max-width: 640px) {
+  .list .names, .list .tried, .list tr.h { display: none; }
+  .list, .list tbody, .list tr, .list td { display: block; width: 100%; }
+  .list tr.r { display: grid; grid-template-columns: auto 1fr auto; gap: 2px 10px; padding: 10px 0; border-bottom: 1px solid var(--line); }
+  .list tr.r td { border: 0; padding: 0; }
+  .list tr.r td:nth-child(4), .list tr.r td:nth-child(6) { grid-column: 1 / -1; }
+  .list .step { max-width: none; }
+  .list .step::before { content: "Next: "; color: var(--muted); }
+}
+</style>
+
+<header class="top"><div class="wrap">
+  <h1>DB Scheme Gaps<small id="built"></small></h1>
+</div></header>
+
+<main class="wrap">
+  <p class="lede">Every live DB scheme with no usable figure, and every scheme still a candidate for the £50m–£500m
+  band: why, what has been tried, and the next step. Identified employers are one row each; schemes with no employer
+  found are one row per scheme. <b>Open</b> rows could be settled by work. <b>Assumed</b> rows are out of the band on an
+  assumption, and a fixed <b>sample</b> of each assumption is picked out to test it. <b>Explained</b> rows are out
+  for a reason that needs no work (dissolved, no DB scheme in the accounts, outside the band on review).</p>
+
+  <div class="stats" id="stats"></div>
+
+  <section class="panel">
+    <h2>By group and reason</h2>
+    <div class="scroll"><table class="bk" id="bk"></table></div>
+  </section>
+
+  <section class="panel">
+    <div class="filters">
+      <input id="q" type="search" placeholder="Search sponsor, scheme, company number or PSR">
+      <select id="reason"><option value="">All reasons</option></select>
+      <button class="clear" id="clear">Clear filters</button>
+      <span class="count" id="count"></span>
+    </div>
+    <div class="scroll"><table class="list" id="list"></table></div>
+    <div class="showmore" id="showmore" hidden><button id="more">Show 300 more</button></div>
+  </section>
+</main>
+
+<script>
+const D = /*DATA*/null;
+const ROWS = D.rows;
+const STATUS = [
+  ["open", "Open", "candidates: work could settle them"],
+  ["sample", "Sample", "picked to test an assumption"],
+  ["assumed", "Assumed", "out of the band on an assumption"],
+  ["explained", "Explained", "out for a settled reason"],
+];
+const GROUPS = ["Figures, not settled", "Identified, no figures", "Not identified"];
+const st = { status: new Set(), reason: "", q: "", shown: 300, open: null };
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const fmt = n => n.toLocaleString("en-GB");
+const sum = (rs, k) => rs.reduce((a, r) => a + (k ? r[k] : 1), 0);
+
+$("built").textContent = `Built ${D.built} from the pension database · ${fmt(ROWS.length)} rows, ${fmt(sum(ROWS, "schemes"))} schemes`;
+
+function stats() {
+  $("stats").innerHTML = STATUS.map(([k, label, note]) => {
+    const rs = ROWS.filter(r => r.status === k);
+    return `<button class="stat${st.status.has(k) ? " on" : ""}" data-s="${k}"><b>${fmt(rs.length)}</b>
+      <span class="pill p-${k}">${label}</span> <span>${note}</span><em>${fmt(sum(rs, "schemes"))} schemes</em></button>`;
+  }).join("");
+}
+
+function breakdown() {
+  let h = `<tr><th>Reason</th><th>Status</th><th class="num">Rows</th><th class="num">Schemes</th></tr>`;
+  for (const g of GROUPS) {
+    const rs = ROWS.filter(r => r.group === g);
+    if (!rs.length) continue;
+    h += `<tr><td class="g" colspan="2">${esc(g)}</td><td class="num g">${fmt(rs.length)}</td><td class="num g">${fmt(sum(rs, "schemes"))}</td></tr>`;
+    const by = new Map();
+    for (const r of rs) {
+      const k = r.reason;
+      if (!by.has(k)) by.set(k, []);
+      by.get(k).push(r);
+    }
+    [...by.entries()].sort((a, b) => b[1].length - a[1].length).forEach(([reason, list]) => {
+      const kinds = [...new Set(list.map(r => r.status === "sample" ? "assumed" : r.status))];
+      h += `<tr class="r${st.reason === reason ? " on" : ""}" data-r="${esc(reason)}"><td>${esc(reason)}</td>
+        <td>${kinds.map(k => `<span class="pill p-${k}">${k}</span>`).join(" ")}</td>
+        <td class="num">${fmt(list.length)}</td><td class="num">${fmt(sum(list, "schemes"))}</td></tr>`;
+    });
+  }
+  $("bk").innerHTML = h;
+}
+
+function reasons() {
+  const all = [...new Set(ROWS.map(r => r.reason))].sort();
+  $("reason").innerHTML = `<option value="">All reasons</option>` + all.map(r => `<option${r === st.reason ? " selected" : ""}>${esc(r)}</option>`).join("");
+}
+
+function match(r) {
+  if (st.status.size && !st.status.has(r.status)) return false;
+  if (st.reason && r.reason !== st.reason) return false;
+  if (st.q) {
+    const hay = `${r.sponsor} ${r.sponsor_id} ${r.scheme_names} ${r.psrs}`.toLowerCase();
+    if (!st.q.toLowerCase().split(/\s+/).every(w => hay.includes(w))) return false;
+  }
+  return true;
+}
+
+function list() {
+  const rs = ROWS.filter(match);
+  $("count").textContent = `${fmt(rs.length)} rows · ${fmt(sum(rs, "schemes"))} schemes`;
+  let h = `<tr class="h"><th>Status</th><th>Sponsor</th><th class="num">Schemes</th><th>Reason</th><th class="tried">Tried</th><th>Next step</th></tr>`;
+  rs.slice(0, st.shown).forEach((r, i) => {
+    const key = r.sponsor_id || r.psrs;
+    const name = r.sponsor || (r.sponsor_id ? r.sponsor_id : "(no employer found)");
+    h += `<tr class="r" data-k="${esc(key)}">
+      <td><span class="pill p-${r.status}">${r.status}</span></td>
+      <td><div class="sp">${esc(name)}</div><div class="sub mono">${esc(r.sponsor_id || "PSR " + r.psrs)}</div>
+        <div class="names">${esc(r.scheme_names.length > 120 ? r.scheme_names.slice(0, 118) + "…" : r.scheme_names)}</div></td>
+      <td class="num">${r.schemes}</td>
+      <td>${esc(r.reason)}<div class="sub">${esc(r.group)}</div></td>
+      <td class="tried sub">${esc(r.tried || "—")}</td>
+      <td class="step">${esc(r.next_step)}</td></tr>`;
+    if (st.open === key) {
+      h += `<tr class="more"><td colspan="6"><dl>
+        <dt>Detail</dt><dd>${esc(r.detail || "—")}</dd>
+        <dt>Schemes</dt><dd>${esc(r.scheme_names)}</dd>
+        <dt>PSRs</dt><dd class="mono">${esc(r.psrs)}</dd>
+        <dt>Accounts type</dt><dd>${esc(r.accounts || "—")}</dd>
+        <dt>Tried</dt><dd>${esc(r.tried || "—")}</dd></dl></td></tr>`;
+    }
+  });
+  $("list").innerHTML = h;
+  $("showmore").hidden = rs.length <= st.shown;
+}
+
+function render() { stats(); breakdown(); reasons(); list(); }
+
+$("stats").addEventListener("click", e => {
+  const b = e.target.closest("[data-s]"); if (!b) return;
+  const k = b.dataset.s; st.status.has(k) ? st.status.delete(k) : st.status.add(k);
+  st.shown = 300; render();
+});
+$("bk").addEventListener("click", e => {
+  const t = e.target.closest("[data-r]"); if (!t) return;
+  st.reason = st.reason === t.dataset.r ? "" : t.dataset.r; st.shown = 300; render();
+  $("list").scrollIntoView({ behavior: "smooth", block: "start" });
+});
+$("reason").addEventListener("change", e => { st.reason = e.target.value; st.shown = 300; render(); });
+$("q").addEventListener("input", e => { st.q = e.target.value.trim(); st.shown = 300; list(); });
+$("clear").addEventListener("click", () => { st.status.clear(); st.reason = ""; st.q = ""; $("q").value = ""; st.shown = 300; render(); });
+$("more").addEventListener("click", () => { st.shown += 300; list(); });
+$("list").addEventListener("click", e => {
+  const t = e.target.closest("tr.r"); if (!t) return;
+  st.open = st.open === t.dataset.k ? null : t.dataset.k; list();
+});
+render();
+</script>

@@ -1,6 +1,7 @@
 """Coverage summary (markdown) and a CSV review queue of matches needing a human look."""
 import csv
 from datetime import date
+from pathlib import Path
 
 from . import config as C
 
@@ -142,6 +143,24 @@ def write(con):
 
     n_review = review_queue(con)
     api = q("SELECT count(*) FROM sponsors WHERE status_source = 'api'")
+    gap_rows = []
+    gpath = Path(__file__).resolve().parent.parent / "reports" / "gaps.csv"
+    if gpath.exists():
+        with open(gpath, newline="") as f:
+            gap_rows = list(csv.DictReader(f))
+    if gap_rows:
+        from collections import Counter as _C
+        by = _C((r["group"], r["reason"], r["status"]) for r in gap_rows)
+        sch = _C()
+        for r in gap_rows:
+            sch[(r["group"], r["reason"], r["status"])] += int(r["schemes"])
+        lines += ["", "## Gaps by reason", "",
+                  "Every live DB scheme with no usable figure, and every scheme still a band candidate (one row per identified "
+                  "sponsor, one per scheme with no employer found). Row by row, with what was tried and the next step, in "
+                  "`reports/gaps.csv` and `data/gaps.html` (`run.py gaps`).", "",
+                  "| Group | Reason | Status | Rows | Schemes |", "|---|---|---|---|---|"]
+        for (g, reason, stt), n in sorted(by.items(), key=lambda kv: (kv[0][0], -kv[1])):
+            lines.append(f"| {g} | {reason} | {stt} | {n:,} | {sch[(g, reason, stt)]:,} |")
     lines += ["", "## Main gaps", "",
               "- **Registration date is blank for every UK row** in the EIOPA file, so `registration_start_date` is empty. "
               "TPR's register isn't open data; there is no free source for it.",
