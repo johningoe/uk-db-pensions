@@ -16019,6 +16019,19 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10000995",
+  "kind": "match",
+  "id": "10000995",
+  "name": "The Turtle Wax Limited Retirement Benefits Scheme",
+  "schemes": [
+   "10000995"
+  ],
+  "at": "2026-11-17T16:00:00Z",
+  "action": "sponsor",
+  "company_number": "09146410",
+  "note": "Turtle Wax Europe Limited's accounts carry the group defined benefit scheme"
+ },
+ {
   "key": "match:10001009",
   "kind": "match",
   "id": "10001009",
@@ -16094,6 +16107,19 @@
   "note": "AQA Education"
  },
  {
+  "key": "match:10002446",
+  "kind": "match",
+  "id": "10002446",
+  "name": "Moet - Dior Retirement Benefits Scheme",
+  "schemes": [
+   "10002446"
+  ],
+  "at": "2026-11-17T16:00:00Z",
+  "action": "sponsor",
+  "company_number": "00371236",
+  "note": "Moet Hennessy UK Limited's accounts carry the defined benefit scheme"
+ },
+ {
   "key": "match:10002892",
   "kind": "match",
   "id": "10002892",
@@ -16125,9 +16151,10 @@
   "schemes": [
    "10003000"
   ],
-  "at": "2026-11-16T21:00:00Z",
-  "action": "skip",
-  "note": "Employer not identified with confidence"
+  "at": "2026-11-17T16:00:00Z",
+  "action": "sponsor",
+  "company_number": "07816571",
+  "note": "Ashland Specialties UK Limited operates the Ashland defined benefit plan"
  },
  {
   "key": "match:10003114",
@@ -16237,6 +16264,19 @@
   "at": "2026-11-16T23:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10004906",
+  "kind": "match",
+  "id": "10004906",
+  "name": "The Amber Industrial Holdings Plc Pension And Life Assurance Scheme",
+  "schemes": [
+   "10004906"
+  ],
+  "at": "2026-11-17T17:00:00Z",
+  "action": "sponsor",
+  "company_number": "00235481",
+  "note": "Caledonia Investments plc's accounts list the Amber Industrial Holdings plc Pension and Life Assurance Scheme among its own DB schemes"
  },
  {
   "key": "match:10004991",
@@ -16679,6 +16719,19 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10013563",
+  "kind": "match",
+  "id": "10013563",
+  "name": "The Finlays Pension Fund",
+  "schemes": [
+   "10013563"
+  ],
+  "at": "2026-11-17T16:00:00Z",
+  "action": "sponsor",
+  "company_number": "SC007139",
+  "note": "James Finlay Limited's accounts carry the Finlays defined benefit fund"
+ },
+ {
   "key": "match:10013735",
   "kind": "match",
   "id": "10013735",
@@ -16724,9 +16777,23 @@
   "schemes": [
    "10014186"
   ],
-  "at": "2026-11-16T20:00:00Z",
-  "action": "skip",
-  "note": "Employer not identified with confidence"
+  "at": "2026-11-17T17:00:00Z",
+  "action": "sponsor",
+  "company_number": "00910858",
+  "note": "ASSA ABLOY Entrance Systems Ltd (formerly Besam Limited) operates the defined benefit scheme"
+ },
+ {
+  "key": "match:10014240",
+  "kind": "match",
+  "id": "10014240",
+  "name": "The Package Sealing Company Limited Pension Fund",
+  "schemes": [
+   "10014240"
+  ],
+  "at": "2026-11-17T17:00:00Z",
+  "action": "sponsor",
+  "company_number": "03246586",
+  "note": "M J Maillis (UK) Limited operates the Package Sealing Company Limited Pension Fund (Pakseal Scheme)"
  },
  {
   "key": "match:10014595",
@@ -16748,9 +16815,10 @@
   "schemes": [
    "10014642"
   ],
-  "at": "2026-11-16T20:00:00Z",
-  "action": "skip",
-  "note": "Employer not identified with confidence"
+  "at": "2026-11-17T16:00:00Z",
+  "action": "sponsor",
+  "company_number": "00444359",
+  "note": "TUI Airways Limited's accounts name the Britannia Airways Pension Scheme (TUI Group UK Pension Trust section)"
  },
  {
   "key": "match:10014788",
@@ -16787,6 +16855,19 @@
   "at": "2026-11-16T21:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10018403",
+  "kind": "match",
+  "id": "10018403",
+  "name": "PwC Pension Fund",
+  "schemes": [
+   "10018403"
+  ],
+  "at": "2026-11-17T16:00:00Z",
+  "action": "sponsor",
+  "company_number": "OC303525",
+  "note": "PricewaterhouseCoopers LLP's accounts carry the PwC Pension Fund"
  },
  {
   "key": "match:10018436",
@@ -17140,6 +17221,19 @@
   "at": "2026-11-16T23:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10031452",
+  "kind": "match",
+  "id": "10031452",
+  "name": "Tennant UK Retirement Benefit Scheme",
+  "schemes": [
+   "10031452"
+  ],
+  "at": "2026-11-17T16:00:00Z",
+  "action": "sponsor",
+  "company_number": "SC042491",
+  "note": "Tennant UK Cleaning Solutions Limited's accounts carry the defined benefit scheme"
  },
  {
   "key": "match:10032123",
@@ -18023,6 +18117,19 @@
   "note": "DSG Retail, now Currys Group Limited"
  },
  {
+  "key": "match:10083832",
+  "kind": "match",
+  "id": "10083832",
+  "name": "The Thomson - Leng Superannuation Fund",
+  "schemes": [
+   "10083832"
+  ],
+  "at": "2026-11-17T16:00:00Z",
+  "action": "sponsor",
+  "company_number": "SC005830",
+  "note": "DC Thomson & Company Limited's accounts name the Thomson-Leng Provident Fund"
+ },
+ {
   "key": "match:10083920",
   "kind": "match",
   "id": "10083920",
@@ -18688,9 +18795,10 @@
   "schemes": [
    "10099297"
   ],
-  "at": "2026-11-16T21:00:00Z",
-  "action": "skip",
-  "note": "Employer not identified with confidence"
+  "at": "2026-11-17T16:00:00Z",
+  "action": "sponsor",
+  "company_number": "00078731",
+  "note": "Birmingham Chamber of Commerce and Industry's accounts carry its final salary scheme"
  },
  {
   "key": "match:10099596",
@@ -19868,9 +19976,10 @@
   "schemes": [
    "10137914"
   ],
-  "at": "2026-11-16T23:00:00Z",
-  "action": "skip",
-  "note": "Employer not identified with confidence"
+  "at": "2026-11-17T17:00:00Z",
+  "action": "sponsor",
+  "company_number": "SC131375",
+  "note": "Transocean Drilling U.K. Limited (formerly GlobalSantaFe Drilling U.K.) participates in the GlobalSantaFe Final Salary Pension Plan"
  },
  {
   "key": "match:10138007",
@@ -20028,9 +20137,10 @@
   "schemes": [
    "10143383"
   ],
-  "at": "2026-11-16T23:00:00Z",
-  "action": "skip",
-  "note": "Employer not identified with confidence"
+  "at": "2026-11-17T16:00:00Z",
+  "action": "sponsor",
+  "company_number": "00395704",
+  "note": "Hempel UK Ltd's accounts carry the Hempel defined benefit scheme"
  },
  {
   "key": "match:10143551",
@@ -20203,6 +20313,19 @@
   "at": "2026-11-16T23:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10149981",
+  "kind": "match",
+  "id": "10149981",
+  "name": "Presspart Group Retirement Benefits Scheme",
+  "schemes": [
+   "10149981"
+  ],
+  "at": "2026-11-17T16:00:00Z",
+  "action": "sponsor",
+  "company_number": "00995387",
+  "note": "Presspart Manufacturing Limited's accounts carry the Presspart defined benefit scheme"
  },
  {
   "key": "match:10150096",
@@ -20832,6 +20955,19 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10175688",
+  "kind": "match",
+  "id": "10175688",
+  "name": "West Midlands Integrated Transport Authority Pension Fund",
+  "schemes": [
+   "10175688"
+  ],
+  "at": "2026-11-17T17:00:00Z",
+  "action": "sponsor",
+  "company_number": "02590560",
+  "note": "Mobico Group plc's UK Bus division operates the West Midlands Integrated Transport Authority Pension Fund"
+ },
+ {
   "key": "match:10175751",
   "kind": "match",
   "id": "10175751",
@@ -21226,9 +21362,10 @@
   "schemes": [
    "10198213"
   ],
-  "at": "2026-11-16T21:00:00Z",
-  "action": "skip",
-  "note": "Employer not identified with confidence"
+  "at": "2026-11-17T16:00:00Z",
+  "action": "sponsor",
+  "company_number": "SC013418",
+  "note": "Robert Bosch Limited's accounts name the Bosch UK Retirement Benefits Scheme"
  },
  {
   "key": "match:10198789",
@@ -22895,6 +23032,19 @@
   "at": "2026-11-16T22:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10275864",
+  "kind": "match",
+  "id": "10275864",
+  "name": "Nokia Solutions and Networks Pension Plan",
+  "schemes": [
+   "10275864"
+  ],
+  "at": "2026-11-17T16:00:00Z",
+  "action": "sponsor",
+  "company_number": "02650571",
+  "note": "Nokia UK Limited carries the Nokia group's UK defined benefit schemes (match not proven by name)"
  },
  {
   "key": "match:10275972",
