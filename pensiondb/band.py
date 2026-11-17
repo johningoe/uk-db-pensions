@@ -34,7 +34,7 @@ CSV = Path(__file__).with_name("scheme_figures.csv")
 CURRENCY_CSV = Path(__file__).with_name("sponsor_currency.csv")   # company_number, currency, note: for figures flagged foreign_currency
 # approximate currency units per £1 in 2025, for placing a sponsor in or out of the band only (figures are not converted)
 APPROX_RATE = {"USD": 1.35, "EUR": 1.17, "AUD": 2.05, "GBP": 1.0}
-BAND_REVIEW = Path(__file__).with_name("sponsor_band_review.csv")   # company_number, band (in/out), note: a verdict read from the accounts where no sterling figure could be entered
+BAND_REVIEW = Path(__file__).with_name("sponsor_band_review.csv")   # company_number (or body:<id> for a body in handcheck.BODIES), band (in/out/candidate), note: a verdict read from the accounts where no sterling figure could be entered
 LIVE_CHECKED = Path(__file__).with_name("live_checked.csv")   # psr, verdict (live), note: a liveness lead reviewed and set aside
 FIELDS = ["psr", "scheme_name", "period_end", "obligation_m", "assets_m", "source", "note"]
 LIVE = ("with_figures", "no_figures")
@@ -119,7 +119,7 @@ def build(con):
         if fig:
             figs.append((psr, *fig))
         bands.append((*_band(group, reason, fig, co, rno, evidence, acc, own, ob, assets, chk, gname, gob, gassets,
-                             cob, cassets, per_co.get(co) if co else per_reg.get((rsrc, rno)), costatus, cur.get(co), rev.get(co), pdfst), psr))
+                             cob, cassets, per_co.get(co) if co else per_reg.get((rsrc, rno)), costatus, cur.get(co), rev.get(co) if co else rev.get(f"{rsrc}:{rno}"), pdfst), psr))
     con.executemany("INSERT INTO scheme_figures VALUES (?,?,?,?,?,?,?)", figs)
     con.executemany("UPDATE schemes SET band=?, band_kind=?, band_reason=? WHERE psr=?", bands)
     con.commit()
@@ -181,9 +181,11 @@ def _band(group, reason, fig, co, rno, evidence, acc, own, ob, assets, chk, gnam
         return "out", "DC scheme", "DC scheme"
     if co and costatus in GONE:
         return "out", "Sponsor insolvent or dissolved", f"Sponsor's status at Companies House: {costatus}"
-    if co and review and review["band"] in ("in", "out") and group != "not_identified":
+    if review and review["band"] in ("in", "out") and group != "not_identified":
         kind = "Sponsor's DB assets £50m-£500m" if review["band"] == "in" else "Out of band on review of the accounts"
         return review["band"], kind, f"Reviewed: {review['note']}"
+    if review and review["band"] == "candidate" and group != "not_identified":
+        return "candidate", "Accounts read, no gross figure", f"Reviewed: {review['note']}"
     if group == "not_identified":
         if not evidence:
             return "out", "No employer found, no DB evidence", "No employer found and no DB evidence"

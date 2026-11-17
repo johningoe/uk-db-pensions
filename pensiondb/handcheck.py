@@ -20,6 +20,10 @@ from pathlib import Path
 from . import pdfaccounts
 
 CSV = Path(__file__).with_name("hand_checked.csv")
+# bodies on no register and not at Companies House (University of Oxford, of Cambridge, Newcastle University), with
+# the schemes they sponsor and figures read from their published financial statements. Columns: body_id, body_name,
+# psrs (space-separated), period_end, obligation_m, assets_m, page, source (URL of the accounts), note
+BODIES = Path(__file__).with_name("bodies.csv")
 
 # currency units per £1 at the period end, with the source of each rate
 FX = {
@@ -82,7 +86,31 @@ def apply(con):
                            db_check='ok:hand_checked', db_check_note=? WHERE company_number=?""",
                     (period, ob, assets, net, src, note, num))
         n += 1
+    n += _apply_bodies(con)
     con.commit()
+    return n
+
+
+def _apply_bodies(con):
+    """Attach each body in bodies.csv to its schemes (charity_source 'body') with its figures, where the scheme has
+    no Companies House sponsor. A body with no figures still counts as identified, so its schemes stay candidates."""
+    if not BODIES.exists():
+        return 0
+    with open(BODIES, newline="") as f:
+        rows = list(csv.DictReader(f))
+    n = 0
+    for r in rows:
+        ob = float(r["obligation_m"]) * 1e6 if r["obligation_m"] else None
+        assets = float(r["assets_m"]) * 1e6 if r["assets_m"] else None
+        net = assets - ob if ob is not None and assets is not None else None
+        src = "hand_checked" if ob is not None or assets is not None else None
+        for psr in r["psrs"].split():
+            n += con.execute("""UPDATE schemes SET charity_source='body', charity_number=?, charity_name=?,
+                                    charity_match_confidence=0.9, charity_active=1, charity_db_obligation=?,
+                                    charity_db_assets=?, charity_db_pension=?, charity_fy_end=?, charity_db_source=?,
+                                    charity_db_check=NULL
+                                WHERE psr=? AND sponsor_company_number IS NULL""",
+                             (r["body_id"], r["body_name"], ob, assets, net, r["period_end"] or None, src, psr)).rowcount
     return n
 
 

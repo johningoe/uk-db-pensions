@@ -79,6 +79,8 @@ def _no_figures(r):
         return "Other, or not yet read"
     if r["ch_src"]:
         return "Figure found but failed the checks"
+    if r.get("ch_source") == "body":
+        return "Accounts read, no gross figure (net only or not published)"
     st = r["ch_status"]
     if st == "mentioned_no_figures":
         return "Accounts mention a DB scheme, figure not readable"
@@ -108,7 +110,7 @@ def _not_live(r):
 
 def classify(con):
     q = """SELECT s.psr, s.scheme_name, s.likely_live, s.name_type, s.sponsor_company_number co, s.charity_number ch,
-               s.charity_db_source ch_src, coalesce(s.charity_db_check, 'ok') ch_check, s.sponsor_name_review review,
+               s.charity_db_source ch_src, s.charity_source ch_source, coalesce(s.charity_db_check, 'ok') ch_check, s.sponsor_name_review review,
                s.ppf_status ppf, s.fas_status fas, s.live_doubt doubt, s.sponsor_dissolved dissolved,
                sp.db_period_end IS NOT NULL AND coalesce(sp.db_check, 'ok') NOT LIKE 'flag%' own,
                sp.group_db_company_number IS NOT NULL grp, sp.db_check, lower(coalesce(sp.company_status, '')) co_status,

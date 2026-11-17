@@ -17709,6 +17709,19 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10076708",
+  "kind": "match",
+  "id": "10076708",
+  "name": "Durham University Pension Scheme",
+  "schemes": [
+   "10076708"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "sponsor",
+  "company_number": "RC000650",
+  "note": "University of Durham (Royal Charter company RC000650)"
+ },
+ {
   "key": "match:10076845",
   "kind": "match",
   "id": "10076845",
@@ -18152,6 +18165,19 @@
   "note": "Jupiter Asset Management Limited"
  },
  {
+  "key": "match:10089233",
+  "kind": "match",
+  "id": "10089233",
+  "name": "The University Of Sussex Pension And Assurance Scheme",
+  "schemes": [
+   "10089233"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "sponsor",
+  "company_number": "RC000672",
+  "note": "University of Sussex (Royal Charter company RC000672)"
+ },
+ {
   "key": "match:10089283",
   "kind": "match",
   "id": "10089283",
@@ -18512,6 +18538,19 @@
   "at": "2026-11-16T20:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10098554",
+  "kind": "match",
+  "id": "10098554",
+  "name": "The University Of Nottingham Contributory Pension & Assurance Scheme",
+  "schemes": [
+   "10098554"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "sponsor",
+  "company_number": "RC000664",
+  "note": "University of Nottingham (Royal Charter company RC000664)"
  },
  {
   "key": "match:10098971",
@@ -21758,6 +21797,19 @@
   "at": "2026-11-16T23:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10244291",
+  "kind": "match",
+  "id": "10244291",
+  "name": "University Of Wales Lampeter Pension & Assurance Scheme",
+  "schemes": [
+   "10244291"
+  ],
+  "at": "2026-11-17T12:00:00Z",
+  "action": "sponsor",
+  "company_number": "RC000537",
+  "note": "University of Wales: Trinity Saint David (Royal Charter company RC000537), which took over Lampeter and sponsors the scheme"
  },
  {
   "key": "match:10245186",

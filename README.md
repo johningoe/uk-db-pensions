@@ -501,7 +501,15 @@ band:
 - **Verdicts without a sterling figure**: `sponsor_band_review.csv` (`company_number, company_name, band, period_end,
   note`) places a sponsor in or out of the band from its accounts where no figure can be entered as is: figures in
   another currency, totals implied from a parent's 10-K, or a note with no accounting figures but clearly a small
-  scheme. It takes precedence over the other rules for that sponsor.
+  scheme. It takes precedence over the other rules for that sponsor. `band` may also be `candidate` (accounts
+  read, but only a net figure is published or the accounts could not be downloaded), and `company_number` may be
+  `body:<id>` for a body in `bodies.csv`.
+- **Universities**: most English and Welsh universities are Royal Charter companies (RC numbers) that file no
+  accounts at Companies House, so their figures come from the financial statements on their own websites (or
+  opencharities.uk), entered in `hand_checked.csv` with the URL and page in the note. Only the university's own
+  trust-based scheme counts: USS, SAUL, LGPS shares and NHSPS are left out. Universities on no register and not at
+  Companies House (Oxford, Cambridge, Newcastle, Queen's Belfast) are in `bodies.csv` (`body_id, body_name, psrs,
+  period_end, obligation_m, assets_m, page, source, note`), which attaches them to their schemes with any figures.
 - **scheme_figures** holds a scheme's own figures where they can be told apart: split by hand from the pension
   note (`scheme_figures.csv`: `psr, scheme_name, period_end, obligation_m, assets_m, source, note`; £m), or the
   sponsor's figures when it has only one live DB scheme. It isn't used for the band.

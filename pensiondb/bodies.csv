@@ -1,0 +1,5 @@
+body_id,body_name,psrs,period_end,obligation_m,assets_m,page,source,note
+QUB,THE QUEEN'S UNIVERSITY OF BELFAST,10000114,2025-07-31,202.867,162.687,59,https://files.opencharities.uk/ni/101788/2025-07-31-accounts.pdf,Retirement Benefits Plan (RBP); USS excluded
+OXFORD,UNIVERSITY OF OXFORD,10009029 10138244,,,,,https://assets-oxweb.admin.ox.ac.uk/2026-02/Oxford%20University%20Annual%20Report%20and%20Accounts%202024-25.pdf,"Staff Pension Scheme (OSPS, shared with the colleges) and the OUP schemes (OUP is a department of the University); the accounts could not be downloaded (the website blocks automated access)"
+CAMBRIDGE,UNIVERSITY OF CAMBRIDGE,10114770 10129535 10129534,,,,,https://www.admin.cam.ac.uk/reporter/2025-26/special/04/04-FMI-31July2025.pdf,Assistants' Contributory Pension Scheme (CPS) and the Press & Assessment schemes (the Press is part of the University)
+NEWCASTLE,NEWCASTLE UNIVERSITY,10001644,2025-07-31,,,,https://www.ncl.ac.uk/mediav8/freedom-of-information/files/IAR-2425.pdf,Retirement Benefits Plan (RBP): only the net deficit (£28.0m) is published in the integrated report
