@@ -60,6 +60,8 @@ def kind(name, review=None):
 
 def _no_figures(r):
     if r["co"]:
+        if r["pdf"] in ("dc_only", "no_pension_note") and (r["db_check"] or "") == "flag:misread":
+            return "Accounts show no DB scheme"         # a reviewer's no-DB verdict outranks the cleared figure
         if (r["db_check"] or "").startswith("flag"):
             return "Figure found but failed the checks"
         if re.search(r"dissolved|liquidation|administration|closed|receiver|insolven", r["co_status"]):

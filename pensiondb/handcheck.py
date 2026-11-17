@@ -71,6 +71,9 @@ def apply(con):
                                db_surplus_deficit=NULL, db_net_basis=NULL, db_taxonomy=NULL, db_source_file=?,
                                db_check='flag:misread', db_check_note=? WHERE company_number=?""",
                         (src, r["note"], num))
+            if r["note"].startswith("Accounts show no DB scheme"):
+                # a reviewer's "no DB scheme" verdict: the band treats the sponsor like accounts read with DC only
+                con.execute("UPDATE sponsors SET db_pdf_status='dc_only' WHERE company_number=?", (num,))
             n += 1
             continue
         period = _period(num, r)
