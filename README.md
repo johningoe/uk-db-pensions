@@ -498,6 +498,8 @@ band:
 - **schemes.band** is `in` (the sponsor's DB assets are £50m-£500m), `candidate` (could be in the band, not
   settled yet) or `out`. `band_kind` groups the reasons, and `band_reason` gives the reason with the figure behind
   it. Where assets are missing, the obligation stands in for size.
+- **Public-sector schemes** (police, fire, council, NHS and similar, with no company or register employer) are out
+  of scope and always `out`.
 - **Parent groups**: where the sponsor has no figures of its own but its nearest UK parent's group figures are
   £50m-£500m, the scheme is `in` with `band_kind` "Parent group's DB assets £50m-£500m": the group is the
   sponsor in economic terms. Explorer counts still key on the legal sponsor. On the same footing, a parent group

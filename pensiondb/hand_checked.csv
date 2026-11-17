@@ -901,3 +901,18 @@ SC005830,D.C. THOMSON & COMPANY LIMITED,2025-12-31,GBP,379.8,669.8,group,,66,"Re
 SC029219,OGILVIE GROUP LIMITED,2025-06-30,GBP,3.622,4.85,group,2026-03-23,48,"Read from the page image (page 48): Liabilities 3,622 and plan assets 4,850 at 30 June 2025 (£000)"
 OC308299,FORVIS MAZARS LLP,2025-08-31,GBP,20.6,21.2,group,2026-04-04,55,Read from the page image (page 55): Mazars Retirement Benefit Scheme: DBO 20.6 and plan assets 21.2 at 31 Aug 2025 (£m)
 00032965,AVON TECHNOLOGIES PLC,2022-03-31,GBP,,337.5,group,2026-02-11,150,Read from the page image (page 150): Avon Rubber pension plan: market value of assets £337.5m at the 31 March 2022 funding valuation (91% funded); the accounts give only a $13.8m net IAS 19 liability at 30 Sep 2025
+00147624,H.J. HEINZ MANUFACTURING UK LIMITED,2025-12-27,GBP,731.5,1038.6,group,2026-07-09,36,"Read from the page image (page 36): Heinz UK Pension Plan 'Merged Plan': scheme assets 1,038.6 and funded obligations 731.5 (£m)"
+03515896,BESPAK EUROPE LIMITED,2025-12-31,GBP,81.153,85.74,group,2026-08-06,48,"Read from the page image (page 48): Bespak defined benefit schemes: plan assets 85,740 and obligation 81,153 (£000)"
+01383511,WSP UK LIMITED,2025-12-31,GBP,75.35,87.948,group,2026-06-28,80,"Read from the page image (page 80): plan assets 87,948 and DBO 75,350 (£'000)"
+03281294,PROCTER & GAMBLE TECHNICAL CENTRES LIMITED,2025-06-30,GBP,858.069,1171.876,group,2026-04-03,55,"Read from the page image (page 55): The Procter & Gamble Fund: section assets 1,171,876 and DBO 858,069 (£'000)"
+reg:ccew:221124,THE CHILDREN'S SOCIETY,2025-03-31,GBP,98.877,100.086,group,,48,"Read from the page image (page 48): Scheme assets 100,086 and obligation 98,877 (£000)"
+reg:co:bakers-food-and-allied-workers-union-information-held-by-the-certification-officer,BAKERS FOOD AND ALLIED WORKERS UNION,2025-12-31,GBP,,4.164,group,,38,"Read from the page image (page 38): Scheme assets 4,164 (£000)"
+reg:co:international-transport-workers-federation-information-held-by-the-certification-officer,INTERNATIONAL TRANSPORT WORKERS FEDERATION,2025-12-31,GBP,49.767,49.767,group,,62,"Read from the page image (page 62): ITF Retirement Benefits Scheme: assets after the recognition limit 49,767 and liabilities 49,767 (£000)"
+reg:ccew:310638,WYCOMBE ABBEY SCHOOL,2025-08-31,GBP,1.281,1.583,group,,43,"Read from the page image (page 43): Scheme assets 1,583 and obligations 1,281 (£000)"
+reg:ccew:207790,WEST KIRBY RESIDENTIAL SCHOOL,2025-08-31,GBP,4.371,4.381,group,,30,"Read from the page image (page 30): Assets 4,381,000 and liabilities 4,371,000 (£)"
+reg:ccew:1138057,ALL SOULS COLLEGE,2025-07-31,GBP,6.778,11.009,group,,76,"Read from the page image (page 76): Scheme assets 11,009 and liabilities 6,778 (£000)"
+RC000519,ROYAL SOCIETY,2025-03-31,GBP,37.955,40.345,group,,100,"Read from the page image (page 100): Plan assets 40,345 and liabilities 37,955 (£000)"
+RC000547,SCOUT ASSOCIATION(THE),2025-03-31,GBP,27.049,29.687,group,,59,"Read from the page image (page 59): Fair value of assets 29,687 and funded obligations 27,049 (£000)"
+RC000261,INSTITUTE OF PHYSICS(THE),2025-12-31,GBP,67.881,71.241,group,,74,"Read from the page image (page 74): Plan assets 71,241 and liabilities 67,881 (£000)"
+RC000529,ROYAL STATISTICAL SOCIETY,2025-12-31,GBP,3.24,5.155,group,,49,"Read from the page image (page 49): DBO 3,240,000 and plan assets 5,155,000 (£)"
+reg:fca:148B,COVENTRY BUILDING SOCIETY,2025-12-31,GBP,1304,1324,group,,174,"Read from the page image (page 174): CBS Scheme (127), Pace DB (794) and BPS (403) after the Co-operative Bank acquisition: total assets 1,324 and obligation 1,304 (£m)"

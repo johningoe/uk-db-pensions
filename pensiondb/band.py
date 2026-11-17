@@ -14,7 +14,7 @@ build(con) writes, on every scheme row (each scheme carries its sponsor's band):
   candidate  could be in the band and is not settled yet: a parent group's figure only, no figure from a sponsor
              that files full accounts, a figure that failed the checks, or a scheme with DB evidence whose sponsor
              is not yet found
-  out        the sponsor's DB assets are outside the band, the parent group's total is under £50m, the sponsor
+  out        public-sector schemes (out of scope), the sponsor's DB assets are outside the band, the parent group's total is under £50m, the sponsor
              files small or micro accounts or is insolvent or dissolved, or the scheme is not live, DC or shows
              no DB evidence
 
@@ -190,7 +190,7 @@ def _band(group, reason, fig, co, rno, evidence, acc, own, ob, assets, chk, gnam
         if not evidence:
             return "out", "No employer found, no DB evidence", "No employer found and no DB evidence"
         if reason == "Public sector":
-            return "candidate", "Public sector (scope to decide)", "Public-sector scheme with DB evidence (scope to decide)"
+            return "out", "Public sector (out of scope)", "Public-sector scheme (police, fire, council, NHS and similar): out of scope"
         return "candidate", "Employer not found, DB evidence", f"Employer not found; scheme has DB evidence ({reason.lower()})"
     # the sponsor's own DB figures, covering all its schemes
     if own or (not co and (cob is not None or cassets is not None)):

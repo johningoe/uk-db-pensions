@@ -64,8 +64,8 @@ def _next_step(group, kind, pdf, chk, method, review):
                       "unmatched": "no Companies House or register match by name, core name or postcode",
                       "non_company": "set aside as a public-sector or non-company body",
                       "multi_employer": "matched only to an umbrella scheme"}.get(method, f"match method: {method}"))
-        if kind == "Public sector (scope to decide)":
-            return tried, "Decide whether public-sector schemes are in scope"
+        if kind == "Public sector (out of scope)":
+            return tried, "None: public-sector schemes are out of scope"
         if kind == "Employer not found, DB evidence":
             if method == "rejected":
                 return tried, "Find the right employer: former name, brand or parent of the rejected company"

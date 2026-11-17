@@ -42,14 +42,12 @@ FC007470,SAMSKIP MULTIMODAL BV,out,2022-12-31,Read from the page image (page 33)
 00819180,STRESSLINE LIMITED,out,2025-12-31,Read from the page image (page 19): Sole sponsor of a DB scheme with one active member; surplus of £2.36m at the December 2020 valuation: a very small scheme
 OC332112,YORK RACECOURSE KNAVESMIRE LLP,out,2025-10-31,Read from the page image (page 21): Bulk annuity bought in the prior year covering all future liabilities; the scheme is derecognised and a full exit is being pursued
 FC011069,KUWAIT PETROLEUM CORPORATION,candidate,2010-03-31,Read from the page image (page 52): Latest accounts at Companies House are for the year to March 2010; no recent figures
-00083758,PROCTER & GAMBLE LIMITED,candidate,2025-06-30,Read from the accounts (page 32): Accounts carry no DB note: directors are members of a group defined benefit scheme sponsored by another P&G UK company: find and read that company
 03923425,TUBE LINES LIMITED,candidate,2026-03-31,Accounts carry no pension wording at all; staff are likely in the TfL Pension Fund: check
 03153442,ACHIEVE TOGETHER LIMITED,out,2025-02-28,Read from the accounts (page 29): Accounting policy: the company operates two defined contribution plans only
 01750343,ALCATEL SUBMARINE NETWORKS UK LTD,out,2024-12-31,Read from the accounts (page 27): Accounting policy: ASN UK runs a defined contribution pension only
 SC075515,ARDGOWAN HOSPICE LIMITED,out,2025-03-31,"Read from the accounts (page 24): Only DB link is staff who stayed in the NHS Pension Scheme (public sector, accounted as DC)"
 FC006852,BANCO DO BRASIL S.A.,candidate,2025-12-31,Read from the accounts (page 171): Filing is the Brazilian bank's consolidated accounts; no UK pension figure
 00087908,CLEAN LINEN SERVICES LIMITED,out,2025-12-31,Read from the accounts (page 35): Pension note: group personal and defined contribution schemes only
-00406711,CONSORT MEDICAL LIMITED,candidate,2024-12-31,Consort Medical Holdings has no pension scheme; the Bespak scheme went with the carved-out Bespak companies (Bespak Europe Limited): read those
 02502865,DENSO MANUFACTURING UK LTD.,out,2025-03-31,Read from the accounts (page 24): The company now operates a defined contribution scheme only
 01635854,EWOS LIMITED,out,2025-05-31,"Read from the accounts (page 31): Participates in the Cargill Pension Plan (accounted as DC): market value of assets £765.5m at 31 May 2025, over £500m"
 05369196,FUJIFILM IMAGING COLORANTS LIMITED,candidate,2025-03-31,Read from the accounts (page 19): DB scheme closed to accrual in 2014; no balance table found in the pages read
@@ -64,14 +62,27 @@ SC185956,ROBERTSON FACILITIES MANAGEMENT LIMITED,out,2025-06-30,Read from the ac
 OC308202,VENNER SHIPLEY LLP,out,2025-06-30,Read from the accounts (page 23): Closed DB scheme with a surplus of about £1.4m and no contributions: a small scheme
 02782737,WELPLAN LIMITED,candidate,2026-02-28,"B&ESA Limited accounts for the HVCA scheme as DC; the scheme is sponsored by the parent Building Engineering Services Association, an employers' association that files with the Certification Officer, not Companies House"
 SC131375,TRANSOCEAN DRILLING U.K. LIMITED,candidate,2024-12-31,"Read from the accounts (page 36): the GlobalSantaFe Final Salary Pension Plan is disclosed only in Transocean Ltd's group financial statements (Swiss parent, US$): no UK figure in the company's accounts"
-02136404,WSP GROUP LIMITED,candidate,2025-12-31,"Read from the accounts (page 35): holding company that guarantees defined benefit pension contributions payable by a subsidiary; the scheme sits with that subsidiary (WSP UK): read its accounts"
 02003020,BLACKPOOL TRANSPORT SERVICES LIMITED,out,2025-03-31,Read from the page image (page 38): Pension note shows only the company's defined contribution Retirement Benefit Scheme
 03539665,HS1 LIMITED,out,2026-03-31,Read from the page image (page 71): HS1 section of the Railways Pension Scheme (industry-wide): only a £0.5m net liability recognised
 03914810,TRANSPORT TRADING LIMITED,out,2026-03-31,Read from the page image (page 38): Sections of the TfL Pension Fund (public-sector multi-employer fund); only the Crossrail section surplus recognised
 SC157176,FIRSTGROUP PLC,out,2026-03-31,Read from the page image (page 179): London United Busways plan is within FirstGroup's combined pension disclosures; FirstGroup's DB schemes are far over £500m
 01671043,DORSET PRESS LIMITED(THE),out,2025-06-30,Read from the page image (page 31): Pension note shows only a defined contribution scheme
-08322668,H.J. HEINZ FOODS UK LIMITED,candidate,2025-12-27,Read from the page image (page 36): Contributes to the Heinz UK Pension Plan 'Merged Plan' as a multi-employer scheme; H.J. Heinz Manufacturing UK Limited is the sole holder of its assets and obligations (surplus £307.1m): read that company and consider re-pointing
 00096398,JOHN GOOD & SONS LIMITED,out,2025-12-31,Read from the page image (page 51): Net interest expense on post-employment benefits of £1k (page 51): a very small scheme
 01120330,JULIUS BAER INTERNATIONAL LIMITED,candidate,2025-12-31,"Read from the page image (page 32): Participates in the Julius Baer UK Staff Pension and Life Assurance Scheme, accounted for in full by the sponsoring company Julius Baer Group Limited (Swiss); no UK figure in these accounts"
 00764299,TRIDENT GARAGES LIMITED,candidate,2025-12-31,Read from the page image (page 23): Participates in a DB scheme but has no current actuarial valuation (latest information 2023); no asset or liability recognised
 FC004934,JAPAN AIRLINES CO. LTD,candidate,2026-03-31,Read from the page image (page 17): Filing is the Japanese parent's accounts (retirement benefit liability ¥82bn group-wide); no UK figure
+ccew:249740,LIVERPOOL DIOCESAN BOARD OF FINANCE,out,,Read from the accounts: Pension Builder Scheme of the Church Workers Pension Fund: a Church of England multi-employer scheme accounted as DC
+ccew:249276,WINCHESTER DIOCESAN BOARD OF FINANCE,out,,"Read from the accounts: Church of England Funded Pensions Scheme and Church Workers Pension Fund: multi-employer, accounted as DC"
+ccew:248919,ST EDMUNDSBURY AND IPSWICH DIOCESAN BOARD OF FINANCE,out,,Read from the accounts: Pension Builder Scheme of the Church Workers Pension Fund: Church of England multi-employer
+ccew:251234,GLOUCESTER DIOCESAN BOARD OF FINANCE,out,,Read from the accounts: Pension Builder Scheme of the Church Workers Pension Fund: Church of England multi-employer
+ccew:1155876,LEEDS DIOCESAN BOARD OF FINANCE,out,,Read from the accounts: Pension Builder Scheme of the Church Workers Pension Fund: Church of England multi-employer
+ccew:312064,THE SAINT JOHN'S SCHOOL FOUNDATION,out,,Read from the accounts: Teachers' Pension Scheme and a stakeholder DC scheme only
+ccew:233176,THE BRITISH ACADEMY,out,,"Read from the accounts: Participates in SAUL (multi-employer, accounted as DC); no scheme of its own"
+ccew:311735,CLIFTON COLLEGE,out,,Read from the accounts: Teachers' Pension Scheme and group personal pensions only
+ccew:312612,THE WHITGIFT FOUNDATION,out,,"Read from the accounts: Teachers' Pension Scheme, DC and group personal pension only"
+ccew:529113,THE FREE GRAMMAR SCHOOL OF KING CHARLES II AT BRADFORD,out,,Read from the accounts: Teachers' Pension Scheme and an Aviva DC scheme only
+ccew:529051,THE SCHOOLS OF KING EDWARD VI IN BIRMINGHAM,out,,Read from the accounts: Non-teaching DB scheme closed 2010; FRS 102 liability £1.3m and recovery contributions £0.3m a year: a small scheme
+ccew:1052076,SUE RYDER FOUNDATION LIMITED,out,,Read from the accounts: Group personal pension and auto-enrolment only; NHS-linked DB scheme accounted as DC
+ccew:311793,TRINITY COLLEGE BRISTOL LIMITED,out,,Read from the accounts: Defined benefit pension plan liability nil on a £13m balance sheet: a small scheme
+co:fda-information-held-by-the-certification-officer,FDA,out,,Read from the accounts: FDA staff pension scheme: defined benefit asset £4.8m on an £18m balance sheet: a small scheme
+fca:455B,PRINCIPALITY BUILDING SOCIETY,candidate,,Read from the accounts: Only the summary financial statement was read (retirement benefit obligation nil); read the full annual report
