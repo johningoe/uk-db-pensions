@@ -78,6 +78,18 @@ svg .col { fill: var(--accent); }
 svg .col.under { fill: var(--warn); }
 
 /* table views */
+.chip.on { background: var(--accent); color: var(--accent-fg); }
+.ms-field { display: grid; gap: 3px; font-size: 11.5px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; min-width: 0; max-width: 100%; }
+.ms { position: relative; text-transform: none; letter-spacing: 0; }
+.ms summary { list-style: none; height: 34px; display: flex; align-items: center; gap: 8px; min-width: 150px; max-width: 240px; border: 1px solid var(--line); background: var(--surface); border-radius: 6px; padding: 0 28px 0 10px; font-size: 13.5px; color: var(--fg); cursor: pointer; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; position: relative; }
+.ms summary::-webkit-details-marker { display: none; }
+.ms summary::after { content: "▾"; position: absolute; right: 10px; color: var(--muted); }
+.ms summary.on { border-color: var(--accent); color: var(--accent); }
+.ms-pop { position: absolute; z-index: 20; top: 38px; left: 0; min-width: 240px; max-width: min(340px, 90vw); max-height: 320px; overflow: auto; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; box-shadow: var(--shadow); padding: 6px; display: grid; gap: 1px; }
+.filters .ms-pop label { max-width: none; display: grid; grid-template-columns: auto 1fr auto; gap: 8px; align-items: center; padding: 5px 6px; border-radius: 5px; font-size: 13.5px; color: var(--fg); text-transform: none; letter-spacing: 0; cursor: pointer; }
+.filters .ms-pop label:hover { background: var(--sunk); }
+.ms-n { color: var(--muted); font-variant-numeric: tabular-nums; font-size: 12.5px; }
+.ms-pop .linkbtn { justify-self: start; margin: 4px 6px; background: none; border: 0; color: var(--accent); text-decoration: underline; cursor: pointer; font-size: 13px; padding: 0; }
 .filters { display: flex; flex-wrap: wrap; gap: 8px; align-items: end; margin-bottom: 12px; }
 .filters label { max-width: 100%; display: grid; grid-template-columns: minmax(0, 1fr); gap: 3px; font-size: 11.5px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; min-width: 0; }
 .filters input[type=search], .filters select { height: 34px; border: 1px solid var(--line); background: var(--surface); border-radius: 6px; padding: 0 10px; text-transform: none; letter-spacing: 0; font-size: 13.5px; color: var(--fg); max-width: 100%; }
@@ -144,14 +156,14 @@ textarea.copybox { width: 100%; height: 120px; font: 12px var(--f-mono); margin-
 <header class="top"><div class="wrap">
   <h1>UK DB Scheme Explorer<small id="built"></small></h1>
   <nav class="tabs" aria-label="Views">
-    <a href="#overview" data-view="overview">Overview</a>
-    <a href="#schemes" data-view="schemes">Schemes</a>
     <a href="#sponsors" data-view="sponsors">Sponsors</a>
+    <a href="#schemes" data-view="schemes">Schemes</a>
+    <a href="#overview" data-view="overview">Overview</a>
   </nav>
 </div></header>
 
 <main class="wrap">
-  <section id="v-overview" data-v="overview">
+  <section id="v-overview" data-v="overview" hidden>
     <div class="lede" id="lede"></div>
     <div class="panel" style="margin-bottom:16px">
       <h2>Live DB and hybrid schemes by status</h2>
@@ -210,11 +222,21 @@ textarea.copybox { width: 100%; height: 120px; font: 12px var(--f-mono); margin-
     <div id="copyfallback"></div>
   </section>
 
-  <section id="v-sponsors" data-v="sponsors" hidden>
+  <section id="v-sponsors" data-v="sponsors">
     <div class="filters">
       <label class="grow">Search<input type="search" id="sq" placeholder="Sponsor name or company number" autocomplete="off"></label>
       <label>Show<select id="s-has">
-        <option value="fig">Sponsors with figures</option><option value="nofig">Identified, no figures</option><option value="all">All identified sponsors</option></select></label>
+        <option value="fig">Sponsors with full figures</option><option value="net">Net figure only</option><option value="nofig">Identified, no figures</option><option value="all">All identified sponsors</option></select></label>
+      <div class="ms-field"><span class="ms-label" title="Assets are used where no liability figure is known">Total DB liabilities</span><div class="ms" id="ms-size"></div></div>
+      <div class="ms-field"><span class="ms-label">Figures from</span><div class="ms" id="ms-source"></div></div>
+      <div class="ms-field"><span class="ms-label">Figure check</span><div class="ms" id="ms-quality"></div></div>
+      <div class="ms-field"><span class="ms-label">Sponsor £50m–£500m</span><div class="ms" id="ms-band"></div></div>
+      <div class="ms-field"><span class="ms-label">Still live?</span><div class="ms" id="ms-live"></div></div>
+      <div class="ms-field"><span class="ms-label">Sponsor region</span><div class="ms" id="ms-region"></div></div>
+      <div class="ms-field"><span class="ms-label">Sector</span><div class="ms" id="ms-sector"></div></div>
+      <label class="check"><input type="checkbox" id="s-ppf"> PPF or FAS involvement</label>
+      <label class="check"><input type="checkbox" id="s-review"> Sponsor match needs review</label>
+      <button class="btn" id="sreset">Clear filters</button>
     </div>
     <div class="resultline"><span id="scount"></span></div>
     <div class="tablebox"><table id="sponsortable"></table></div>
@@ -267,6 +289,9 @@ const searchText = s => [s.name, s.psr, s.postcode, s.city, s.co, s.co_name, s.r
 const BANDS = [["Under £10m", 0, 1e7], ["£10m to £50m", 1e7, 5e7], ["£50m to £250m", 5e7, 2.5e8],
   ["£250m to £1bn", 2.5e8, 1e9], ["£1bn to £5bn", 1e9, 5e9], ["Over £5bn", 5e9, Infinity]];
 const NO_FIG = "No figures", NO_SPONSOR = "No sponsor identified", NOT_KNOWN = "Not known";
+const REGION_ORDER = ["London", "South East", "East of England", "South West", "West Midlands", "East Midlands",
+  "Yorkshire and the Humber", "North West", "North East", "Wales", "Scotland", "Northern Ireland",
+  "Channel Islands and Isle of Man", "Outside the UK or unknown", NOT_KNOWN, NO_SPONSOR];
 function band(s) {
   const v = s.group === "with_figures" ? (s.obligation ?? s.assets) : null;
   if (v == null) return NO_FIG;
@@ -382,9 +407,7 @@ function fillGroupReason() {
     $(id).value = st[k];
   };
   fill("#f-size", "_band", "size", [...BANDS.map(b => b[0]), NO_FIG]);
-  fill("#f-region", "_region", "region", ["London", "South East", "East of England", "South West", "West Midlands", "East Midlands",
-    "Yorkshire and the Humber", "North West", "North East", "Wales", "Scotland", "Northern Ireland",
-    "Channel Islands and Isle of Man", "Outside the UK or unknown", NOT_KNOWN, NO_SPONSOR]);
+  fill("#f-region", "_region", "region", REGION_ORDER);
   fill("#f-sector", "_sector", "sector");
 }
 function filtered() {
@@ -517,7 +540,22 @@ function openScheme(psr) {
 function closeDrawer() { $("#drawer").hidden = true; $("#scrim").hidden = true; selected = null; document.querySelectorAll("#schemetable tr.sel").forEach(r => r.classList.remove("sel")); }
 
 /* ---------- sponsors ---------- */
-const sst = {q: "", has: "fig", sort: "obligation", dir: -1, page: 0};
+const MSKEYS = ["size", "source", "quality", "band", "live", "region", "sector"];
+const SDEF = {q: "", has: "fig", ppf: false, review: false};
+MSKEYS.forEach(k => SDEF[k] = []);
+// fixed option lists (value, label); size, region and sector are built from the data
+const MSFIXED = {
+  source: [["own", "Sponsor's own accounts"], ["group", "Parent group"], ["register", "Charity, union or mutual"]],
+  quality: [["hand", "Checked by hand"], ["tagged", "Tagged in the accounts"], ["read", "Read from the accounts"], ["check", "Needs checking"]],
+  band: [["in", "In band"], ["candidate", "Candidate"], ["out", "Out of band"]],
+  live: [["live", "Evidence it is live"], ["check", "May be bought out: check"], ["unknown", "No evidence either way"]]};
+const inSel = (k, v) => !sst[k].length || sst[k].includes(v);
+const sst = {...SDEF, sort: "obligation", dir: -1, page: 0};
+// size bands on the sponsor's total DB obligation (£m), assets where no obligation is known
+const SPSIZE = [["£0–10m", 0, 1e7], ["£10–50m", 1e7, 5e7], ["£50–250m", 5e7, 2.5e8], ["£250–500m", 2.5e8, 5e8],
+  ["£500m–£1bn", 5e8, 1e9], ["£1bn+", 1e9, Infinity]];
+const spSize = e => { const v = e.obligation ?? e.assets; if (v == null) return "No size figure";
+  return (SPSIZE.find(([, lo, hi]) => v >= lo && v < hi) || SPSIZE[0])[0]; };
 function sponsorRows() {
   const m = new Map();
   // one row per set of figures (a parent's group figures and its subsidiary's own figures are one row)
@@ -526,7 +564,11 @@ function sponsorRows() {
     const key = withFig ? figKey(s) : "n|" + (s.co || s.reg_number);
     let e = m.get(key);
     if (!e) { e = {key, bodies: new Map(), source: withFig ? s.source : null, obligation: withFig ? s.obligation : null,
-      assets: withFig ? s.assets : null, n: 0, reasons: {}}; m.set(key, e); }
+      assets: withFig ? s.assets : null, net: withFig ? s.net : null, n: 0, reasons: {}, quality: withFig ? s.quality : null, bands: new Set(), lives: new Set(),
+      region: s._region, sector: s._sector, ppf: false, review: false}; m.set(key, e); }
+    if (s.band) e.bands.add(s.band); if (s.live_check) e.lives.add(s.live_check);
+    if (s.ppf || s.fas) e.ppf = true; if (s.needs_review) e.review = true;
+    if (withFig && !e.quality) e.quality = s.quality;
     const no = withFig ? s.fig_body_no : (s.co || s.reg_number), nm = withFig ? s.fig_body : (s.co_name || s.reg_name);
     const b = e.bodies.get(no) || {no, name: nm, own: 0, n: 0}; b.n++; if (!withFig || s.source !== "group") b.own++; e.bodies.set(no, b);
     e.n++; if (!withFig) e.reasons[s.reason] = (e.reasons[s.reason] || 0) + 1;
@@ -535,14 +577,41 @@ function sponsorRows() {
   let rows = [...m.values()];
   rows.forEach(e => { const bs = [...e.bodies.values()].sort((a, b) => (b.n - a.n) || (b.own - a.own));
     e.no = bs[0].no; e.name = bs[0].name; e.also = bs.slice(1).map(b => b.name); e.nos = bs.map(b => b.no).join(" "); });
-  rows.forEach(e => e.funding = e.obligation > 0 && e.assets != null ? e.assets / e.obligation : null);
-  if (sst.has === "fig") rows = rows.filter(e => e.source); else if (sst.has === "nofig") rows = rows.filter(e => !e.source);
+  rows.forEach(e => { e.funding = e.obligation > 0 && e.assets != null ? e.assets / e.obligation : null;
+    e.band = e.bands.has("in") ? "in" : e.bands.has("candidate") ? "candidate" : e.bands.size ? "out" : null;
+    e.live = e.lives.has("live") ? "live" : e.lives.has("check") ? "check" : e.lives.has("unknown") ? "unknown" : null; });
+  rows.forEach(e => e._size = spSize(e));
+  rows.forEach(e => e.netOnly = !!e.source && e.obligation == null && e.assets == null);
+  if (sst.has === "fig") rows = rows.filter(e => e.source && !e.netOnly);
+  else if (sst.has === "net") rows = rows.filter(e => e.netOnly);
+  else if (sst.has === "nofig") rows = rows.filter(e => !e.source);
+  // each multi-select's counts cover the sponsors that pass every other filter
+  const pass = (e, skip) => MSKEYS.every(k => k === skip || inSel(k, k === "size" ? e._size : e[k])) && (!sst.ppf || e.ppf) && (!sst.review || e.review);
+  MSKEYS.forEach(k => renderMulti(k, rows.filter(e => pass(e, k))));
+  rows = rows.filter(e => pass(e));
   const q = sst.q.trim().toLowerCase();
   if (q) rows = rows.filter(e => [e.name, ...e.also, e.nos].join(" ").toLowerCase().includes(q));
   const k = sst.sort, d = sst.dir;
   rows.sort((a, b) => { const x = a[k], y = b[k]; if (x == null && y == null) return 0; if (x == null) return 1; if (y == null) return -1;
     return (typeof x === "string" ? x.localeCompare(y) : x - y) * d; });
   return rows;
+}
+function renderMulti(k, rows) {
+  const val = e => k === "size" ? e._size : e[k];
+  const c = {}; rows.forEach(e => { const v = val(e); if (v) c[v] = (c[v] || 0) + 1; });
+  let opts;
+  if (MSFIXED[k]) opts = MSFIXED[k];
+  else if (k === "size") opts = [...SPSIZE.map(b => b[0]), "No size figure"].map(v => [v, v]);
+  else { const keys = Object.keys(c).concat(sst[k].filter(v => !c[v]));
+    const order = k === "region" ? REGION_ORDER.filter(o => keys.includes(o)) :
+      keys.sort((a, b) => ([NOT_KNOWN, NO_SPONSOR].includes(a) - [NOT_KNOWN, NO_SPONSOR].includes(b)) || (c[b] || 0) - (c[a] || 0));
+    opts = order.map(v => [v, v]); }
+  opts = opts.filter(([v]) => c[v] || sst[k].includes(v));
+  const box = $("#ms-" + k), wasOpen = box.querySelector("details")?.open;
+  const chosen = sst[k], summary = !chosen.length ? "Any" : chosen.length === 1 ? (opts.find(o => o[0] === chosen[0]) || [0, chosen[0]])[1] : `${chosen.length} selected`;
+  box.innerHTML = `<details${wasOpen ? " open" : ""}><summary${chosen.length ? ' class="on"' : ""}>${esc(summary)}</summary><div class="ms-pop">${
+    opts.map(([v, l]) => `<label><input type="checkbox" data-ms="${k}" value="${esc(v)}"${chosen.includes(v) ? " checked" : ""}> <span>${esc(l)}</span><span class="ms-n">${fmtN(c[v] || 0)}</span></label>`).join("")
+    || '<span class="muted">No options</span>'}${chosen.length ? `<button class="linkbtn" data-msclear="${k}">Clear</button>` : ""}</div></details>`;
 }
 const SPCOLS = [["name", "Sponsor"], ["n", "Live schemes", 1], ["obligation", "Obligation", 1], ["assets", "Assets", 1], ["funding", "Funding", 1]];
 function renderSponsors() {
@@ -552,7 +621,7 @@ function renderSponsors() {
   $("#scount").textContent = `${fmtN(rows.length)} sponsor${rows.length === 1 ? "" : "s"}`;
   $("#sponsortable").innerHTML = `<thead><tr>${SPCOLS.map(([k, l, num]) => `<th class="sortable${num ? " num" : ""}" data-ssort="${k}"${sst.sort === k ? ` aria-sort="${sst.dir > 0 ? "ascending" : "descending"}"` : ""}>${l}</th>`).join("")}</tr></thead><tbody>${
     slice.length ? slice.map(e => `<tr data-body="${esc(e.nos)}"><td>${esc(e.name)}<span class="sub"><span class="mono">${esc(e.no)}</span> · ${esc(e.source ? SOURCE[e.source] : Object.keys(e.reasons).join("; "))}${e.also.length ? " · also reported by " + esc(e.also.join(", ")) : ""}</span></td>
-      <td class="num">${fmtN(e.n)}</td><td class="num">${money(e.obligation)}</td><td class="num">${money(e.assets)}</td><td class="num">${e.source ? fundCell(e.funding) : "–"}</td></tr>`).join("")
+      <td class="num">${fmtN(e.n)}</td><td class="num">${e.netOnly ? (e.net == null ? '<span class="muted">no amount</span>' : `<span class="muted">net ${e.net < 0 ? "deficit" : "surplus"} ${money(Math.abs(e.net))}</span>`) : money(e.obligation)}</td><td class="num">${money(e.assets)}</td><td class="num">${e.source && !e.netOnly ? fundCell(e.funding) : "–"}</td></tr>`).join("")
     : `<tr><td colspan="5" class="empty">No sponsors match.</td></tr>`}</tbody>`;
   $("#spager").innerHTML = pages > 1 ? `<button class="btn" data-spage="-1" ${sst.page ? "" : "disabled"}>Previous</button><span>Page ${sst.page + 1} of ${fmtN(pages)}</span><button class="btn" data-spage="1" ${sst.page < pages - 1 ? "" : "disabled"}>Next</button>` : "";
 }
@@ -573,8 +642,8 @@ $("#copycsv").addEventListener("click", () => {
 /* ---------- wiring ---------- */
 function go(view) { if (location.hash !== "#" + view) location.hash = view; else route(); }
 function route() {
-  const v = (location.hash || "#overview").slice(1);
-  const view = ["overview", "schemes", "sponsors"].includes(v) ? v : "overview";
+  const v = (location.hash || "#sponsors").slice(1);
+  const view = ["overview", "schemes", "sponsors"].includes(v) ? v : "sponsors";
   document.querySelectorAll("[data-v]").forEach(el => el.hidden = el.dataset.v !== view);
   document.querySelectorAll("nav.tabs a").forEach(a => a.dataset.view === view ? a.setAttribute("aria-current", "page") : a.removeAttribute("aria-current"));
   if (view === "schemes") { fillGroupReason(); renderSchemes(); }
@@ -609,6 +678,16 @@ document.addEventListener("click", e => {
 });
 $("#sq").addEventListener("input", e => { sst.q = e.target.value; sst.page = 0; renderSponsors(); });
 $("#s-has").addEventListener("change", e => { sst.has = e.target.value; sst.page = 0; renderSponsors(); });
+document.addEventListener("change", e => { const k = e.target.dataset?.ms; if (!k) return;
+  const v = e.target.value; sst[k] = e.target.checked ? [...sst[k], v] : sst[k].filter(x => x !== v); sst.page = 0; renderSponsors(); });
+document.addEventListener("click", e => {
+  const c = e.target.closest("[data-msclear]"); if (c) { sst[c.dataset.msclear] = []; sst.page = 0; renderSponsors(); return; }
+  // close any open multi-select when clicking elsewhere
+  document.querySelectorAll(".ms details[open]").forEach(d => { if (!d.contains(e.target)) d.open = false; }); });
+["ppf", "review"].forEach(k => $("#s-" + k).addEventListener("change", e => { sst[k] = e.target.checked; sst.page = 0; renderSponsors(); }));
+$("#sreset").addEventListener("click", () => { Object.assign(sst, SDEF, {page: 0}); $("#sq").value = "";
+  MSKEYS.forEach(k => sst[k] = []); $("#s-has").value = sst.has; document.querySelectorAll(".ms details[open]").forEach(d => d.open = false);
+  $("#s-ppf").checked = false; $("#s-review").checked = false; renderSponsors(); });
 $("#scrim").addEventListener("click", closeDrawer);
 document.addEventListener("click", e => { if (e.target.id === "dclose") closeDrawer(); });
 document.addEventListener("keydown", e => { if (e.key === "Escape" && !$("#drawer").hidden) closeDrawer(); });

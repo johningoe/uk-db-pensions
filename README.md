@@ -45,8 +45,16 @@ present, is used instead.
 ## Explorer
 
 `run.py web` writes `data/explorer.html`, a single page with the data embedded (about 3.5 MB) that opens in any
-browser. It has three views:
+browser. It opens on Sponsors and has three views:
 
+- **Sponsors** (the main page): one row per set of figures, so a parent's group figures and its subsidiary's own
+  figures for the same scheme appear once ("also reported by"), with the number of live schemes they cover.
+  Searchable by name or company number, and filtered by what figures exist (full figures, a net surplus or deficit only, or none), total DB liabilities in bands of
+  £0-10m, £10-50m, £50-250m, £250-500m, £500m-£1bn and £1bn+ (assets stand in where no liability figure is known),
+  where the figures come from, figure check, the sponsor £50m-£500m band, still-live evidence, sponsor region,
+  sector, PPF or FAS involvement and matches awaiting review (a sponsor qualifies if any of its schemes does).
+  Each list filter is a multi-select: tick any number of options; the counts beside them cover the sponsors
+  passing all the other filters. Click a sponsor to list its schemes.
 - **Overview**: live DB and hybrid schemes split into employer identified with figures, identified without figures,
   and not identified, each broken down by reason (click a reason to list its schemes); a histogram of funding levels;
   the largest obligations.
@@ -59,8 +67,6 @@ browser. It has three views:
   companies and head offices shown separately; register bodies show as charity, mutual or union. Click a scheme for its full record: the sponsor and how it was matched,
   register entries, the figures with their source document and page, and links to Companies House or the register.
   "Copy as CSV" copies the filtered rows.
-- **Sponsors**: one row per set of figures, so a parent's group figures and its subsidiary's own figures for the
-  same scheme appear once ("also reported by"), with the number of live schemes they cover.
 
 Totals count each obligation-and-assets pair once, as in the coverage summary. The status and reasons come from
 `pensiondb/gaps.py`: the reasons for unidentified schemes are rules on the scheme name plus the hand verdicts in

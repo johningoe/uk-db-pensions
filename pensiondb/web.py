@@ -22,7 +22,7 @@ COLS = ["psr", "name", "postcode", "city", "name_type", "is_section", "group", "
         "reg", "reg_number", "reg_name",
         "source", "fig_body", "fig_body_no", "period_end", "obligation", "assets", "fig_check", "fig_where",
         "ppf", "fas", "live_doubt", "parent_top", "parent_country", "sector", "sic", "region", "sponsor_postcode",
-        "quality", "quality_why", "band", "band_kind", "band_reason", "sf_obligation", "sf_assets", "sf_basis", "sf_period", "live_check", "live_evidence"]
+        "quality", "quality_why", "band", "band_kind", "band_reason", "sf_obligation", "sf_assets", "sf_basis", "sf_period", "live_check", "live_evidence", "net"]
 
 
 def _place(co, reg, sic, spc, rpc):
@@ -57,7 +57,7 @@ def _rows(con):
            s.charity_db_check, a.doc, a.page,
            s.ppf_status, s.fas_status, s.live_doubt, sp.parent_top_name, sp.parent_top_country,
            sp.sic_1, sp.reg_post_code, s.band, s.band_kind, s.band_reason, sf.obligation, sf.assets, sf.basis, sf.period_end,
-           s.live_check, s.live_evidence
+           s.live_check, s.live_evidence, sp.db_surplus_deficit, sp.group_db_surplus_deficit
     FROM schemes s
     LEFT JOIN sponsors sp ON sp.company_number = s.sponsor_company_number
     LEFT JOIN charity_accounts a ON a.source = s.charity_source AND a.number = s.charity_number
@@ -67,6 +67,8 @@ def _rows(con):
          reg, reg_no, reg_name, own, pe, ob, assets, chk, src_file, tax, gco, gname, gpe, gob, gassets, gsrc,
          csrc, cfy, cob, cassets, cnet, cchk, cdoc, cpage, ppf, fas, doubt, ptop, pctry, sic, spc, *bandcols) in con.execute(q):
         group, reason = status[psr]
+        snet, gnet = bandcols[-2:]
+        bandcols = bandcols[:-2]
         fig = [None] * 8
         if co and own:
             where = src_file or "" if tax == "hand_checked" else f"{tax or ''}: {src_file or ''}".strip(": ")
@@ -88,7 +90,8 @@ def _rows(con):
         out.append([psr, name, pc, city, nt, sec, group, reason,
                     co, co_name, co_st, co_acc, mm, mc, nr,
                     derived, review, named,
-                    reg, reg_no, reg_name, *fig, ppf, fas, doubt, ptop, pctry, *_place(co, reg, sic, spc, reg_pc.get((reg, reg_no))), *q, *bandcols])
+                    reg, reg_no, reg_name, *fig, ppf, fas, doubt, ptop, pctry, *_place(co, reg, sic, spc, reg_pc.get((reg, reg_no))), *q, *bandcols,
+                    {"own": snet, "group": gnet, "register": cnet}.get(fig[0])])
     return out
 
 
