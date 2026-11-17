@@ -15883,6 +15883,19 @@
   "note": "The Co-operative Bank (Britannia Building Society's successor)"
  },
  {
+  "key": "match:10000115",
+  "kind": "match",
+  "id": "10000115",
+  "name": "Kingston Communications Pension Scheme G70490",
+  "schemes": [
+   "10000115"
+  ],
+  "at": "2026-11-17T14:30:00Z",
+  "action": "sponsor",
+  "company_number": "02150618",
+  "note": "KCOM Group Limited reports the KCOM (Kingston Communications) schemes"
+ },
+ {
   "key": "match:10000138",
   "kind": "match",
   "id": "10000138",
@@ -16028,6 +16041,19 @@
   "at": "2026-11-16T20:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10001575",
+  "kind": "match",
+  "id": "10001575",
+  "name": "Goldman Sachs UK Retirement Plan",
+  "schemes": [
+   "10001575"
+  ],
+  "at": "2026-11-17T14:30:00Z",
+  "action": "sponsor",
+  "company_number": "02263951",
+  "note": "Goldman Sachs International sponsors the Goldman Sachs UK Retirement Plan"
  },
  {
   "key": "match:10001630",
@@ -16333,6 +16359,19 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10007552",
+  "kind": "match",
+  "id": "10007552",
+  "name": "The Manpower Pension Plan",
+  "schemes": [
+   "10007552"
+  ],
+  "at": "2026-11-17T14:30:00Z",
+  "action": "sponsor",
+  "company_number": "03841918",
+  "note": "Manpower UK Limited recognises the whole Manpower Pension Plan"
+ },
+ {
   "key": "match:10007647",
   "kind": "match",
   "id": "10007647",
@@ -16417,6 +16456,19 @@
   "at": "2026-11-16T21:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10009159",
+  "kind": "match",
+  "id": "10009159",
+  "name": "Mondelez UK Retirement Benefits Plan",
+  "schemes": [
+   "10009159"
+  ],
+  "at": "2026-11-17T14:30:00Z",
+  "action": "sponsor",
+  "company_number": "00052457",
+  "note": "Cadbury Mondelez Pension Fund: accounted for in full by Mondelez UK Holdings & Services Limited"
  },
  {
   "key": "match:10009322",
@@ -16735,6 +16787,19 @@
   "at": "2026-11-16T21:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10018436",
+  "kind": "match",
+  "id": "10018436",
+  "name": "Hiscox Pension Scheme",
+  "schemes": [
+   "10018436"
+  ],
+  "at": "2026-11-17T14:30:00Z",
+  "action": "sponsor",
+  "company_number": "04137419",
+  "note": "Hiscox Underwriting Group Services Limited is the sponsoring employer and recognises the whole scheme"
  },
  {
   "key": "match:10018575",
@@ -17244,6 +17309,19 @@
   "at": "2026-11-16T22:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10040696",
+  "kind": "match",
+  "id": "10040696",
+  "name": "Diodes Zetex Pension Scheme",
+  "schemes": [
+   "10040696"
+  ],
+  "at": "2026-11-17T14:30:00Z",
+  "action": "sponsor",
+  "company_number": "02387949",
+  "note": "Diodes Zetex Semiconductors Limited recognises the group scheme's net liability"
  },
  {
   "key": "match:10040874",
@@ -17970,6 +18048,19 @@
   "note": "Civil Aviation Authority: a public corporation"
  },
  {
+  "key": "match:10085065",
+  "kind": "match",
+  "id": "10085065",
+  "name": "The Wolters Kluwer Holdings (UK) Plc Final Salary Scheme",
+  "schemes": [
+   "10085065"
+  ],
+  "at": "2026-11-17T14:30:00Z",
+  "action": "sponsor",
+  "company_number": "00450650",
+  "note": "Wolters Kluwer (UK) Limited is the sole employer of the scheme and reports it"
+ },
+ {
   "key": "match:10085501",
   "kind": "match",
   "id": "10085501",
@@ -18395,6 +18486,19 @@
   "note": "Equity, the trade union"
  },
  {
+  "key": "match:10094286",
+  "kind": "match",
+  "id": "10094286",
+  "name": "Hogg Robinson (1987) Pension Scheme",
+  "schemes": [
+   "10094286"
+  ],
+  "at": "2026-11-17T14:30:00Z",
+  "action": "sponsor",
+  "company_number": "08774160",
+  "note": "GBT Travel Services UK Limited became principal employer in 2018 and reports the scheme"
+ },
+ {
   "key": "match:10094555",
   "kind": "match",
   "id": "10094555",
@@ -18635,6 +18739,19 @@
   "at": "2026-11-16T21:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10100366",
+  "kind": "match",
+  "id": "10100366",
+  "name": "The Stanley Black & Decker UK Pension Plan",
+  "schemes": [
+   "10100366"
+  ],
+  "at": "2026-11-17T14:30:00Z",
+  "action": "sponsor",
+  "company_number": "00170466",
+  "note": "The Stanley Works Limited, the most significant participant, reports the Stanley Black & Decker UK Pension Plan"
  },
  {
   "key": "match:10100749",
@@ -19940,6 +20057,19 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10144308",
+  "kind": "match",
+  "id": "10144308",
+  "name": "ACCO Europe Pension Plan",
+  "schemes": [
+   "10144308"
+  ],
+  "at": "2026-11-17T14:30:00Z",
+  "action": "sponsor",
+  "company_number": "00197754",
+  "note": "ACCO UK Limited reports the ACCO pension plan"
+ },
+ {
   "key": "match:10144549",
   "kind": "match",
   "id": "10144549",
@@ -20011,6 +20141,19 @@
   "action": "sponsor",
   "company_number": "02009520",
   "note": "Credit Suisse (UK) Limited"
+ },
+ {
+  "key": "match:10146658",
+  "kind": "match",
+  "id": "10146658",
+  "name": "Smith & Nephew UK Pension Fund",
+  "schemes": [
+   "10146658"
+  ],
+  "at": "2026-11-17T14:30:00Z",
+  "action": "sponsor",
+  "company_number": "00324357",
+  "note": "Smith & Nephew plc reports the UK Plan"
  },
  {
   "key": "match:10146797",
@@ -20171,6 +20314,19 @@
   "at": "2026-11-16T22:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10154840",
+  "kind": "match",
+  "id": "10154840",
+  "name": "Cadbury Pension Fund",
+  "schemes": [
+   "10154840"
+  ],
+  "at": "2026-11-17T14:30:00Z",
+  "action": "sponsor",
+  "company_number": "00052457",
+  "note": "Cadbury Mondelez Pension Fund: accounted for in full by Mondelez UK Holdings & Services Limited"
  },
  {
   "key": "match:10156299",
@@ -20491,6 +20647,19 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10169244",
+  "kind": "match",
+  "id": "10169244",
+  "name": "The McGraw-Hill (UK) Retirement Benefits Plan (1973)",
+  "schemes": [
+   "10169244"
+  ],
+  "at": "2026-11-17T14:30:00Z",
+  "action": "sponsor",
+  "company_number": "00064070",
+  "note": "S&P Global UK Limited is a sponsoring employer and reports the McGraw-Hill (UK) Retirement Benefits Plan (1973)"
+ },
+ {
   "key": "match:10169713",
   "kind": "match",
   "id": "10169713",
@@ -20599,6 +20768,19 @@
   "action": "sponsor",
   "company_number": "00320784",
   "note": "National House-Building Council, same postcode"
+ },
+ {
+  "key": "match:10174399",
+  "kind": "match",
+  "id": "10174399",
+  "name": "Smith & Nephew UK Executive Pension Scheme",
+  "schemes": [
+   "10174399"
+  ],
+  "at": "2026-11-17T14:30:00Z",
+  "action": "sponsor",
+  "company_number": "00324357",
+  "note": "Smith & Nephew plc reports the UK Plan (Executive Scheme within it)"
  },
  {
   "key": "match:10174959",
@@ -22091,6 +22273,19 @@
   "at": "2026-11-16T22:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10253668",
+  "kind": "match",
+  "id": "10253668",
+  "name": "Equant Pension Scheme",
+  "schemes": [
+   "10253668"
+  ],
+  "at": "2026-11-17T14:30:00Z",
+  "action": "sponsor",
+  "company_number": "03051335",
+  "note": "Equant Pension Scheme is reported by Orange Business Holdings UK Limited"
  },
  {
   "key": "match:10253776",

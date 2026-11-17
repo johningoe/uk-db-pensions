@@ -38,6 +38,8 @@ FX = {
     ("USD", "2025-05-31"): 1.3482,      # Bank of England spot rate 30 May 2025, last working day (via poundsterlinglive.com)
     ("USD", "2025-08-31"): 1.3509,      # Bank of England spot rate 29 Aug 2025, last working day (via poundsterlinglive.com)
     ("USD", "2025-12-28"): 1.3507,      # Bank of England spot rate 24 Dec 2025, last working day (via poundsterlinglive.com)
+    ("EUR", "2026-03-31"): 1.1516,      # ECB reference rate 31 Mar 2026: €1.1516 per £ (via cambridgecurrencies.com)
+    ("USD", "2024-12-31"): 1.2554,      # sterling closing rate 31 Dec 2024 (Reuters)
 }
 
 

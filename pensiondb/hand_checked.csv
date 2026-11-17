@@ -87,10 +87,10 @@ OC303675,DELOITTE LLP,,GBP,622,620,group,2026-10-13,82,Table without a unit head
 00578327,ROTORK P.L.C.,,GBP,,,misread,2026-05-13,168,No pension figures on the page read
 05393279,RENTOKIL INITIAL PLC,,GBP,,,misread,2026-05-24,167,Group plans mostly in dollars; UK figure not identifiable
 01698498,MUFG SECURITIES EMEA PLC,,GBP,,,misread,2026-05-13,328,Japanese parent's disclosures
-00699993,TOYOTA MATERIAL HANDLING UK LIMITED,,GBP,,,misread,2026-09-09,39,Table too garbled to read
+00699993,TOYOTA MATERIAL HANDLING UK LIMITED,2026-03-31,GBP,154.491,149.178,group,2026-09-09,41,"Read from the page image (page 41) of the newer filing, replacing an earlier misread verdict: BTR Scheme (assets 136,750, liabilities 141,942, page 41) plus TIE Scheme (12,428 / 12,549, page 43) at 31 Mar 2026 (£'000)"
 00344359,INNOSPEC LIMITED,,GBP,,,misread,2026-05-16,37,Scheme settled; figure was the prior year
 SC187402,J.W. HOLDINGS LIMITED,,GBP,,,misread,2026-10-07,37,Scheme settled; figure was a benefit payment
-FC009961,LYONDELL CHEMICAL EUROPE INC,,USD,,,misread,2026-04-20,9,US company's plan
+FC009961,LYONDELL CHEMICAL EUROPE INC,2024-12-31,GBP,30.592,30.693,group,2026-04-20,9,"Read from the page image (page 9) of the newer filing, replacing an earlier misread verdict: UK establishment plan: benefit obligations 30,592 and plan assets 30,693 (GBP x 1,000)"
 00239373,ASTLEY DYE AND CHEMICAL COMPANY LIMITED,,GBP,0.359405,0.431,main_scheme,2025-10-03,34,Small scheme in whole pounds (confirmed)
 10826803,BANK OF BARODA (UK) LIMITED,,GBP,0.702,0.758,main_scheme,2025-11-21,57,Small scheme in £'000 (confirmed)
 00137393,BARLOWORLD UK LIMITED,,GBP,0.500,0.610,main_scheme,2026-04-29,39,Small scheme in £'000 (confirmed)
@@ -838,3 +838,44 @@ RC000667,UNIVERSITY OF SHEFFIELD,2025-07-31,GBP,213.7,230.7,main_scheme,,37,Univ
 RC000648,UNIVERSITY OF BRISTOL,2024-07-31,GBP,287.2,247.8,main_scheme,,109,University financial statements read 2026-11-17 (https://bristol.ac.uk/media-library/sites/finance/documents/UoB%20AR%20FS%202024%20WEB.pdf): Pension and Assurance Scheme (UBPAS); year to July 2024 (the 2025 statements were not found online); USS excluded
 RC000089,CARDIFF UNIVERSITY,2025-07-31,GBP,205.0,208.6,main_scheme,,98,University financial statements read 2026-11-17 (https://files.opencharities.uk/ew/1136855/2025-07-31-accounts.pdf): Cardiff University Pension Fund (CUPF); LGPS share (41.9 assets) and USS excluded
 02190944,VOLVO GROUP UK LIMITED,2025-12-31,GBP,297.942,313.559,group,2026-10-07,42,"Read from the page image (page 42): Group Scheme (assets 280,567, obligation 265,976) plus Executive Scheme (32,992 / 31,966) (£'000); the Penta and Renault Trucks UK schemes were merged into the Group Scheme in 2025"
+02644726,COLAS LIMITED,2025-12-31,GBP,48.764,59.4,group,2026-09-14,51,"Read from the page image (page 51): Statement of financial position: DBO 48,764 and plan assets 59,400 (£'000)"
+03020522,HCA INTERNATIONAL LIMITED,2024-12-31,GBP,86.282,87.853,group,2025-10-07,51,"Read from the page image (page 51): Statement of financial position: DBO 86,282 and plan assets 87,853 (£'000)"
+01867042,NORTHERN LIFE CARE LIMITED,2025-03-31,GBP,0.553,0.598,group,2025-11-07,27,"Read from the page image (page 27): DBO 553,000 and plan assets 598,000 (£)"
+00688424,ATKINSRÉALIS UK LIMITED,2025-12-31,GBP,1278.2,1357.3,group,2026-09-23,62,"Read from the page image (page 62): Atkins Pension Plan, Railways Pension Scheme section, ESPS and other: total DBO 1,278.2 and assets 1,357.3 (£m)"
+02096505,ASSA ABLOY LIMITED,2025-12-31,GBP,124.382,162.597,group,2026-07-17,74,"Read from the page image (page 74): The Plan (assets 152,195) and The Scheme (10,402) (£000, page 74); obligation is assets less the recognised surplus of 38,215 (balance sheet page 28)"
+02763902,AWE PLC,2025-03-31,GBP,1335.0,1238.0,group,2026-02-05,136,"Read from the page image (page 136): Closing DBO 1,335,000 and plan assets 1,238,000 (£'000)"
+01019715,BIOMET UK LIMITED,2025-12-31,GBP,59.157,62.202,group,2026-10-02,33,"Read from the page image (page 33): Reconciliation at 31 Dec 2025: assets 62,202 and liabilities 59,157 (£'000)"
+03357945,BOUSTEAD INTERNATIONAL HEATERS LIMITED,2025-03-31,GBP,9.19,9.857,group,2025-12-31,32,"Read from the page image (page 32): Assets 9,857,000 and liabilities 9,190,000 (£)"
+00484783,CATERPILLAR (U.K.) LIMITED,2025-12-31,GBP,879.115,1114.757,group,2026-10-06,49,"Read from the page image (page 49): DBO 879,115 and scheme assets 1,114,757 (£000)"
+00013067,CENTURION SAFETY PRODUCTS LTD,2025-12-31,GBP,3.165,3.165,group,2026-09-07,32,"Read from the page image (page 32): DBO 3,165 and plan assets 3,165 after restriction (£'000s)"
+00160043,DUN & BRADSTREET LIMITED,2025-12-31,GBP,132.854,126.369,group,2026-10-06,38,"Read from the page image (page 38): Reconciliation at 31 Dec 2025: assets 126,369 and liabilities 132,854 (£000)"
+00940750,CRU INTERNATIONAL LIMITED,2025-09-30,GBP,,24.059,group,2026-06-30,36,"Read from the page image (page 36): Plan assets 24,059 at 30 Sep 2025 (header says £ but the gilt portfolio and £101,668 of expenses show £'000); under £50m either way"
+00897172,DUNI LIMITED,2024-12-31,GBP,10.45,15.839,group,2025-10-02,27,"Read from the page image (page 27): Reconciliation at 31 Dec 2024: assets 15,839 and liabilities 10,450 (£'000)"
+04684097,FRIESLANDCAMPINA UK LIMITED,2025-12-31,GBP,,3.211,group,2026-06-10,34,"Read from the page image (page 34): Fair value of plan assets 3,211 (£000)"
+00273569,GEORGE FISCHER SALES LIMITED,2025-12-31,GBP,31.398,30.58,group,2026-09-10,33,"Read from the page image (page 33): Reconciliation at 31 Dec 2025: assets 30,580 and liabilities 31,398 (£000)"
+00223064,GOODYEAR TYRES UK LIMITED,2025-12-31,GBP,,709.443,group,2026-08-09,39,"Read from the page image (page 39): Fair value of plan assets at year end 709,443 (£'000)"
+01905213,HENDRICKSON UNITED KINGDOM LTD,2025-12-31,GBP,10.653,13.599,group,2026-09-22,39,"Read from the page image (page 39): Plan assets 13,599,000 and liabilities 10,653,000 (£)"
+03846469,HUNTSMAN ADVANCED MATERIALS (UK) LIMITED,2024-12-31,GBP,68.506,75.386,group,2025-12-31,27,"Read from the page image (page 27): Balance sheet: obligations 68,506 and plan assets 75,386 (£'000)"
+FC005838,LEVENTIS OVERSEAS LIMITED,2024-12-31,GBP,4.728,,group,2025-10-01,17,"Read from the page image (page 17): Present value of plan liabilities 4,728,000 at 31 Dec 2024 (£)"
+02810403,LONDON PROCESSING CENTRE LIMITED,2025-03-31,GBP,36.945,45.802,group,2025-12-30,30,"Read from the page image (page 30): LPC Scheme at 31 Mar 2025: assets 45,802 and liabilities 36,945 (£000, read from the contact-sheet image)"
+00131429,R.C.TREATT & CO.LIMITED,2025-09-30,GBP,16.224,20.284,group,2026-05-28,50,"Read from the page image (page 50): Fair value of scheme assets 20,284 and funded obligations 16,224 (£000); buy-in under way"
+SC118867,NOBLE DRILLING (LAND SUPPORT) LIMITED,2025-12-31,USD,34.927503,43.038437,group,2026-10-22,21,"Read from the page image (page 21): Reconciliation at 31 Dec 2025 in US dollars: assets 43,038,437 and liabilities 34,927,503 (USD)"
+02937881,NPL MANAGEMENT LIMITED,2025-12-31,GBP,,152.703,group,2026-07-29,102,"Read from the page image (page 102): Fair value of scheme assets at 31 Dec 2025: 152,703 (£000s)"
+01067821,REGAL MOTORS (BILSTON) LIMITED,2025-11-30,GBP,,1.648,group,2026-09-04,23,"Read from the page image (page 23): Section of the Motor Industry Pension Plan: market value of assets £1,648,000 at the April 2024 valuation"
+01277784,TARKETT LIMITED,2025-12-31,GBP,9.179,11.59,group,2026-08-27,27,"Read from the page image (page 27): DBO 9,179 and plan assets 11,590 at 31 Dec 2025 (£000)"
+02400155,TECHNIPFMC UMBILICALS LTD,2025-12-31,GBP,,20.191,group,2026-08-27,49,"Read from the page image (page 49): Fair value of scheme assets 20,191 (£'000)"
+02352348,TOYOTA MOTOR MANUFACTURING (UK) LIMITED,2026-03-31,EUR,580.001,552.727,group,2026-08-07,64,"Read from the page image (page 64): Reconciliation at 31 Mar 2026 in euros: assets 552,727 and liabilities 580,001 (€'000); the scheme covers TMUK and Toyota Motor Europe UK branch members (93.3% / 6.7% of liabilities)"
+01673954,VOLVO CONSTRUCTION EQUIPMENT LIMITED,2024-12-31,GBP,83.145,84.144,group,2025-09-19,31,"Read from the page image (page 31): Volvo Construction Equipment Pension and Life Assurance Plan at 31 Dec 2024: liabilities 83,145 (page 31) and a recognised surplus of 999, so assets about 84,144 (£000)"
+00052457,MONDELEZ UK HOLDINGS & SERVICES LIMITED,2025-12-31,GBP,2507.1,2778.4,group,2026-09-10,65,"Read from the page image (page 65): Cadbury Mondelez Pension Fund at 31 Dec 2025: assets 2,778,400 and liabilities 2,507,100 (£000)"
+04137419,HISCOX UNDERWRITING GROUP SERVICES LIMITED,2025-12-31,GBP,167.278,201.537,group,2026-09-29,39,"Read from the page image (page 39): Closing fair value of scheme assets 201,537 and recognised surplus 34,259 (£000), so obligation about 167,278"
+03841918,MANPOWER UK LIMITED,2025-12-31,GBP,82.345,84.523,group,2026-10-06,38,"Read from the page image (page 38): Manpower Pension Plan: total assets 84,523 and liabilities 82,345 (£000)"
+03051335,ORANGE BUSINESS HOLDINGS UK LIMITED,2025-12-31,GBP,143.032,149.215,group,2026-10-05,44,"Read from the page image (page 44): Equant Pension Scheme: obligations 143,032 and assets 149,215 at 31 Dec 2025 (£'000s)"
+02387949,DIODES ZETEX SEMICONDUCTORS LIMITED,2025-12-31,GBP,73.319,72.175,group,2026-09-09,38,"Read from the page image (page 38): Fair value of scheme assets 72,175 and liabilities 73,319 (£'000)"
+00064070,S&P GLOBAL UK LIMITED,2025-12-31,GBP,180.112,196.535,group,2026-07-25,34,"Read from the page image (page 34): McGraw-Hill (UK) Retirement Benefits Plan (1973): assets 196,535 and DBO 180,112 (£'000)"
+08774160,GBT TRAVEL SERVICES UK LIMITED,2024-12-31,USD,439.544,337.694,group,2025-08-27,48,"Read from the page image (page 48): UK schemes (Hogg Robinson (1987) Pension Scheme) at 31 Dec 2024 in US dollars: DBO 439,544 and assets 337,694 ($000)"
+00170466,STANLEY WORKS LIMITED(THE),2025-12-31,GBP,88.5,107.845,group,2026-09-03,34,"Read from the page image (page 34): Stanley Black & Decker UK Pension Plan: plan assets 107,845 and liabilities 88,500 (£000)"
+00450650,WOLTERS KLUWER (UK) LIMITED,2024-12-31,GBP,66.224,66.199,group,2026-01-22,39,"Read from the page image (page 39): DBO 66,224,000 and plan assets 66,199,000 at 31 Dec 2024 (£)"
+00324357,SMITH & NEPHEW PLC,2025-12-31,USD,414,478,uk_plans,2026-06-24,258,Read from the page image (page 258): UK Plan (fully bought in with Rothesay in 2023) at 31 Dec 2025 in US dollars: obligation $414m and assets $478m; other (non-UK) plans excluded
+02150618,KCOM GROUP LIMITED,2025-03-31,GBP,,172.507,group,2026-04-10,70,"Read from the page image (page 70): Main scheme (148,594) and Data scheme (23,913): total plan assets 172,507 at 31 Mar 2025 (£000)"
+00197754,ACCO UK LIMITED,2025-12-31,GBP,207.414,210.253,group,2026-10-06,30,"Read from the page image (page 30): Plan assets 210,253 and DBO 207,414 at 31 Dec 2025 (£000)"
+02263951,GOLDMAN SACHS INTERNATIONAL,2025-12-31,USD,1228,1151,uk_plans,2026-04-26,67,"Read from the page image (page 67): Goldman Sachs UK Retirement Plan at 31 Dec 2025 in US dollars: plan assets $1,151m and liabilities $1,228m"
