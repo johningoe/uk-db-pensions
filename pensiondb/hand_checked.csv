@@ -934,3 +934,19 @@ reg:ccew:312714,LATYMER UPPER SCHOOL,2025-08-31,GBP,1.173,2.066,group,,,"Read fr
 03766242,THOMAS MILLER (UK) HOLDINGS COMPANY LTD,2025-12-31,GBP,120.774,126.786,group,,42,"Read from the accounts (page 42): scheme assets 126,786 and funded obligations 120,774 (£000)"
 10559664,UTMOST LIFE AND PENSIONS LIMITED,2025-12-31,GBP,20.4,19.1,group,,69,Read from the accounts (page 69): DBO 20.4 and plan assets 19.1 (£m)
 00925279,N. M. ROTHSCHILD & SONS LIMITED,2025-12-31,GBP,572.805,763.130,group,,55,"Read from the accounts (page 55): all plans, obligations 572,805 and plan assets 763,130 (£000)"
+IP00141R,LINCOLNSHIRE CO-OPERATIVE LIMITED,2025-12-31,GBP,107.1,,main_scheme,,,From published insurer information: £107.1m Rothesay buy-in of the Lincolnshire Co-operative Pension Scheme (December 2025); the premium stands in for the obligation
+OC307742,GRANT THORNTON UK LLP,2024-12-31,GBP,277.5,245.0,main_scheme,2026-07-27,42,From the 2025 report (pages 42-43): DBO £277.5m and plan assets £245.0m at the start of 2025 (net liability £32.8m)
+08499108,,2025-12-31,GBP,3.4,4.1,group,,30,Read from the page image (page 30): assets about £4.1m and obligation about £3.4m
+03874882,,2025-12-31,GBP,,44.1,group,,56,Read from the page image (page 56): DSV section assets £38.1m plus about £6m share of the GIL section (approximate)
+00258025,,2025-12-31,GBP,,11.8,group,,59,Read from the page image (page 59): plan assets £11.8m
+00238721,,2024-12-31,GBP,40.9,44.6,group,,43,Read from the page image (page 43): obligation about £40.9m and assets about £44.6m
+00502188,,2025-12-31,GBP,8.3,,group,2026-07-25,26,Read from the page image (page 26): scheme liabilities £8.3m
+FC003283,KLM,2025-12-31,GBP,240,,main_scheme,,,From published insurer information: £240m Rothesay buy-in of the KLM UK Pension Scheme (December 2025) covering all remaining members; the premium stands in for the obligation
+03073845,KANTAR UK LIMITED,2025-12-31,GBP,0.377,0.693,group,2026-10-26,41,"Read from the accounts (note 22, pages 41-43, £'000): TNS Plan 2 assets £693k, obligation £377k"
+00693558,CELSIUS FIRST LIMITED,2003-12-31,GBP,27.82,24.706,group,2004-09-14,14,Read from the 2003 accounts (page 14): liabilities £27.82m and net deficit £3.114m
+FC000268,SOCIETE GENERALE,2021-12-31,GBP,,774.2,main_scheme,,,From the SG UK DB scheme's members' report: assets £774.2m at 31 December 2021
+03690065,,2025-12-31,GBP,,1900,main_scheme,,42,Read from the page image (page 42): BG Pension Scheme assets about £1.9bn (full buy-in 2025; approximate)
+00843903,,2025-12-31,GBP,27.9,,main_scheme,2026-09-25,47,Read from the page image (page 47): Curtiss-Wright UK Pension Plan DBO £27.9m
+00104102,,2024-12-31,GBP,2.6,6.9,group,2025-12-27,38,Read from the page image (page 38): plan assets £6.9m and liabilities £2.6m after £35.2m settled
+00825828,NEO NEXT + ENERGY RESOURCES UK LIMITED,2025-12-31,USD,152.6,188.4,group,2026-10-06,51,Read from the accounts (page 51): plan assets US$188.4m and liabilities US$152.6m
+04034666,,2025-12-31,USD,1436,1521,uk_plans,,139,"Read from the page image (page 139): APi Group's non-US (UK, ex-Chubb) plans: assets US$1,521m, obligations US$1,436m"

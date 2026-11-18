@@ -31,6 +31,7 @@ FIELDS = ["status", "group", "band", "reason", "sponsor_id", "sponsor", "schemes
 
 NO_SIZE = {"No figure yet, employer files full accounts", "Charity or other body, no figure yet"}
 GROUP_TEXT = {"with_figures": "Figures, not settled", "no_figures": "Identified, no figures",
+              "no_figure_due": "Identified, no figure to find",
               "not_identified": "Not identified"}
 
 # reasons that are out of the band on an assumption, and the assumption

@@ -4,6 +4,9 @@ classify(con) returns {psr: (group, reason)} for every scheme:
 
   with_figures     live DB/hybrid scheme, employer identified, DB figures from its accounts (own, group or register)
   no_figures       live DB/hybrid scheme, employer identified, no usable figure (reason says why)
+  no_figure_due    live DB/hybrid scheme, employer identified, but no figure of its own is there to find: the sponsor
+                   is dissolved or insolvent, its accounts show no DB scheme, or it is one member of a multi-employer
+                   scheme
   not_identified   live DB/hybrid scheme with no employer found (reason: the kind of scheme, read from its name)
   dc               live scheme whose name says defined contribution (outside the database's scope)
   not_live         wound up, transferred to the PPF or FAS, or the sponsor is gone
@@ -16,6 +19,7 @@ import re
 GROUPS = {
     "with_figures": "Employer identified, with figures",
     "no_figures": "Employer identified, no figures",
+    "no_figure_due": "Employer identified, no figure to find",
     "not_identified": "Employer not identified",
     "dc": "DC scheme (out of scope)",
     "not_live": "Not live",
@@ -50,6 +54,8 @@ REVIEW = {"public_sector": "Public sector", "product": "Insurer product or maste
           "multi_employer": "Multi-employer, industry-wide or master trust",
           "non_company_body": "Non-company body with no register entry", "no_usable_name": "No usable name"}
 NOT_FOUND = "Company or brand named, not found"
+NONE_DUE = ("Sponsor dissolved, in liquidation or in administration", "Accounts show no DB scheme",
+            "Member of a multi-employer scheme (no figure of its own)")
 
 
 def kind(name, review=None):
@@ -136,7 +142,8 @@ def classify(con):
         elif not r["co"] and r["ch_src"] and not r["ch_check"].startswith("flag"):
             out[r["psr"]] = ("with_figures", "Charity, union or mutual accounts")
         elif r["co"] or r["ch"]:
-            out[r["psr"]] = ("no_figures", _no_figures(r))
+            why = _no_figures(r)
+            out[r["psr"]] = ("no_figure_due" if why in NONE_DUE else "no_figures", why)
         else:
             out[r["psr"]] = ("not_identified", kind(r["scheme_name"], r["review"]))
     return out

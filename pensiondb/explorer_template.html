@@ -68,9 +68,9 @@ button, select, input { font: inherit; color: inherit; }
 .reasons li button:hover { background: var(--sunk); }
 .reasons .r-bar { grid-column: 1 / -1; height: 4px; border-radius: 2px; background: var(--sunk); overflow: hidden; }
 .reasons .r-bar i { display: block; height: 100%; }
-.g-with_figures { background: var(--good-soft); } .g-no_figures { background: var(--warn-soft); } .g-not_identified { background: var(--bad-soft); }
+.g-with_figures { background: var(--good-soft); } .g-no_figures, .g-no_figure_due { background: var(--warn-soft); } .g-not_identified { background: var(--bad-soft); }
 .g-dc { background: var(--dc-soft); } .g-not_live { background: var(--dim-soft); }
-.i-with_figures { background: var(--good); } .i-no_figures { background: var(--warn); } .i-not_identified { background: var(--bad); } .i-dc { background: var(--dc); } .i-not_live { background: var(--dim); }
+.i-with_figures { background: var(--good); } .i-no_figures { background: var(--warn); } .i-no_figure_due { background: var(--dc); } .i-not_identified { background: var(--bad); } .i-dc { background: var(--dc); } .i-not_live { background: var(--dim); }
 .cols2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 16px; }
 svg text { fill: var(--muted); font: 11px var(--f-body); }
 svg .axis { stroke: var(--line); }
@@ -120,7 +120,7 @@ tbody tr.sel td { background: var(--accent-soft); }
 td .sub { display: block; color: var(--muted); font-size: 12px; }
 td.name { min-width: 220px; max-width: 380px; }
 .pill { display: inline-block; border-radius: 4px; padding: 1px 7px; font: 500 12px/1.6 var(--f-head); white-space: nowrap; }
-.pill.with_figures { background: var(--good-soft); color: var(--good); } .pill.no_figures { background: var(--warn-soft); color: var(--warn); }
+.pill.with_figures { background: var(--good-soft); color: var(--good); } .pill.no_figures { background: var(--warn-soft); color: var(--warn); } .pill.no_figure_due { background: var(--warn-soft); color: var(--dim); }
 .pill.not_identified { background: var(--bad-soft); color: var(--bad); } .pill.dc { background: var(--dc-soft); color: var(--dc); } .pill.not_live { background: var(--dim-soft); color: var(--dim); }
 .q { display: inline-block; font: 500 11px/1.5 var(--f-head); border-radius: 3px; padding: 0 5px; margin-top: 2px; white-space: nowrap; }
 .q.hand { background: var(--good-soft); color: var(--good); } .q.tagged, .q.read { background: var(--sunk); color: var(--muted); }
@@ -252,8 +252,8 @@ textarea.copybox { width: 100%; height: 120px; font: 12px var(--f-mono); margin-
 const D = /*__DATA__*/null;
 const C = Object.fromEntries(D.cols.map((c, i) => [c, i]));
 const S = D.rows.map(r => Object.fromEntries(D.cols.map((c, i) => [c, r[i]])));
-const LIVE = ["with_figures", "no_figures", "not_identified"];
-const GROUP_ORDER = ["with_figures", "no_figures", "not_identified", "dc", "not_live"];
+const LIVE = ["with_figures", "no_figures", "no_figure_due", "not_identified"];
+const GROUP_ORDER = ["with_figures", "no_figures", "no_figure_due", "not_identified", "dc", "not_live"];
 const $ = s => document.querySelector(s);
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"}[c]));
 const fmtN = n => n.toLocaleString("en-GB");
