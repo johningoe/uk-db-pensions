@@ -41,6 +41,11 @@ ASSUMED = {
                                          "DC or gone",
     "Small charity or body": "Small charity or body; assumed too small",
     "Member of a multi-employer scheme": "Figures sit with the multi-employer scheme, not the employer",
+    "Overseas company's UK branch": "UK branch of an overseas company: no UK filing gives the scheme's figures; "
+                                    "assumed under £50m (a few large foreign banks are the risk)",
+    "Employer not found, name-only DB evidence": "Only the scheme name says DB and no employer could be found by "
+                                                "name, core name or postcode; a £50m DB sponsor would be a large, "
+                                                "findable company, so assumed small or gone",
     "Insured policy scheme": "An insurer product or insured scheme (policy number in the name): assumed too small "
                              "for £50m of DB assets",
 }

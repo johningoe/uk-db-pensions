@@ -127,3 +127,31 @@ FC007443,SINGAPORE AIRLINES LIMITED,out,,From published scheme or insurer inform
 OC307742,GRANT THORNTON UK LLP,in,,"Read from the 2025 report (pages 42-43): DBO £277.5m and plan assets £245.0m (net pension liability £32.8m at the start of 2025, £10.2m at the end)"
 00825828,NEO NEXT + ENERGY RESOURCES UK LIMITED,in,,Read from the accounts (page 51): plan assets US$188.4m and liabilities US$152.6m (about £140m of assets); scheme fully insured by a £160m Rothesay buy-in in 2023
 body:NATIONWIDE,NATIONWIDE BUILDING SOCIETY,out,,From published information: the Nationwide Pension Fund's IAS 19 deficit alone has been £508m (Professional Pensions); the fund holds several £bn: over £500m
+03073845,KANTAR UK LIMITED,out,2025-12-31,"Read from the accounts (note 22, page 41): the only DB plan is TNS Plan 2, assets £0.7m (£'000 table); the Research International fund is not in the accounts"
+02533342,MONDRIAN INVESTMENT PARTNERS LIMITED,out,,Read from the accounts (22 pages): no DB scheme in the notes; only directors' pension contributions
+01885117,SUMITOMO CORPORATION EUROPE LIMITED,out,,"Read from the accounts (note 27, page 69): UK staff are in DC plans; the only DB scheme is in Norway ($2.7m of assets)"
+01135827,FINDEL EDUCATION LIMITED,out,,Read from the accounts (note 19 and policies): a DC scheme only; no share of the Findel Group fund
+03067227,BALLYVESEY HOLDINGS LIMITED,out,,"Read from the accounts (pages 20, 28, 39): member of a group DB scheme; the year's DB movement is £1.5m; a mid-sized haulage group, assumed under £50m"
+00726533,EPTA UK LIMITED,out,,Read from the accounts (page 16): actuarial loss £89k; deficit contributions guaranteed by the parent to 2034: a small scheme
+02156379,FREUDENBERG LIMITED,out,,Read from the accounts (page 11): the share of the partnership's DB remeasurement is £31k: a small scheme
+01120330,JULIUS BAER INTERNATIONAL LIMITED,out,,"Read from the accounts (note 6, page 38): the UK staff scheme, closed in 2005, is carried by the Swiss parent; no contributions in 2024 or 2025: assumed under £50m"
+00764299,TRIDENT GARAGES LIMITED,out,,Read from the accounts (page 26): a section of a multi-employer scheme with no valuation since 2023 and nothing recognised: small
+02782737,WELPLAN LIMITED,out,,"Read from the accounts (note 23, page 30): a participant in the BESA group's HVCA scheme, paying £241k a year: assumed under £50m"
+00852809,B&ESA LIMITED,out,,"Read from the accounts (note 24, page 37): the BESA group pays £483k a year into the HVCA scheme (closed to accrual): assumed under £50m"
+00693558,CELSIUS FIRST LIMITED,out,2003-12-31,"Read from the 2003 accounts (page 14): liabilities £27.8m, deficit £3.1m: under £50m"
+04355070,BOEING UNITED KINGDOM LIMITED,out,,The scheme is a section of a multi-employer arrangement; Boeing UK's accounts give only US group plans in dollars
+psr:10159341,Cereal Partners UK Pension Fund,candidate,,"Sponsor is the Cereal Partners UK partnership (Nestlé / General Mills joint venture), which files no UK accounts; the fund publishes implementation statements without asset totals"
+psr:10197442,Labour Party Superannuation Society,candidate,,The Labour Party files accounts with the Electoral Commission (not read): a deficit of about £1.5m was reported after a fall of up to £6m
+psr:10166267,Conservative Agents' Superannuation Fund,candidate,,The Conservative Party files accounts with the Electoral Commission (not read)
+psr:10077195,Db (UK) Senior Group Pension Scheme,candidate,,Likely a Deutsche Bank UK senior staff scheme; not yet tied to a company
+psr:10052149,Thomson Pension Fund,candidate,,Likely merged into the TUI Group UK Pension Trust (2011 merger of four of TUI's six UK schemes); not confirmed
+psr:10274909,Nfc (1978) Pension Fund,candidate,,A former National Freight Consortium fund; not yet tied to a company
+00282503,AMUSEMENT EQUIPMENT CO.LIMITED,out,,"Accounts read: only DC schemes found, and only old accounts carry a DB note: a small scheme"
+01069525,W.CROWDER & SONS LIMITED,out,,"Accounts read: only DC schemes found, and only old accounts carry a DB note: a small scheme"
+LP003997,FREUDENBERG HOUSEHOLD PRODUCTS LIMITED PARTNERSHIP,out,,The partnership's DB remeasurement shows in Freudenberg Limited's accounts as £31k: a small scheme
+SL013521,EXCEL L.P.,out,,An executive pension policy (EP4 policy number in the scheme name): an insured scheme for a few people
+03237485,03237485 LIMITED,out,,A numbered company with no accounts type at Companies House: no sign of a large scheme
+00497715,LEE BEESLEY INTERNATIONAL LIMITED,out,,No accounts type at Companies House and no accounts PDF: no sign of a large scheme
+SL023867,VECTOR LP,out,,A Scottish limited partnership with no accounts filed: no sign of a large scheme
+AC001204,CANADA LIFE LIMITED,out,,An additional pension manager scheme (an insurer product) under an assurance-company registration: not an employer DB scheme
+RC000325,LONDON LIBRARY,out,,"A charity library with about 50 staff: its staff superannuation fund is assumed under £50m"

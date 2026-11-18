@@ -38,6 +38,7 @@ BAND_REVIEW = Path(__file__).with_name("sponsor_band_review.csv")   # company_nu
 LIVE_CHECKED = Path(__file__).with_name("live_checked.csv")   # psr, verdict (live), note: a liveness lead reviewed and set aside
 FIELDS = ["psr", "scheme_name", "period_end", "obligation_m", "assets_m", "source", "note"]
 LIVE = ("with_figures", "no_figures")
+OVERSEAS = {"FC", "BR", "OE"}    # Companies House prefixes for overseas companies and their UK establishments
 SMALL = {"total exemption full", "total exemption small", "small", "micro entity", "dormant", "no accounts filed",
          "unaudited abridged", "audited abridged", "filing exemption subsidiary", "partial exemption"}
 
@@ -119,7 +120,7 @@ def build(con):
         if fig:
             figs.append((psr, *fig))
         bands.append((*_band(group, reason, fig, co, rno, evidence, acc, own, ob, assets, chk, gname, gob, gassets,
-                             cob, cassets, per_co.get(co) if co else per_reg.get((rsrc, rno)), costatus, cur.get(co), rev.get(co) if co else rev.get(f"{rsrc}:{rno}"), pdfst), psr))
+                             cob, cassets, per_co.get(co) if co else per_reg.get((rsrc, rno)), costatus, cur.get(co), rev.get(co) if co else rev.get(f"{rsrc}:{rno}") if rno else rev.get(f"psr:{psr}"), pdfst), psr))
     con.executemany("INSERT INTO scheme_figures VALUES (?,?,?,?,?,?,?)", figs)
     con.executemany("UPDATE schemes SET band=?, band_kind=?, band_reason=? WHERE psr=?", bands)
     con.commit()
@@ -184,9 +185,17 @@ def _band(group, reason, fig, co, rno, evidence, acc, own, ob, assets, chk, gnam
     if review and review["band"] in ("in", "out") and group != "not_identified":
         kind = "Sponsor's DB assets £50m-£500m" if review["band"] == "in" else "Out of band on review of the accounts"
         return review["band"], kind, f"Reviewed: {review['note']}"
+    if co and co[:2] in OVERSEAS and not own:
+        return "out", "Overseas company's UK branch", ("UK branch of an overseas company: its filed accounts are the "
+                                                       "foreign parent's and give no UK scheme figure; assumed under £50m")
     if review and review["band"] == "candidate" and group != "not_identified":
         return "candidate", "Accounts read, no gross figure", f"Reviewed: {review['note']}"
     if group == "not_identified":
+        if review and review["band"] in ("in", "out"):
+            kind = "Sponsor's DB assets £50m-£500m" if review["band"] == "in" else "Out of band on review"
+            return review["band"], kind, f"Reviewed: {review['note']}"
+        if review and review["band"] == "candidate":
+            return "candidate", "Employer not found, DB evidence", f"Reviewed: {review['note']}"
         if not evidence:
             return "out", "No employer found, no DB evidence", "No employer found and no DB evidence"
         if reason == "Public sector":
@@ -197,6 +206,9 @@ def _band(group, reason, fig, co, rno, evidence, acc, own, ob, assets, chk, gnam
         if reason == "Insurer product or master policy":
             return "out", "Insured policy scheme", ("Insurer product, master policy or insured scheme (policy number "
                                                    "in the name): assumed small")
+        if evidence == "name":
+            return "out", "Employer not found, name-only DB evidence", ("Employer not found by name, core name or "
+                                                                        "postcode; DB shown only by the scheme name")
         return "candidate", "Employer not found, DB evidence", f"Employer not found; scheme has DB evidence ({reason.lower()})"
     # the sponsor's own DB figures, covering all its schemes
     if own or (not co and (cob is not None or cassets is not None)):
