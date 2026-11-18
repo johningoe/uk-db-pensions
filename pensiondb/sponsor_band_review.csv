@@ -18,9 +18,9 @@ SC058445,DONALD MACKENZIE LIMITED,out,2026-01-31,Read from the page image (page 
 RC000652,UNIVERSITY OF ESSEX,out,2025-07-31,"Read from the published financial statements (page 71, https://www.essex.ac.uk/-/media/documents/about/financial-statements/financial-statements-2024-25.pdf): Accounts show no scheme of its own: only USS"
 RC000730,UNIVERSITY OF BUCKINGHAM,out,2025-12-31,"Read from the published financial statements (page 58, https://www.buckingham.ac.uk/wp-content/uploads/2026/06/University-of-Buckingham-signed-Financial-Statements-YE-31-December-2025.pdf): Employee Benefits Plan is a money purchase scheme with a GMP underpin being wound up; provision £46k"
 RC000645,UNIVERSITY OF BIRMINGHAM,candidate,2025-07-31,"Read from the 2024/25 accounts (page 49, https://www.birmingham.ac.uk/documents/finance/uob-annual-report-and-accounts-2024-25.pdf): BPAS shown only as a £10.9m deficit provision; gross assets and obligation are not published"
-RC000659,UNIVERSITY OF LEICESTER,candidate,2025-07-31,The 2024/25 accounts (https://le.ac.uk/-/media/uol/docs/about-us/publications/financial-statements/annual-report-and-accounts-24-25.pdf) could not be downloaded (the website blocks automated access); Pension and Assurance Scheme figures still to read
+RC000659,UNIVERSITY OF LEICESTER,in,,"From published scheme or insurer information: Professional Pensions report: Pension and Assurance Scheme assets £110m and about 2,200 members (undated, approximate)"
 body:CAMBRIDGE,UNIVERSITY OF CAMBRIDGE,out,2025-07-31,"Read from the published accounts: CPS is 76% of the University's gross pension liabilities and moves £11.8m for each 0.1% on the discount rate (FMI page 19, https://www.admin.cam.ac.uk/reporter/2025-26/special/04/04-FMI-31July2025.pdf), implying a CPS liability of roughly £0.8bn at a 15-year duration; the Press Contributory Pension Fund alone held £160.3m at 31 July 2025 (https://www.pensions.admin.cam.ac.uk/sites/default/files/cpf_accounts_2025.pdf): well over £500m together"
-05196131,CEMEX UK,candidate,2025-12-31,"Read from the page image (page 116): Filing is Cemex España's consolidated accounts in euro millions (pensions €1,192m obligation, UK among other countries); no UK figure"
+05196131,CEMEX UK,out,,From published scheme or insurer information: the Cemex UK Pension Fund publishes a TCFD report (required only of schemes with £1bn or more of assets): over £500m
 00140141,SHELL U.K. LIMITED,out,2024-12-31,"Read from the page image (page 67): Member of the Shell Contributory Pension Fund (IAS 19 assets £11,046m, liabilities £9,516m at 31 Dec 2024): far over £500m"
 05100341,ALL CARE (GB) LIMITED,candidate,2025-12-31,Read from the page image (page 60): Filing is the Spanish parent's (Clece) consolidated accounts; pensions are Spanish insured commitments; no UK figure
 00693558,CELSIUS FIRST LIMITED,candidate,2003-11-30,Read from the page image (page 15): Latest full accounts at Companies House are for 2003; no recent figures
@@ -38,11 +38,11 @@ FC022225,CIMB BANK BERHAD,candidate,2025-12-31,Read from the page image (page 44
 00960516,G LIFE H LIMITED,out,2025-12-31,Read from the page image (page 12): Accounts carry no pension note: a property-holding company with dormant subsidiaries; no DB scheme shown
 00507191,J.E. & V.M. DALTON LIMITED,out,2026-03-31,Read from the page image (page 28): Pension note shows only defined contribution plans
 FC007470,SAMSKIP MULTIMODAL BV,out,2022-12-31,Read from the page image (page 33): UK branch pension provision €1.68m at 31 Dec 2022 (Dutch parent's accounts): a small scheme
-00276465,NU-SWIFT INTERNATIONAL LIMITED,candidate,2025-12-31,"Read from the page image (page 17): Pension note not found in the pages read; the pension surplus deferred tax (£53.5k) was released in 2025, so the surplus recognised is now nil"
+00276465,NU-SWIFT INTERNATIONAL LIMITED,out,,Read from the page image (page 12): net interest on DB assets £9.8k in 2024 and nil in 2025: a small scheme
 00819180,STRESSLINE LIMITED,out,2025-12-31,Read from the page image (page 19): Sole sponsor of a DB scheme with one active member; surplus of £2.36m at the December 2020 valuation: a very small scheme
 OC332112,YORK RACECOURSE KNAVESMIRE LLP,out,2025-10-31,Read from the page image (page 21): Bulk annuity bought in the prior year covering all future liabilities; the scheme is derecognised and a full exit is being pursued
 FC011069,KUWAIT PETROLEUM CORPORATION,candidate,2010-03-31,Read from the page image (page 52): Latest accounts at Companies House are for the year to March 2010; no recent figures
-03923425,TUBE LINES LIMITED,candidate,2026-03-31,Accounts carry no pension wording at all; staff are likely in the TfL Pension Fund: check
+03923425,TUBE LINES LIMITED,in,,From published scheme or insurer information: Tube Lines Pension Scheme report and financial statements: net assets £101.4m at 31 March 2022 (old figure; MetLife policy from June 2021)
 03153442,ACHIEVE TOGETHER LIMITED,out,2025-02-28,Read from the accounts (page 29): Accounting policy: the company operates two defined contribution plans only
 01750343,ALCATEL SUBMARINE NETWORKS UK LTD,out,2024-12-31,Read from the accounts (page 27): Accounting policy: ASN UK runs a defined contribution pension only
 SC075515,ARDGOWAN HOSPICE LIMITED,out,2025-03-31,"Read from the accounts (page 24): Only DB link is staff who stayed in the NHS Pension Scheme (public sector, accounted as DC)"
@@ -53,7 +53,7 @@ FC006852,BANCO DO BRASIL S.A.,candidate,2025-12-31,Read from the accounts (page 
 05369196,FUJIFILM IMAGING COLORANTS LIMITED,candidate,2025-03-31,Read from the accounts (page 19): DB scheme closed to accrual in 2014; no balance table found in the pages read
 03468967,H.B. FULLER U.K. LIMITED,out,2025-11-29,Read from the accounts (page 17): Operates a DC scheme; it previously took part in a group-wide final salary scheme but no longer does
 02332239,HITACHI VANTARA LIMITED,out,2026-03-31,Read from the accounts (page 43): A defined contribution plan with a final-salary underpin for a subset of members; no balance table in the accounts
-00788737,IHS GLOBAL LIMITED,candidate,2025-12-31,"Read the accounts: staff and trade moved to S&P Global UK Limited in October 2024, but S&P Global UK's only scheme is the McGraw-Hill plan, not the IHS scheme: the IHS (Global) scheme's current sponsor is still to find"
+00788737,IHS GLOBAL LIMITED,out,,From published scheme or insurer information: IHS (Global) Limited Pension and Life Assurance Scheme: £37.8m buy-in to buyout with L&G covering about 150 members
 01354629,INNOVATIVE WATER CARE LIMITED,out,2025-09-30,Read from the accounts (page 14): Employee benefits policy: defined contribution plans only
 00999990,JACOBS DOUWE EGBERTS GB LTD,out,2025-12-31,Read from the accounts (page 21): Participates in a group defined contribution scheme only
 02328561,LONDON UNITED BUSWAYS LIMITED,out,2024-12-31,Read from the accounts (page 36): Pension note shows defined contribution schemes only
@@ -85,4 +85,42 @@ ccew:529051,THE SCHOOLS OF KING EDWARD VI IN BIRMINGHAM,out,,Read from the accou
 ccew:1052076,SUE RYDER FOUNDATION LIMITED,out,,Read from the accounts: Group personal pension and auto-enrolment only; NHS-linked DB scheme accounted as DC
 ccew:311793,TRINITY COLLEGE BRISTOL LIMITED,out,,Read from the accounts: Defined benefit pension plan liability nil on a £13m balance sheet: a small scheme
 co:fda-information-held-by-the-certification-officer,FDA,out,,Read from the accounts: FDA staff pension scheme: defined benefit asset £4.8m on an £18m balance sheet: a small scheme
-fca:455B,PRINCIPALITY BUILDING SOCIETY,candidate,,Read from the accounts: Only the summary financial statement was read (retirement benefit obligation nil); read the full annual report
+00502188,OWENS-CORNING VEIL U.K. LTD.,out,,Read from the page image (page 26): scheme liabilities £8.3m: a small scheme
+00104102,NEWELL BRANDS UK LIMITED,out,,Read from the page image (page 38): £35.2m settled from plan assets; plan assets £6.9m and liabilities £2.6m left: a small scheme
+08741768,EVELYN PARTNERS GROUP LIMITED,out,,"Read from the accounts (page 153): Tilney Scheme assets £0.5m, NCL £5.5m, S&W liabilities £3.1m (£000 tables): small schemes"
+00843903,PENNY & GILES CONTROLS LIMITED,out,,Read from the page image (page 47): Curtiss-Wright UK Pension Plan DBO £27.9m: under £50m
+00576440,ANGUS MONTGOMERY LIMITED,out,,Read from the page image (page 27): only money purchase pensions; no DB figures: small or gone
+00079908,ARTHUR BRANWELL & CO. LIMITED,out,,Read from the page image (page 27): insured policy scheme with two directors accruing: a small scheme
+01619615,CURRIE & WARNER (HOLDINGS) LIMITED,out,,Read from the page image (page 27): only defined contribution pensions disclosed: small or gone
+00616818,TANDEM GROUP PLC,out,,Read from the page image (page 35): net pension finance cost £37k: a small scheme
+04416344,THE OAKLEA TRUST,out,,"Read from the page image (page 32): one member in a DB scheme, figures immaterial: a small scheme"
+03570702,THE ROYAL AUTOMOBILE CLUB LIMITED,out,,Read from the page image (page 41): workplace DC plan only; no post-employment benefits: no DB scheme in the accounts
+00172209,WATTS OF LYDNEY GROUP LIMITED,out,,Read from the page image (page 17): pension reserve £0.1m transferred out in 2025: a small scheme
+00155621,EATON LIMITED,out,,From published scheme or insurer information: Eaton UK Pension Plan summary funding statement: assets £678m at 31 December 2022 (£988m in 2021): over £500m
+FC000268,SOCIETE GENERALE,out,,From published scheme or insurer information: SG UK DB scheme assets £774.2m at 31 December 2021 (members' report); full buy-in reported at £1.1bn: over £500m
+03236121,THE BANK OF NEW YORK MELLON (INTERNATIONAL) LIMITED,out,,"From published scheme or insurer information: Statement of Investment Principles (2022): DB benefits secured with an insurer, assets kept only for underpins and three members: small residual"
+BR014962,TOTAL LIMITED,out,,"From published scheme or insurer information: TotalEnergies UK Pension Plan fully insured with PIC (£1.6bn 2014 and £1.2bn 2024 buy-ins, £2.8bn in all): over £500m"
+01171948,MOOG CONTROLS LIMITED,out,,From published scheme or insurer information: Moog Retirement Benefits Plan £25m buy-in with Just (June 2024) covering all 167 remaining members: under £50m
+FC000365,BANK OF MONTREAL,out,,From published scheme or insurer information: London Gazette notice: the trustee has begun winding up the Bank of Montreal 1972 UK Pension Plan
+FC004096,QANTAS AIRWAYS LIMITED,out,,From published scheme or insurer information: fully insured with PIC (£25m 2018 and £40m 2023 buy-ins) and being wound up (London Gazette)
+FC003283,K.L.M. ROYAL DUTCH AIRLINES,in,,"From published scheme or insurer information: KLM UK Pension Scheme £240m buy-in with Rothesay (December 2025) covering all 1,852 remaining members"
+03299608,ELEMENTIS PLC,in,,"From published scheme or insurer information: Elementis Group Pension Scheme £300m buy-in with Aviva (2026) covering about 4,500 members"
+05139966,VISA EUROPE LIMITED,in,,"From published scheme or insurer information: implementation statement: a £15.7m credit investment was about 6% of the Visa Europe Pension Plan, so about £260m of assets (approximate)"
+00519057,BODYCOTE PLC,in,,From published scheme or insurer information: Bodycote UK Pension Scheme £60m full buy-in with PIC (December 2025) covering all 680 members
+FC012875,"UNITED AIRLINES, INC.",in,,From published scheme or insurer information: United Airlines UK Pension Plan trustees' report: assets £134.8m and liabilities £108.9m at 31 December 2022; since insured by a Standard Life buy-in
+IP00141R,LINCOLNSHIRE CO-OPERATIVE LIMITED,in,,"From published scheme or insurer information: Lincolnshire Co-operative Pension Scheme £107.1m buy-in with Rothesay (December 2025, annual report to September 2025) covering about 2,300 members"
+02009520,CREDIT SUISSE (UK) LIMITED,out,,From published scheme or insurer information: the Credit Suisse Group (UK) Pension Fund (about £1.3bn) completed a full buy-in of its DB section: over £500m
+02054170,DE BEERS UK LIMITED,out,,"Read from the accounts: De Beers UK Pension Scheme obligation 1,075,401 and assets 1,095,357 (US$000): about £0.8bn, over £500m"
+body:OXFORD,UNIVERSITY OF OXFORD,out,,From published scheme or insurer information: OSPS annual actuarial report: assets £827m at 31 March 2025 (plus the OUP scheme): over £500m
+ccew:311720,CHELTENHAM COLLEGE,out,,Charity register: no defined benefit asset or liability in 2020 to 2024; the schemes are insured executive policies: small
+fca:525R,Co-operative Group Limited,out,,From published scheme or insurer information: the Co-op's Pace scheme insured £4bn in a 2023 buy-in: over £500m
+co:public-and-commercial-services-union-information-held-by-the-certification-officer,Public and Commercial Services Union,in,,"Read from the 2023 annual return: expected return on scheme assets £8.0m and interest on liabilities £7.5m, net pension asset £13.7m: about £150m to £170m of assets (estimate)"
+co:national-federation-of-retail-newsagents-information-held-by-the-certification-officer,National Federation of Retail Newsagents,out,,Read from the 2025 annual return: the March 2022 valuation showed scheme assets of £8.6m: small
+ccew:306083,THE NATIONAL INSTITUTE OF ECONOMIC AND SOCIAL RESEARCH,out,,Read from the accounts: the only DB arrangement now disclosed is USS (contributions £218k); no own-scheme figures: small or gone
+ccew:206222,BRITISH HOME AND HOSPITAL FOR INCURABLES,out,,"Read from the accounts: final salary scheme bought out (buyout cost £469k, liability about £2.3m)"
+ccew:1137496,FITZWILLIAM COLLEGE IN THE UNIVERSITY OF CAMBRIDGE,out,,Read from the accounts: Assistant Staff Superannuation Fund closed in 2004 with 75 members: small
+oscr:SC040457,Church Army,out,,From published scheme or insurer information: Church Army Pension Scheme accounts: net assets £7.3m at 31 March 2024 (£8.0m in 2023): small
+FC007312,FINNAIR OYJ,out,,From published scheme or insurer information: Finnair Oy Retirement Benefit Scheme: £4m full buy-in with Aviva converted to buyout (20 members)
+FC007443,SINGAPORE AIRLINES LIMITED,out,,From published scheme or insurer information: public notice: the Singapore Airlines Pension & Life Assurance Scheme is being wound up
+04053665,GE VERNOVA FINANCIAL SERVICES LIMITED,out,,From published scheme or insurer information: public notice: the trustee is transferring the GE Capital scheme's remaining assets to the GE Aerospace Pension Plan and winding it up
+04267912,GE VERNOVA UK HOLDINGS LTD.,out,,From published scheme or insurer information: the GE Supplementary scheme sits with GE's UK plans (US$14bn UK obligation in 2020) being consolidated into the GE Aerospace Pension Plan: over £500m

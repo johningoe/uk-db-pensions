@@ -656,7 +656,7 @@ reg:ccew:254543,THE ROYAL ALBERT HALL,,GBP,8.572,8.608,group,,,"Figures entered 
 03951860,Deutsche Telekom (Uk) Limited,,GBP,71.062,79.708,group,2026-08-24,38,"Figures entered on the review page 2026-11-17: Total benefit obligation 71,062 plus net asset 8,646 gives assets 79,708 (£'000)"
 FC014702,BANCO BILBAO VIZCAYA ARGENTARIA S.A.,,GBP,,,misread,2026-09-30,200,Figure misread on the review page 2026-11-17: Spanish bank's euro pension note; no UK figure
 00327961,A.H.PHILPOT & SONS LIMITED,,GBP,1.326,1.724,group,2026-06-30,,"Figures entered on the review page 2026-11-17: Obligations 1,326,000 and assets 1,724,000"
-15148687,ARRIVA INTERNATIONAL GROUP LIMITED,,GBP,,,misread,2026-07-04,125,Figure misread on the review page 2026-11-17: Group note in euro millions; no UK figure
+15148687,ARRIVA INTERNATIONAL GROUP LIMITED,2025-12-31,GBP,190.662,215.791,main_scheme,,46,"Read from Arriva London North Limited's 2025 accounts (02328559, page 46): Arriva London North & South scheme: funded obligations 190,662 and scheme assets 215,791 (£000); the group note is in euro millions"
 00509221,FOURSTONES PAPER MILL COMPANY LIMITED,2025-03-31,GBP,0.566,0.988,group,2025-12-19,,Figures confirmed on the review page 2026-11-17: Small scheme; figures checked against the note
 00436709,LIGNACITE LIMITED,,GBP,0.491,1.577,group,2026-06-19,,"Figures entered on the review page 2026-11-17: Obligation 491,000 and scheme assets 1,577,000 (before restriction)"
 00297731,KILFROST LIMITED,2025-03-31,GBP,0.703,0.81,group,2026-10-08,,Figures confirmed on the review page 2026-11-17: Small scheme; figures checked against the note
@@ -916,3 +916,16 @@ RC000547,SCOUT ASSOCIATION(THE),2025-03-31,GBP,27.049,29.687,group,,59,"Read fro
 RC000261,INSTITUTE OF PHYSICS(THE),2025-12-31,GBP,67.881,71.241,group,,74,"Read from the page image (page 74): Plan assets 71,241 and liabilities 67,881 (£000)"
 RC000529,ROYAL STATISTICAL SOCIETY,2025-12-31,GBP,3.24,5.155,group,,49,"Read from the page image (page 49): DBO 3,240,000 and plan assets 5,155,000 (£)"
 reg:fca:148B,COVENTRY BUILDING SOCIETY,2025-12-31,GBP,1304,1324,group,,174,"Read from the page image (page 174): CBS Scheme (127), Pace DB (794) and BPS (403) after the Co-operative Bank acquisition: total assets 1,324 and obligation 1,304 (£m)"
+02912655,ANGEL TRAINS LIMITED,2025-12-31,GBP,66.7,75.5,main_scheme,,57,"Read from the page image (page 57): Angel Trains Section of the Railways Pension Scheme as a whole: DBO 66.7, assets 75.5 (£m)"
+02489026,HOCHTIEF (UK) CONSTRUCTION LIMITED,2024-12-31,GBP,30.794,25.826,group,,28,"Read from the page image (page 28): DBO 30,794 and scheme assets 25,826 (£000); the €672m figure was the German parent's"
+03078711,BRITISH GAS TRADING LIMITED,2025-12-31,GBP,1335.6,1341.7,group,,43,"Read from the page image (page 43): assets 1,341.7 and liabilities 1,335.6 (£m)"
+02077752,DEVONPORT ROYAL DOCKYARD LIMITED,2026-03-31,GBP,1140.571,1068.485,main_scheme,,65,"Read from the page image (page 65): Devonport Royal Dockyard Pension Scheme: assets 1,068,485 and liabilities 1,140,571 (£000)"
+02456984,MITSUBISHI ELECTRIC FINANCE EUROPE PLC,2025-04-01,GBP,76.432,82.461,main_scheme,,28,"Read from the page image (page 28): group UK scheme funding valuation at 1 April 2025: assets £82,461,000, liabilities £76,432,000 (no accounting figures)"
+reg:fca:455B,PRINCIPALITY BUILDING SOCIETY,2025-12-31,GBP,49.8,50.2,group,,121,"Read from the 2025 Annual Report and Accounts (page 121, principality.co.uk): plan assets 50.2, funded 49.3 and unfunded 0.5 obligations (£m); mostly annuities"
+reg:fca:66B,YORKSHIRE BUILDING SOCIETY,2024-12-31,GBP,516.7,542.3,group,,85,"Read from the 2024 Annual Report and Accounts (page 85): funded DBO 509.3 plus unfunded 7.4, assets 542.3 (£m)"
+00668987,VANQUIS BANKING GROUP PLC,2025-12-31,GBP,439.6,446.0,group,,175,"Read from the 2025 Annual Report and Accounts (page 175, vanquis.com): scheme assets 446.0 and funded DBO 439.6 (£m)"
+reg:co:national-association-of-schoolmasters-union-of-women-teachers-information-held-by-the-certification-officer,NASUWT,2025-12-31,GBP,59.113,70.442,group,,50,"Read from the page image (annual return page 50): funded obligations 59,113 and plan assets 70,442 (£000)"
+reg:co:prospect-information-held-by-the-certification-officer,PROSPECT,2025-12-31,GBP,116.644,142.401,group,,62,"Read from the page image (annual return page 62): PPS, CPLAS and BSRS (Bectu) staff schemes: assets 142,401 and liabilities 116,644 (£000)"
+reg:co:royal-college-of-midwives-information-held-by-the-certification-officer,ROYAL COLLEGE OF MIDWIVES,2025-12-31,GBP,28.903,35.456,group,,81,"Read from the page image (annual return page 81): DBO 28,903 and plan assets 35,456 (£000)"
+reg:fca:240F,THE SHEPHERDS FRIENDLY SOCIETY LIMITED,2025-12-31,GBP,2.578,3.526,group,,64,"Read from the 2025 accounts (page 64): scheme assets 3,526 and liabilities 2,578 (£000)"
+reg:ccew:312714,LATYMER UPPER SCHOOL,2025-08-31,GBP,1.173,2.066,group,,,"Read from the accounts: plan assets 2,066 and obligations 1,173 (£000)"
