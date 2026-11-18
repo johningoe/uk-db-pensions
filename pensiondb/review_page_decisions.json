@@ -15921,6 +15921,19 @@
   "note": "BBVA, London branch"
  },
  {
+  "key": "match:10000168",
+  "kind": "match",
+  "id": "10000168",
+  "name": "The Pilots' National Pension Fund",
+  "schemes": [
+   "10000168"
+  ],
+  "at": "2026-11-18T18:00:00Z",
+  "action": "not_company",
+  "verdict": "multi_employer",
+  "note": "Industry-wide, multi-employer or master-trust scheme or section"
+ },
+ {
   "key": "match:10000176",
   "kind": "match",
   "id": "10000176",
@@ -16120,6 +16133,19 @@
   "note": "Moet Hennessy UK Limited's accounts carry the defined benefit scheme"
  },
  {
+  "key": "match:10002491",
+  "kind": "match",
+  "id": "10002491",
+  "name": "The United Reformed Church Ministers' Pension Fund",
+  "schemes": [
+   "10002491"
+  ],
+  "at": "2026-11-18T18:00:00Z",
+  "action": "not_company",
+  "verdict": "multi_employer",
+  "note": "Industry-wide, multi-employer or master-trust scheme or section"
+ },
+ {
   "key": "match:10002892",
   "kind": "match",
   "id": "10002892",
@@ -16218,6 +16244,19 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10003889",
+  "kind": "match",
+  "id": "10003889",
+  "name": "Robert L Fleming Limited Senior Staff Retirement Benefit Scheme",
+  "schemes": [
+   "10003889"
+  ],
+  "at": "2026-11-18T18:00:00Z",
+  "action": "sponsor",
+  "company_number": "00248609",
+  "note": "J.P. Morgan (Morgan Grenfell / Robert Fleming schemes); trustee J.P. Morgan Pension Trustees Limited"
+ },
+ {
   "key": "match:10004105",
   "kind": "match",
   "id": "10004105",
@@ -16303,6 +16342,19 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10005193",
+  "kind": "match",
+  "id": "10005193",
+  "name": "Robert L Fleming Limited Retirement Benefit Scheme",
+  "schemes": [
+   "10005193"
+  ],
+  "at": "2026-11-18T18:00:00Z",
+  "action": "sponsor",
+  "company_number": "00248609",
+  "note": "J.P. Morgan (Morgan Grenfell / Robert Fleming schemes); trustee J.P. Morgan Pension Trustees Limited"
+ },
+ {
   "key": "match:10005572",
   "kind": "match",
   "id": "10005572",
@@ -16313,6 +16365,32 @@
   "at": "2026-11-16T22:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10005645",
+  "kind": "match",
+  "id": "10005645",
+  "name": "The Merchant Navy Officers Pension Fund",
+  "schemes": [
+   "10005645"
+  ],
+  "at": "2026-11-18T18:00:00Z",
+  "action": "not_company",
+  "verdict": "multi_employer",
+  "note": "Industry-wide, multi-employer or master-trust scheme or section"
+ },
+ {
+  "key": "match:10005646",
+  "kind": "match",
+  "id": "10005646",
+  "name": "The Merchant Navy Ratings Pension Fund",
+  "schemes": [
+   "10005646"
+  ],
+  "at": "2026-11-18T18:00:00Z",
+  "action": "not_company",
+  "verdict": "multi_employer",
+  "note": "Industry-wide, multi-employer or master-trust scheme or section"
  },
  {
   "key": "match:10005681",
@@ -16337,6 +16415,19 @@
   "at": "2026-11-16T22:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10006269",
+  "kind": "match",
+  "id": "10006269",
+  "name": "Church Workers Pension Fund",
+  "schemes": [
+   "10006269"
+  ],
+  "at": "2026-11-18T18:00:00Z",
+  "action": "not_company",
+  "verdict": "multi_employer",
+  "note": "Industry-wide, multi-employer or master-trust scheme or section"
  },
  {
   "key": "match:10006713",
@@ -16437,6 +16528,19 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10007963",
+  "kind": "match",
+  "id": "10007963",
+  "name": "Church Administrators Pension Fund",
+  "schemes": [
+   "10007963"
+  ],
+  "at": "2026-11-18T18:00:00Z",
+  "action": "not_company",
+  "verdict": "multi_employer",
+  "note": "Industry-wide, multi-employer or master-trust scheme or section"
+ },
+ {
   "key": "match:10007995",
   "kind": "match",
   "id": "10007995",
@@ -16460,6 +16564,19 @@
   "at": "2026-11-16T23:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10008172",
+  "kind": "match",
+  "id": "10008172",
+  "name": "The Mitsubishi Bank Limited Pension and Life Assurance Fund",
+  "schemes": [
+   "10008172"
+  ],
+  "at": "2026-11-18T18:00:00Z",
+  "action": "sponsor",
+  "company_number": "FC004549",
+  "note": "MUFG Bank: Bank of Tokyo-Mitsubishi UFJ, Mitsubishi Bank and UFJ (Tokai) schemes"
  },
  {
   "key": "match:10008266",
@@ -16496,6 +16613,19 @@
   "at": "2026-11-16T21:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10008938",
+  "kind": "match",
+  "id": "10008938",
+  "name": "The Robson Rhodes Retirement Benefits Scheme",
+  "schemes": [
+   "10008938"
+  ],
+  "at": "2026-11-18T18:00:00Z",
+  "action": "sponsor",
+  "company_number": "OC307742",
+  "note": "Robson Rhodes merged into Grant Thornton UK in 2007"
  },
  {
   "key": "match:10009159",
@@ -16558,6 +16688,19 @@
   "action": "sponsor",
   "company_number": "01222246",
   "note": "Donaldson Filter Components Limited, Hull"
+ },
+ {
+  "key": "match:10011325",
+  "kind": "match",
+  "id": "10011325",
+  "name": "The Thatcham Staff Pension And Life Assurance Scheme",
+  "schemes": [
+   "10011325"
+  ],
+  "at": "2026-11-18T18:00:00Z",
+  "action": "not_live",
+  "reason": "wound_up",
+  "note": "Trustee company Thatcham Pension Trustees Limited dissolved 2022-06-07"
  },
  {
   "key": "match:10011794",
@@ -16643,6 +16786,19 @@
   "at": "2026-11-16T22:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10013015",
+  "kind": "match",
+  "id": "10013015",
+  "name": "Nedbank United Kingdom Pension Fund",
+  "schemes": [
+   "10013015"
+  ],
+  "at": "2026-11-18T18:00:00Z",
+  "action": "sponsor",
+  "company_number": "FC004124",
+  "note": "Nedbank Limited"
  },
  {
   "key": "match:10013190",
@@ -16914,9 +17070,10 @@
   "schemes": [
    "10019677"
   ],
-  "at": "2026-11-16T23:00:00Z",
-  "action": "skip",
-  "note": "Employer not identified with confidence"
+  "at": "2026-11-18T18:00:00Z",
+  "action": "sponsor",
+  "company_number": "00002065",
+  "note": "Lloyds Bowmaker: Lloyds Bank group"
  },
  {
   "key": "match:10019720",
@@ -16929,6 +17086,19 @@
   "at": "2026-11-16T21:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10020100",
+  "kind": "match",
+  "id": "10020100",
+  "name": "Universities Superannuation Scheme.",
+  "schemes": [
+   "10020100"
+  ],
+  "at": "2026-11-18T18:00:00Z",
+  "action": "not_company",
+  "verdict": "multi_employer",
+  "note": "Industry-wide, multi-employer or master-trust scheme or section"
  },
  {
   "key": "match:10020350",
@@ -17151,6 +17321,19 @@
   "note": "Grampian fire service"
  },
  {
+  "key": "match:10027831",
+  "kind": "match",
+  "id": "10027831",
+  "name": "Northern Ireland Assembly Members Contributory Pension Fund",
+  "schemes": [
+   "10027831"
+  ],
+  "at": "2026-11-18T18:00:00Z",
+  "action": "not_company",
+  "verdict": "public_sector",
+  "note": "Public body or public-sector scheme"
+ },
+ {
   "key": "match:10027961",
   "kind": "match",
   "id": "10027961",
@@ -17173,6 +17356,19 @@
   "at": "2026-11-16T20:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10028740",
+  "kind": "match",
+  "id": "10028740",
+  "name": "The Swire (1989) Retirement Benefits Scheme",
+  "schemes": [
+   "10028740"
+  ],
+  "at": "2026-11-18T18:00:00Z",
+  "action": "sponsor",
+  "company_number": "00133143",
+  "note": "John Swire & Sons Limited"
  },
  {
   "key": "match:10029041",
@@ -17206,9 +17402,10 @@
   "schemes": [
    "10030363"
   ],
-  "at": "2026-11-16T20:00:00Z",
-  "action": "skip",
-  "note": "Employer not identified with confidence"
+  "at": "2026-11-18T18:00:00Z",
+  "action": "sponsor",
+  "company_number": "02096505",
+  "note": "Assa Abloy Limited; trustee Assa Abloy (UK) Pension Trustees Limited"
  },
  {
   "key": "match:10030493",
@@ -17234,6 +17431,32 @@
   "action": "sponsor",
   "company_number": "SC042491",
   "note": "Tennant UK Cleaning Solutions Limited's accounts carry the defined benefit scheme"
+ },
+ {
+  "key": "match:10031871",
+  "kind": "match",
+  "id": "10031871",
+  "name": "Keele Superannuation Scheme",
+  "schemes": [
+   "10031871"
+  ],
+  "at": "2026-11-18T18:00:00Z",
+  "action": "not_live",
+  "reason": "wound_up",
+  "note": "Trustee company Keele Pension Trustee Limited dissolved 2026-06-09"
+ },
+ {
+  "key": "match:10031880",
+  "kind": "match",
+  "id": "10031880",
+  "name": "The Equitable Pension Fund And Life Assurance Scheme",
+  "schemes": [
+   "10031880"
+  ],
+  "at": "2026-11-18T18:00:00Z",
+  "action": "sponsor",
+  "company_number": "10559664",
+  "note": "Equitable Life's business and staff passed to Utmost Life and Pensions"
  },
  {
   "key": "match:10032123",
@@ -17319,6 +17542,19 @@
   "at": "2026-11-16T21:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10037754",
+  "kind": "match",
+  "id": "10037754",
+  "name": "United States Air Force Pension and Life Assurance Scheme UK",
+  "schemes": [
+   "10037754"
+  ],
+  "at": "2026-11-18T18:00:00Z",
+  "action": "not_company",
+  "verdict": "public_sector",
+  "note": "Foreign government or intergovernmental body: out of scope"
  },
  {
   "key": "match:10039367",
@@ -17795,6 +18031,19 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10068354",
+  "kind": "match",
+  "id": "10068354",
+  "name": "Bank Of Tokyo - Mitsubishi UFJ Group UK Pension And Life Assurance Fund",
+  "schemes": [
+   "10068354"
+  ],
+  "at": "2026-11-18T18:00:00Z",
+  "action": "sponsor",
+  "company_number": "FC004549",
+  "note": "MUFG Bank: Bank of Tokyo-Mitsubishi UFJ, Mitsubishi Bank and UFJ (Tokai) schemes"
+ },
+ {
   "key": "match:10075165",
   "kind": "match",
   "id": "10075165",
@@ -17867,6 +18116,19 @@
   "at": "2026-11-16T22:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10076129",
+  "kind": "match",
+  "id": "10076129",
+  "name": "The Fane Valley Group DB Pension Scheme",
+  "schemes": [
+   "10076129"
+  ],
+  "at": "2026-11-18T18:00:00Z",
+  "action": "sponsor",
+  "company_number": "NI634137",
+  "note": "Fane Valley group"
  },
  {
   "key": "match:10076538",
@@ -18363,6 +18625,19 @@
   "note": "Jupiter Asset Management Limited"
  },
  {
+  "key": "match:10089220",
+  "kind": "match",
+  "id": "10089220",
+  "name": "Pension And Life Assurance Plan For The Staff Of The European Commission",
+  "schemes": [
+   "10089220"
+  ],
+  "at": "2026-11-18T18:00:00Z",
+  "action": "not_company",
+  "verdict": "public_sector",
+  "note": "Foreign government or intergovernmental body: out of scope"
+ },
+ {
   "key": "match:10089233",
   "kind": "match",
   "id": "10089233",
@@ -18398,6 +18673,19 @@
   "at": "2026-11-16T20:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10090289",
+  "kind": "match",
+  "id": "10090289",
+  "name": "U F J Bank Limited (Tokai 1978) Pension And Life Assurance Scheme",
+  "schemes": [
+   "10090289"
+  ],
+  "at": "2026-11-18T18:00:00Z",
+  "action": "sponsor",
+  "company_number": "FC004549",
+  "note": "MUFG Bank: Bank of Tokyo-Mitsubishi UFJ, Mitsubishi Bank and UFJ (Tokai) schemes"
  },
  {
   "key": "match:10090367",
@@ -18606,6 +18894,19 @@
   "note": "Equity, the trade union"
  },
  {
+  "key": "match:10094167",
+  "kind": "match",
+  "id": "10094167",
+  "name": "Credit Commercial De France London Branch Pension And Life Assurance Scheme",
+  "schemes": [
+   "10094167"
+  ],
+  "at": "2026-11-18T18:00:00Z",
+  "action": "sponsor",
+  "company_number": "00014259",
+  "note": "HSBC Bank plc: HSBC DB section; Credit Commercial de France became HSBC France"
+ },
+ {
   "key": "match:10094286",
   "kind": "match",
   "id": "10094286",
@@ -18651,9 +18952,23 @@
   "schemes": [
    "10094887"
   ],
-  "at": "2026-11-16T20:00:00Z",
-  "action": "skip",
-  "note": "Employer not identified with confidence"
+  "at": "2026-11-18T18:00:00Z",
+  "action": "sponsor",
+  "company_number": "01860181",
+  "note": "Burlington House scheme: trustee Imperial Tobacco Pension Trustees (Burlington House) Limited"
+ },
+ {
+  "key": "match:10095124",
+  "kind": "match",
+  "id": "10095124",
+  "name": "Scottish Episcopal Church Pension Fund",
+  "schemes": [
+   "10095124"
+  ],
+  "at": "2026-11-18T18:00:00Z",
+  "action": "not_company",
+  "verdict": "multi_employer",
+  "note": "Industry-wide, multi-employer or master-trust scheme or section"
  },
  {
   "key": "match:10095156",
@@ -18666,6 +18981,19 @@
   "at": "2026-11-16T23:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10095234",
+  "kind": "match",
+  "id": "10095234",
+  "name": "The Pension and Life Assurance Scheme of Sumitomo Corporation Plc",
+  "schemes": [
+   "10095234"
+  ],
+  "at": "2026-11-18T18:00:00Z",
+  "action": "sponsor",
+  "company_number": "01885117",
+  "note": "Sumitomo Corporation Europe Limited"
  },
  {
   "key": "match:10095266",
@@ -18862,6 +19190,19 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10100332",
+  "kind": "match",
+  "id": "10100332",
+  "name": "Commonwealth Secretariat Pension And Life Assurance Scheme (1979)",
+  "schemes": [
+   "10100332"
+  ],
+  "at": "2026-11-18T18:00:00Z",
+  "action": "not_company",
+  "verdict": "public_sector",
+  "note": "Foreign government or intergovernmental body: out of scope"
+ },
+ {
   "key": "match:10100366",
   "kind": "match",
   "id": "10100366",
@@ -18873,6 +19214,19 @@
   "action": "sponsor",
   "company_number": "00170466",
   "note": "The Stanley Works Limited, the most significant participant, reports the Stanley Black & Decker UK Pension Plan"
+ },
+ {
+  "key": "match:10100482",
+  "kind": "match",
+  "id": "10100482",
+  "name": "The Commonwealth Telecommunications Bureau Pension And Life Assurance Scheme (1974)",
+  "schemes": [
+   "10100482"
+  ],
+  "at": "2026-11-18T18:00:00Z",
+  "action": "not_company",
+  "verdict": "public_sector",
+  "note": "Foreign government or intergovernmental body: out of scope"
  },
  {
   "key": "match:10100749",
@@ -18962,6 +19316,19 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10103619",
+  "kind": "match",
+  "id": "10103619",
+  "name": "The NMR Pension Fund",
+  "schemes": [
+   "10103619"
+  ],
+  "at": "2026-11-18T19:00:00Z",
+  "action": "sponsor",
+  "company_number": "00925279",
+  "note": "N. M. Rothschild & Sons Limited sponsors the NMR Pension Fund"
+ },
+ {
   "key": "match:10104297",
   "kind": "match",
   "id": "10104297",
@@ -18985,6 +19352,19 @@
   "action": "not_company",
   "verdict": "public_sector",
   "note": "UK Atomic Energy Authority"
+ },
+ {
+  "key": "match:10105063",
+  "kind": "match",
+  "id": "10105063",
+  "name": "Protected Persons Superannuation Scheme Of The United Kingdom Atomic Energy Authority",
+  "schemes": [
+   "10105063"
+  ],
+  "at": "2026-11-18T18:00:00Z",
+  "action": "not_company",
+  "verdict": "public_sector",
+  "note": "Public body or public-sector scheme"
  },
  {
   "key": "match:10105372",
@@ -19412,6 +19792,19 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10125215",
+  "kind": "match",
+  "id": "10125215",
+  "name": "Superannuation Arrangements Of The University Of London (S A U L)",
+  "schemes": [
+   "10125215"
+  ],
+  "at": "2026-11-18T18:00:00Z",
+  "action": "not_company",
+  "verdict": "multi_employer",
+  "note": "Industry-wide, multi-employer or master-trust scheme or section"
+ },
+ {
   "key": "match:10125247",
   "kind": "match",
   "id": "10125247",
@@ -19434,6 +19827,19 @@
   "at": "2026-11-16T23:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10126466",
+  "kind": "match",
+  "id": "10126466",
+  "name": "Rolls-Royce & Bentley Pension Fund",
+  "schemes": [
+   "10126466"
+  ],
+  "at": "2026-11-18T18:00:00Z",
+  "action": "sponsor",
+  "company_number": "00992897",
+  "note": "Bentley Motors (Rolls-Royce & Bentley Pension Fund)"
  },
  {
   "key": "match:10126739",
@@ -19459,6 +19865,19 @@
   "action": "sponsor",
   "company_number": "00476611",
   "note": "Leica Microsystems (UK) Limited"
+ },
+ {
+  "key": "match:10127704",
+  "kind": "match",
+  "id": "10127704",
+  "name": "The Research International UK Senior Pension Fund",
+  "schemes": [
+   "10127704"
+  ],
+  "at": "2026-11-18T18:00:00Z",
+  "action": "sponsor",
+  "company_number": "03073845",
+  "note": "Research International is now part of Kantar UK"
  },
  {
   "key": "match:10127754",
@@ -19604,6 +20023,19 @@
   "at": "2026-11-16T23:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10130957",
+  "kind": "match",
+  "id": "10130957",
+  "name": "S C A Hygiene Paper Pension And Life Assurance Scheme (UK)",
+  "schemes": [
+   "10130957"
+  ],
+  "at": "2026-11-18T18:00:00Z",
+  "action": "sponsor",
+  "company_number": "03226403",
+  "note": "SCA Hygiene Paper UK is now Essity UK"
  },
  {
   "key": "match:10131168",
@@ -19899,6 +20331,19 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10135213",
+  "kind": "match",
+  "id": "10135213",
+  "name": "Principal Non-Industrial Superannuation Scheme Of The United Kingdom Atomic Energy Authority",
+  "schemes": [
+   "10135213"
+  ],
+  "at": "2026-11-18T18:00:00Z",
+  "action": "not_company",
+  "verdict": "public_sector",
+  "note": "Public body or public-sector scheme"
+ },
+ {
   "key": "match:10135239",
   "kind": "match",
   "id": "10135239",
@@ -19933,6 +20378,19 @@
   "at": "2026-11-16T20:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10135780",
+  "kind": "match",
+  "id": "10135780",
+  "name": "The Research International Superannuation Fund",
+  "schemes": [
+   "10135780"
+  ],
+  "at": "2026-11-18T18:00:00Z",
+  "action": "sponsor",
+  "company_number": "03073845",
+  "note": "Research International is now part of Kantar UK"
  },
  {
   "key": "match:10135783",
@@ -20144,6 +20602,19 @@
   "note": "HORIBA MIRA Limited, same postcode"
  },
  {
+  "key": "match:10142338",
+  "kind": "match",
+  "id": "10142338",
+  "name": "The Morgan Group Senior Staff Pension & Life Assurance Scheme",
+  "schemes": [
+   "10142338"
+  ],
+  "at": "2026-11-18T18:00:00Z",
+  "action": "sponsor",
+  "company_number": "00248609",
+  "note": "J.P. Morgan (Morgan Grenfell / Robert Fleming schemes); trustee J.P. Morgan Pension Trustees Limited"
+ },
+ {
   "key": "match:10142736",
   "kind": "match",
   "id": "10142736",
@@ -20179,6 +20650,19 @@
   "at": "2026-11-16T21:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10143955",
+  "kind": "match",
+  "id": "10143955",
+  "name": "The Mondrian Retirement Benefits Scheme",
+  "schemes": [
+   "10143955"
+  ],
+  "at": "2026-11-18T18:00:00Z",
+  "action": "sponsor",
+  "company_number": "02533342",
+  "note": "Mondrian Investment Partners Limited"
  },
  {
   "key": "match:10144007",
@@ -20230,6 +20714,19 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10144763",
+  "kind": "match",
+  "id": "10144763",
+  "name": "Timothy White And Taylors Staff Pension Fund",
+  "schemes": [
+   "10144763"
+  ],
+  "at": "2026-11-18T18:00:00Z",
+  "action": "sponsor",
+  "company_number": "00928555",
+  "note": "Timothy Whites was taken over by Boots"
+ },
+ {
   "key": "match:10145268",
   "kind": "match",
   "id": "10145268",
@@ -20252,6 +20749,19 @@
   "at": "2026-11-16T22:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10145482",
+  "kind": "match",
+  "id": "10145482",
+  "name": "The Mizuho Bank London Final Salary Scheme",
+  "schemes": [
+   "10145482"
+  ],
+  "at": "2026-11-18T18:00:00Z",
+  "action": "sponsor",
+  "company_number": "FC004234",
+  "note": "Mizuho Bank London branch"
  },
  {
   "key": "match:10145878",
@@ -20502,6 +21012,19 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10158782",
+  "kind": "match",
+  "id": "10158782",
+  "name": "Thos Miller & Co Ltd Retirement Benefits Scheme",
+  "schemes": [
+   "10158782"
+  ],
+  "at": "2026-11-18T18:00:00Z",
+  "action": "sponsor",
+  "company_number": "03766242",
+  "note": "Thomas Miller (UK) Holdings"
+ },
+ {
   "key": "match:10158852",
   "kind": "match",
   "id": "10158852",
@@ -20600,6 +21123,19 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10161328",
+  "kind": "match",
+  "id": "10161328",
+  "name": "Tioxide Pension Fund",
+  "schemes": [
+   "10161328"
+  ],
+  "at": "2026-11-18T19:00:00Z",
+  "action": "sponsor",
+  "company_number": "00832447",
+  "note": "Tioxide Pension Fund (Venator); £430m buy-in with L&G in 2023"
+ },
+ {
   "key": "match:10161704",
   "kind": "match",
   "id": "10161704",
@@ -20672,6 +21208,32 @@
   "at": "2026-11-16T23:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10165351",
+  "kind": "match",
+  "id": "10165351",
+  "name": "Transport For London (TFL) Pension Fund",
+  "schemes": [
+   "10165351"
+  ],
+  "at": "2026-11-18T18:00:00Z",
+  "action": "not_company",
+  "verdict": "public_sector",
+  "note": "Public body or public-sector scheme"
+ },
+ {
+  "key": "match:10165426",
+  "kind": "match",
+  "id": "10165426",
+  "name": "Talisman Sinopec Pension & Life Scheme",
+  "schemes": [
+   "10165426"
+  ],
+  "at": "2026-11-18T19:00:00Z",
+  "action": "sponsor",
+  "company_number": "00825828",
+  "note": "Talisman Sinopec Energy UK became Repsol Sinopec Resources UK, now NEO NEXT+ Energy Resources UK; Repsol Sinopec Pension and Life Scheme £160m full buy-in with Rothesay (2023)"
  },
  {
   "key": "match:10166256",
@@ -20834,6 +21396,19 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10170258",
+  "kind": "match",
+  "id": "10170258",
+  "name": "Former Registered Dock Workers Pension Fund",
+  "schemes": [
+   "10170258"
+  ],
+  "at": "2026-11-18T18:00:00Z",
+  "action": "not_company",
+  "verdict": "multi_employer",
+  "note": "Industry-wide, multi-employer or master-trust scheme or section"
+ },
+ {
   "key": "match:10170468",
   "kind": "match",
   "id": "10170468",
@@ -20856,6 +21431,19 @@
   "at": "2026-11-16T22:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10171254",
+  "kind": "match",
+  "id": "10171254",
+  "name": "American Airlines UK Pension And Life Assurance Plan",
+  "schemes": [
+   "10171254"
+  ],
+  "at": "2026-11-18T18:00:00Z",
+  "action": "sponsor",
+  "company_number": "FC011471",
+  "note": "American Airlines Inc UK establishment"
  },
  {
   "key": "match:10171606",
@@ -21321,6 +21909,19 @@
   "note": "Arcadis Consulting (UK) Limited"
  },
  {
+  "key": "match:10195680",
+  "kind": "match",
+  "id": "10195680",
+  "name": "Newarthill Partners Pension Fund",
+  "schemes": [
+   "10195680"
+  ],
+  "at": "2026-11-18T18:00:00Z",
+  "action": "sponsor",
+  "company_number": "00566823",
+  "note": "Newarthill is the Sir Robert McAlpine holding company"
+ },
+ {
   "key": "match:10196542",
   "kind": "match",
   "id": "10196542",
@@ -21512,6 +22113,19 @@
   "at": "2026-11-16T22:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10206448",
+  "kind": "match",
+  "id": "10206448",
+  "name": "Industry Wide Coal Staff Superannuation Scheme",
+  "schemes": [
+   "10206448"
+  ],
+  "at": "2026-11-18T18:00:00Z",
+  "action": "not_company",
+  "verdict": "public_sector",
+  "note": "Public body or public-sector scheme"
  },
  {
   "key": "match:10206561",
@@ -22876,6 +23490,19 @@
   "note": "H.J. Heinz Manufacturing UK Limited is the sole holder of the Heinz UK Pension Plan 'Merged Plan'"
  },
  {
+  "key": "match:10267679",
+  "kind": "match",
+  "id": "10267679",
+  "name": "Scottish Enterprise Pension And Life Assurance Scheme",
+  "schemes": [
+   "10267679"
+  ],
+  "at": "2026-11-18T18:00:00Z",
+  "action": "not_company",
+  "verdict": "public_sector",
+  "note": "Public body or public-sector scheme"
+ },
+ {
   "key": "match:10267762",
   "kind": "match",
   "id": "10267762",
@@ -23546,6 +24173,32 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:19001359",
+  "kind": "match",
+  "id": "19001359",
+  "name": "Horncastle Garage Limited (455) DB Section",
+  "schemes": [
+   "19001359"
+  ],
+  "at": "2026-11-18T18:00:00Z",
+  "action": "not_company",
+  "verdict": "multi_employer",
+  "note": "Industry-wide, multi-employer or master-trust scheme or section"
+ },
+ {
+  "key": "match:19002029",
+  "kind": "match",
+  "id": "19002029",
+  "name": "E.ON UK Group of the ESPS DB Section",
+  "schemes": [
+   "19002029"
+  ],
+  "at": "2026-11-18T18:00:00Z",
+  "action": "sponsor",
+  "company_number": "02366970",
+  "note": "E.ON UK Group of the ESPS"
+ },
+ {
   "key": "match:19002242",
   "kind": "match",
   "id": "19002242",
@@ -23556,6 +24209,149 @@
   "at": "2026-11-16T22:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:19002501",
+  "kind": "match",
+  "id": "19002501",
+  "name": "FPP - Regent Office Care",
+  "schemes": [
+   "19002501"
+  ],
+  "at": "2026-11-18T18:00:00Z",
+  "action": "not_company",
+  "verdict": "product",
+  "note": "Federated Pension Plan section: insurer product"
+ },
+ {
+  "key": "match:19002520",
+  "kind": "match",
+  "id": "19002520",
+  "name": "FPP - Care UK (Urgent Care) Limited",
+  "schemes": [
+   "19002520"
+  ],
+  "at": "2026-11-18T18:00:00Z",
+  "action": "not_company",
+  "verdict": "product",
+  "note": "Federated Pension Plan section: insurer product"
+ },
+ {
+  "key": "match:19002540",
+  "kind": "match",
+  "id": "19002540",
+  "name": "FPP - Care UK (H4H) Limited",
+  "schemes": [
+   "19002540"
+  ],
+  "at": "2026-11-18T18:00:00Z",
+  "action": "not_company",
+  "verdict": "product",
+  "note": "Federated Pension Plan section: insurer product"
+ },
+ {
+  "key": "match:19003002",
+  "kind": "match",
+  "id": "19003002",
+  "name": "Merchant Navy Officers Pension Fund Post 78 Section",
+  "schemes": [
+   "19003002"
+  ],
+  "at": "2026-11-18T18:00:00Z",
+  "action": "not_company",
+  "verdict": "multi_employer",
+  "note": "Industry-wide, multi-employer or master-trust scheme or section"
+ },
+ {
+  "key": "match:19003203",
+  "kind": "match",
+  "id": "19003203",
+  "name": "HSBC DB Section",
+  "schemes": [
+   "19003203"
+  ],
+  "at": "2026-11-18T18:00:00Z",
+  "action": "sponsor",
+  "company_number": "00014259",
+  "note": "HSBC Bank plc: HSBC DB section; Credit Commercial de France became HSBC France"
+ },
+ {
+  "key": "match:19004201",
+  "kind": "match",
+  "id": "19004201",
+  "name": "Career Averaged Revalued Earnings (CARE) Section",
+  "schemes": [
+   "19004201"
+  ],
+  "at": "2026-11-18T18:00:00Z",
+  "action": "not_company",
+  "verdict": "multi_employer",
+  "note": "Industry-wide, multi-employer or master-trust scheme or section"
+ },
+ {
+  "key": "match:19004221",
+  "kind": "match",
+  "id": "19004221",
+  "name": "National Council for Voluntary Organisations Final Salary Pension Scheme Section",
+  "schemes": [
+   "19004221"
+  ],
+  "at": "2026-11-18T18:00:00Z",
+  "action": "not_company",
+  "verdict": "multi_employer",
+  "note": "Industry-wide, multi-employer or master-trust scheme or section"
+ },
+ {
+  "key": "match:19004236",
+  "kind": "match",
+  "id": "19004236",
+  "name": "The Winchester College Support Staff Final Salary Pension Scheme Section",
+  "schemes": [
+   "19004236"
+  ],
+  "at": "2026-11-18T18:00:00Z",
+  "action": "not_company",
+  "verdict": "multi_employer",
+  "note": "Industry-wide, multi-employer or master-trust scheme or section"
+ },
+ {
+  "key": "match:19007602",
+  "kind": "match",
+  "id": "19007602",
+  "name": "ThyssenKrupp UK PLC 2006 Retirement and Death Benefits Plan - Camford Section",
+  "schemes": [
+   "19007602"
+  ],
+  "at": "2026-11-18T18:00:00Z",
+  "action": "sponsor",
+  "company_number": "02452909",
+  "note": "Sections of the ThyssenKrupp UK plan"
+ },
+ {
+  "key": "match:19007608",
+  "kind": "match",
+  "id": "19007608",
+  "name": "ThyssenKrupp UK PLC 2006 Retirement and Death Benefits Plan - Palmers Section",
+  "schemes": [
+   "19007608"
+  ],
+  "at": "2026-11-18T18:00:00Z",
+  "action": "sponsor",
+  "company_number": "02452909",
+  "note": "Sections of the ThyssenKrupp UK plan"
+ },
+ {
+  "key": "match:19007901",
+  "kind": "match",
+  "id": "19007901",
+  "name": "MiTek UK Retirement & Death Benefits Plan - MiTek Section",
+  "schemes": [
+   "19007901"
+  ],
+  "at": "2026-11-18T18:00:00Z",
+  "action": "sponsor",
+  "company_number": "00944342",
+  "note": "MiTek section of the MiTek UK plan"
  },
  {
   "key": "match:19012801",
@@ -23608,6 +24404,45 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:19014601",
+  "kind": "match",
+  "id": "19014601",
+  "name": "The British Tourist Boards' Staff Pension and Life Assurance Scheme - The VisitLondon Section",
+  "schemes": [
+   "19014601"
+  ],
+  "at": "2026-11-18T18:00:00Z",
+  "action": "not_company",
+  "verdict": "public_sector",
+  "note": "Public body or public-sector scheme"
+ },
+ {
+  "key": "match:19014602",
+  "kind": "match",
+  "id": "19014602",
+  "name": "The British Tourist Boards' Staff Pension and Life Assurance Scheme - The BTB Section",
+  "schemes": [
+   "19014602"
+  ],
+  "at": "2026-11-18T18:00:00Z",
+  "action": "not_company",
+  "verdict": "public_sector",
+  "note": "Public body or public-sector scheme"
+ },
+ {
+  "key": "match:19015202",
+  "kind": "match",
+  "id": "19015202",
+  "name": "Findel Group Pension Fund - Education Section",
+  "schemes": [
+   "19015202"
+  ],
+  "at": "2026-11-18T18:00:00Z",
+  "action": "sponsor",
+  "company_number": "01135827",
+  "note": "Findel Education Limited"
+ },
+ {
   "key": "match:19015501",
   "kind": "match",
   "id": "19015501",
@@ -23619,6 +24454,19 @@
   "action": "sponsor",
   "company_number": "07022885",
   "note": "Bank of Ireland (UK) plc"
+ },
+ {
+  "key": "match:19015802",
+  "kind": "match",
+  "id": "19015802",
+  "name": "Tayside Pension Fund",
+  "schemes": [
+   "19015802"
+  ],
+  "at": "2026-11-18T18:00:00Z",
+  "action": "not_company",
+  "verdict": "public_sector",
+  "note": "Public body or public-sector scheme"
  },
  {
   "key": "repoint:10076940",

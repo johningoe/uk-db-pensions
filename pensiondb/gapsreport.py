@@ -41,6 +41,8 @@ ASSUMED = {
                                          "DC or gone",
     "Small charity or body": "Small charity or body; assumed too small",
     "Member of a multi-employer scheme": "Figures sit with the multi-employer scheme, not the employer",
+    "Insured policy scheme": "An insurer product or insured scheme (policy number in the name): assumed too small "
+                             "for £50m of DB assets",
 }
 
 

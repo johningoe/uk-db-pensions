@@ -4,7 +4,6 @@ psr,scheme_name,verdict,sponsor_name
 10000125,Community Staff Pension Fund,non_company_body,
 10000149,M U Pension Scheme,non_company_body,
 10000153,Dow Jones United Kingdom Pension Scheme,name,Dow Jones
-10000168,The Pilots' National Pension Fund,multi_employer,
 10000210,United Norwest Co-operatives Employees' Pension Fund,non_company_body,
 10000406,Vauxhall And Associated Companies Pension Fund,name,Vauxhall
 10000529,Teachers Assurance Group Pension Scheme,non_company_body,
@@ -54,7 +53,6 @@ psr,scheme_name,verdict,sponsor_name
 10018274,The IMarEST Retirement Benefits Scheme,non_company_body,
 10019585,B W Plan,no_usable_name,
 10019777,Pension Scheme For Administration And Technical Staff In The Arts,multi_employer,
-10020100,Universities Superannuation Scheme.,multi_employer,
 10022302,Pension And Life Assurance Plan Of Allott And Lomax,name,Allott And Lomax
 10023241,The Equitable Life Pension Scheme For The Ben Of Ees Of Score (Europe) Ltd,name,Score (Europe) Ltd
 10023401,A B C - O U K Pension And Assurance Scheme,no_usable_name,
@@ -77,7 +75,6 @@ psr,scheme_name,verdict,sponsor_name
 10037382,Videcom And Associated Companies Group Pension Scheme,name,Videcom
 10037444,MGM Assurance Staff Pension Plan,name,MGM Assurance
 10037603,The British Rubber Industry Pension Scheme And Assurance,multi_employer,
-10037754,United States Air Force Pension and Life Assurance Scheme UK,non_company_body,
 10038473,Reliance Mutual Independent Pension Scheme,product,
 10038476,Reliance Mutual Voluntary Pension Plan,product,
 10038489,The National Health Service Superannuation Scheme For Scotland,public_sector,
@@ -171,8 +168,6 @@ psr,scheme_name,verdict,sponsor_name
 10099635,The Faculty Of Advocates Retirement & Death Benefits Plan,non_company_body,
 10099689,Reliance Pension Scheme,no_usable_name,
 10100172,The Kuehne + Nagel RH Scheme,name,Kuehne + Nagel
-10100332,Commonwealth Secretariat Pension And Life Assurance Scheme (1979),non_company_body,
-10100482,The Commonwealth Telecommunications Bureau Pension And Life Assurance Scheme (1974),non_company_body,
 10100837,R W L Pension Scheme,no_usable_name,
 10101689,R R Donnelley United Kingdom Pension Scheme,name,RR Donnelley
 10103619,The NMR Pension Fund,no_usable_name,
@@ -273,7 +268,6 @@ psr,scheme_name,verdict,sponsor_name
 10167664,Windsor Life Directors Investment Programme,product,
 10167869,Canada Life UK Division Staff Pension Fund,name,Canada Life
 10169800,The ITB Pension Funds,public_sector,
-10170258,Former Registered Dock Workers Pension Fund,multi_employer,
 10170269,Sun Life Assurance Company Of Canada Employer Sponsored Plan.,name,Sun Life Assurance Company Of Canada
 10170425,Directors and Executives Retirement Plan,no_usable_name,
 10170469,Federated Flexiplan No 1,multi_employer,
@@ -462,3 +456,34 @@ psr,scheme_name,verdict,sponsor_name
 10102186,Highlands and Islands Enterprise Superannuation Scheme,public_sector,
 10088194,Home-Grown Cereals Authority Pension Plan,public_sector,
 10079135,Leicestershire Fire And Rescue Service Pension Scheme,public_sector,
+10165351,Transport For London (TFL) Pension Fund,public_sector,
+19015802,Tayside Pension Fund,public_sector,
+10135213,Principal Non-Industrial Superannuation Scheme Of The United Kingdom Atomic Energy Authority,public_sector,
+10105063,Protected Persons Superannuation Scheme Of The United Kingdom Atomic Energy Authority,public_sector,
+10027831,Northern Ireland Assembly Members Contributory Pension Fund,public_sector,
+10206448,,public_sector,
+10267679,Scottish Enterprise Pension And Life Assurance Scheme,public_sector,
+19014602,,public_sector,
+19014601,,public_sector,
+10089220,,public_sector,
+10100332,,public_sector,
+10037754,,public_sector,
+10100482,,public_sector,
+10020100,,multi_employer,
+10005645,,multi_employer,
+19003002,,multi_employer,
+10005646,,multi_employer,
+10000168,,multi_employer,
+10006269,,multi_employer,
+10007963,,multi_employer,
+10095124,,multi_employer,
+10002491,,multi_employer,
+10125215,,multi_employer,
+19004221,,multi_employer,
+19004236,,multi_employer,
+19004201,,multi_employer,
+10170258,,multi_employer,
+19001359,,multi_employer,
+19002540,,product,
+19002520,,product,
+19002501,,product,

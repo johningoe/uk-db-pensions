@@ -191,6 +191,12 @@ def _band(group, reason, fig, co, rno, evidence, acc, own, ob, assets, chk, gnam
             return "out", "No employer found, no DB evidence", "No employer found and no DB evidence"
         if reason == "Public sector":
             return "out", "Public sector (out of scope)", "Public-sector scheme (police, fire, council, NHS and similar): out of scope"
+        if reason == "Multi-employer, industry-wide or master trust":
+            return "out", "Multi-employer or industry-wide scheme", ("Multi-employer, industry-wide or master-trust "
+                                                                    "scheme or section: no single sponsor to size")
+        if reason == "Insurer product or master policy":
+            return "out", "Insured policy scheme", ("Insurer product, master policy or insured scheme (policy number "
+                                                   "in the name): assumed small")
         return "candidate", "Employer not found, DB evidence", f"Employer not found; scheme has DB evidence ({reason.lower()})"
     # the sponsor's own DB figures, covering all its schemes
     if own or (not co and (cob is not None or cassets is not None)):
