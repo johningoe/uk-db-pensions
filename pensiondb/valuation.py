@@ -17,6 +17,7 @@ Per scheme:
                  after its effective date, so the latest one may still be in progress.
 
     python run.py valuations        # table scheme_valuations, reports/valuation_dates.csv
+                                    # plus dates found by hand: pensiondb/valuation_dates_hand.csv
 """
 import csv
 import re
@@ -25,6 +26,8 @@ from datetime import date
 from . import config as C
 from . import gaps
 from .liveness import _ixbrl_text, _names_scheme, _sentences, _texts
+
+HAND = C.ROOT / "pensiondb" / "valuation_dates_hand.csv"   # psr, stated_date, next_date, source, evidence
 
 MON = ("january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november",
        "december")
@@ -160,6 +163,26 @@ def run(con, today=None):
         ev = stated or nx
         out.append((psr, stated[1].isoformat() if stated else None, nx[1].isoformat() if nx else None, level,
                     latest.isoformat(), basis, ev[3], ev[2][:500]))
+    # dates found by hand in schemes' own documents (summary funding statements, scheme websites, announcements):
+    # used where the accounts gave no date, or an earlier one
+    if HAND.exists():
+        by = {o[0]: o for o in out}
+        with open(HAND, newline="") as f:
+            hand = [(r["psr"], r["stated_date"] or None, r["next_date"] or None, r["source"], "", r["evidence"])
+                    for r in csv.DictReader(f)]
+        for psr, sd, nd, url, src, ev in hand:
+            if status.get(psr, ("",))[0] not in live:
+                continue
+            base = max([date.fromisoformat(x) for x in (sd, nd) if x and date.fromisoformat(x) <= today], default=None)
+            if not base:
+                continue
+            old = by.get(psr)
+            if old and old[1] and sd and old[1] >= sd:
+                continue
+            latest = _cycle(base, today) if base >= date(today.year - 9, 1, 1) else base
+            by[psr] = (psr, sd, nd, "scheme", latest.isoformat(), "stated" if sd and latest.isoformat() == sd else
+                       "inferred", f"scheme document: {url}", (ev or "")[:500])
+        out = list(by.values())
     con.executemany("INSERT INTO scheme_valuations VALUES (?,?,?,?,?,?,?,?)", out)
     con.commit()
     rep = C.ROOT / "reports" / "valuation_dates.csv"
