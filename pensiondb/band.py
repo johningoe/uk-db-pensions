@@ -88,6 +88,10 @@ def build(con):
                s.charity_db_obligation, s.charity_db_assets, s.charity_fy_end, s.charity_db_source, s.charity_name,
                lower(coalesce(sp.company_status, '')), coalesce(sp.db_pdf_status, '')
         FROM schemes s LEFT JOIN sponsors sp ON sp.company_number = s.sponsor_company_number""").fetchall()
+    # a sponsor that files no accounts at Companies House (royal charter body, society) and is matched to a register
+    # body: the body's figures are the scheme's, as for a sponsor-less scheme
+    rows = [(r[0], None, *r[2:]) if r[1] and r[3] and not r[7] and r[15] is None and r[16] is None
+            and _cat(r[5]) in ("no accounts filed", "dormant") else r for r in rows]
     # live DB schemes per employer and per register body: one scheme means the employer's figure is the scheme's
     per_co, per_reg = {}, {}
     for r in rows:

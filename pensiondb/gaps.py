@@ -72,7 +72,8 @@ def kind(name, review=None):
 
 
 def _no_figures(r):
-    if r["co"]:
+    # a sponsor that files no accounts at Companies House but is matched to a register body: the body's accounts
+    if r["co"] and not (r["ch"] and re.search(r"dormant|no accounts", r["acc_cat"])):
         if r["pdf"] in ("dc_only", "no_pension_note") and (r["db_check"] or "") == "flag:misread":
             return "Accounts show no DB scheme"         # a reviewer's no-DB verdict outranks the cleared figure
         if r["pdf"] == "multi_employer" and (r["db_check"] or "") == "flag:misread":
@@ -153,7 +154,7 @@ def classify(con):
             out[r["psr"]] = ("with_figures", "Sponsor's own accounts")
         elif r["co"] and r["grp"]:
             out[r["psr"]] = ("with_figures", "Parent group's accounts")
-        elif not r["co"] and r["ch_src"] and not r["ch_check"].startswith("flag"):
+        elif r["ch_src"] and not r["ch_check"].startswith("flag"):   # a register body (sponsor files no CH accounts)
             out[r["psr"]] = ("with_figures", "Charity, union or mutual accounts")
         elif r["co"] or r["ch"]:
             why = _no_figures(r)

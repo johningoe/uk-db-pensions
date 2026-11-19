@@ -18245,6 +18245,19 @@
   "note": "Mitsubishi Electric UK employer is the UK branch of Mitsubishi Electric Europe B.V. (matched by hand from the unmatched-names list)"
  },
  {
+  "key": "match:10058240",
+  "kind": "match",
+  "id": "10058240",
+  "name": "Mineworkers' Pension Scheme",
+  "schemes": [
+   "10058240"
+  ],
+  "at": "2026-11-19T19:00:00Z",
+  "action": "not_company",
+  "verdict": "public_sector",
+  "note": "Mineworkers' Pension Scheme: government-guaranteed, not PPF-eligible (web check)"
+ },
+ {
   "key": "match:10058542",
   "kind": "match",
   "id": "10058542",
@@ -22907,6 +22920,19 @@
   "note": "Public body or public-sector scheme"
  },
  {
+  "key": "match:10206479",
+  "kind": "match",
+  "id": "10206479",
+  "name": "Industry Wide Mineworkers' Pension Scheme",
+  "schemes": [
+   "10206479"
+  ],
+  "at": "2026-11-19T19:00:00Z",
+  "action": "not_company",
+  "verdict": "public_sector",
+  "note": "Industry Wide Mineworkers' Pension Scheme: government-guaranteed (British Coal), not PPF-eligible (web check)"
+ },
+ {
   "key": "match:10206561",
   "kind": "match",
   "id": "10206561",
@@ -24567,6 +24593,19 @@
   "note": "East London & Selkent buses; Stagecoach Group Limited (matched by hand from the unmatched-names list)"
  },
  {
+  "key": "match:10275683",
+  "kind": "match",
+  "id": "10275683",
+  "name": "Combined Nuclear Pension Plan",
+  "schemes": [
+   "10275683"
+  ],
+  "at": "2026-11-19T19:00:00Z",
+  "action": "not_company",
+  "verdict": "public_sector",
+  "note": "Combined Nuclear Pension Plan: Nuclear Decommissioning Authority group scheme (web check)"
+ },
+ {
   "key": "match:10275846",
   "kind": "match",
   "id": "10275846",
@@ -25234,6 +25273,149 @@
   "note": "Industry-wide, multi-employer or master-trust scheme or section"
  },
  {
+  "key": "match:19006004",
+  "kind": "match",
+  "id": "19006004",
+  "name": "Crystals and Detectors Section",
+  "schemes": [
+   "19006004"
+  ],
+  "at": "2026-11-19T19:00:00Z",
+  "action": "sponsor",
+  "company_number": "00734396",
+  "note": "Saint-Gobain UK pension scheme, Crystals and Detectors section; Saint-Gobain Construction Products UK Limited (web check)"
+ },
+ {
+  "key": "match:19006005",
+  "kind": "match",
+  "id": "19006005",
+  "name": "Flexovit Section",
+  "schemes": [
+   "19006005"
+  ],
+  "at": "2026-11-19T19:00:00Z",
+  "action": "sponsor",
+  "company_number": "00734396",
+  "note": "Saint-Gobain UK pension scheme, Flexovit section; Saint-Gobain Construction Products UK Limited (web check)"
+ },
+ {
+  "key": "match:19006006",
+  "kind": "match",
+  "id": "19006006",
+  "name": "Glass Section",
+  "schemes": [
+   "19006006"
+  ],
+  "at": "2026-11-19T19:00:00Z",
+  "action": "sponsor",
+  "company_number": "00734396",
+  "note": "Saint-Gobain UK pension scheme, Glass section; Saint-Gobain Construction Products UK Limited (web check)"
+ },
+ {
+  "key": "match:19006007",
+  "kind": "match",
+  "id": "19006007",
+  "name": "Industrial Ceramics Section",
+  "schemes": [
+   "19006007"
+  ],
+  "at": "2026-11-19T19:00:00Z",
+  "action": "sponsor",
+  "company_number": "00734396",
+  "note": "Saint-Gobain UK pension scheme, Industrial Ceramics section; Saint-Gobain Construction Products UK Limited (web check)"
+ },
+ {
+  "key": "match:19006009",
+  "kind": "match",
+  "id": "19006009",
+  "name": "Pipe Section",
+  "schemes": [
+   "19006009"
+  ],
+  "at": "2026-11-19T19:00:00Z",
+  "action": "sponsor",
+  "company_number": "00734396",
+  "note": "Saint-Gobain UK pension scheme, Pipe section; Saint-Gobain Construction Products UK Limited (web check)"
+ },
+ {
+  "key": "match:19006010",
+  "kind": "match",
+  "id": "19006010",
+  "name": "Quartz Section",
+  "schemes": [
+   "19006010"
+  ],
+  "at": "2026-11-19T19:00:00Z",
+  "action": "sponsor",
+  "company_number": "00734396",
+  "note": "Saint-Gobain UK pension scheme, Quartz section; Saint-Gobain Construction Products UK Limited (web check)"
+ },
+ {
+  "key": "match:19006011",
+  "kind": "match",
+  "id": "19006011",
+  "name": "Tygaflor Section",
+  "schemes": [
+   "19006011"
+  ],
+  "at": "2026-11-19T19:00:00Z",
+  "action": "sponsor",
+  "company_number": "00734396",
+  "note": "Saint-Gobain UK pension scheme, Tygaflor section; Saint-Gobain Construction Products UK Limited (web check)"
+ },
+ {
+  "key": "match:19006013",
+  "kind": "match",
+  "id": "19006013",
+  "name": "BPB Senior Executive Section",
+  "schemes": [
+   "19006013"
+  ],
+  "at": "2026-11-19T19:00:00Z",
+  "action": "sponsor",
+  "company_number": "00734396",
+  "note": "Saint-Gobain UK pension scheme, BPB Senior Executive section; Saint-Gobain Construction Products UK Limited (web check)"
+ },
+ {
+  "key": "match:19006301",
+  "kind": "match",
+  "id": "19006301",
+  "name": "Atlas Section",
+  "schemes": [
+   "19006301"
+  ],
+  "at": "2026-11-19T19:00:00Z",
+  "action": "sponsor",
+  "company_number": "NI006669",
+  "note": "Terex pension scheme, Atlas section; Terex GB Limited (web check)"
+ },
+ {
+  "key": "match:19006302",
+  "kind": "match",
+  "id": "19006302",
+  "name": "Fermec Section",
+  "schemes": [
+   "19006302"
+  ],
+  "at": "2026-11-19T19:00:00Z",
+  "action": "sponsor",
+  "company_number": "NI006669",
+  "note": "Terex pension scheme, Fermec section; Terex GB Limited (web check)"
+ },
+ {
+  "key": "match:19006304",
+  "kind": "match",
+  "id": "19006304",
+  "name": "Terex Section",
+  "schemes": [
+   "19006304"
+  ],
+  "at": "2026-11-19T19:00:00Z",
+  "action": "sponsor",
+  "company_number": "NI006669",
+  "note": "Terex pension scheme, Terex section; Terex GB Limited (web check)"
+ },
+ {
   "key": "match:19007602",
   "kind": "match",
   "id": "19007602",
@@ -25260,6 +25442,19 @@
   "note": "Sections of the ThyssenKrupp UK plan"
  },
  {
+  "key": "match:19007802",
+  "kind": "match",
+  "id": "19007802",
+  "name": "Hill & Smith Executive Pension Scheme (2006 Section)",
+  "schemes": [
+   "19007802"
+  ],
+  "at": "2026-11-19T19:00:00Z",
+  "action": "sponsor",
+  "company_number": "00671474",
+  "note": "Hill & Smith Executive Pension Scheme (2006 section); Hill & Smith PLC (web check)"
+ },
+ {
   "key": "match:19007901",
   "kind": "match",
   "id": "19007901",
@@ -25271,6 +25466,201 @@
   "action": "sponsor",
   "company_number": "00944342",
   "note": "MiTek section of the MiTek UK plan"
+ },
+ {
+  "key": "match:19008001",
+  "kind": "match",
+  "id": "19008001",
+  "name": "WHSmith Pension Trust Retail Section",
+  "schemes": [
+   "19008001"
+  ],
+  "at": "2026-11-19T19:00:00Z",
+  "action": "sponsor",
+  "company_number": "05202036",
+  "note": "WHSmith Pension Trust, Retail section; WH Smith PLC (web check)"
+ },
+ {
+  "key": "match:19008002",
+  "kind": "match",
+  "id": "19008002",
+  "name": "WHSmith Pension Trust News Section",
+  "schemes": [
+   "19008002"
+  ],
+  "at": "2026-11-19T19:00:00Z",
+  "action": "sponsor",
+  "company_number": "05202036",
+  "note": "WHSmith Pension Trust, News section; WH Smith PLC (web check)"
+ },
+ {
+  "key": "match:19009001",
+  "kind": "match",
+  "id": "19009001",
+  "name": "BHP Billiton BHP Section",
+  "schemes": [
+   "19009001"
+  ],
+  "at": "2026-11-19T19:00:00Z",
+  "action": "sponsor",
+  "company_number": "03196209",
+  "note": "BHP Billiton pension scheme, BHP section; BHP Group (UK) Ltd (web check)"
+ },
+ {
+  "key": "match:19009002",
+  "kind": "match",
+  "id": "19009002",
+  "name": "BHP Billiton LPF Section",
+  "schemes": [
+   "19009002"
+  ],
+  "at": "2026-11-19T19:00:00Z",
+  "action": "sponsor",
+  "company_number": "03196209",
+  "note": "BHP Billiton pension scheme, LPF section; BHP Group (UK) Ltd (web check)"
+ },
+ {
+  "key": "match:19009302",
+  "kind": "match",
+  "id": "19009302",
+  "name": "The Tyco UK Group Pension Scheme - Strip Section",
+  "schemes": [
+   "19009302"
+  ],
+  "at": "2026-11-19T19:00:00Z",
+  "action": "sponsor",
+  "company_number": "02504868",
+  "note": "Tyco UK Group Pension Scheme, Strip section; Tyco Holdings (U.K.) Limited (web check)"
+ },
+ {
+  "key": "match:19009303",
+  "kind": "match",
+  "id": "19009303",
+  "name": "The Tyco UK Group Pension Scheme - Tube Section",
+  "schemes": [
+   "19009303"
+  ],
+  "at": "2026-11-19T19:00:00Z",
+  "action": "sponsor",
+  "company_number": "02504868",
+  "note": "Tyco UK Group Pension Scheme, Tube section; Tyco Holdings (U.K.) Limited (web check)"
+ },
+ {
+  "key": "match:19009402",
+  "kind": "match",
+  "id": "19009402",
+  "name": "MAN UK Group Pension Scheme - MAN Section",
+  "schemes": [
+   "19009402"
+  ],
+  "at": "2026-11-19T19:00:00Z",
+  "action": "sponsor",
+  "company_number": "02688514",
+  "note": "MAN UK Group Pension Scheme, MAN section; MAN Truck and Bus UK Limited (web check)"
+ },
+ {
+  "key": "match:19009801",
+  "kind": "match",
+  "id": "19009801",
+  "name": "The MDHC Salaried Officers Section",
+  "schemes": [
+   "19009801"
+  ],
+  "at": "2026-11-19T19:00:00Z",
+  "action": "sponsor",
+  "company_number": "05965116",
+  "note": "MDHC (Mersey Docks) salaried officers section; Peel Ports Group Limited (web check)"
+ },
+ {
+  "key": "match:19009802",
+  "kind": "match",
+  "id": "19009802",
+  "name": "The MDHC Weekly Staff Section",
+  "schemes": [
+   "19009802"
+  ],
+  "at": "2026-11-19T19:00:00Z",
+  "action": "sponsor",
+  "company_number": "05965116",
+  "note": "MDHC (Mersey Docks) weekly staff section; Peel Ports Group Limited (web check)"
+ },
+ {
+  "key": "match:19009804",
+  "kind": "match",
+  "id": "19009804",
+  "name": "The Manchester Ship Canal Section",
+  "schemes": [
+   "19009804"
+  ],
+  "at": "2026-11-19T19:00:00Z",
+  "action": "sponsor",
+  "company_number": "05965116",
+  "note": "Manchester Ship Canal section; Peel Ports Group Limited (web check)"
+ },
+ {
+  "key": "match:19011201",
+  "kind": "match",
+  "id": "19011201",
+  "name": "Zurich Financial Services UK Pension Scheme: ZPen Section",
+  "schemes": [
+   "19011201"
+  ],
+  "at": "2026-11-19T19:00:00Z",
+  "action": "sponsor",
+  "company_number": "00243883",
+  "note": "Zurich Financial Services UK Pension Scheme, ZPen section; Zurich Employment Services Limited (web check)"
+ },
+ {
+  "key": "match:19011202",
+  "kind": "match",
+  "id": "19011202",
+  "name": "Zurich Financial Services UK Pension Scheme: ES Executives' Section",
+  "schemes": [
+   "19011202"
+  ],
+  "at": "2026-11-19T19:00:00Z",
+  "action": "sponsor",
+  "company_number": "00243883",
+  "note": "Zurich Financial Services UK Pension Scheme, ES Executives' section; Zurich Employment Services Limited (web check)"
+ },
+ {
+  "key": "match:19012601",
+  "kind": "match",
+  "id": "19012601",
+  "name": "The NTL Broadcast Sub-fund Section",
+  "schemes": [
+   "19012601"
+  ],
+  "at": "2026-11-19T19:00:00Z",
+  "action": "sponsor",
+  "company_number": "02487597",
+  "note": "NTL Broadcast sub-fund (Arqiva pension scheme); Arqiva Limited (web check)"
+ },
+ {
+  "key": "match:19012602",
+  "kind": "match",
+  "id": "19012602",
+  "name": "The NGW Sub-fund Section",
+  "schemes": [
+   "19012602"
+  ],
+  "at": "2026-11-19T19:00:00Z",
+  "action": "sponsor",
+  "company_number": "02487597",
+  "note": "NGW (National Grid Wireless) sub-fund (Arqiva pension scheme); Arqiva Limited (web check)"
+ },
+ {
+  "key": "match:19012603",
+  "kind": "match",
+  "id": "19012603",
+  "name": "The NGUK/ESPS Sub-fund Section",
+  "schemes": [
+   "19012603"
+  ],
+  "at": "2026-11-19T19:00:00Z",
+  "action": "sponsor",
+  "company_number": "02487597",
+  "note": "NGUK/ESPS sub-fund (Arqiva pension scheme); Arqiva Limited (web check)"
  },
  {
   "key": "match:19012801",
@@ -25297,6 +25687,19 @@
   "action": "sponsor",
   "company_number": "03281294",
   "note": "Procter & Gamble Technical Centres Limited carries The Procter & Gamble Fund"
+ },
+ {
+  "key": "match:19014002",
+  "kind": "match",
+  "id": "19014002",
+  "name": "The TI Automotive UK Pension Scheme - The Deeside Section",
+  "schemes": [
+   "19014002"
+  ],
+  "at": "2026-11-19T19:00:00Z",
+  "action": "sponsor",
+  "company_number": "04097913",
+  "note": "TI Automotive UK Pension Scheme, Deeside section; TI Automotive Limited (web check)"
  },
  {
   "key": "match:19014302",
@@ -25349,6 +25752,19 @@
   "note": "Public body or public-sector scheme"
  },
  {
+  "key": "match:19014801",
+  "kind": "match",
+  "id": "19014801",
+  "name": "The Greif UK Pension Scheme - Works Section",
+  "schemes": [
+   "19014801"
+  ],
+  "at": "2026-11-19T19:00:00Z",
+  "action": "sponsor",
+  "company_number": "06633687",
+  "note": "Greif UK Pension Scheme, Works section; Greif UK Ltd (web check)"
+ },
+ {
   "key": "match:19015202",
   "kind": "match",
   "id": "19015202",
@@ -25386,6 +25802,110 @@
   "action": "not_company",
   "verdict": "public_sector",
   "note": "Public body or public-sector scheme"
+ },
+ {
+  "key": "match:19016102",
+  "kind": "match",
+  "id": "19016102",
+  "name": "Aon Alexander & Alexander UK Pension Scheme Section",
+  "schemes": [
+   "19016102"
+  ],
+  "at": "2026-11-19T19:00:00Z",
+  "action": "sponsor",
+  "company_number": "00210725",
+  "note": "Aon Alexander & Alexander UK Pension Scheme section; Aon UK Limited (web check)"
+ },
+ {
+  "key": "match:19016103",
+  "kind": "match",
+  "id": "19016103",
+  "name": "Aon Bain Hogg Pension Scheme Section",
+  "schemes": [
+   "19016103"
+  ],
+  "at": "2026-11-19T19:00:00Z",
+  "action": "sponsor",
+  "company_number": "00210725",
+  "note": "Aon Bain Hogg Pension Scheme section; Aon UK Limited (web check)"
+ },
+ {
+  "key": "match:19016602",
+  "kind": "match",
+  "id": "19016602",
+  "name": "Lloyds Bank Pension Scheme No. 1 (PIP Section)",
+  "schemes": [
+   "19016602"
+  ],
+  "at": "2026-11-19T19:00:00Z",
+  "action": "sponsor",
+  "company_number": "00002065",
+  "note": "Lloyds Bank Pension Scheme No. 1, PIP section; Lloyds Bank plc (web check)"
+ },
+ {
+  "key": "match:19017002",
+  "kind": "match",
+  "id": "19017002",
+  "name": "ISS Platinum Pension Plan- Bali (Mitchell & Struthers) Section",
+  "schemes": [
+   "19017002"
+  ],
+  "at": "2026-11-19T19:00:00Z",
+  "action": "sponsor",
+  "company_number": "00463951",
+  "note": "ISS Platinum Pension Plan section; ISS UK Limited (web check)"
+ },
+ {
+  "key": "match:19017004",
+  "kind": "match",
+  "id": "19017004",
+  "name": "ISS Platinum Pension Plan- Pegasus Section",
+  "schemes": [
+   "19017004"
+  ],
+  "at": "2026-11-19T19:00:00Z",
+  "action": "sponsor",
+  "company_number": "00463951",
+  "note": "ISS Platinum Pension Plan section; ISS UK Limited (web check)"
+ },
+ {
+  "key": "match:19017005",
+  "kind": "match",
+  "id": "19017005",
+  "name": "ISS Platinum Pension Plan- Bali (Waterers Landscape) Section",
+  "schemes": [
+   "19017005"
+  ],
+  "at": "2026-11-19T19:00:00Z",
+  "action": "sponsor",
+  "company_number": "00463951",
+  "note": "ISS Platinum Pension Plan section; ISS UK Limited (web check)"
+ },
+ {
+  "key": "match:19017006",
+  "kind": "match",
+  "id": "19017006",
+  "name": "ISS Platinum Pension Plan - Transferred Section",
+  "schemes": [
+   "19017006"
+  ],
+  "at": "2026-11-19T19:00:00Z",
+  "action": "sponsor",
+  "company_number": "00463951",
+  "note": "ISS Platinum Pension Plan section; ISS UK Limited (web check)"
+ },
+ {
+  "key": "match:19018202",
+  "kind": "match",
+  "id": "19018202",
+  "name": "CWW Section",
+  "schemes": [
+   "19018202"
+  ],
+  "at": "2026-11-19T19:00:00Z",
+  "action": "sponsor",
+  "company_number": "01471587",
+  "note": "CWW section (Cable & Wireless Worldwide, now Vodafone); Vodafone Limited (web check)"
  },
  {
   "key": "repoint:10076940",

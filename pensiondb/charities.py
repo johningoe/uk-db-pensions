@@ -41,6 +41,10 @@ FILES = {
 }
 PC_RE = re.compile(r"\b([A-Z]{1,2}\d[A-Z\d]?)\s*(\d[A-Z]{2})\b")
 FUZZY = 92
+# SQL on sponsors (alias sp): a Companies House sponsor that files no accounts there (royal charter bodies, societies,
+# dormant companies) and has no DB figure of its own or from a parent, so a register body's accounts may hold it
+NO_CH_ACCOUNTS = ("lower(coalesce(sp.accounts_category, '')) IN ('no accounts filed', 'dormant') "
+                  "AND sp.db_period_end IS NULL AND sp.group_db_company_number IS NULL")
 
 
 def download():
@@ -199,15 +203,27 @@ def match(con):
     for rows in blocks.values():
         for r in rows:
             exact.setdefault(r[3], []).append(r)
-    schemes = con.execute("""SELECT psr, scheme_name, post_code, sponsor_name_derived FROM schemes
-                             WHERE sponsor_company_number IS NULL""").fetchall()
+    # also schemes whose Companies House sponsor files no accounts there and has no figure from a parent: royal
+    # charter bodies, registered societies and the like, whose accounts go to a charity regulator or the FCA
+    schemes = con.execute(f"""SELECT s.psr, s.scheme_name, s.post_code, s.sponsor_name_derived, sp.company_number,
+                                     sp.company_name
+                              FROM schemes s LEFT JOIN sponsors sp ON sp.company_number = s.sponsor_company_number
+                              WHERE s.sponsor_company_number IS NULL OR ({NO_CH_ACCOUNTS})""").fetchall()
     decided = _decisions()
     out = []
-    for psr, sname, spc, derived in schemes:
+    for psr, sname, spc, derived, co, co_name in schemes:
         spc = _pc(spc)
         best = None
-        # the corrected sponsor name (sponsornames) last, so it only adds matches: "RNIB Retirement Benefits Scheme"
-        cands = list(dict.fromkeys([*sponsor_candidates(sname), *([derived] if derived else [])]))
+        by_number = co and con.execute("""SELECT * FROM charity_register WHERE company_number = ? AND active = 1
+                                          ORDER BY income DESC LIMIT 1""", (co,)).fetchone()
+        if by_number:
+            best = (co_name, by_number, "company_number", 100.0, spc == by_number[8], 1, True, 0.97)
+        # the corrected sponsor name (sponsornames) last, so it only adds matches: "RNIB Retirement Benefits Scheme";
+        # a Companies House sponsor's own name first
+        cands = list(dict.fromkeys([*([co_name] if co_name else []), *sponsor_candidates(sname),
+                                    *([derived] if derived else [])]))
+        if best:
+            cands = []
         for cand in cands:
             for key in sorted(_keys(cand), key=len, reverse=True):
                 if len(key) < 4 or key in ("SCHEME", "FUND", "STAFF"):
