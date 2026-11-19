@@ -15,6 +15,7 @@
     python run.py review-import --file F      # apply decisions exported from the review page
     python run.py full-filers                 # read untagged DB notes of full/group/medium iXBRL filers
     python run.py api-second-pass             # dissolved / former names / same-postcode search for unmatched
+    python run.py late-formed                 # reject name-only matches to companies formed long after an old-registry scheme
     python run.py api-third-pass              # unmatched + reviewer-rejected: better name cleaning, same-postcode subset
     python run.py accounts-text-match         # unmatched schemes named in a company's saved accounts
     python run.py bulk-scan --limit 12        # search 12 months of everyone's iXBRL accounts for unmatched scheme names
@@ -40,7 +41,7 @@ from pensiondb import accounts, band, gapsreport, liveness, charities, chapi, ch
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("step", choices=["all", "seed", "flags", "match", "api", "postcode", "review", "accounts", "reparse", "status", "summary",
+    ap.add_argument("step", choices=["all", "late-formed", "seed", "flags", "match", "api", "postcode", "review", "accounts", "reparse", "status", "summary",
                                      "sip-pilot", "pdf-pilot", "pdf-accounts", "parents", "parent-accounts", "pdf-reextract", "cloud-export", "cloud-import", "cloud-progress", "check",
                                      "charities-download", "charities", "charity-accounts", "api-second-pass", "full-filers",
                                      "api-third-pass", "accounts-text-match", "long-reports", "confirm-sponsors", "district-match", "sponsor-names", "bulk-scan", "web", "band", "liveness",
@@ -144,6 +145,9 @@ def main():
             print(f"Sponsor switches: {review.apply_decisions(con)}")
             sponsornames.apply(con)
             print("Now run: run.py status, then run.py web and run.py review-page")
+        elif step == "late-formed":
+            n, applied = review.reject_late_formed(con)
+            print(f"Late-formed name matches rejected: {n:,} (applied: {applied})")
         elif step == "bulk-scan":
             from pensiondb import bulkscan
             found = bulkscan.run(con, limit=a.limit or 12)

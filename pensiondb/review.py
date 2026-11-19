@@ -7,6 +7,7 @@ scheme still points at the company the decision was made about. Sources, stronge
   rule:*   - the corroboration and plausibility rules below
 """
 import csv
+import re
 import sqlite3
 
 from . import config as C
@@ -187,6 +188,40 @@ def apply_decisions(con):
                 "(SELECT sponsor_company_number FROM schemes WHERE sponsor_company_number IS NOT NULL)")
     con.commit()
     return n
+
+
+NAME_ONLY = ("exact", "exact_core", "exact_variant", "fuzzy", "api_exact", "api_exact_any", "district_word", "bulk_scan")
+
+
+def reject_late_formed(con):
+    """Reject name-only matches to companies formed long after the scheme.
+
+    A scheme on the old Pension Schemes Registry (PSR 10xxxxxx, registered before about 2005) matched by name alone
+    to a company incorporated in 2010 or later, which has no DB figures of its own or from a parent and files small,
+    micro, dormant or no accounts, is almost always a new company that reused an old name: the scheme's employer is
+    the earlier company, usually long dissolved. New companies filing full or group accounts are left alone (often a
+    genuine new UK entity of the same group). Writes reject decisions (method rule:late_formed) and applies them."""
+    init(con)
+    rows = con.execute(f"""
+        SELECT s.psr, sp.company_number, sp.company_name, sp.incorporation_date, sp.accounts_category
+        FROM schemes s JOIN sponsors sp ON sp.company_number = s.sponsor_company_number
+        WHERE s.psr LIKE '10%' AND s.likely_live = 1
+          AND s.match_method IN ({",".join("?" * len(NAME_ONLY))})
+          AND s.psr NOT IN (SELECT psr FROM review_decisions)
+          AND sp.db_period_end IS NULL AND sp.group_db_company_number IS NULL
+          AND upper(coalesce(sp.accounts_category, '')) NOT IN ('FULL', 'GROUP')""", NAME_ONLY).fetchall()
+    new = []
+    for psr, co, name, inc, acc in rows:
+        m = re.search(r"(?:19|20)\d\d", inc or "")
+        if m and int(m.group()) >= 2010:
+            new.append((psr, co, "reject", None, "rule:late_formed",
+                        f"{name} was incorporated in {m.group()}, long after this old-registry scheme; matched on "
+                        f"name only, with {(acc or 'no').lower()} accounts and no DB figures: a later company reusing "
+                        f"the name, not the scheme's employer"))
+    con.executemany("""INSERT INTO review_decisions (psr, reviewed_company, decision, new_company_number, method, reason)
+                       VALUES (?,?,?,?,?,?)""", new)
+    con.commit()
+    return len(new), apply_decisions(con)
 
 
 def export_ai_queue(con, path=AI_QUEUE, priority_only=True):

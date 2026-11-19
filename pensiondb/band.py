@@ -37,7 +37,7 @@ APPROX_RATE = {"USD": 1.35, "EUR": 1.17, "AUD": 2.05, "GBP": 1.0}
 BAND_REVIEW = Path(__file__).with_name("sponsor_band_review.csv")   # company_number (or body:<id> for a body in handcheck.BODIES), band (in/out/candidate), note: a verdict read from the accounts where no sterling figure could be entered
 LIVE_CHECKED = Path(__file__).with_name("live_checked.csv")   # psr, verdict (live), note: a liveness lead reviewed and set aside
 FIELDS = ["psr", "scheme_name", "period_end", "obligation_m", "assets_m", "source", "note"]
-LIVE = ("with_figures", "no_figures", "no_figure_due")
+LIVE = ("with_figures", "no_figures", "no_figure_due", "not_public")
 OVERSEAS = {"FC", "BR", "OE"}    # Companies House prefixes for overseas companies and their UK establishments
 SMALL = {"total exemption full", "total exemption small", "small", "micro entity", "dormant", "no accounts filed",
          "unaudited abridged", "audited abridged", "filing exemption subsidiary", "partial exemption"}

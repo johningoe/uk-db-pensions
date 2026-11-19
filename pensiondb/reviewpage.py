@@ -103,7 +103,7 @@ def queue(con):
     # sponsors with no usable figure: unreadable notes, failed checks, dissolved or insolvent
     for r in rows:
         g, reason, co = r[i["group"]], r[i["reason"]], r[i["co"]]
-        if g not in ("no_figures", "no_figure_due") or not co:
+        if g not in ("no_figures", "no_figure_due", "not_public") or not co:
             continue
         if reason.startswith(("Accounts mention", "Figure found")):
             kind, key = "unread", f"unread:{co}"

@@ -7,6 +7,9 @@ classify(con) returns {psr: (group, reason)} for every scheme:
   no_figure_due    live DB/hybrid scheme, employer identified, but no figure of its own is there to find: the sponsor
                    is dissolved or insolvent, its accounts show no DB scheme, or it is one member of a multi-employer
                    scheme
+  not_public       live DB/hybrid scheme, employer identified, but it files small, micro, dormant or no accounts, which
+                   need no pension note: the figures exist only in the scheme's own report and its regulator returns,
+                   neither of them public
   not_identified   live DB/hybrid scheme with no employer found (reason: the kind of scheme, read from its name)
   dc               live scheme whose name says defined contribution (outside the database's scope)
   not_live         wound up, transferred to the PPF or FAS, or the sponsor is gone
@@ -20,6 +23,7 @@ GROUPS = {
     "with_figures": "Employer identified, with figures",
     "no_figures": "Employer identified, no figures",
     "no_figure_due": "Employer identified, no figure to find",
+    "not_public": "Employer identified, figure not public",
     "not_identified": "Employer not identified",
     "dc": "DC scheme (out of scope)",
     "not_live": "Not live",
@@ -56,6 +60,9 @@ REVIEW = {"public_sector": "Public sector", "product": "Insurer product or maste
 NOT_FOUND = "Company or brand named, not found"
 NONE_DUE = ("Sponsor dissolved, in liquidation or in administration", "Accounts show no DB scheme",
             "Member of a multi-employer scheme (no figure of its own)")
+OVERSEAS_CO = "Overseas company: its filing gives no UK scheme figure"
+NO_FILING_CO = "Unlimited company or partnership: files no accounts"
+NOT_PUBLIC = ("Small-company accounts (no pension note)", "Sponsor dormant or files no accounts", OVERSEAS_CO, NO_FILING_CO)
 
 
 def kind(name, review=None):
@@ -70,6 +77,10 @@ def _no_figures(r):
             return "Accounts show no DB scheme"         # a reviewer's no-DB verdict outranks the cleared figure
         if r["pdf"] == "multi_employer" and (r["db_check"] or "") == "flag:misread":
             return "Member of a multi-employer scheme (no figure of its own)"
+        if r["co"][:2] in ("FC", "BR", "OE") and r["pdf"] not in ("dc_only", "no_pension_note", "multi_employer"):
+            return OVERSEAS_CO                          # a UK branch files the foreign parent's accounts, if any
+        if re.search(r"unlimited|partnership", r["co_cat"]) and "liability" not in r["co_cat"] and not r["pdf"]:
+            return NO_FILING_CO
         if (r["db_check"] or "").startswith("flag"):
             return "Figure found but failed the checks"
         if re.search(r"dissolved|liquidation|administration|closed|receiver|insolven", r["co_status"]):
@@ -125,6 +136,7 @@ def classify(con):
                sp.db_period_end IS NOT NULL AND coalesce(sp.db_check, 'ok') NOT LIKE 'flag%' own,
                sp.group_db_company_number IS NOT NULL grp, sp.db_check, lower(coalesce(sp.company_status, '')) co_status,
                coalesce(sp.db_pdf_status, '') pdf, lower(coalesce(sp.accounts_category, '')) acc_cat,
+               lower(coalesce(sp.company_category, '')) co_cat,
                (SELECT status FROM charity_accounts a WHERE a.source = s.charity_source AND a.number = s.charity_number)
                    ch_status
            FROM schemes s LEFT JOIN sponsors sp ON sp.company_number = s.sponsor_company_number"""
@@ -145,7 +157,8 @@ def classify(con):
             out[r["psr"]] = ("with_figures", "Charity, union or mutual accounts")
         elif r["co"] or r["ch"]:
             why = _no_figures(r)
-            out[r["psr"]] = ("no_figure_due" if why in NONE_DUE else "no_figures", why)
+            out[r["psr"]] = ("no_figure_due" if why in NONE_DUE else "not_public" if why in NOT_PUBLIC
+                             else "no_figures", why)
         else:
             out[r["psr"]] = ("not_identified", kind(r["scheme_name"], r["review"]))
     return out
