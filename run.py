@@ -15,6 +15,8 @@
     python run.py review-import --file F      # apply decisions exported from the review page
     python run.py full-filers                 # read untagged DB notes of full/group/medium iXBRL filers
     python run.py api-second-pass             # dissolved / former names / same-postcode search for unmatched
+    python run.py db-scan --limit 12          # every iXBRL filer reporting DB figures (finds sponsors we lack)
+    python run.py db-scan-report              # DB filers of £50m+ that are not a sponsor or parent -> reports/
     python run.py late-formed                 # reject name-only matches to companies formed long after an old-registry scheme
     python run.py api-third-pass              # unmatched + reviewer-rejected: better name cleaning, same-postcode subset
     python run.py accounts-text-match         # unmatched schemes named in a company's saved accounts
@@ -41,7 +43,7 @@ from pensiondb import accounts, band, gapsreport, liveness, charities, chapi, ch
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("step", choices=["all", "late-formed", "seed", "flags", "match", "api", "postcode", "review", "accounts", "reparse", "status", "summary",
+    ap.add_argument("step", choices=["all", "late-formed", "db-scan", "db-scan-report", "seed", "flags", "match", "api", "postcode", "review", "accounts", "reparse", "status", "summary",
                                      "sip-pilot", "pdf-pilot", "pdf-accounts", "parents", "parent-accounts", "pdf-reextract", "cloud-export", "cloud-import", "cloud-progress", "check",
                                      "charities-download", "charities", "charity-accounts", "api-second-pass", "full-filers",
                                      "api-third-pass", "accounts-text-match", "long-reports", "confirm-sponsors", "district-match", "sponsor-names", "bulk-scan", "web", "band", "liveness",
@@ -145,6 +147,13 @@ def main():
             print(f"Sponsor switches: {review.apply_decisions(con)}")
             sponsornames.apply(con)
             print("Now run: run.py status, then run.py web and run.py review-page")
+        elif step == "db-scan":
+            from pensiondb import dbscan
+            found = dbscan.run(limit=a.limit or 12)
+            print(f"Companies with DB figures in their iXBRL accounts: {len(found):,}")
+        elif step == "db-scan-report":
+            from pensiondb import dbscan
+            print(f"DB filers not in the database: {dbscan.report(con)} -> reports/db_filers_not_in_db.csv")
         elif step == "late-formed":
             n, applied = review.reject_late_formed(con)
             print(f"Late-formed name matches rejected: {n:,} (applied: {applied})")

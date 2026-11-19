@@ -15870,6 +15870,19 @@
   "note": "Read from the page image (page 30): Buy-in with L&G 2022 then buy-out; liabilities nil at May 2025 with a small surplus"
  },
  {
+  "key": "match:10000041",
+  "kind": "match",
+  "id": "10000041",
+  "name": "Tssa Staff Pension Scheme",
+  "schemes": [
+   "10000041"
+  ],
+  "at": "2026-11-19T19:00:00Z",
+  "action": "not_company",
+  "verdict": "non_company_body",
+  "note": "TSSA staff scheme; trade union (web check)"
+ },
+ {
   "key": "match:10000042",
   "kind": "match",
   "id": "10000042",
@@ -15971,6 +15984,19 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10000397",
+  "kind": "match",
+  "id": "10000397",
+  "name": "Volkswagen Group Pension Scheme",
+  "schemes": [
+   "10000397"
+  ],
+  "at": "2026-11-19T16:00:00Z",
+  "action": "sponsor",
+  "company_number": "00514809",
+  "note": "Volkswagen Group United Kingdom Limited (matched by hand from the unmatched-names list)"
+ },
+ {
   "key": "match:10000429",
   "kind": "match",
   "id": "10000429",
@@ -16067,6 +16093,19 @@
   "at": "2026-11-16T20:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10001374",
+  "kind": "match",
+  "id": "10001374",
+  "name": "The St Modwen Pension Scheme",
+  "schemes": [
+   "10001374"
+  ],
+  "at": "2026-11-19T16:00:00Z",
+  "action": "sponsor",
+  "company_number": "00349201",
+  "note": "St Modwen Properties, renamed Brighton STM Properties Limited (matched by hand from the unmatched-names list)"
  },
  {
   "key": "match:10001575",
@@ -16325,9 +16364,10 @@
   "schemes": [
    "10004991"
   ],
-  "at": "2026-11-16T22:00:00Z",
-  "action": "skip",
-  "note": "Employer not identified with confidence"
+  "at": "2026-11-19T16:00:00Z",
+  "action": "sponsor",
+  "company_number": "01431036",
+  "note": "Cendant Relocation became Cartus; employer Cartus Limited (matched by hand from the unmatched-names list)"
  },
  {
   "key": "match:10005022",
@@ -16355,6 +16395,45 @@
   "note": "J.P. Morgan (Morgan Grenfell / Robert Fleming schemes); trustee J.P. Morgan Pension Trustees Limited"
  },
  {
+  "key": "match:10005485",
+  "kind": "match",
+  "id": "10005485",
+  "name": "The Oki Pension Scheme",
+  "schemes": [
+   "10005485"
+  ],
+  "at": "2026-11-19T16:00:00Z",
+  "action": "sponsor",
+  "company_number": "02203086",
+  "note": "OKI Europe Limited (matched by hand from the unmatched-names list)"
+ },
+ {
+  "key": "match:10005565",
+  "kind": "match",
+  "id": "10005565",
+  "name": "Riverside Group Pension Scheme",
+  "schemes": [
+   "10005565"
+  ],
+  "at": "2026-11-19T19:00:00Z",
+  "action": "not_company",
+  "verdict": "non_company_body",
+  "note": "Riverside Group; housing association (registered society) (web check)"
+ },
+ {
+  "key": "match:10005571",
+  "kind": "match",
+  "id": "10005571",
+  "name": "Voith Engineering Limited Pension And Life Assurance Plan (1971)",
+  "schemes": [
+   "10005571"
+  ],
+  "at": "2026-11-19T16:00:00Z",
+  "action": "sponsor",
+  "company_number": "00110875",
+  "note": "Voith Engineering; Voith Paper Limited (matched by hand from the unmatched-names list)"
+ },
+ {
   "key": "match:10005572",
   "kind": "match",
   "id": "10005572",
@@ -16362,9 +16441,10 @@
   "schemes": [
    "10005572"
   ],
-  "at": "2026-11-16T22:00:00Z",
-  "action": "skip",
-  "note": "Employer not identified with confidence"
+  "at": "2026-11-19T16:00:00Z",
+  "action": "sponsor",
+  "company_number": "00139651",
+  "note": "Canadian Pacific (UK) Limited (matched by hand from the unmatched-names list)"
  },
  {
   "key": "match:10005645",
@@ -16541,6 +16621,19 @@
   "note": "Industry-wide, multi-employer or master-trust scheme or section"
  },
  {
+  "key": "match:10007978",
+  "kind": "match",
+  "id": "10007978",
+  "name": "Panasonic UK Pension Plan",
+  "schemes": [
+   "10007978"
+  ],
+  "at": "2026-11-19T16:00:00Z",
+  "action": "sponsor",
+  "company_number": "FC030039",
+  "note": "Panasonic UK Pension Plan; Panasonic UK, branch of Panasonic Marketing Europe GmbH (matched by hand from the unmatched-names list)"
+ },
+ {
   "key": "match:10007995",
   "kind": "match",
   "id": "10007995",
@@ -16579,6 +16672,19 @@
   "note": "MUFG Bank: Bank of Tokyo-Mitsubishi UFJ, Mitsubishi Bank and UFJ (Tokai) schemes"
  },
  {
+  "key": "match:10008211",
+  "kind": "match",
+  "id": "10008211",
+  "name": "The Mars Associates' Retirement Plan",
+  "schemes": [
+   "10008211"
+  ],
+  "at": "2026-11-19T19:00:00Z",
+  "action": "sponsor",
+  "company_number": "06649982",
+  "note": "Mars Associates' Retirement Plan; employer sponsors are the Mars UK operating companies, principal Mars Wrigley Confectionery UK Limited (web check)"
+ },
+ {
   "key": "match:10008266",
   "kind": "match",
   "id": "10008266",
@@ -16613,6 +16719,19 @@
   "at": "2026-11-16T21:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10008652",
+  "kind": "match",
+  "id": "10008652",
+  "name": "The Law Debenture Pension Plan",
+  "schemes": [
+   "10008652"
+  ],
+  "at": "2026-11-19T16:00:00Z",
+  "action": "sponsor",
+  "company_number": "00030397",
+  "note": "The Law Debenture Corporation p.l.c. (matched by hand from the unmatched-names list)"
  },
  {
   "key": "match:10008938",
@@ -16703,6 +16822,32 @@
   "note": "Trustee company Thatcham Pension Trustees Limited dissolved 2022-06-07"
  },
  {
+  "key": "match:10011400",
+  "kind": "match",
+  "id": "10011400",
+  "name": "Wesleyan Staff Pension Scheme",
+  "schemes": [
+   "10011400"
+  ],
+  "at": "2026-11-19T16:00:00Z",
+  "action": "sponsor",
+  "company_number": "ZC000145",
+  "note": "Wesleyan Assurance Society (matched by hand from the unmatched-names list)"
+ },
+ {
+  "key": "match:10011750",
+  "kind": "match",
+  "id": "10011750",
+  "name": "Northern Lighthouse Pension Scheme",
+  "schemes": [
+   "10011750"
+  ],
+  "at": "2026-11-19T19:00:00Z",
+  "action": "not_company",
+  "verdict": "public_sector",
+  "note": "Northern Lighthouse Board is a statutory body (web check)"
+ },
+ {
   "key": "match:10011794",
   "kind": "match",
   "id": "10011794",
@@ -16737,6 +16882,19 @@
   "at": "2026-11-16T21:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10012038",
+  "kind": "match",
+  "id": "10012038",
+  "name": "The NYK Line Pension Scheme",
+  "schemes": [
+   "10012038"
+  ],
+  "at": "2026-11-19T16:00:00Z",
+  "action": "sponsor",
+  "company_number": "03452566",
+  "note": "NYK Line; NYK Group Europe Limited (matched by hand from the unmatched-names list)"
  },
  {
   "key": "match:10012440",
@@ -17013,6 +17171,19 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10017325",
+  "kind": "match",
+  "id": "10017325",
+  "name": "Wyeth Group Pension And Life Assurance Scheme (1997)",
+  "schemes": [
+   "10017325"
+  ],
+  "at": "2026-11-19T19:00:00Z",
+  "action": "sponsor",
+  "company_number": "00135937",
+  "note": "Wyeth Group 1997 scheme; sponsoring employer John Wyeth & Brother Limited (Pfizer); buy-ins with Just 2018 and Aviva 2021 (web check)"
+ },
+ {
   "key": "match:10018403",
   "kind": "match",
   "id": "10018403",
@@ -17144,9 +17315,10 @@
   "schemes": [
    "10021855"
   ],
-  "at": "2026-11-16T23:00:00Z",
-  "action": "skip",
-  "note": "Employer not identified with confidence"
+  "at": "2026-11-19T16:00:00Z",
+  "action": "sponsor",
+  "company_number": "FC009916",
+  "note": "Gulf Air UK staff; UK branch of Gulf Air B.S.C. (matched by hand from the unmatched-names list)"
  },
  {
   "key": "match:10022176",
@@ -17243,9 +17415,10 @@
   "schemes": [
    "10024647"
   ],
-  "at": "2026-11-16T23:00:00Z",
-  "action": "skip",
-  "note": "Employer not identified with confidence"
+  "at": "2026-11-19T16:00:00Z",
+  "action": "sponsor",
+  "company_number": "01235583",
+  "note": "London Marriott scheme; Marriott Hotels Limited (matched by hand from the unmatched-names list)"
  },
  {
   "key": "match:10025197",
@@ -17762,6 +17935,32 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10047771",
+  "kind": "match",
+  "id": "10047771",
+  "name": "Samsung Electronics Manufacturing (UK) Limited Pension And Life Assurance Scheme",
+  "schemes": [
+   "10047771"
+  ],
+  "at": "2026-11-19T16:00:00Z",
+  "action": "sponsor",
+  "company_number": "03086621",
+  "note": "Samsung Electronics (UK) Limited (matched by hand from the unmatched-names list)"
+ },
+ {
+  "key": "match:10048025",
+  "kind": "match",
+  "id": "10048025",
+  "name": "ScottishPower Pension Scheme",
+  "schemes": [
+   "10048025"
+  ],
+  "at": "2026-11-19T16:00:00Z",
+  "action": "sponsor",
+  "company_number": "SC117120",
+  "note": "ScottishPower Pension Scheme; Scottish Power UK plc (matched by hand from the unmatched-names list)"
+ },
+ {
   "key": "match:10048261",
   "kind": "match",
   "id": "10048261",
@@ -17872,6 +18071,19 @@
   "note": "Connect, the trade union (now part of Prospect)"
  },
  {
+  "key": "match:10053598",
+  "kind": "match",
+  "id": "10053598",
+  "name": "NCR (Scotland) Pension Plan",
+  "schemes": [
+   "10053598"
+  ],
+  "at": "2026-11-19T16:00:00Z",
+  "action": "sponsor",
+  "company_number": "00045916",
+  "note": "NCR (Scotland) scheme; employer NCR Limited (matched by hand from the unmatched-names list)"
+ },
+ {
   "key": "match:10053831",
   "kind": "match",
   "id": "10053831",
@@ -17917,9 +18129,10 @@
   "schemes": [
    "10054628"
   ],
-  "at": "2026-11-16T20:00:00Z",
-  "action": "skip",
-  "note": "Employer not identified with confidence"
+  "at": "2026-11-19T16:00:00Z",
+  "action": "sponsor",
+  "company_number": "00990752",
+  "note": "EMC (UK) scheme; employer EMC Europe Limited (matched by hand from the unmatched-names list)"
  },
  {
   "key": "match:10054817",
@@ -18019,6 +18232,19 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10058120",
+  "kind": "match",
+  "id": "10058120",
+  "name": "Mitsubishi Electric Scotland Retirement Benefits Scheme",
+  "schemes": [
+   "10058120"
+  ],
+  "at": "2026-11-19T16:00:00Z",
+  "action": "sponsor",
+  "company_number": "FC019156",
+  "note": "Mitsubishi Electric UK employer is the UK branch of Mitsubishi Electric Europe B.V. (matched by hand from the unmatched-names list)"
+ },
+ {
   "key": "match:10058542",
   "kind": "match",
   "id": "10058542",
@@ -18057,6 +18283,19 @@
   "note": "Samsung Electronics (UK) Limited"
  },
  {
+  "key": "match:10075208",
+  "kind": "match",
+  "id": "10075208",
+  "name": "The Fujitsu Telecommunications Pension Plan",
+  "schemes": [
+   "10075208"
+  ],
+  "at": "2026-11-19T16:00:00Z",
+  "action": "sponsor",
+  "company_number": "00096056",
+  "note": "Fujitsu Telecommunications scheme; Fujitsu Services Limited (matched by hand from the unmatched-names list)"
+ },
+ {
   "key": "match:10075227",
   "kind": "match",
   "id": "10075227",
@@ -18064,9 +18303,10 @@
   "schemes": [
    "10075227"
   ],
-  "at": "2026-11-16T23:00:00Z",
-  "action": "skip",
-  "note": "Employer not identified with confidence"
+  "at": "2026-11-19T16:00:00Z",
+  "action": "sponsor",
+  "company_number": "01108485",
+  "note": "Hellmann Worldwide Logistics Limited (matched by hand from the unmatched-names list)"
  },
  {
   "key": "match:10075261",
@@ -18101,9 +18341,10 @@
   "schemes": [
    "10075783"
   ],
-  "at": "2026-11-16T23:00:00Z",
-  "action": "skip",
-  "note": "Employer not identified with confidence"
+  "at": "2026-11-19T16:00:00Z",
+  "action": "sponsor",
+  "company_number": "02578161",
+  "note": "Tote scheme passed to Betfred on the 2011 sale; Betfred Group Limited (matched by hand from the unmatched-names list)"
  },
  {
   "key": "match:10075784",
@@ -18240,6 +18481,19 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10078578",
+  "kind": "match",
+  "id": "10078578",
+  "name": "Twentieth Century Fox Film Pension Scheme",
+  "schemes": [
+   "10078578"
+  ],
+  "at": "2026-11-19T19:00:00Z",
+  "action": "sponsor",
+  "company_number": "00143439",
+  "note": "Twentieth Century-Fox Film Company Limited (web check)"
+ },
+ {
   "key": "match:10079065",
   "kind": "match",
   "id": "10079065",
@@ -18366,6 +18620,32 @@
   "note": "Fieldfisher LLP (formerly Field Fisher Waterhouse)"
  },
  {
+  "key": "match:10081741",
+  "kind": "match",
+  "id": "10081741",
+  "name": "The Hilti Pension Scheme",
+  "schemes": [
+   "10081741"
+  ],
+  "at": "2026-11-19T16:00:00Z",
+  "action": "sponsor",
+  "company_number": "00479786",
+  "note": "Hilti (Gt. Britain) Limited (matched by hand from the unmatched-names list)"
+ },
+ {
+  "key": "match:10083474",
+  "kind": "match",
+  "id": "10083474",
+  "name": "Clear Channel Retirement Benefits Scheme",
+  "schemes": [
+   "10083474"
+  ],
+  "at": "2026-11-19T19:00:00Z",
+  "action": "sponsor",
+  "company_number": "00950526",
+  "note": "Clear Channel Retirement Benefits Scheme; live (2025 implementation statement); Clear Channel UK now Bauer Media Outdoor UK Limited (web check)"
+ },
+ {
   "key": "match:10083760",
   "kind": "match",
   "id": "10083760",
@@ -18476,6 +18756,19 @@
   "at": "2026-11-16T20:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10086357",
+  "kind": "match",
+  "id": "10086357",
+  "name": "The Isle Of Man Steam Packet Company Ltd Staff Pension Fund",
+  "schemes": [
+   "10086357"
+  ],
+  "at": "2026-11-19T16:00:00Z",
+  "action": "sponsor",
+  "company_number": "FC006682",
+  "note": "Isle of Man Steam Packet Company Limited (matched by hand from the unmatched-names list)"
  },
  {
   "key": "match:10086796",
@@ -18675,6 +18968,32 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10090262",
+  "kind": "match",
+  "id": "10090262",
+  "name": "Omron Systems UK Limited Retirement Benefits Plan",
+  "schemes": [
+   "10090262"
+  ],
+  "at": "2026-11-19T16:00:00Z",
+  "action": "sponsor",
+  "company_number": "02602783",
+  "note": "Omron Electronics Limited (matched by hand from the unmatched-names list)"
+ },
+ {
+  "key": "match:10090281",
+  "kind": "match",
+  "id": "10090281",
+  "name": "Accord Housing Group Limited Staff Scheme",
+  "schemes": [
+   "10090281"
+  ],
+  "at": "2026-11-19T19:00:00Z",
+  "action": "not_company",
+  "verdict": "non_company_body",
+  "note": "Accord Housing Group; housing association (registered society) (web check)"
+ },
+ {
   "key": "match:10090289",
   "kind": "match",
   "id": "10090289",
@@ -18698,6 +19017,19 @@
   "at": "2026-11-16T20:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10090466",
+  "kind": "match",
+  "id": "10090466",
+  "name": "The Martin - Baker Pension Scheme",
+  "schemes": [
+   "10090466"
+  ],
+  "at": "2026-11-19T16:00:00Z",
+  "action": "sponsor",
+  "company_number": "00868042",
+  "note": "Martin-Baker Aircraft Company Limited (matched by hand from the unmatched-names list)"
  },
  {
   "key": "match:10090706",
@@ -18767,9 +19099,10 @@
   "schemes": [
    "10091191"
   ],
-  "at": "2026-11-16T22:00:00Z",
-  "action": "skip",
-  "note": "Employer not identified with confidence"
+  "at": "2026-11-19T16:00:00Z",
+  "action": "sponsor",
+  "company_number": "FC007432",
+  "note": "Credito Italiano is now UniCredit; London branch of UniCredit S.p.A. (matched by hand from the unmatched-names list)"
  },
  {
   "key": "match:10091214",
@@ -18803,9 +19136,10 @@
   "schemes": [
    "10091736"
   ],
-  "at": "2026-11-16T20:00:00Z",
-  "action": "skip",
-  "note": "Employer not identified with confidence"
+  "at": "2026-11-19T16:00:00Z",
+  "action": "sponsor",
+  "company_number": "00528867",
+  "note": "DHL Group Retirement Plan (Bedford, ex-Exel/NFC); employer DHL Supply Chain Limited (matched by hand from the unmatched-names list)"
  },
  {
   "key": "match:10092203",
@@ -18827,9 +19161,10 @@
   "schemes": [
    "10092574"
   ],
-  "at": "2026-11-16T21:00:00Z",
-  "action": "skip",
-  "note": "Employer not identified with confidence"
+  "at": "2026-11-19T19:00:00Z",
+  "action": "sponsor",
+  "company_number": "00214174",
+  "note": "IFF (GB) scheme; International Flavours & Fragrances I.F.F. (Great Britain) Limited, Haverhill (web check)"
  },
  {
   "key": "match:10092736",
@@ -19006,6 +19341,19 @@
   "at": "2026-11-16T23:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10095396",
+  "kind": "match",
+  "id": "10095396",
+  "name": "Nokia Group (UK) Pension Scheme",
+  "schemes": [
+   "10095396"
+  ],
+  "at": "2026-11-19T16:00:00Z",
+  "action": "sponsor",
+  "company_number": "02650571",
+  "note": "Nokia UK Limited (matched by hand from the unmatched-names list)"
  },
  {
   "key": "match:10096390",
@@ -19185,9 +19533,10 @@
   "schemes": [
    "10100156"
   ],
-  "at": "2026-11-16T21:00:00Z",
-  "action": "skip",
-  "note": "Employer not identified with confidence"
+  "at": "2026-11-19T19:00:00Z",
+  "action": "not_company",
+  "verdict": "non_company_body",
+  "note": "Arena Housing Group; housing association (registered society) (web check)"
  },
  {
   "key": "match:10100332",
@@ -19280,6 +19629,19 @@
   "note": "Highlands and Islands Enterprise"
  },
  {
+  "key": "match:10102239",
+  "kind": "match",
+  "id": "10102239",
+  "name": "The Tremco Group-Uk Pension Plan",
+  "schemes": [
+   "10102239"
+  ],
+  "at": "2026-11-19T16:00:00Z",
+  "action": "sponsor",
+  "company_number": "00251311",
+  "note": "Tremco CPG UK Limited (matched by hand from the unmatched-names list)"
+ },
+ {
   "key": "match:10102515",
   "kind": "match",
   "id": "10102515",
@@ -19336,9 +19698,10 @@
   "schemes": [
    "10104297"
   ],
-  "at": "2026-11-16T20:00:00Z",
-  "action": "skip",
-  "note": "Employer not identified with confidence"
+  "at": "2026-11-19T16:00:00Z",
+  "action": "sponsor",
+  "company_number": "05501527",
+  "note": "Emery UK Pension Plan; employer Emery Oleochemicals UK Limited (matched by hand from the unmatched-names list)"
  },
  {
   "key": "match:10105062",
@@ -19374,9 +19737,10 @@
   "schemes": [
    "10105372"
   ],
-  "at": "2026-11-16T20:00:00Z",
-  "action": "skip",
-  "note": "Employer not identified with confidence"
+  "at": "2026-11-19T19:00:00Z",
+  "action": "sponsor",
+  "company_number": "03236121",
+  "note": "Mellon Retirement Benefits Plan; The Bank of New York Mellon (International) Limited (web check)"
  },
  {
   "key": "match:10106233",
@@ -19403,6 +19767,19 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10107160",
+  "kind": "match",
+  "id": "10107160",
+  "name": "The N U J Staff Pension Scheme",
+  "schemes": [
+   "10107160"
+  ],
+  "at": "2026-11-19T19:00:00Z",
+  "action": "not_company",
+  "verdict": "non_company_body",
+  "note": "National Union of Journalists staff scheme; trade union (web check)"
+ },
+ {
   "key": "match:10107173",
   "kind": "match",
   "id": "10107173",
@@ -19426,6 +19803,19 @@
   "at": "2026-11-16T20:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10107604",
+  "kind": "match",
+  "id": "10107604",
+  "name": "The BMW (UK) Operations Supplementary Pension Scheme",
+  "schemes": [
+   "10107604"
+  ],
+  "at": "2026-11-19T16:00:00Z",
+  "action": "sponsor",
+  "company_number": "01378137",
+  "note": "BMW (UK) Limited (matched by hand from the unmatched-names list)"
  },
  {
   "key": "match:10107854",
@@ -19587,6 +19977,19 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10115793",
+  "kind": "match",
+  "id": "10115793",
+  "name": "Peugeot Advanced Pension Plan",
+  "schemes": [
+   "10115793"
+  ],
+  "at": "2026-11-19T16:00:00Z",
+  "action": "sponsor",
+  "company_number": "00148545",
+  "note": "Peugeot Motor Company plc (matched by hand from the unmatched-names list)"
+ },
+ {
   "key": "match:10115809",
   "kind": "match",
   "id": "10115809",
@@ -19597,6 +20000,19 @@
   "at": "2026-11-16T20:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10117024",
+  "kind": "match",
+  "id": "10117024",
+  "name": "Murco 1981 Pension Scheme",
+  "schemes": [
+   "10117024"
+  ],
+  "at": "2026-11-19T19:00:00Z",
+  "action": "sponsor",
+  "company_number": "00677691",
+  "note": "Murco 1981 Pension Scheme; live (SIP Dec 2024); Murco Petroleum Limited (web check)"
  },
  {
   "key": "match:10117181",
@@ -19642,9 +20058,10 @@
   "schemes": [
    "10118415"
   ],
-  "at": "2026-11-16T21:00:00Z",
-  "action": "skip",
-  "note": "Employer not identified with confidence"
+  "at": "2026-11-19T16:00:00Z",
+  "action": "sponsor",
+  "company_number": "03720188",
+  "note": "Brown Brothers Harriman London office; UK company Brown Brothers Harriman Investor Services Ltd (matched by hand from the unmatched-names list)"
  },
  {
   "key": "match:10118525",
@@ -19683,6 +20100,19 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10121680",
+  "kind": "match",
+  "id": "10121680",
+  "name": "Travelers Pension Plan",
+  "schemes": [
+   "10121680"
+  ],
+  "at": "2026-11-19T16:00:00Z",
+  "action": "sponsor",
+  "company_number": "00972175",
+  "note": "Travelers Management Limited (matched by hand from the unmatched-names list)"
+ },
+ {
   "key": "match:10121774",
   "kind": "match",
   "id": "10121774",
@@ -19719,6 +20149,19 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10122634",
+  "kind": "match",
+  "id": "10122634",
+  "name": "The Santander Central Hispano Retirement Benefit Scheme",
+  "schemes": [
+   "10122634"
+  ],
+  "at": "2026-11-19T16:00:00Z",
+  "action": "sponsor",
+  "company_number": "02294747",
+  "note": "Santander Central Hispano; Santander UK plc (matched by hand from the unmatched-names list)"
+ },
+ {
   "key": "match:10122915",
   "kind": "match",
   "id": "10122915",
@@ -19739,9 +20182,10 @@
   "schemes": [
    "10122994"
   ],
-  "at": "2026-11-16T21:00:00Z",
-  "action": "skip",
-  "note": "Employer not identified with confidence"
+  "at": "2026-11-19T16:00:00Z",
+  "action": "sponsor",
+  "company_number": "00710383",
+  "note": "Abbey Life Assurance Company (Phoenix group) (matched by hand from the unmatched-names list)"
  },
  {
   "key": "match:10123352",
@@ -19754,6 +20198,19 @@
   "at": "2026-11-16T23:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10123591",
+  "kind": "match",
+  "id": "10123591",
+  "name": "The Shepherd Group Pension Fund",
+  "schemes": [
+   "10123591"
+  ],
+  "at": "2026-11-19T19:00:00Z",
+  "action": "sponsor",
+  "company_number": "00653663",
+  "note": "Shepherd Group Pension Fund (Portakabin); live (SIP May 2023); Shepherd Building Group Limited (web check)"
  },
  {
   "key": "match:10124357",
@@ -19840,6 +20297,19 @@
   "action": "sponsor",
   "company_number": "00992897",
   "note": "Bentley Motors (Rolls-Royce & Bentley Pension Fund)"
+ },
+ {
+  "key": "match:10126484",
+  "kind": "match",
+  "id": "10126484",
+  "name": "Whirlpool UK Pension Scheme",
+  "schemes": [
+   "10126484"
+  ],
+  "at": "2026-11-19T16:00:00Z",
+  "action": "sponsor",
+  "company_number": "00106725",
+  "note": "Whirlpool UK became Hotpoint UK Appliances Limited (now Beko) (matched by hand from the unmatched-names list)"
  },
  {
   "key": "match:10126739",
@@ -20057,9 +20527,10 @@
   "schemes": [
    "10131173"
   ],
-  "at": "2026-11-16T22:00:00Z",
-  "action": "skip",
-  "note": "Employer not identified with confidence"
+  "at": "2026-11-19T16:00:00Z",
+  "action": "sponsor",
+  "company_number": "FC028192",
+  "note": "Gen Re UK; UK branch of General Reinsurance AG (matched by hand from the unmatched-names list)"
  },
  {
   "key": "match:10131364",
@@ -20106,9 +20577,10 @@
   "schemes": [
    "10132028"
   ],
-  "at": "2026-11-16T21:00:00Z",
-  "action": "skip",
-  "note": "Employer not identified with confidence"
+  "at": "2026-11-19T16:00:00Z",
+  "action": "sponsor",
+  "company_number": "02379469",
+  "note": "HBG UK became BAM Construct UK; BAM Construction Limited (matched by hand from the unmatched-names list)"
  },
  {
   "key": "match:10132103",
@@ -20205,9 +20677,10 @@
   "schemes": [
    "10132880"
   ],
-  "at": "2026-11-16T22:00:00Z",
-  "action": "skip",
-  "note": "Employer not identified with confidence"
+  "at": "2026-11-19T19:00:00Z",
+  "action": "sponsor",
+  "company_number": "00201514",
+  "note": "Fiat Group Pension Scheme (trustee Fiat Group Pension Trustee Ltd, controlled by FCA UK); Stellantis UK Limited (web check)"
  },
  {
   "key": "match:10133044",
@@ -20241,9 +20714,23 @@
   "schemes": [
    "10133381"
   ],
-  "at": "2026-11-16T20:00:00Z",
-  "action": "skip",
-  "note": "Employer not identified with confidence"
+  "at": "2026-11-19T16:00:00Z",
+  "action": "sponsor",
+  "company_number": "02023155",
+  "note": "Amari plc; Amari Metals Limited (matched by hand from the unmatched-names list)"
+ },
+ {
+  "key": "match:10133525",
+  "kind": "match",
+  "id": "10133525",
+  "name": "The Honda Group - UK Pension Scheme",
+  "schemes": [
+   "10133525"
+  ],
+  "at": "2026-11-19T16:00:00Z",
+  "action": "sponsor",
+  "company_number": "00857969",
+  "note": "Honda Group UK scheme; Honda Motor Europe Limited (matched by hand from the unmatched-names list)"
  },
  {
   "key": "match:10133566",
@@ -20268,6 +20755,19 @@
   "at": "2026-11-16T21:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10133714",
+  "kind": "match",
+  "id": "10133714",
+  "name": "The Unite Pension Scheme",
+  "schemes": [
+   "10133714"
+  ],
+  "at": "2026-11-19T19:00:00Z",
+  "action": "not_company",
+  "verdict": "non_company_body",
+  "note": "Unite the Union staff scheme; trade union (web check)"
  },
  {
   "key": "match:10133916",
@@ -20326,9 +20826,10 @@
   "schemes": [
    "10134406"
   ],
-  "at": "2026-11-16T21:00:00Z",
-  "action": "skip",
-  "note": "Employer not identified with confidence"
+  "at": "2026-11-19T19:00:00Z",
+  "action": "sponsor",
+  "company_number": "03665635",
+  "note": "SCA UK Pension Plan; sponsor Essity Holding UK Limited; £1.1bn full buy-in with L&G Aug 2024 (web check)"
  },
  {
   "key": "match:10135213",
@@ -20366,6 +20867,19 @@
   "at": "2026-11-16T23:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10135464",
+  "kind": "match",
+  "id": "10135464",
+  "name": "The Sony United Kingdom Pension Scheme",
+  "schemes": [
+   "10135464"
+  ],
+  "at": "2026-11-19T16:00:00Z",
+  "action": "sponsor",
+  "company_number": "FC035527",
+  "note": "Sony UK scheme; UK branch of Sony Europe B.V. (matched by hand from the unmatched-names list)"
  },
  {
   "key": "match:10135720",
@@ -20439,6 +20953,19 @@
   "at": "2026-11-16T21:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10137214",
+  "kind": "match",
+  "id": "10137214",
+  "name": "Horizon Housing Group Pension Scheme",
+  "schemes": [
+   "10137214"
+  ],
+  "at": "2026-11-19T19:00:00Z",
+  "action": "not_company",
+  "verdict": "non_company_body",
+  "note": "Horizon Housing Group; housing association (registered society) (web check)"
  },
  {
   "key": "match:10137606",
@@ -20540,6 +21067,19 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10139927",
+  "kind": "match",
+  "id": "10139927",
+  "name": "MUTB Pension Scheme",
+  "schemes": [
+   "10139927"
+  ],
+  "at": "2026-11-19T16:00:00Z",
+  "action": "sponsor",
+  "company_number": "FC007499",
+  "note": "MUTB London branch of Mitsubishi UFJ Trust and Banking Corporation (matched by hand from the unmatched-names list)"
+ },
+ {
   "key": "match:10140029",
   "kind": "match",
   "id": "10140029",
@@ -20565,6 +21105,19 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10141042",
+  "kind": "match",
+  "id": "10141042",
+  "name": "Nationsbank Pension And Life Assurance Plan",
+  "schemes": [
+   "10141042"
+  ],
+  "at": "2026-11-19T16:00:00Z",
+  "action": "sponsor",
+  "company_number": "FC002984",
+  "note": "NationsBank merged into Bank of America; London branch of Bank of America N.A. (matched by hand from the unmatched-names list)"
+ },
+ {
   "key": "match:10141046",
   "kind": "match",
   "id": "10141046",
@@ -20572,9 +21125,10 @@
   "schemes": [
    "10141046"
   ],
-  "at": "2026-11-16T21:00:00Z",
-  "action": "skip",
-  "note": "Employer not identified with confidence"
+  "at": "2026-11-19T19:00:00Z",
+  "action": "sponsor",
+  "company_number": "RS00480F",
+  "note": "Benenden Healthcare Pension Plan; The Benenden Healthcare Society Limited (web check)"
  },
  {
   "key": "match:10142046",
@@ -20613,6 +21167,19 @@
   "action": "sponsor",
   "company_number": "00248609",
   "note": "J.P. Morgan (Morgan Grenfell / Robert Fleming schemes); trustee J.P. Morgan Pension Trustees Limited"
+ },
+ {
+  "key": "match:10142362",
+  "kind": "match",
+  "id": "10142362",
+  "name": "P & O Pension Scheme",
+  "schemes": [
+   "10142362"
+  ],
+  "at": "2026-11-19T16:00:00Z",
+  "action": "sponsor",
+  "company_number": "ZC000073",
+  "note": "P&O Pension Scheme; The Peninsular and Oriental Steam Navigation Company (DP World) (matched by hand from the unmatched-names list)"
  },
  {
   "key": "match:10142736",
@@ -20727,6 +21294,19 @@
   "note": "Timothy Whites was taken over by Boots"
  },
  {
+  "key": "match:10144783",
+  "kind": "match",
+  "id": "10144783",
+  "name": "Shanks Group Pension Scheme",
+  "schemes": [
+   "10144783"
+  ],
+  "at": "2026-11-19T19:00:00Z",
+  "action": "sponsor",
+  "company_number": "SC077438",
+  "note": "Shanks Group Pension Scheme; Shanks Group plc became Renewi (Renewi Limited); scheme live with own trustee site (web check)"
+ },
+ {
   "key": "match:10145268",
   "kind": "match",
   "id": "10145268",
@@ -20802,6 +21382,19 @@
   "note": "Smith & Nephew plc reports the UK Plan"
  },
  {
+  "key": "match:10146727",
+  "kind": "match",
+  "id": "10146727",
+  "name": "The U C B Group Retirement Benefits Scheme",
+  "schemes": [
+   "10146727"
+  ],
+  "at": "2026-11-19T16:00:00Z",
+  "action": "sponsor",
+  "company_number": "00209905",
+  "note": "UCB Pharma Limited (matched by hand from the unmatched-names list)"
+ },
+ {
   "key": "match:10146797",
   "kind": "match",
   "id": "10146797",
@@ -20812,6 +21405,19 @@
   "at": "2026-11-16T20:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10149527",
+  "kind": "match",
+  "id": "10149527",
+  "name": "Ramsay Healthcare UK Operations Ltd Group Pension Scheme",
+  "schemes": [
+   "10149527"
+  ],
+  "at": "2026-11-19T16:00:00Z",
+  "action": "sponsor",
+  "company_number": "01532937",
+  "note": "Ramsay Health Care UK Operations Limited (exact name) (matched by hand from the unmatched-names list)"
  },
  {
   "key": "match:10149646",
@@ -20932,9 +21538,10 @@
   "schemes": [
    "10152546"
   ],
-  "at": "2026-11-16T22:00:00Z",
-  "action": "skip",
-  "note": "Employer not identified with confidence"
+  "at": "2026-11-19T16:00:00Z",
+  "action": "sponsor",
+  "company_number": "01281415",
+  "note": "Dean Witter merged into Morgan Stanley; Morgan Stanley UK Group (matched by hand from the unmatched-names list)"
  },
  {
   "key": "match:10154169",
@@ -21086,6 +21693,19 @@
   "note": "ANZ bank, UK branch"
  },
  {
+  "key": "match:10159467",
+  "kind": "match",
+  "id": "10159467",
+  "name": "The Wm Morrison 1967 Pension Scheme",
+  "schemes": [
+   "10159467"
+  ],
+  "at": "2026-11-19T16:00:00Z",
+  "action": "sponsor",
+  "company_number": "00358949",
+  "note": "Wm Morrison Supermarkets Limited (matched by hand from the unmatched-names list)"
+ },
+ {
   "key": "match:10159580",
   "kind": "match",
   "id": "10159580",
@@ -21123,6 +21743,19 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10161195",
+  "kind": "match",
+  "id": "10161195",
+  "name": "The Edinburgh Woollen Mill Ltd Retirement Benefits Scheme",
+  "schemes": [
+   "10161195"
+  ],
+  "at": "2026-11-19T19:00:00Z",
+  "action": "sponsor",
+  "company_number": "11741716",
+  "note": "Edinburgh Woollen Mill scheme; Purepay became statutory employer by apportionment Dec 2024 and the scheme left PPF assessment; Purepay Retail Limited (web check)"
+ },
+ {
   "key": "match:10161328",
   "kind": "match",
   "id": "10161328",
@@ -21134,6 +21767,19 @@
   "action": "sponsor",
   "company_number": "00832447",
   "note": "Tioxide Pension Fund (Venator); £430m buy-in with L&G in 2023"
+ },
+ {
+  "key": "match:10161692",
+  "kind": "match",
+  "id": "10161692",
+  "name": "The Reyrolle Parsons Pension Scheme",
+  "schemes": [
+   "10161692"
+  ],
+  "at": "2026-11-19T19:00:00Z",
+  "action": "sponsor",
+  "company_number": "01003142",
+  "note": "Reyrolle Parsons scheme (NEI, now Rolls-Royce), administered in Derby; Rolls-Royce plc (web check)"
  },
  {
   "key": "match:10161704",
@@ -21243,9 +21889,10 @@
   "schemes": [
    "10166256"
   ],
-  "at": "2026-11-16T22:00:00Z",
-  "action": "skip",
-  "note": "Employer not identified with confidence"
+  "at": "2026-11-19T19:00:00Z",
+  "action": "sponsor",
+  "company_number": "01003142",
+  "note": "Crossley Premier Engines works scheme (NEI, now Rolls-Royce), administered in Derby; Rolls-Royce plc (web check)"
  },
  {
   "key": "match:10166261",
@@ -21255,9 +21902,36 @@
   "schemes": [
    "10166261"
   ],
-  "at": "2026-11-16T22:00:00Z",
-  "action": "skip",
-  "note": "Employer not identified with confidence"
+  "at": "2026-11-19T19:00:00Z",
+  "action": "sponsor",
+  "company_number": "01003142",
+  "note": "Crossley Brothers staff scheme (NEI, now Rolls-Royce), administered in Derby; Rolls-Royce plc (web check)"
+ },
+ {
+  "key": "match:10166483",
+  "kind": "match",
+  "id": "10166483",
+  "name": "The Pension And Life Assurance Plan Of Macmillan Limited",
+  "schemes": [
+   "10166483"
+  ],
+  "at": "2026-11-19T16:00:00Z",
+  "action": "sponsor",
+  "company_number": "02063302",
+  "note": "Macmillan Limited (publisher); Macmillan Publishers International Limited (matched by hand from the unmatched-names list)"
+ },
+ {
+  "key": "match:10166563",
+  "kind": "match",
+  "id": "10166563",
+  "name": "The British Land Group Of Companies Pension Scheme",
+  "schemes": [
+   "10166563"
+  ],
+  "at": "2026-11-19T16:00:00Z",
+  "action": "sponsor",
+  "company_number": "00621920",
+  "note": "The British Land Company plc (matched by hand from the unmatched-names list)"
  },
  {
   "key": "match:10166742",
@@ -21371,6 +22045,19 @@
   "note": "S&P Global UK Limited is a sponsoring employer and reports the McGraw-Hill (UK) Retirement Benefits Plan (1973)"
  },
  {
+  "key": "match:10169495",
+  "kind": "match",
+  "id": "10169495",
+  "name": "NMHG UK Retirement Plan",
+  "schemes": [
+   "10169495"
+  ],
+  "at": "2026-11-19T16:00:00Z",
+  "action": "sponsor",
+  "company_number": "02636775",
+  "note": "NMHG is now Hyster-Yale; Hyster-Yale UK Limited (matched by hand from the unmatched-names list)"
+ },
+ {
   "key": "match:10169713",
   "kind": "match",
   "id": "10169713",
@@ -21394,6 +22081,19 @@
   "at": "2026-11-16T22:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10170216",
+  "kind": "match",
+  "id": "10170216",
+  "name": "Vickers Group Pension Scheme",
+  "schemes": [
+   "10170216"
+  ],
+  "at": "2026-11-19T19:00:00Z",
+  "action": "sponsor",
+  "company_number": "01003142",
+  "note": "Vickers Group Pension Scheme, administered by Rolls-Royce pensions in Derby; Rolls-Royce plc (web check)"
  },
  {
   "key": "match:10170258",
@@ -21456,6 +22156,32 @@
   "at": "2026-11-16T22:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10172067",
+  "kind": "match",
+  "id": "10172067",
+  "name": "The Macmillan Limited Pension Scheme",
+  "schemes": [
+   "10172067"
+  ],
+  "at": "2026-11-19T16:00:00Z",
+  "action": "sponsor",
+  "company_number": "02063302",
+  "note": "Macmillan Limited (publisher); Macmillan Publishers International Limited (matched by hand from the unmatched-names list)"
+ },
+ {
+  "key": "match:10172090",
+  "kind": "match",
+  "id": "10172090",
+  "name": "Lucent Technologies Limited Retirement Benefit Plan",
+  "schemes": [
+   "10172090"
+  ],
+  "at": "2026-11-19T19:00:00Z",
+  "action": "sponsor",
+  "company_number": "02650571",
+  "note": "Lucent Technologies UK scheme; Lucent became Alcatel-Lucent, acquired by Nokia in 2016; Nokia UK Limited (web check)"
  },
  {
   "key": "match:10172312",
@@ -21557,6 +22283,19 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10175306",
+  "kind": "match",
+  "id": "10175306",
+  "name": "The Marmon Group Limited Retirement Benefits Plan",
+  "schemes": [
+   "10175306"
+  ],
+  "at": "2026-11-19T16:00:00Z",
+  "action": "sponsor",
+  "company_number": "01376182",
+  "note": "The Marmon Group Limited (matched by hand from the unmatched-names list)"
+ },
+ {
   "key": "match:10175392",
   "kind": "match",
   "id": "10175392",
@@ -21650,9 +22389,10 @@
   "schemes": [
    "10181111"
   ],
-  "at": "2026-11-16T21:00:00Z",
-  "action": "skip",
-  "note": "Employer not identified with confidence"
+  "at": "2026-11-19T16:00:00Z",
+  "action": "sponsor",
+  "company_number": "01960988",
+  "note": "Airport Ventures is part of Manchester Airport group; employer Manchester Airport plc (matched by hand from the unmatched-names list)"
  },
  {
   "key": "match:10181267",
@@ -21701,6 +22441,19 @@
   "at": "2026-11-16T23:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10183708",
+  "kind": "match",
+  "id": "10183708",
+  "name": "The Thyssen Lifts And Escalators 1992 Pension Plan",
+  "schemes": [
+   "10183708"
+  ],
+  "at": "2026-11-19T16:00:00Z",
+  "action": "sponsor",
+  "company_number": "00688790",
+  "note": "Thyssen Lifts became TK Elevator; TK Elevator UK Limited (matched by hand from the unmatched-names list)"
  },
  {
   "key": "match:10183742",
@@ -21909,6 +22662,19 @@
   "note": "Arcadis Consulting (UK) Limited"
  },
  {
+  "key": "match:10194947",
+  "kind": "match",
+  "id": "10194947",
+  "name": "Millennium & Copthorne Pension Plan",
+  "schemes": [
+   "10194947"
+  ],
+  "at": "2026-11-19T16:00:00Z",
+  "action": "sponsor",
+  "company_number": "03004377",
+  "note": "Millennium & Copthorne Hotels Limited (matched by hand from the unmatched-names list)"
+ },
+ {
   "key": "match:10195680",
   "kind": "match",
   "id": "10195680",
@@ -21968,6 +22734,19 @@
   "at": "2026-11-16T23:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10198041",
+  "kind": "match",
+  "id": "10198041",
+  "name": "The Crown Estate Pension Scheme",
+  "schemes": [
+   "10198041"
+  ],
+  "at": "2026-11-19T19:00:00Z",
+  "action": "not_company",
+  "verdict": "public_sector",
+  "note": "The Crown Estate is a statutory body (web check)"
  },
  {
   "key": "match:10198206",
@@ -22255,9 +23034,10 @@
   "schemes": [
    "10213415"
   ],
-  "at": "2026-11-16T21:00:00Z",
-  "action": "skip",
-  "note": "Employer not identified with confidence"
+  "at": "2026-11-19T16:00:00Z",
+  "action": "sponsor",
+  "company_number": "01291251",
+  "note": "CEVA Autologistics scheme; CEVA's UK operating company CEVA Logistics Limited (matched by hand from the unmatched-names list)"
  },
  {
   "key": "match:10214981",
@@ -22462,9 +23242,10 @@
   "schemes": [
    "10226619"
   ],
-  "at": "2026-11-16T20:00:00Z",
-  "action": "skip",
-  "note": "Employer not identified with confidence"
+  "at": "2026-11-19T16:00:00Z",
+  "action": "sponsor",
+  "company_number": "05501527",
+  "note": "Emery UK Pension Plan (1997); employer Emery Oleochemicals UK Limited (matched by hand from the unmatched-names list)"
  },
  {
   "key": "match:10227130",
@@ -22503,6 +23284,19 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10229949",
+  "kind": "match",
+  "id": "10229949",
+  "name": "Sims Group UK Combined Pension Scheme",
+  "schemes": [
+   "10229949"
+  ],
+  "at": "2026-11-19T16:00:00Z",
+  "action": "sponsor",
+  "company_number": "02904307",
+  "note": "Sims Group UK Holdings Limited (matched by hand from the unmatched-names list)"
+ },
+ {
   "key": "match:10230050",
   "kind": "match",
   "id": "10230050",
@@ -22522,9 +23316,10 @@
   "schemes": [
    "10232316"
   ],
-  "at": "2026-11-16T21:00:00Z",
-  "action": "skip",
-  "note": "Employer not identified with confidence"
+  "at": "2026-11-19T19:00:00Z",
+  "action": "sponsor",
+  "company_number": "00201514",
+  "note": "FCA Pension Plan; Fiat Chrysler UK is now Stellantis UK Limited (web check)"
  },
  {
   "key": "match:10232503",
@@ -22584,9 +23379,10 @@
   "schemes": [
    "10233335"
   ],
-  "at": "2026-11-16T22:00:00Z",
-  "action": "skip",
-  "note": "Employer not identified with confidence"
+  "at": "2026-11-19T19:00:00Z",
+  "action": "sponsor",
+  "company_number": "00566221",
+  "note": "Gala Coral Pension Plan; sponsor Ladbrokes Coral Group (Entain), shares a trustee board with the Ladbrokes plan (web check)"
  },
  {
   "key": "match:10233397",
@@ -22647,6 +23443,19 @@
   "at": "2026-11-16T23:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10235961",
+  "kind": "match",
+  "id": "10235961",
+  "name": "The Tyco UK Group Pension Scheme",
+  "schemes": [
+   "10235961"
+  ],
+  "at": "2026-11-19T16:00:00Z",
+  "action": "sponsor",
+  "company_number": "02504868",
+  "note": "Tyco UK Group; Tyco Holdings (U.K.) Limited (matched by hand from the unmatched-names list)"
  },
  {
   "key": "match:10236925",
@@ -22771,6 +23580,19 @@
   "note": "University of Wales: Trinity Saint David (Royal Charter company RC000537), which took over Lampeter and sponsors the scheme"
  },
  {
+  "key": "match:10244410",
+  "kind": "match",
+  "id": "10244410",
+  "name": "Puma UK Pension Scheme",
+  "schemes": [
+   "10244410"
+  ],
+  "at": "2026-11-19T16:00:00Z",
+  "action": "sponsor",
+  "company_number": "03712972",
+  "note": "Puma United Kingdom Ltd (matched by hand from the unmatched-names list)"
+ },
+ {
   "key": "match:10245186",
   "kind": "match",
   "id": "10245186",
@@ -22817,6 +23639,19 @@
   "at": "2026-11-16T21:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10245926",
+  "kind": "match",
+  "id": "10245926",
+  "name": "ntl 1999 Pension Scheme",
+  "schemes": [
+   "10245926"
+  ],
+  "at": "2026-11-19T19:00:00Z",
+  "action": "sponsor",
+  "company_number": "02591237",
+  "note": "ntl 1999 scheme; Virgin Media is the sponsoring employer of the NTL pension arrangements (web check)"
  },
  {
   "key": "match:10245988",
@@ -22880,6 +23715,19 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10248738",
+  "kind": "match",
+  "id": "10248738",
+  "name": "The Voith UK Pension Scheme",
+  "schemes": [
+   "10248738"
+  ],
+  "at": "2026-11-19T16:00:00Z",
+  "action": "sponsor",
+  "company_number": "00110875",
+  "note": "Voith UK; Voith Paper Limited (matched by hand from the unmatched-names list)"
+ },
+ {
   "key": "match:10248892",
   "kind": "match",
   "id": "10248892",
@@ -22915,6 +23763,19 @@
   "at": "2026-11-16T20:00:00Z",
   "action": "skip",
   "note": "Employer not identified with confidence"
+ },
+ {
+  "key": "match:10250483",
+  "kind": "match",
+  "id": "10250483",
+  "name": "Zurich (No 2A) Plan",
+  "schemes": [
+   "10250483"
+  ],
+  "at": "2026-11-19T16:00:00Z",
+  "action": "sponsor",
+  "company_number": "00243883",
+  "note": "Zurich UK schemes; Zurich Employment Services Limited (matched by hand from the unmatched-names list)"
  },
  {
   "key": "match:10251015",
@@ -23221,6 +24082,19 @@
   "note": "Employer not identified with confidence"
  },
  {
+  "key": "match:10257916",
+  "kind": "match",
+  "id": "10257916",
+  "name": "Zimmer Pension Plan",
+  "schemes": [
+   "10257916"
+  ],
+  "at": "2026-11-19T16:00:00Z",
+  "action": "sponsor",
+  "company_number": "00740767",
+  "note": "Zimmer Biomet UK Limited (matched by hand from the unmatched-names list)"
+ },
+ {
   "key": "match:10258016",
   "kind": "match",
   "id": "10258016",
@@ -23240,9 +24114,10 @@
   "schemes": [
    "10258378"
   ],
-  "at": "2026-11-16T21:00:00Z",
-  "action": "skip",
-  "note": "Employer not identified with confidence"
+  "at": "2026-11-19T16:00:00Z",
+  "action": "sponsor",
+  "company_number": "02794127",
+  "note": "AvestaPolarit became Outokumpu; UK employer Outokumpu Stainless Limited (matched by hand from the unmatched-names list)"
  },
  {
   "key": "match:10258739",
@@ -23423,9 +24298,10 @@
   "schemes": [
    "10265467"
   ],
-  "at": "2026-11-16T21:00:00Z",
-  "action": "skip",
-  "note": "Employer not identified with confidence"
+  "at": "2026-11-19T16:00:00Z",
+  "action": "sponsor",
+  "company_number": "05811453",
+  "note": "Burger King UK scheme; employer Burger King (United Kingdom) Limited (matched by hand from the unmatched-names list)"
  },
  {
   "key": "match:10265733",
@@ -23435,9 +24311,10 @@
   "schemes": [
    "10265733"
   ],
-  "at": "2026-11-16T20:00:00Z",
-  "action": "skip",
-  "note": "Employer not identified with confidence"
+  "at": "2026-11-19T16:00:00Z",
+  "action": "sponsor",
+  "company_number": "04396241",
+  "note": "Landmarc Support Services Limited (matched by hand from the unmatched-names list)"
  },
  {
   "key": "match:10265802",
@@ -23535,9 +24412,10 @@
   "schemes": [
    "10269876"
   ],
-  "at": "2026-11-16T20:00:00Z",
-  "action": "skip",
-  "note": "Employer not identified with confidence"
+  "at": "2026-11-19T19:00:00Z",
+  "action": "sponsor",
+  "company_number": "04232413",
+  "note": "Comet Pension Scheme passed to Darty (Fnac Darty) in 2012; full buy-in with Canada Life Dec 2025; Darty Limited (web check)"
  },
  {
   "key": "match:10270110",
@@ -23670,9 +24548,23 @@
   "schemes": [
    "10274909"
   ],
-  "at": "2026-11-16T20:00:00Z",
-  "action": "skip",
-  "note": "Employer not identified with confidence"
+  "at": "2026-11-19T16:00:00Z",
+  "action": "sponsor",
+  "company_number": "00528867",
+  "note": "NFC became Exel, now DHL; employer DHL Supply Chain Limited (matched by hand from the unmatched-names list)"
+ },
+ {
+  "key": "match:10275261",
+  "kind": "match",
+  "id": "10275261",
+  "name": "The East London & Selkent Pension Scheme",
+  "schemes": [
+   "10275261"
+  ],
+  "at": "2026-11-19T16:00:00Z",
+  "action": "sponsor",
+  "company_number": "SC100764",
+  "note": "East London & Selkent buses; Stagecoach Group Limited (matched by hand from the unmatched-names list)"
  },
  {
   "key": "match:10275846",
@@ -23736,6 +24628,19 @@
   "action": "sponsor",
   "company_number": "02426132",
   "note": "Leonardo UK Ltd (formerly Finmeccanica)"
+ },
+ {
+  "key": "match:10276185",
+  "kind": "match",
+  "id": "10276185",
+  "name": "Chrysler UK Limited Pension Scheme",
+  "schemes": [
+   "10276185"
+  ],
+  "at": "2026-11-19T19:00:00Z",
+  "action": "sponsor",
+  "company_number": "00201514",
+  "note": "Chrysler UK scheme (Chrysler UK Pension Trustees Ltd formed 2007); Chrysler UK merged into FCA, now Stellantis UK Limited (web check)"
  },
  {
   "key": "match:10276345",
@@ -23817,9 +24722,10 @@
   "schemes": [
    "12001427"
   ],
-  "at": "2026-11-16T21:00:00Z",
-  "action": "skip",
-  "note": "Employer not identified with confidence"
+  "at": "2026-11-19T16:00:00Z",
+  "action": "sponsor",
+  "company_number": "06524642",
+  "note": "Covidien UK Pension Plan; Covidien UK Holding Ltd (Medtronic) (matched by hand from the unmatched-names list)"
  },
  {
   "key": "match:12001438",
@@ -23917,6 +24823,19 @@
   "action": "sponsor",
   "company_number": "01245534",
   "note": "Atos IT Services UK Limited"
+ },
+ {
+  "key": "match:12004541",
+  "kind": "match",
+  "id": "12004541",
+  "name": "Valero UK Pension Plan",
+  "schemes": [
+   "12004541"
+  ],
+  "at": "2026-11-19T16:00:00Z",
+  "action": "sponsor",
+  "company_number": "08566216",
+  "note": "Valero UK Pension Plan (Pembroke refinery); Valero Energy Ltd (matched by hand from the unmatched-names list)"
  },
  {
   "key": "match:12004774",
