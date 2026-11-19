@@ -40,6 +40,7 @@ FX = {
     ("USD", "2025-12-28"): 1.3507,      # Bank of England spot rate 24 Dec 2025, last working day (via poundsterlinglive.com)
     ("EUR", "2026-03-31"): 1.1516,      # ECB reference rate 31 Mar 2026: €1.1516 per £ (via cambridgecurrencies.com)
     ("USD", "2024-12-31"): 1.2554,      # sterling closing rate 31 Dec 2024 (Reuters)
+    ("EUR", "2022-12-31"): 1 / 0.88693, # ECB reference rate 30 Dec 2022: €1 = £0.88693
 }
 
 
@@ -74,6 +75,9 @@ def apply(con):
             if r["note"].startswith("Accounts show no DB scheme"):
                 # a reviewer's "no DB scheme" verdict: the band treats the sponsor like accounts read with DC only
                 con.execute("UPDATE sponsors SET db_pdf_status='dc_only' WHERE company_number=?", (num,))
+            elif r["note"].startswith("Member of a multi-employer scheme"):
+                # a reviewer's verdict that the scheme's figures sit with a multi-employer or partnership scheme
+                con.execute("UPDATE sponsors SET db_pdf_status='multi_employer' WHERE company_number=?", (num,))
             n += 1
             continue
         period = _period(num, r)
