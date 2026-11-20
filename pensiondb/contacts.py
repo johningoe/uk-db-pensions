@@ -5,6 +5,8 @@ For each sponsor (company) with a scheme in the band this lists, from the regist
                      own accounts; else the company secretary (often the finance lead in smaller companies). The
                      register no longer publishes directors' occupations, so titles come only from the accounts.
   signing director   the current director who signed the latest accounts we hold, where the text shows it
+  verified           where checked by hand (data/sponsor_cfo_verified.csv): confirmed, corrected to the actual CFO,
+                     likely (third-party source only) or unconfirmed, with the company source
   published contacts role mailboxes (pensions, finance, investor relations, company secretary, enquiries) that
                      the company itself prints in those accounts; personal addresses are not collected
 
@@ -23,9 +25,14 @@ from .chapi import _get
 from .liveness import _ixbrl_text, _texts
 
 OUT = C.DATA / "sponsor_finance_contacts.csv"
+# finance officers checked by hand against the company's own announcements and leadership pages:
+# company_number, status (confirmed / corrected / likely / unconfirmed), verified_cfo, source, note. Names people,
+# so it lives in data/ (gitignored) too.
+VERIFIED = C.DATA / "sponsor_cfo_verified.csv"
 FIELDS = ["company_number", "company_name", "band_schemes", "finance_officer", "finance_role", "finance_occupation",
           "finance_appointed", "finance_basis", "other_finance_officers", "company_secretary", "signing_director",
-          "signing_source", "published_contacts", "contacts_source", "register_link"]
+          "signing_source", "published_contacts", "contacts_source", "register_link", "verified_status",
+          "verified_cfo", "verified_source", "verified_note"]
 RANK = [(1, re.compile(r"\b(?:chief financial|c\.?f\.?o\b|finance director|director of finance|financial director|"
                        r"group finance director|finance & operations director|finance and operations director)", re.I)),
         (2, re.compile(r"\b(?:finance|financial controller|treasurer|treasury|chief accountant|head of finance|"
@@ -115,6 +122,10 @@ def run(con):
         FROM schemes s JOIN sponsors sp ON sp.company_number = s.sponsor_company_number
         WHERE s.band = 'in' GROUP BY sp.company_number ORDER BY sp.company_name""").fetchall()
     files = {p.name: p for p in C.CH_ACCOUNTS_DIR.rglob("Prod*")}
+    checked = {}
+    if VERIFIED.exists():
+        with open(VERIFIED, newline="") as f:
+            checked = {r["company_number"]: r for r in csv.DictReader(f)}
     out = []
     for i, (num, name, n) in enumerate(rows, 1):
         current = officers(num)
@@ -139,7 +150,11 @@ def run(con):
                     "other_finance_officers": "; ".join(others), "company_secretary": sec,
                     "signing_director": signer or "", "signing_source": sign_src or "",
                     "published_contacts": "; ".join(boxes), "contacts_source": "; ".join(sorted(set(boxes.values()))),
-                    "register_link": f"https://find-and-update.company-information.service.gov.uk/company/{num}/officers"})
+                    "register_link": f"https://find-and-update.company-information.service.gov.uk/company/{num}/officers",
+                    "verified_status": checked.get(num, {}).get("status", ""),
+                    "verified_cfo": checked.get(num, {}).get("verified_cfo", ""),
+                    "verified_source": checked.get(num, {}).get("source", ""),
+                    "verified_note": checked.get(num, {}).get("note", "")})
         if i % 100 == 0:
             print(f"  {i}/{len(rows)} sponsors", flush=True)
     con.execute("DROP TABLE IF EXISTS sponsor_finance_contacts")
@@ -154,4 +169,6 @@ def run(con):
     return {"sponsors": len(out), "finance_officer": sum(1 for r in out if r["finance_officer"]),
             "senior_finance_role": sum(1 for r in out if r["finance_basis"] == "senior finance role"),
             "signing_director": sum(1 for r in out if r["signing_director"]),
-            "published_contacts": sum(1 for r in out if r["published_contacts"])}
+            "published_contacts": sum(1 for r in out if r["published_contacts"]),
+            "verified": sum(1 for r in out if r["verified_status"] in ("confirmed", "corrected")),
+            "corrected": sum(1 for r in out if r["verified_status"] == "corrected")}

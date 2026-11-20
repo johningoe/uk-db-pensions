@@ -25,6 +25,7 @@ already uses:
 Then `python run.py status` and `python run.py web` rebuild the figures and the explorer.
 """
 import csv
+import re
 import json
 from datetime import date, datetime, timezone
 from pathlib import Path
@@ -172,19 +173,53 @@ def _num(v):
         return None
 
 
-def _rewrite(path, fields, keyf, new_rows):
-    """Replace rows with the same key, append the rest."""
+_DATE = re.compile(r"(\d{4}-\d\d-\d\d)")
+
+
+def _from_page(row, new):
+    """Whether an existing row may be replaced by a decision from the page: only rows the page wrote itself (their
+    note or decided column says "review page"), and only when the decision is at least as new. Rows entered by hand
+    or by other steps are never overwritten by replaying older page decisions."""
+    old = " ".join(str(row.get(k) or "") for k in ("note", "decided"))
+    if "review page" not in old:
+        return False
+    od = _DATE.search(old)
+    nd = _DATE.search(" ".join(str(new.get(k) or "") for k in ("note", "decided")))
+    return not od or not nd or nd.group(1) >= od.group(1)
+
+
+def _rewrite(path, fields, keyf, new_rows, replaceable=_from_page):
+    """Merge rows into a CSV: update rows with the same key in place (when replaceable allows it, keeping existing
+    values the new row leaves blank), append new keys, keep the file's order, and leave it untouched if nothing
+    changes. Re-importing the full decision log is therefore safe."""
     rows, eol = [], "\n"
     if path.exists():
         eol = "\r\n" if b"\r\n" in path.read_bytes()[:4096] else "\n"     # keep the file's own line endings
         with open(path, newline="") as f:
             rows = list(csv.DictReader(f))
-    keys = {keyf(r) for r in new_rows}
-    rows = [r for r in rows if keyf(r) not in keys] + new_rows
+    at = {keyf(r): i for i, r in enumerate(rows)}
+    changed = False
+    for new in new_rows:
+        k = keyf(new)
+        if k in at:
+            old = rows[at[k]]
+            keep = {"company_name", "scheme_name"}            # names: keep the existing spelling if there is one
+            merged = {f: (old.get(f) if f in keep and old.get(f) else
+                          new.get(f) if new.get(f) not in (None, "") else old.get(f, "")) for f in fields}
+            if all(str(merged.get(f) or "") == str(old.get(f) or "") for f in fields) or not replaceable(old, new):
+                continue
+            rows[at[k]] = merged
+        else:
+            at[k] = len(rows)
+            rows.append(new)
+        changed = True
+    if not changed:
+        return 0
     with open(path, "w", newline="") as f:
         w = csv.DictWriter(f, fieldnames=fields, lineterminator=eol, extrasaction="ignore")
         w.writeheader()
         w.writerows(rows)
+    return 1
 
 
 def apply(con, path):
@@ -253,7 +288,8 @@ def apply(con, path):
         _rewrite(handcheck.CSV, ["company_number", "company_name", "period_end", "currency", "obligation_m",
                                  "assets_m", "basis", "filing_date", "page", "note"], lambda r: r["company_number"], hand)
     if names:
-        _rewrite(NAME_REVIEW_CSV, ["psr", "scheme_name", "verdict", "sponsor_name"], lambda r: r["psr"], names)
+        _rewrite(NAME_REVIEW_CSV, ["psr", "scheme_name", "verdict", "sponsor_name"], lambda r: r["psr"], names,
+                 replaceable=lambda old, new: True)
     if live:
         _rewrite(LIVENESS_CSV, ["psr", "status", "note", "decided"], lambda r: r["psr"], live)
     # keep the decisions as a record (merged by item key, newest wins)
